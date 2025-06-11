@@ -509,7 +509,7 @@ HTML;
                                     </span>
                                 </div>
                                 <span class="deal_price_black">
-                                    NG N450,000
+                                    NG N500,000
                                 </span>  &nbsp; 
                                 <span class="deal_former_price">
                                     <s>NG N650,000</s>
