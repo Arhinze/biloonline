@@ -395,7 +395,7 @@ HTML;
                                     <s>NG N35,000</s>
                                 </span> 
                                 <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 1,000+ sold
+                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 1,200+ sold
                                 </div>
 
                                 <div class="topselling_text">
@@ -422,13 +422,13 @@ HTML;
                                     </span>
                                 </div>
                                 <span class="deal_price_black">
-                                    NG N450,000
+                                    NG N50,000
                                 </span>  &nbsp; 
                                 <span class="deal_former_price">
-                                    <s>NG N700,000</s>
+                                    <s>NG N70,000</s>
                                 </span> 
                                 <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
+                                    <i class="fa fa-star"></i> <b>4.8</b> <span style="color:#888"> | </span> 1,300+ sold
                                 </div>
 
                                 <div class="topselling_text">
@@ -449,13 +449,13 @@ HTML;
                                     </span>
                                 </div>
                                 <span class="deal_price_black">
-                                    NG N450,000
+                                    NG N10,000
                                 </span>  &nbsp; 
                                 <span class="deal_former_price">
-                                    <s>NG N700,000</s>
+                                    <s>NG N15,000</s>
                                 </span> 
                                 <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
+                                    <i class="fa fa-star"></i> <b>4.2</b> <span style="color:#888"> | </span> 3,000+ sold
                                 </div>
 
                                 <div class="topselling_text">
@@ -482,13 +482,13 @@ HTML;
                                     </span>
                                 </div>
                                 <span class="deal_price_black">
-                                    NG N450,000
+                                    NG N25,000
                                 </span>  &nbsp; 
                                 <span class="deal_former_price">
-                                    <s>NG N700,000</s>
+                                    <s>NG N42,000</s>
                                 </span> 
                                 <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
+                                    <i class="fa fa-star"></i> <b>4.4</b> <span style="color:#888"> | </span> 1,800+ sold
                                 </div>
 
                                 <div class="topselling_text">
@@ -512,10 +512,10 @@ HTML;
                                     NG N450,000
                                 </span>  &nbsp; 
                                 <span class="deal_former_price">
-                                    <s>NG N700,000</s>
+                                    <s>NG N650,000</s>
                                 </span> 
                                 <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
+                                    <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 500+ sold
                                 </div>
 
                                 <div class="topselling_text">
