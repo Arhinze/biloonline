@@ -313,13 +313,13 @@ HTML;
                                 <img src="/static/images/footwear.png" class="deal_img"/>   
                                 <div class="below_deal_img"><!-- .below_deal_img starts -->
                                     <div class="deal_price_black">
-                                        NG N450,000
+                                        NG N25,000
                                     </div>   
                                     <div class="deal_former_price">
-                                        <s>NG N700,000</s>
+                                        <s>NG N35,000</s>
                                     </div> 
                                     <div class="star_and_rating">
-                                        <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
+                                        <i class="fa fa-star"></i> <b>4.8</b> <span style="color:#888"> | </span> 1,000+ sold
                                     </div>
                                 </div><!-- .below_deal_img ends -->
                             </div><!-- .deal_div ends -->
@@ -330,13 +330,13 @@ HTML;
                                 <img src="/static/images/laptop_desk.png" class="deal_img"/>   
                                 <div class="below_deal_img"><!-- .below_deal_img starts -->
                                     <div class="deal_price_black">
-                                        NG N450,000
+                                        NG N90,000
                                     </div>   
                                     <div class="deal_former_price">
-                                        <s>NG N700,000</s>
+                                        <s>NG N170,000</s>
                                     </div> 
                                     <div class="star_and_rating">
-                                        <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
+                                        <i class="fa fa-star"></i> <b>4.7</b> <span style="color:#888"> | </span> 1,500+ sold
                                     </div>
                                 </div><!-- .below_deal_img ends -->
                             </div><!-- .deal_div ends -->
@@ -362,13 +362,13 @@ HTML;
                                     </span>
                                 </div>
                                 <span class="deal_price_black">
-                                    NG N450,000
+                                    NG N150,000
                                 </span>  &nbsp; 
                                 <span class="deal_former_price">
-                                    <s>NG N700,000</s>
+                                    <s>NG N270,000</s>
                                 </span> 
                                 <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
+                                    <i class="fa fa-star"></i> <b>4.6</b> <span style="color:#888"> | </span> 1,000+ sold
                                 </div>
 
                                 <div class="topselling_text">
@@ -389,13 +389,13 @@ HTML;
                                     </span>
                                 </div>
                                 <span class="deal_price_black">
-                                    NG N450,000
+                                    NG N25,000
                                 </span>  &nbsp; 
                                 <span class="deal_former_price">
-                                    <s>NG N700,000</s>
+                                    <s>NG N35,000</s>
                                 </span> 
                                 <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
+                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 1,000+ sold
                                 </div>
 
                                 <div class="topselling_text">
