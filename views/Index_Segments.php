@@ -531,8 +531,9 @@ HTML;
 
 
                     <!-- Sponsored Products start -->
-                    <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts -->
                     <div class="mpdc_heading">Sponsored products</div>
+                    <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts -->
+                    
                     <div class="multiple_product_div"><!-- .flex_div starts(.multiple_product_div) --> 
 
                         <!-- multi - 1 -->
