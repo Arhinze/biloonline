@@ -356,11 +356,15 @@ h1, h2, h3, h4, h5, h6{
     position:relative;
     background-color: #000;
     display:flex;
+    height:60%;
+    width:auto;
     justify-content:center;
 }
 
 .product_image_div .fa {
     padding:10px;
+    height:60%;
+    width:auto;
     background-color: #fff;
     border-radius:100%;
     box-shadow: 0 0 6px 0 #ff9100;
