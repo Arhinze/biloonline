@@ -20,7 +20,7 @@ class Product_Segments extends Index_Segments{
             </head>
 
             <div class="main_body" style="margin:0"><!-- .main_body starts -->
-                <div class="product_image_div"><!-- .product_image_div starts -->
+                <div class="product_image_div" style="font-size:36px"><!-- .product_image_div starts -->
                     <img class="product_image" src="/static/images/iphone12.png"/>
                     <div class="upi_top_left">
                         <i class="fa fa-angle-left" style="font-size:18px;padding:6px 12px"></i>
@@ -32,7 +32,7 @@ class Product_Segments extends Index_Segments{
                     </div>
 
                     <div class="upi_bottom_left">
-                        <div class="upi_bl_contents" style="font-size:27px">
+                        <div class="upi_bl_contents">
                             <i class="fa fa-star"></i> "High quality"
                         </div>
                         <div class="upi_bl_contents">
