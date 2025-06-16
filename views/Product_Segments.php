@@ -63,9 +63,29 @@ class Product_Segments extends Index_Segments{
                     <div class="product_description">
                         Original Unlocked Apple iPhone 12 Pro Face ID 5G 6GB RAM 128/256GB ROM 12MP 6.7'' NFC France shipping usd smartphone 99%
                     </div>
+
+                    <div class="product_fa_star">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        &nbsp; 4.8 &nbsp; | &nbsp; 2000+ sold
+                    </div>
+
+                    <div class="product_price_div">
+                        <div class="product_price_top">
+                            <div class="product_price_head">Choice Deals</div>
+                            <div class="product_price_img">
+                                <img src="/static/images/tiny_site_logo.png"/>
+                            </div>
+                        </div>
+                        <div class="product_price_bottom">
+                            N420,000
+                        </div>
+                    </div>
                 </div><!-- .below_product_images ends -->
-            </div><!--.main_body end-->
-                
+            </div><!--.main_body end-->     
 HTML;
     }
                                                                 
