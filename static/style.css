@@ -515,7 +515,7 @@ h1, h2, h3, h4, h5, h6{
 
 .commitment_left{
     position:absolute;
-    top:9px;
+    top:14px;
     left:9px
 }
 
@@ -525,7 +525,7 @@ h1, h2, h3, h4, h5, h6{
 
 .commitment_right{
     position:absolute;
-    top:9px;
+    top:14px;
     right:9px
 }
 
