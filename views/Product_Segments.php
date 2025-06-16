@@ -32,7 +32,7 @@ class Product_Segments extends Index_Segments{
                     </div>
 
                     <div class="upi_bottom_left">
-                        <div class="upi_bl_contents" style="">
+                        <div class="upi_bl_contents" style="font-size:27px">
                             <i class="fa fa-star"></i> "High quality"
                         </div>
                         <div class="upi_bl_contents">
