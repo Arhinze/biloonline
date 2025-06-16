@@ -356,7 +356,7 @@ h1, h2, h3, h4, h5, h6{
     position:relative;
     background-color: #000;
     display:flex;
-    height:60%;
+    height:50%;
     width:auto;
     max-width: 100%;
     justify-content:center;
@@ -364,7 +364,7 @@ h1, h2, h3, h4, h5, h6{
 
 .product_image_div .fa {
     padding:10px;
-    height:60%;
+    height:50%;
     width:auto;
     max-width: 100%;
     background-color: #fff;
