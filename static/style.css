@@ -510,13 +510,13 @@ h1, h2, h3, h4, h5, h6{
 .commitment {
     position:relative;
     border-top:1px solid #888;
-    margin-top: 15px;
+    margin-top:15px;
     padding:18px 12px;
 }
 
 .commitment_left{
     position:absolute;
-    top:14px;
+    top:15px;
     left:9px
 }
 
@@ -526,7 +526,7 @@ h1, h2, h3, h4, h5, h6{
 
 .commitment_right{
     position:absolute;
-    top:14px;
+    top:15px;
     right:9px
 }
 
