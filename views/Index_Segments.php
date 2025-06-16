@@ -72,6 +72,8 @@ HTML;
 
                     <div class="menu_item"><a href="">Home</a></div>
 
+                    <div class="menu_item"><a href="">Xenx</a></div>
+
                     <div class="menu_item"><a href="">Sports</a></div>
 
                     <div class="menu_item"><a href="">Jewelry</a></div>
@@ -818,7 +820,7 @@ HTML;
             $index_scripts = Index_Segments::index_scripts();    
                                                                 
         echo <<<HTML
-        <br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/>
             <div class="footer"><!-- .footer starts --> 
                 <div class="footer_site_name">Bilo<span style="color:#ff9100">Online</span></div>
 

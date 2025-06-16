@@ -17,6 +17,11 @@ body{
     font-size:15px;
 }
 
+a{
+    color:#ff9100;
+    text-decoration:none;
+}
+
 .main_body{
     margin:30px 12px 0 12px;
 }
@@ -235,11 +240,6 @@ h1, h2, h3, h4, h5, h6{
     padding:12px;
 }
 
-a{
-    color:#ff9100;
-    text-decoration:none;
-}
-
 .button{
     background-color:var(--site_color_main);
     font-weight:bold;
@@ -346,6 +346,85 @@ a{
     font-weight: bold;
     color:#000;
 }
+
+
+
+
+
+/*** Product Page Styling starts ***/
+.product_image_div {
+    position:relative;
+    width:auto;
+    height:50%;
+    background-color: #000;
+    display:flex;
+    justify-content:center;
+}
+
+.product_image_div .fa {
+    padding:10px;
+    background-color: #fff;
+    border-radius:100%;
+}
+
+.product_image {
+    width:auto;
+    height:100%;
+}
+
+.upi_top_left {
+    position:absolute;
+    float:left;
+    top:9px;
+    left:9px;
+}
+
+.upi_top_right {
+    position:absolute;
+    float:right;
+    top:9px;
+    right:9px;
+}
+
+.upi_bottom_left {
+    position:absolute;
+    float:left;
+    bottom:12px;
+    left:9px
+}
+
+.upi_bottom_right {
+    position:absolute;
+    float:right;
+    bottom:9px;
+    right:9px;
+}
+
+.upi_bl_contents {
+    padding:3px 5px 3px 3px;
+    background-color:#646262;
+    color:#fff;
+    border-radius:9px;
+    margin-top: 6px;
+    font-size: 12px;
+    width:fit-content;
+    box-shadow: 0 0 3px 0 #888;
+}
+
+.upi_bl_contents .fa {
+    padding:3px;
+    border-radius: 100%;
+    color:#fff;
+    background-color: #ff9100;
+    font-size:9px;
+    margin-right:3px
+}
+
+
+
+
+
+/*** Product Page Styling ends ***/
 
 
 
@@ -535,63 +614,9 @@ a{
     margin:8px 6px;
 }
 
-.where_to_get_wallet_address{
-   border-radius:12px;
-   border:3px solid var(--site_color_alt);
-   background-color: #000500;
-   box-shadow: 0 0 3px 0 var(--site_color_alt);
-   padding:12px 9px;
-   width:87%;
-   height:90%;
-   position:fixed;
-   top:3%;
-   right:3%;
-   z-index:12;
-   overflow: scroll;
-   font-size:15px;
-}
 
-.where_to_get_wa_header{
-    font-weight:bold;
-    font-size:18px;
-    margin-top:15px;
-}
 
-.where_to_get_wa_subheader{
-    font-weight:bold;
-}
 
-.where_to_get_wa_subheader, .where_to_get_wa_text{
-    margin:9px 12px;
-}
-
-.where_to_get_wa_card{
-    border-radius: 6px;
-    border:1px solid var(--site_color_alt);
-    margin-bottom:18px;
-}
-
-.where_to_get_wa_img{
-    width:100%;
-    border-radius:6px;
-}
-
-.close_where_to_get_wa, .close_bt_input_div{
-    font-size:27px;
-    text-align: center;
-    font-weight:bold;
-    color:#fff;
-    background-color: red;
-    height:36px;
-    width:36px;
-    border-radius:100%;
-}
-
-.close_where_to_get_wa {
-    top:6%;
-    right:8%;
-    position:fixed;   
-}
 
 .close_bt_input_div{
     position:relative;
