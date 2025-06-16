@@ -27,7 +27,7 @@ class Product_Segments extends Index_Segments{
                         <i class="fa fa-angle-left" style="font-size:18px;padding:6px 12px"></i>
                     </div>
                     <div class="upi_top_right">
-                        <i class="fa fa-search" style="margin-right:6px"></i>
+                        <i class="fa fa-search" style="margin-right:3px"></i>
                         <i class="fa fa-share"></i>
                     </div>
 
