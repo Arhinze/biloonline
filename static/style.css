@@ -506,7 +506,28 @@ h1, h2, h3, h4, h5, h6{
     font-size:18px
 }
 
+.commitment {
+    position:relative;
+    border-top:1px solid #888;
+    margin-top: 15px;
+    padding:12px;
+}
 
+.commitment_left{
+    position:absolute;
+    top:9px;
+    left:9px
+}
+
+.commitment_left .fa {
+    color:#ff9100;
+}
+
+.commitment_right{
+    position:absolute;
+    top:9px;
+    right:9px
+}
 
 /*** Product Page Styling ends ***/
 

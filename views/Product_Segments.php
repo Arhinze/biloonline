@@ -28,7 +28,7 @@ class Product_Segments extends Index_Segments{
                     </div>
                     <div class="upi_top_right">
                         <i class="fa fa-search" style="margin-right:3px"></i>
-                        <i class="fa fa-share"></i>
+                        <i class="fa fa-share-alt"></i>
                     </div>
 
                     <div class="upi_bottom_left">
@@ -90,16 +90,35 @@ class Product_Segments extends Index_Segments{
                     </div>
                 </div><!-- .below_product_images ends -->
 
-                <div class="below_product_images"><!-- .below_product_images starts again --> 
+                <div class="below_product_images" style="margin-top:15px"><!-- .below_product_images starts again --> 
                     <div class="commitment_container"><!-- .commitment_container starts -->
                         <div class="commitment_head">
                             <b><span style="padding:1px 4px;background-color:#ff9100;border-radius:6px">Choice</span>&nbsp; <span style="font-size:15px">Bilo<span style="color:#ff9100">Online</span> Commitment</span></b>
                         </div>
                         <div class="commitment">
                             <div class="commitment_left">
-
+                                <i class="fa fa-bus"></i> &nbsp; Free shipping to any location.
                             </div>
                             <div class="commitment_right">
+                            </div>
+                        </div>
+
+                        <div class="commitment">
+                            <div class="commitment_left">
+                                <i class="fa fa-reply-all"></i>&nbsp; <b>Return & refund policy</b>
+                            </div>
+                            <div class="commitment_right">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+
+                        <div class="commitment">
+                            <div class="commitment_left">
+                                <i class="fa fa-shirtsinbulk"></i>&nbsp; <b>Security & Privacy</b>
+                                &nbsp; Safe payments, secure personal...
+                            </div>
+                            <div class="commitment_right">
+                                <i class="fa fa-angle-right"></i>
                             </div>
                         </div>
                     </div><!-- .commitment_container ends -->
