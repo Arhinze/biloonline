@@ -510,7 +510,7 @@ h1, h2, h3, h4, h5, h6{
     position:relative;
     border-top:1px solid #888;
     margin-top: 15px;
-    padding:12px;
+    padding:18px 12px;
 }
 
 .commitment_left{
@@ -1332,7 +1332,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .clear:before,.clear:after,.hi_user::after,.hi_user:before,.new-dashboard::before,.new-dashboard::after,.three-steps-div::after,.three-steps-div::after,.wallet:after, .invalid:before, .invalid:after, .invest_now_div_parent:after, .invest_now_div_parent:before,
-.anniversary_deals::before, .anniversary_deals::after, .product_price_top::before, .product_price_top::after{
+.anniversary_deals::before, .anniversary_deals::after, .product_price_top::before, .product_price_top::after, .commitment::before, .commitment::after{
     content:"";
     display:block;
     clear:both;
