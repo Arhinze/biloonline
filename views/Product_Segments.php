@@ -48,8 +48,19 @@ class Product_Segments extends Index_Segments{
                     </div>
                 </div><!-- .product_image_div ends -->   
 
+                <div class="additional_product_images_div_container">
+                    <div class="additional_product_images_div">
+                        <img src="/static/images/iphone12.png"/>
+                    </div>
+                    <div class="additional_product_images_div">
+                        <img src="/static/images/alt_image1.png"/>
+                    </div>
+                    <div class="additional_product_images_div">
+                        <img src="/static/images/alt_image2.png"/>
+                    </div>
+                </div>
                 <div>
-                    <h1>Joy, buy for me na</h1>
+                    <h1>Please, buy for me na</h1>
                 </div>
             
             </div><!--.main_body end-->
