@@ -20,7 +20,7 @@ class Product_Segments extends Index_Segments{
             </head>
 
             <div class="main_body" style="margin:0"><!-- .main_body starts -->
-                <div class="product_image_div">
+                <div class="product_image_div"><!-- .product_image_div starts -->
                     <img class="product_image" src="/static/images/iphone12.png"/>
                     <div class="upi_top_left">
                         <i class="fa fa-angle-left" style="font-size:18px;padding:6px 12px"></i>
@@ -46,8 +46,11 @@ class Product_Segments extends Index_Segments{
                     <div class="upi_bottom_right">
                         <i class="fa fa-heart"></i>
                     </div>
+                </div><!-- .product_image_div ends -->   
 
-                </div>   
+                <div>
+                    <h1>Please buy for me na</h1>
+                </div>
             
             </div><!--.main_body end-->
                 
