@@ -485,13 +485,17 @@ h1, h2, h3, h4, h5, h6{
     color:#000;
 }
 
-.product_price_img {
+.product_price_img_div {
     position: absolute;
     top:1px;
-    right:21px;
+    right:1px;
     opacity:0.6;
     height:18px;
     width:auto;
+}
+
+.product_price_img {
+    border-radius:6px;
 }
 
 .product_price_bottom {
@@ -1303,7 +1307,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .clear:before,.clear:after,.hi_user::after,.hi_user:before,.new-dashboard::before,.new-dashboard::after,.three-steps-div::after,.three-steps-div::after,.wallet:after, .invalid:before, .invalid:after, .invest_now_div_parent:after, .invest_now_div_parent:before,
-.anniversary_deals::before, .anniversary_deals::after{
+.anniversary_deals::before, .anniversary_deals::after, .product_price_top::before, .product_price_top::after{
     content:"";
     display:block;
     clear:both;

@@ -76,8 +76,8 @@ class Product_Segments extends Index_Segments{
                     <div class="product_price_div">
                         <div class="product_price_top">
                             <div class="product_price_head">Choice Deals</div>
-                            <div class="product_price_img">
-                                <img src="/static/images/tiny_site_logo.png"/>
+                            <div class="product_price_img_div">
+                                <img class="product_price_img" src="/static/images/tiny_site_logo.png"/>
                             </div>
                         </div>
                         <div class="product_price_bottom">
