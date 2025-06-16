@@ -62,7 +62,7 @@ HTML;
         </head>
         <body>
             $main_header
-            <div class="menu_div">  
+            <div class="menu_div"><!-- .menu_div starts -->  
                 <div class="menu">
                     <div class="all_categories"><i class="fa fa-bars"></i>&nbsp; All Categories &nbsp; <i class="fa fa-angle-down"></i></div>
 
@@ -116,7 +116,7 @@ HTML;
 
                     <!--<div class="menu_item"><a href=""><i class="fa fa-user"></i>&nbsp; Sign Up</a></div>-->
                 </div> 
-            </div> 
+            </div> <!-- .menu_div ends -->  
 HTML;
        }
                 
