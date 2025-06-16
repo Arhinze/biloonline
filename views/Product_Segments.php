@@ -48,21 +48,22 @@ class Product_Segments extends Index_Segments{
                     </div>
                 </div><!-- .product_image_div ends -->   
 
-                <div class="additional_product_images_div_container">
-                    <div class="additional_product_images_div">
-                        <img class="additional_product_image" src="/static/images/iphone12.png"/>
+                <div class="below_product_images"><!-- .below_product_images starts -->  
+                    <div class="additional_product_images_div_container">
+                        <div class="additional_product_images_div">
+                            <img class="additional_product_image" src="/static/images/iphone12.png"/>
+                        </div>
+                        <div class="additional_product_images_div">
+                            <img class="additional_product_image" src="/static/images/alt_image1.png"/>
+                        </div>
+                        <div class="additional_product_images_div">
+                            <img class="additional_product_image" src="/static/images/alt_image2.png"/>
+                        </div>
                     </div>
-                    <div class="additional_product_images_div">
-                        <img class="additional_product_image" src="/static/images/alt_image1.png"/>
+                    <div class="product_description">
+                        Original Unlocked Apple iPhone 12 Pro Face ID 5G 6GB RAM 128/256GB ROM 12MP 6.7'' NFC France shipping usd smartphone 99%
                     </div>
-                    <div class="additional_product_images_div">
-                        <img class="additional_product_image" src="/static/images/alt_image2.png"/>
-                    </div>
-                </div>
-                <div>
-                    <h1>Joy ~ noticed it now?</h1>
-                </div>
-            
+                </div><!-- .below_product_images ends -->
             </div><!--.main_body end-->
                 
 HTML;

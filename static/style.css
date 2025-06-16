@@ -424,7 +424,7 @@ h1, h2, h3, h4, h5, h6{
 
 .additional_product_images_div_container {
     display:flex;
-    margin:9px;
+    margin:9px 0;
 }
 
 .additional_product_images_div {
@@ -442,6 +442,14 @@ h1, h2, h3, h4, h5, h6{
     border-radius:3px;
 }
 
+.below_product_images {
+    padding:12px;
+}
+
+.product_description {
+    font-weight:bold;
+    font-size:15px;
+}
 
 
 /*** Product Page Styling ends ***/
