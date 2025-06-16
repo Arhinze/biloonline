@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, h6{
 /*** Product Page Styling starts ***/
 .product_image_div {
     position:relative;
-    background-color: #000;
+    background-color: #cec5c5;
     display:flex;
     width:auto;
     height:50%;
