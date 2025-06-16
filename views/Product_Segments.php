@@ -15,6 +15,7 @@ class Product_Segments extends Index_Segments{
     public static function body($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $product_url = PRODUCT_URL){
         echo <<<HTML
             <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
                 <link rel="stylesheet" href="/static/style.css"/>
             </head>
