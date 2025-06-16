@@ -363,7 +363,7 @@ h1, h2, h3, h4, h5, h6{
     padding:10px;
     background-color: #fff;
     border-radius:100%;
-    box-shadow: 0 0 3px 0 #ff9100;
+    box-shadow: 0 0 6px 0 #ff9100;
 }
 
 .product_image {
