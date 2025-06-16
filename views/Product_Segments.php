@@ -220,11 +220,11 @@ class Product_Segments extends Index_Segments{
                     <!-- Related Products end -->
                 </div><!-- .below_product_images ends again (for Related Products)-->  
 
-                <div class="add_to_my_picks" style="position:fixed;bottom:0;left:0;right:0width:100%;padding:15px;">
+                <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
                     <div class="long_action_button">
                         <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks
                     </div>
-                </div>
+                </div><!-- .add_to_my_picks ends -->
             </div><!--.main_body end-->     
 HTML;
     }
@@ -321,7 +321,12 @@ HTML;
                                                                 
                                                                 
     public static function product_footer(){
+        
         Index_Segments::footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = Product_Segments::product_scripts());
+        echo <<<HTML
+            <!-- this div is only meant to bring up the footer section of product page so that it's not covered by the fixed 'add_to_my_picks' div-->
+            <div style="margin-top:45px"></div>
+HTML;
     }
 }
 ?>

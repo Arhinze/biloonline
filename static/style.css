@@ -531,6 +531,16 @@ h1, h2, h3, h4, h5, h6{
     right:9px
 }
 
+.add_to_my_picks {
+    background-color: #fff;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    padding:9px;
+}
+
 /*** Product Page Styling ends ***/
 
 
@@ -675,16 +685,16 @@ h1, h2, h3, h4, h5, h6{
     border:0;
 }
 
-.long-action-button{
-    padding:15px 6px;
+.long_action_button{
+    padding:9px 6px;
+    text-align: center;
     background-color: var(--site_color_alt);
-    border-radius:6px;
-    width:fit-content;
+    border-radius:18px;
     color:var(--site_color_main);
     border:0;
     width:90%;
     max-width:600px;
-    font-size:18px;
+    font-size:15px;
     font-weight: bold;
 }
 
