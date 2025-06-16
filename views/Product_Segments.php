@@ -48,7 +48,7 @@ class Product_Segments extends Index_Segments{
                     </div>
                 </div><!-- .product_image_div ends -->   
 
-                <div class="below_product_images"><!-- .below_product_images starts -->  
+                <div class="below_product_images" style="margin-top:0"><!-- .below_product_images starts -->  
                     <div class="additional_product_images_div_container">
                         <div class="additional_product_images_div">
                             <img class="additional_product_image" src="/static/images/iphone12.png"/>
@@ -90,7 +90,7 @@ class Product_Segments extends Index_Segments{
                     </div>
                 </div><!-- .below_product_images ends -->
 
-                <div class="below_product_images" style="margin-top:15px"><!-- .below_product_images starts again --> 
+                <div class="below_product_images"><!-- .below_product_images starts again --> 
                     <div class="commitment_container"><!-- .commitment_container starts -->
                         <div class="commitment_head">
                             <b><span style="padding:1px 4px;background-color:#ff9100;border-radius:6px">Choice</span>&nbsp; <span style="font-size:15px">Bilo<span style="color:#ff9100">Online</span> Commitment</span></b>
@@ -123,7 +123,108 @@ class Product_Segments extends Index_Segments{
                         </div>
                     </div><!-- .commitment_container ends -->
                 </div><!-- .below_product_images ends again -->  
-                
+
+
+
+                <div class="below_product_images"><!-- .below_product_images starts again (for Related Products) -->  
+        
+                    <!-- Related Products start -->
+                    <div class="mpdc_heading">Related products</div>
+                    <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts -->
+                    
+                    <div class="multiple_product_div"><!-- .flex_div starts(.multiple_product_div) --> 
+
+                        <!-- multi - 1 -->
+                        <div class="deal_div"><!-- .deal_div starts --> 
+                            <img src="/static/images/iphone12.png" class="deal_img"/>   
+                            <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                <div class="topselling_choice_and_title">
+                                    <span>
+                                        iPhone12 Pro 5G...
+                                    </span>
+                                </div>
+                                <span class="deal_price_black">
+                                    NG N420,000
+                                </span>  
+                            </div><!-- .below_deal_img ends -->
+                        </div><!-- .deal_div ends -->
+
+
+                        <!-- multi - 2 -->
+                        <div class="deal_div"><!-- .deal_div starts --> 
+                            <img src="/static/images/belt.png" class="deal_img"/>   
+                            <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                <div class="topselling_choice_and_title">
+                                    <span>
+                                        Premium quality leather belt...
+                                    </span>
+                                </div>
+                                <span class="deal_price_black">
+                                    NG N10,000
+                                </span>  
+                            </div><!-- .below_deal_img ends -->
+                        </div><!-- .deal_div ends -->
+
+
+                        <!-- multi - 3 -->
+                        <div class="deal_div"><!-- .deal_div starts --> 
+                            <img src="/static/images/comfy_bed.png" class="deal_img"/>   
+                            <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                <div class="topselling_choice_and_title">
+                                    <span>
+                                        Soft comfy bed 6 x 4.5...
+                                    </span>
+                                </div>
+                                <span class="deal_price_black">
+                                    NG N350,000
+                                </span>  
+                            </div><!-- .below_deal_img ends -->
+                        </div><!-- .deal_div ends -->
+
+
+                        <!-- multi - 4 -->
+
+                        <div class="deal_div"><!-- .deal_div starts --> 
+                            <img src="/static/images/cooking_pot.png" class="deal_img"/>   
+                            <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                <div class="topselling_choice_and_title">
+                                    <span>
+                                        High Heat-Resistant Cooking Po...
+                                    </span>
+                                </div>
+                                <span class="deal_price_black">
+                                    NG N50,000
+                                </span>  
+                            </div><!-- .below_deal_img ends -->
+                        </div><!-- .deal_div ends -->
+
+
+                        <!-- multi - 5 -->
+                        <div class="deal_div"><!-- .deal_div starts --> 
+                            <img src="/static/images/footwear.png" class="deal_img"/>   
+                            <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                <div class="topselling_choice_and_title">
+                                    <span>
+                                        Black Stylish Footwear...
+                                    </span>
+                                </div>
+                                <span class="deal_price_black">
+                                    NG N25,000
+                                </span>  
+                            </div><!-- .below_deal_img ends -->
+                        </div><!-- .deal_div ends -->
+                    
+                    </div><!-- .flex_div(.multiple_product_div) ends -->
+                    
+                    </div><!-- .multiple_product_div_container ends -->
+                    <!-- Related Products end -->
+                </div><!-- .below_product_images ends again (for Related Products)-->  
+
+                <div class="add_to_my_picks" style="position:fixed;bottom:0;left:0;right:0width:100%;padding:15px;">
+                    <div class="long_action_button">
+                        <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks
+                    </div>
+                </div>
             </div><!--.main_body end-->     
 HTML;
     }

@@ -46,13 +46,13 @@ a{
 
 .deal_div {
     margin:18px 3px;
-    border:3px solid #ccc6c6;
-    padding:1.5px 1.5px 18px 1.5px;
-    background-color: #fff;
+    border:3px solid #ccc6c6/**/;
+    padding:3px 3px 18px 3px;
+    background-color: #f3f1f1;
 }
 
 .deal_div:hover {
-    padding:6px;
+    padding:6px;/**/
     background-color: #eeeaea;
 }
 
@@ -447,6 +447,7 @@ h1, h2, h3, h4, h5, h6{
     padding:12px;
     font-size:12px;
     box-shadow: 0 0 3px 0 #ff9100;
+    margin-top:15px;
 }
 
 .product_description {
