@@ -445,6 +445,7 @@ h1, h2, h3, h4, h5, h6{
 .below_product_images {
     padding:12px;
     font-size:12px;
+    box-shadow: 0 1px 3px 0 #ff9100;
 }
 
 .product_description {
@@ -504,6 +505,9 @@ h1, h2, h3, h4, h5, h6{
     padding:12px;
     font-size:18px
 }
+
+
+
 /*** Product Page Styling ends ***/
 
 

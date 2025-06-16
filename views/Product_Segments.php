@@ -84,7 +84,27 @@ class Product_Segments extends Index_Segments{
                             N420,000
                         </div>
                     </div>
+                    <div>
+                        <p style="margin-bottom:-7px"><i class="fa fa-address-card-o"></i>&nbsp; Pay in NGN</p>
+                        <p><i class="fa fa-ban"></i>&nbsp; Tax excluded</p>
+                    </div>
                 </div><!-- .below_product_images ends -->
+
+                <div class="below_product_images"><!-- .below_product_images starts again --> 
+                    <div class="commitment_container"><!-- .commitment_container starts -->
+                        <div class="commitment_head">
+                            <b><span style="padding:1px 4px;background-color:#ff9100;border-radius:6px">Choice</span>&nbsp; <span style="font-size:15px">Bilo<span style="color:#ff9100">Online</span> Commitment</span></b>
+                        </div>
+                        <div class="commitment">
+                            <div class="commitment_left">
+
+                            </div>
+                            <div class="commitment_right">
+                            </div>
+                        </div>
+                    </div><!-- .commitment_container ends -->
+                </div><!-- .below_product_images ends again -->  
+                
             </div><!--.main_body end-->     
 HTML;
     }
