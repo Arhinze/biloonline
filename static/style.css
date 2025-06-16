@@ -424,7 +424,7 @@ h1, h2, h3, h4, h5, h6{
 
 .additional_product_images_div_container {
     display:flex;
-    margin:6px 0;
+    margin:0 0 9px 0;
 }
 
 .additional_product_images_div {
