@@ -50,13 +50,13 @@ class Product_Segments extends Index_Segments{
 
                 <div class="additional_product_images_div_container">
                     <div class="additional_product_images_div">
-                        <img src="/static/images/iphone12.png"/>
+                        <img class="additional_product_image" src="/static/images/iphone12.png"/>
                     </div>
                     <div class="additional_product_images_div">
-                        <img src="/static/images/alt_image1.png"/>
+                        <img class="additional_product_image" src="/static/images/alt_image1.png"/>
                     </div>
                     <div class="additional_product_images_div">
-                        <img src="/static/images/alt_image2.png"/>
+                        <img class="additional_product_image" src="/static/images/alt_image2.png"/>
                     </div>
                 </div>
                 <div>
