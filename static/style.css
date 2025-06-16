@@ -354,8 +354,8 @@ h1, h2, h3, h4, h5, h6{
 /*** Product Page Styling starts ***/
 .product_image_div {
     position:relative;
-    width:auto;
-    height:40%;
+    width:100%;
+    height:auto;
     background-color: #000;
     display:flex;
     justify-content:center;
@@ -369,8 +369,8 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .product_image {
-    width:auto;
-    height:100%;
+    width:100%;
+    height:auto;
 }
 
 .upi_top_left {
