@@ -60,7 +60,7 @@ class Product_Segments extends Index_Segments{
                     </div>
                 </div>
                 <div>
-                    <h1>Please, buy for me na</h1>
+                    <h1>Joy, Please, buy for me na</h1>
                 </div>
             
             </div><!--.main_body end-->
