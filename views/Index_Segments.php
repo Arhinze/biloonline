@@ -136,7 +136,8 @@ HTML;
                         <div class="deal_flex" style="display:flex"><!-- .deal_flex starts -->
                             
                             <div class="deal1" style="width:50%"><!-- .deal1 starts -->   
-                                <div class="deal_div"><!-- .deal_div starts --> 
+                                <div class="deal_div"><!-- .deal_div starts -->
+                                    <a href="/product/iphone12" class="deal_div_link_to_product_page"> <!-- click to see product start tag -->
                                     <img src="/static/images/iphone12.png" class="deal_img"/>   
                                     <div class="below_deal_img"><!-- .below_deal_img starts -->
                                         <div class="deal_text">
@@ -152,13 +153,15 @@ HTML;
                                             <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
                                         </div>
                                     </div><!-- .below_deal_img ends -->
+                                    </a> <!-- click to see product end tag -->
                                 </div><!-- .deal_div ends -->
                             </div><!-- .deal1 ends -->
                                                 
                                                 
                                                 
                             <div class="deal2" style="width:50%"><!-- .deal2 starts -->   
-                                <div class="deal_div"><!-- .deal_div starts --> 
+                                <div class="deal_div"><!-- .deal_div starts -->
+                                    <a href="/product/comfy-bed" class="deal_div_link_to_product_page"> <!-- click to see product start tag --> 
                                     <img src="/static/images/comfy_bed.png" class="deal_img"/>  
                                     <div class="below_deal_img"><!-- .below_deal_img starts --> 
                                         <div class="deal_text">
@@ -174,6 +177,7 @@ HTML;
                                             <i class="fa fa-star"></i> <b>4.2</b> <span style="color:#888"> | </span> 1,000+ sold
                                         </div>
                                     </div><!-- .below_deal_img ends -->
+                                    </a><!-- click to see product end tag --> 
                                 </div><!-- .deal_div ends -->
                             </div><!-- .deal2 ends -->
                         </div><!-- .deal_flex ends -->

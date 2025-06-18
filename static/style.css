@@ -136,6 +136,10 @@ a{
     font-size:15px;
 }
 
+.deal_div_link_to_product_page {
+    color:inherit;
+}
+
 .topselling_div {
     display:flex;
     justify-content: space-around;
