@@ -134,21 +134,22 @@ HTML;
                         <div class="deal_price"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp; 3+ from N5000 &nbsp;&nbsp;<i class="fa fa-angle-right"></i> </div>  
                         </center>            
                         <div class="deal_flex" style="display:flex"><!-- .deal_flex starts -->
+                            
                             <div class="deal1" style="width:50%"><!-- .deal1 starts -->   
                                 <div class="deal_div"><!-- .deal_div starts --> 
-                                    <img src="/static/images/work_setup.png" class="deal_img"/>   
+                                    <img src="/static/images/iphone12.png" class="deal_img"/>   
                                     <div class="below_deal_img"><!-- .below_deal_img starts -->
                                         <div class="deal_text">
-                                           Software Engineer Work Setup, Monitors, Lap...
+                                           Original Unlocked Apple iPhone 12 Pro Face ID...
                                         </div>    
                                         <div class="deal_price">
-                                            NG N600,000
+                                            NG N420,000
                                         </div>   
                                         <div class="deal_former_price">
-                                            <s>NG N750,000</s>
+                                            <s>NG N630,000</s>
                                         </div> 
                                         <div class="star_and_rating">
-                                            <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 600+ sold
+                                            <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
                                         </div>
                                     </div><!-- .below_deal_img ends -->
                                 </div><!-- .deal_div ends -->

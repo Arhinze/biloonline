@@ -4,15 +4,39 @@ ini_set("display_errors", '1'); //for testing purposes..
 include_once($_SERVER["DOCUMENT_ROOT"]."/php/connection.php");
 include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
-$product_url = "no-product";
-if(isset($_GET["product_name"])) {
-    $product_url = htmlentities($_GET["product_name"]);
+$prod_url = "iphone12";
+
+if(isset($_GET["url"])) {
+    $prod_url = htmlentities($_GET["url"]);
 }
 
-define("PRODUCT_URL", $product_url);
+$product_stmt = $pdo->prepare("SELECT * FROM products WHERE product_url = ? LIMIT ?, ?");
+$product_stmt->execute([$prod_url, 0, 1]);
+$product_data = $product_stmt->fetch(PDO::FETCH_OBJ);
+
+if(!$product_data){
+    header("location: /404.php");
+}
+
+define("PRODUCT_URL", $prod_url);
+define("PRODUCT_IMAGE1", $product_data->image1);
+define("PRODUCT_IMAGE2", $product_data->image2);
+define("PRODUCT_IMAGE3", $product_data->image3);
+define("PRODUCT_DESC", $product_data->description);
+define("PRODUCT_PRICE", $product_data->price);
+
 
 class Product_Segments extends Index_Segments{     
-    public static function body($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $product_url = PRODUCT_URL){
+    public static function body(
+        $site_name = SITE_NAME_SHORT, 
+        $site_url = SITE_URL, 
+        $product_url = PRODUCT_URL,
+        $image1 = PRODUCT_IMAGE1,
+        $image2 = PRODUCT_IMAGE2,
+        $image3 = PRODUCT_IMAGE3,
+        $description = PRODUCT_DESC,
+        $price = PRODUCT_PRICE
+    ){
         echo <<<HTML
             <!--<head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +46,7 @@ class Product_Segments extends Index_Segments{
 
             <div class="main_body" style="margin:0"><!-- .main_body starts -->
                 <div class="product_image_div"><!-- .product_image_div starts -->
-                    <img class="product_image" src="/static/images/iphone12.png"/>
+                    <img class="product_image" src="/static/images/$image1"/>
                     <div class="upi_top_left">
                         <i class="fa fa-angle-left" style="font-size:18px;padding:6px 12px"></i>
                     </div>
@@ -51,17 +75,18 @@ class Product_Segments extends Index_Segments{
                 <div class="below_product_images" style="margin-top:0"><!-- .below_product_images starts -->  
                     <div class="additional_product_images_div_container">
                         <div class="additional_product_images_div">
-                            <img class="additional_product_image" src="/static/images/iphone12.png"/>
+                            <img class="additional_product_image" src="/static/images/$image1"/>
                         </div>
                         <div class="additional_product_images_div">
-                            <img class="additional_product_image" src="/static/images/alt_image1.png"/>
+                            <img class="additional_product_image" src="/static/images/$image2"/>
                         </div>
                         <div class="additional_product_images_div">
-                            <img class="additional_product_image" src="/static/images/alt_image2.png"/>
+                            <img class="additional_product_image" src="/static/images/$image3"/>
                         </div>
                     </div>
                     <div class="product_description">
-                        Original Unlocked Apple iPhone 12 Pro Face ID 5G 6GB RAM 128/256GB ROM 12MP 6.7'' NFC France shipping usd smartphone 99%
+                        <!--Original Unlocked Apple iPhone 12 Pro Face ID 5G 6GB RAM 128/256GB ROM 12MP 6.7'' NFC France shipping usd smartphone 99%-->
+                        $description
                     </div>
 
                     <div class="product_fa_star">
@@ -81,7 +106,7 @@ class Product_Segments extends Index_Segments{
                             </div>
                         </div>
                         <div class="product_price_bottom">
-                            N420,000
+                            $price
                         </div>
                     </div>
                     <div>

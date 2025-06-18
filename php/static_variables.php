@@ -1,7 +1,6 @@
 <?php
 
 $site_name = "Bilo Online";
-$token_name = "Bilo";
 $site_url="https://biloonline.com";
 $site_url_short="biloonline.com";
 
