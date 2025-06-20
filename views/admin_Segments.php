@@ -110,75 +110,36 @@ Class admin_Segments{
 
 </head>
 <body>
-    <div class="headers" style="height:36px;padding:16px 16px 8px 8px"> 
-        <div style="font-size:18px;margin:-16px 19px 0px 14px"><h3 class="site_name"><a href="/">$site_name</a></h3></div>
-        
-        <div class="menu-icon">
-            <label for = "menu-box"><i class="fa fa-bars"></i></label>
+    <div class="headers" style="position:relative;height:36px;width:100%;"> 
+        <div style="display:flex;justify-content:center;position:absolute;top:10px;left:15px">
+            <div class="menu-icon" style="font-size:21px"><label for = "menu-box"><i class="fa fa-bars"></i></label></div>
+
+            <div style="font-size:18px;margin:-14px 19px 0px 3px"><h3 class="site_name"><a href="/">Bilo<span style="color:#ff9100">Online</span> - <i class="fa fa-lock"></i> Admin</a></h3></div>
+        </div>
+
+        <div style="position:absolute;float:right;top:5px;right:12px">
+            <i style="background-color:#ff9100;color:#fff; border-radius:6px;padding:6px 8px;text-align:center;margin:6px 3px 0px 6px;" class="fa fa-user"></i> 
+            $Hi_admin
+            <i  style="background-color:#ff9100;color:#fff; border-radius:100%;padding:3px 5px;text-align:center;margin:6px 3px 0px 6px;"  class="fa fa-angle-down"></i>
         </div>
     </div> 
 
-    <hr />
-
-    <div style="position:fixed;width:100%;height:39px;top:59px;left:0;background-color:#fff;padding-bottom:6px;" class="clear"> 
-            
-            <!-- Google Translate div -->  
-            <!--<div class="clear"><div id="google_translate_element" style="position:fixed;float:left;left:13px;top:59px;background-color:#fff;border-radius:4px;padding:0px 3px"></div></div>-->
-            
-            <!-- Hi admin -->  
-            
-            <span style="float:right;background-color:#042c06;border-radius:6px;margin:3px;font-size:12px;padding:1px 0 6px 9px">
-
-                <i class="fa fa-lock"></i> Hi $Hi_admin
-
-                <i style="background-color:#0bee3ccc;color:#fff; border-radius:6px;padding:6px 8px;text-align:center;margin:6px 9px 0px 6px;" class="fa fa-user"></i> 
-            </span>
-    </div>
-
     <input type="checkbox" id="menu-box" class="menu-box" style="display:none"/>
     
-    <ul class="menu-list"> 
-        <div class="clear">
-            <li style="float:right;" class="x">
-                <label for="menu-box"><i class="fa fa-times" style="font-weight:bold"></i></label> 
-            </li>
-        </div> 
-
+    <ul class="menu_list"> 
         <li><i class="fa fa-home"></i> <a href="/admin">Home</a></li>
 
         <li><i class="fa fa-users"></i> <a href="/site-users">Users</a></li>
         <li><i class="fa fa-bolt"></i> <a href="/airdrop-participants">Airdrop participants</a></li>
 
-        
         $main_admin_access
 
         <li><i class="fa fa-key"></i> <a href="/admin-reset-password">Reset Password</a></li>
 
         <li><a href="https://mine.aguanit.com/logout.php" style="color:#fff;font-weight:bold;background-color:#0bee3ccc;padding:6px;border-radius:12px">Log out</a></li>
-
+        
+        <label for="menu-box"><div class="grey_area"></div></label>
     </ul>
-
-    <!-- Google Translate Scripts -->
-
-    <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.VERTICAL}, 'google_translate_element');
-    }
-    </script>
-    
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-HTML;
-}
-
-
-
-public static function body($site_name = SITE_NAME, $site_url = SITE_URL){
-    echo <<<HTML
-        <div class ="main" style ="text-align:center;margin-top:160px;border:1px solid #fff;">
-        <h2>CONTROL PANEL</h2><hr />
-            Welcome to the admnin Panel of <b><a href="/" style="font-size:18px">$site_name</a></b>. 
-            You have the privilegde to edit user's details, Send Mails and Confirm Deposits.
-        </div>
 HTML;
 }
 

@@ -8,11 +8,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
     $data = $stmt->fetch(PDO::FETCH_OBJ);
     if($data){
-        header("location:/admin-dashboard");
+        header("location:/admin-products");
     }
 }
-
-Index_Segments::header();
 
 $check_admin = "";
 $remember_admin = "";
@@ -32,7 +30,7 @@ if(isset($_POST["user_code"])){
             setcookie("admin_name", $_POST["admin_name"], time()+(24*3600), "/");
             setcookie("admin_password", $_POST["admin_password"], time()+(24*3600), "/");
 
-            header("location:/admin-dashboard");
+            header("location:/admin-products");
 
         } else{
             setcookie("admin_name", $_POST["admin_name"], time()-(24*3600), "/");
@@ -49,6 +47,8 @@ if(isset($_POST["user_code"])){
 } else {
    // 
 }
+
+Index_Segments::header();
 ?>
 
 <div class="dashboard_div" style="margin-top:90px">
