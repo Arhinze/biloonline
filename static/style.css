@@ -501,6 +501,7 @@ h1, h2, h3, h4, h5, h6{
     border:1.5px dotted #000;
     border-radius:6px;
     margin-right:6px;
+    overflow: hidden;
 }
 
 .additional_product_image {
