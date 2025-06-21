@@ -9,18 +9,78 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
     if($data){
         //that means admin is logged in
         admin_Segments::header();
+        //To Edit Product:
+        if(isset($_POST["new_product"])){
+            //check if product already exists
+            $add_stmt = $pdo->prepare("SELECT * FROM products WHERE product_url = ?");
+            $add_stmt->execute([$_POST["new_url"]]);
+    
+            $add_data = $add_stmt->fetch(PDO::FETCH_OBJ);
+            if(!$add_data){ 
+                //then insert:
+                $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`) VALUES(?,?,?)");
+
+                $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"])]);
+
+                echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
+            } else {
+                echo "<h4 style='color:red'>Error, Product:", $add_data->product_name, " already exists</h4>";
+            }
+        }
 ?>
-        <div class="dashboard_div" style="margin:-30px 3% 10% 3%">
+        <div class="dashboard_div" style="margin:-30px 3% 10% 3%;">
 
         <h1 style="margin:12px 6px">Products on <?=$site_name?></h2>
+
+        <!-- Add new product div starts -->
+        <div>
+            <div onclick="show_div('new_product1')" style="background-color:green;color:#fff;font-weight:bold;padding:9px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Add New Product</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
+
+            <div id="new_product1" style="display:none;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000">
+                <form method="post" action="">
+                    <!-- -->
+                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="new_product_name" placeholder="Enter Product Name"/>
+                    <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
+
+                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="new_url" placeholder="Enter Product URL"/>
+                    <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
+                    <span>Only letters, numbers and hyphen (-) allowed.</span>
+                    <div style="font-size:18px;font-weight:bold;margin:15px 0 9px 0">Add Images: </div>
+                    <div class="additional_product_images_div_container">
+                        <div class="additional_product_images_div">
+                            <img src = "/static/images/<?=$d->image1?>" class="additional_product_image"/>
+                        </div>
+                        <div class="additional_product_images_div">
+                            <img class="additional_product_image"/>
+                        </div>
+                        <div class="additional_product_images_div">
+                            <img class="additional_product_image"/>
+                        </div>
+                    </div>
+
+                    <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
+                    <textarea style="width:75%;height:100px;border-radius:4px" name="new_product_description" placeholder="sell this product in a maximum of 50 words."></textarea>
+
+                    <div style="margin:12px 0">
+                        <input type="submit" class="edit_product_action_button" style="background-color:green"/>
+                        
+                        <span class="edit_product_action_button" style="background-color:#ff9100" onclick="show_div('new_product1')">Cancel</span>
+                    </div>
+                    <input type="hidden" name="new_product" value="new_product"/>
+                </form>
+            </div>
+        </div>
+        <!-- Add new product div ends -->
 <?php
         //check if admin is searching for someone:
 ?>
-        <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter Product Name: try: abc" style="border:1px solid #000;width:75%"/> 
+        <div style="margin-top:18px;padding:12px 9px;border:1px solid #000;border-radius:6px;background-color:#f3f3f3">
+            <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter Product Name: try: abc" style="border:1px solid #000;width:75%"/>
         
-        <i class="fa fa-search" onclick ="search_icon()" style="padding:9px;border-radius:4px;font-size:16px;color:#fff;background-color:#000"></i>
+            <i class="fa fa-search" onclick ="search_icon()" style="padding:9px;border-radius:4px;font-size:16px;color:#fff;background-color:#000"></i>
 
-        <div id="search" style="position:absolute;width:75%"></div>
+            <div id="search" style="position:absolute;width:75%"></div>
+        </div>
         
         <div style="margin-top:12px">    <!-- 'main' div starts -->
             <div class="table_row_div" style="margin-bottom:18px">
@@ -144,7 +204,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             </div>
 
             <!--hidden section 1: Edit -->
-            <div id="edit<?=$i?>" style="display:block;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
+            <div id="edit<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
 
                 <form method="post" action="">
                     <!-- -->
@@ -166,8 +226,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         </div>
                     </div>
 
-                    <div><b>Product Description:</b></div>
-                    <textarea style="width:75%;height:100px;border-radius:4px" name="product_description"><?=$d->description?> </textarea>
+                    <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
+                    <textarea style="width:90%;height:100px;border-radius:4px" name="product_description"><?=$d->description?> </textarea>
 
                     <div style="margin:12px 0">
                         <input type="submit" class="edit_product_action_button" style="background-color:green"/>
@@ -222,7 +282,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <?php if($p > 1) { ?> 
                 <div style="float:left">
                     <b>
-                       <a href="?page=<?=$p-1?>" style="color:#000"><i class="fa fa-angle-left"> &nbsp; Previous</i></a>
+                       <a href="?page=<?=$p-1?>" style="color:#000;font-weight:bold"><i class="fa fa-angle-left"></i> &nbsp; Previous</a>
                     </b>
                 </div> 
             <?php } ?>
