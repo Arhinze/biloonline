@@ -399,13 +399,13 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .below_header_div .numbers {
-    font-size: 24px;
+    font-size: 70%;
     font-weight: bold;
     margin-right:15px;
 }
 
 .below_header_div .fa{
-    font-size: 24px;
+    font-size: 30%;
     padding:9px 12px;
     border-radius: 100%;
     background-color: #fff;
