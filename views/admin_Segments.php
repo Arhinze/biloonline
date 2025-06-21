@@ -107,6 +107,10 @@ Class admin_Segments{
             border:1px solid #888;
         }
 
+        .menu_list .fa {
+            margin-right:6px;
+        }
+
         /*
         .goog-logo-link {
             display:none !important;
@@ -145,8 +149,8 @@ Class admin_Segments{
     <ul class="menu_list"> 
         <li><i class="fa fa-home"></i> <a href="/admin-products">Products</a></li>
 
-        <li><i class="fa fa-users"></i> <a href="/site-users">Users</a></li>
-        <li><i class="fa fa-bolt"></i> <a href="/airdrop-participants">Airdrop participants</a></li>
+        <li><i class="fa fa-users"></i> <a href="/customers">Customers</a></li>
+        <li><i class="fa fa-bolt"></i> <a href="/orders">Orders</a></li>
 
         $main_admin_access
 

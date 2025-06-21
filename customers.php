@@ -9,46 +9,28 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
     if($data){
         //that means admin is logged in
         admin_Segments::header();
-        //To Insert Product:
-        if(isset($_POST["new_product"])){
-            //check if product already exists
-            $add_stmt = $pdo->prepare("SELECT * FROM products WHERE product_url = ?");
-            $add_stmt->execute([$_POST["new_url"]]);
-    
-            $add_data = $add_stmt->fetch(PDO::FETCH_OBJ);
-            if(!$add_data){ 
-                //then insert:
-                $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`) VALUES(?,?,?)");
-
-                $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"])]);
-
-                echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
-            } else {
-                echo "<h4 style='color:red'>Error, Product:", $add_data->product_name, " already exists</h4>";
-            }
-        }
 ?>
         <div class="dashboard_div" style="margin:-30px 3% 10% 3%;">
 
-        <h1 style="margin:12px 6px">Products - <?=$site_name?></h2>
+        <h1 style="margin:12px 6px">Customers - <?=$site_name?></h2>
 
-        <!-- Add new product div starts -->
+        <!-- Add new User div starts -->
+        <!--
         <div>
             <div onclick="show_div('new_product1')" style="background-color:green;color:#fff;font-weight:bold;padding:9px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Add New Product</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
 
             <div id="new_product1" style="display:none;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000">
                 <form method="post" action="">
-                    <!-- -->
-                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="new_product_name" placeholder="Enter Product Name"/>
+                    <div style="position:relative"><input type="text" class="edit_product_input" name="new_product_name" placeholder="Enter Product Name"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
 
-                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="new_url" placeholder="Enter Product URL"/>
+                    <div style="position:relative"><input type="text" class="edit_product_input"  name="new_url" placeholder="Enter Product URL"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
                     <span>Only letters, numbers and hyphen (-) allowed.</span>
                     <div style="font-size:18px;font-weight:bold;margin:15px 0 9px 0">Add Images: </div>
                     <div class="additional_product_images_div_container">
                         <div class="additional_product_images_div">
-                            <img src = "/static/images/<?=$d->image1?>" class="additional_product_image"/>
+                            <img src = "/static/images/" class="additional_product_image"/>
                         </div>
                         <div class="additional_product_images_div">
                             <img class="additional_product_image"/>
@@ -70,12 +52,13 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 </form>
             </div>
         </div>
-        <!-- Add new product div ends -->
+        -->
+        <!-- Add new User div ends -->
 <?php
         //check if admin is searching for someone:
 ?>
         <div style="margin-top:18px;padding:12px 9px;border:1px solid #000;border-radius:12px;background-color:#f3f3f3">
-            <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter Product Name: try: abc" style="border:1px solid #000;width:75%"/>
+            <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter username: try: abc" style="border:1px solid #000;width:75%"/>
         
             <i class="fa fa-search" onclick ="search_icon()" style="padding:9px;border-radius:4px;font-size:16px;color:#fff;background-color:#000"></i>
 
@@ -85,43 +68,25 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         <div style="margin-top:12px">    <!-- 'main' div starts -->
             <div class="table_row_div" style="margin-bottom:18px">
                 <div class="table_row" style="width:8%">#</div>
-                <div class="table_row">Name</div>
-                <!--<div class="table_row">Status</div>-->
-                <div class="table_row">Edit / Delete</div>
+                <div class="table_row" style="width:46%">Username</div>
+                <div class="table_row" style="width:46%">View / Delete</div>
             </div>
 <?php
-        //To Edit Product:
-        if(isset($_POST["edit_product"])){
-            //check if product still exists
-            $edit_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
-            $edit_stmt->execute([$_POST["edit_product"]]);
-    
-            $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
-            if($edit_data){ 
-                //then edit:
-                $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ? WHERE product_id = ?");
-
-                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product"]]);
-
-                echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
-            }
-        }
-
-        //To Delete Product:
-        if(isset($_POST["remove_product"])){
-            //check if product still exists
-            $ds_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
-            $ds_stmt->execute([$_POST["remove_product"]]);
+        //To Delete User:
+        if(isset($_POST["remove_user"])){
+            //check if User still exists
+            $ds_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_id = ?");
+            $ds_stmt->execute([$_POST["remove_user"]]);
     
             $ds_data = $ds_stmt->fetch(PDO::FETCH_OBJ);
             if($ds_data){ 
                 //then delete
-                $dd_stmt = $pdo->prepare("DELETE FROM products WHERE product_id = ?");
-                $dd_stmt->execute([$_POST["remove_product"]]);
+                $dd_stmt = $pdo->prepare("DELETE FROM customers WHERE customer_id = ?");
+                $dd_stmt->execute([$_POST["remove_user"]]);
 
-                echo "<h4 style='color:red'>Product: ", $ds_data->product_name, " has been deleted successfully</h4>";
+                echo "<h4 style='color:red'>User: ", $ds_data->customer_username, " has been deleted successfully</h4>";
             } else {
-                echo "<h4 style='color:red'>Error: Product not found.</h4>";
+                echo "<h4 style='color:red'>Error: User does not exist.</h4>";
             }
         }
 
@@ -144,7 +109,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         $page_to_call = ($p - 1)*$num_of_rows;
 
         //count entire users:
-        $u_search_stmt = $pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
+        $u_search_stmt = $pdo->prepare("SELECT * FROM customers ORDER BY customer_id DESC LIMIT ?, ?");
         $u_search_stmt->execute([0, 1000]);
 
         $num_of_users = count($u_search_stmt->fetchAll(PDO::FETCH_OBJ));
@@ -157,13 +122,13 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         if(isset($_GET["product"])){
             $search_q = htmlentities($_GET["product"]);
 
-            $u_search_stmt = $pdo->prepare("SELECT * FROM products WHERE product_name LIKE ? ORDER BY product_id DESC LIMIT ?, ?");
+            $u_search_stmt = $pdo->prepare("SELECT * FROM customers WHERE product_name LIKE ? ORDER BY customer_id DESC LIMIT ?, ?");
             $u_search_stmt->execute(["%$search_q%",$page_to_call, $num_of_rows]);
 
             $u_data = $u_search_stmt->fetchAll(PDO::FETCH_OBJ);
         }  else {
             //if no particular person is searched for, call out everyone:
-            $u_stmt = $pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
+            $u_stmt = $pdo->prepare("SELECT * FROM customers ORDER BY customer_id DESC LIMIT ?, ?");
             $u_stmt->execute([$page_to_call, $num_of_rows]);
     
             $u_data = $u_stmt->fetchAll(PDO::FETCH_OBJ);
@@ -178,16 +143,16 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <div class="table_row_div">
                     <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
                     
-                    <div class="table_row"><b><a href="/product/<?=$d->product_url?>"><?=$d->product_name?> </a></b></div>
+                    <div class="table_row" style="width:46%"><b><?=$d->customer_username?> </b></div>
                     
-                    <div class="table_row" style="font-size:fit-content">
-                        <button onclick = "create_content('edit',<?=$i?>)" style="background-color:green"
+                    <div class="table_row" style="width:46%">
+                        <button onclick = "create_content('view',<?=$i?>)" style="background-color:green"
                     class="table_row_ED">
-                            Edit &nbsp; <i class="fa fa-pencil"></i> 
+                            View &nbsp; <i class="fa fa-eye"></i> 
                         </buton>
 
                         <button onclick = "create_content('remove',<?=$i?>)" style="background-color:red" class="table_row_ED">
-                            <i class="fa fa-warning"></i> &nbsp; Remove </buton>
+                            <i class="fa fa-warning"> </i>&nbsp; Remove </buton>
                     </div>
                 </div>
 
@@ -200,39 +165,20 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <!-- style="display:block creates undesirable problems like making the div not to appear even onclick" -->
             </div>
 
-            <!--hidden section 1: Edit -->
-            <div id="edit<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
-
-                <form method="post" action="">
+            <!--hidden section 1: View -->
+            <div id="view<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
                     <!-- -->
-                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="product_name" value="<?=$d->product_name?>"/>
-                    <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
-
-                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="url" value="<?=$d->product_url?>"/>
-                    <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
-
-                    <div class="additional_product_images_div_container">
-                        <div class="additional_product_images_div">
-                            <img src = "/static/images/<?=$d->image1?>" class="additional_product_image"/>
-                        </div>
-                        <div class="additional_product_images_div">
-                            <img class="additional_product_image"/>
-                        </div>
-                        <div class="additional_product_images_div">
-                            <img class="additional_product_image"/>
-                        </div>
+                    <div style="line-height:27px">
+                        <div><b>Name: </b> <?=$d->customer_realname?></div>
+                        <div><b>Username: </b> <?=$d->customer_username?></div>
+                        <div><b>Email: </b> <?=$d->customer_email?></div>
+                        <div><b>Password: </b> <?=$d->password?></div>
+                        <div><b>Joined Bilo on: </b> <?=$d->date_joined?></div>
                     </div>
-
-                    <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
-                    <textarea style="width:90%;height:100px;border-radius:4px" name="product_description"><?=$d->description?> </textarea>
 
                     <div style="margin:12px 0">
-                        <input type="submit" class="edit_product_action_button" style="background-color:green"/>
-                        
-                        <span class="edit_product_action_button" style="background-color:#ff9100" onclick="hide_content_space('edit',<?=$i?>)">Cancel</span>
+                        <span class="edit_product_action_button" style="background-color:#ff9100" onclick="hide_content_space('view',<?=$i?>)">Close &nbsp; <i class="fa fa-ban"></i></span>
                     </div>
-                    <input type="hidden" name="edit_product" value="<?=$d->product_id?>"/>
-                </form>
             </div>
             <!--End of Edit div-->
 
@@ -243,11 +189,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <div id="remove<?=$i?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
 
             <form method="post" action="" id="message_form<?=$i?>" class="pop_up">
-            <span style="text-align:center">Are you sure you want to remove user: <b style="font-size:18px;color:red;border-bottom:2px solid #fff"><?=$d->product_name?>?</b> &nbsp;
+            <span style="text-align:center">Are you sure you want to remove user: <b style="font-size:18px;color:red;border-bottom:2px solid #fff"><?=$d->customer_username?>?</b> &nbsp;
 
             <b>This can't be Undone</b></span><br /><br />
 
-            <input type="hidden"  name="remove_product" value="<?=$d->product_id?>"/>
+            <input type="hidden"  name="remove_user" value="<?=$d->customer_id?>"/>
 
             <input type="submit" value="Remove" style="background-color:red;
                     padding:3px;margin:3px;border-radius:6px;color:#fff;border:none;height:24px;"/> 
