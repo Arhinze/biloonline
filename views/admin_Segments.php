@@ -150,7 +150,7 @@ Class admin_Segments{
         </div>
 
         <div class="below_header_div">
-            <div style="display:flex">
+            <div style="display:flex;width:100%">
                 <div class="numbers">700</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
