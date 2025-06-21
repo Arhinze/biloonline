@@ -410,8 +410,8 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .below_header_div .fa{
-    font-size: 24px;
-    padding:9px 12px;
+    font-size: 21px;
+    padding:7px 10px;
     border-radius: 100%;
     background-color: #fff;
 }
