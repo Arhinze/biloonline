@@ -10,7 +10,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         //that means admin is logged in
         admin_Segments::header();
 ?>
-        <div class="dashboard_div" style="margin:-30px 3% 5% 3%">
+        <div class="dashboard_div" style="margin:-30px 3% 10% 3%">
 
         <h1 style="margin:12px 6px">Products on <?=$site_name?></h2>
 <?php
