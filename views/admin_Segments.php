@@ -82,7 +82,7 @@ Class admin_Segments{
             color:#fff;
             text-align:center;
             border:none;
-            margin-right:0 5px 5px 0;
+            margin-right:0 5px 15px 0;
         }
 
         .admin-pages-input{
