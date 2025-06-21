@@ -140,7 +140,7 @@ Class admin_Segments{
         <label for="menu-box"><div class="grey_area"></div></label>
     </ul>
 
-    <div style="display:flex;margin:50px 3%;justify-content:space-around">
+    <div style="display:flex;margin:50px 1%;justify-content:space-around">
         <div class="below_header_div" style="background-color:#ff9100">
             <div class="numbers_and_fa">
                 <div class="numbers">3000</div>
