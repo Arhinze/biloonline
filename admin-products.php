@@ -183,11 +183,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                 <form method="post" action="">
                     <!-- -->
-                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" style="border-left:45px solid #ff9100;border-radius:4px;height:21px;width:70%;margin-bottom:15px;" name="product_name" value="<?=$d->product_name?>"/>
-                    <span style="position:absolute;left:3px;top:5px;">Name </span></div> 
+                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" style="border-left:50px solid #000;border-radius:4px;height:21px;width:70%;margin-bottom:15px;" name="product_name" value="<?=$d->product_name?>"/>
+                    <span style="position:absolute;left:6px;top:4px;color:#fff">Name </span></div> 
 
-                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" style="border-left:30px solid #ff9100;border-radius:4px;height:21px;width:70%;margin-bottom:15px" name="product_name" value="<?=$d->product_url?>"/>
-                    <span style="position:absolute;left:3px;top:5px">Url </span></div> 
+                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" style="border-left:36px solid #000;border-radius:4px;height:21px;width:70%;margin-bottom:15px" name="product_name" value="<?=$d->product_url?>"/>
+                    <span style="position:absolute;left:6px;top:4px;color:#fff">Url </span></div> 
 
                     <div class="additional_product_images_div_container">
                         <div class="additional_product_images_div">
