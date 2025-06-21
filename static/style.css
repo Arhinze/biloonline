@@ -1293,12 +1293,12 @@ h1, h2, h3, h4, h5, h6{
 
 .table_row_div{
     display:flex;
-    width:100%;
+    width:105%;
     font-weight:bold;
 }
 
 .table_row{
-    width:50%;
+    width:45%;
     padding:1%;
     overflow: hidden;
     text-align: left;
