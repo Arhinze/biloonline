@@ -144,7 +144,7 @@ Class admin_Segments{
         <div class="below_header_div" style="background-color:#ff9100">
             <div style="display:flex">
                 <div class="numbers">3000</div>
-                <div><i class="fa fa-user"></i></div>
+                <div class="font_awe"><i class="fa fa-user"></i></div>
             </div>
             <div>Products</div>
         </div>
