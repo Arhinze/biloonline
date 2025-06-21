@@ -77,12 +77,13 @@ Class admin_Segments{
 
         .table_row_ED{
             padding:6px;
-            font-size:9px;
+            font-size:12px;
             border-radius:6px;
             color:#fff;
             text-align:center;
             border:none;
             margin-right:5px;
+            line-height:6px;
         }
 
         .admin-pages-input{
