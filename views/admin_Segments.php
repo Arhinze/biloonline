@@ -41,9 +41,35 @@ Class admin_Segments{
         
     }    
 
+    public static function site_numbers($query){
+        $num_of_prod_stmt = admin_Segments::$pdo->prepare("SELECT * FROM products LIMIT 0, 1000");
+        $num_of_prod_stmt->execute([]);
+        $num_of_prod_data = $num_of_prod_stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $num_of_users_stmt = admin_Segments::$pdo->prepare("SELECT * FROM customers LIMIT 0, 1000");
+        $num_of_users_stmt->execute([]);
+        $num_of_users_data = $num_of_users_stmt->fetchAll(PDO::FETCH_OBJ);
+
+        $num_of_orders_stmt = admin_Segments::$pdo->prepare("SELECT * FROM orders LIMIT 0, 1000");
+        $num_of_orders_stmt->execute([]);
+        $num_of_orders_data = $num_of_orders_stmt->fetchAll(PDO::FETCH_OBJ);
+
+        if($query == "Products") {
+            return count($num_of_prod_data);
+        } else if($query == "Users") {
+            return count($num_of_users_data);
+        } else if($query == "Orders") {
+            return count($num_of_orders_data);
+        } else {
+            return "0.00*";
+        }
+    }
 
     public static function header($site_name = SITE_NAME_SHORT, $site_url = SITE_URL){
         $main_admin_access = admin_Segments::main_admin_access();
+        $num_of_prod = admin_Segments::site_numbers("Products");
+        $num_of_users = admin_Segments::site_numbers("Users");
+        $num_of_orders = admin_Segments::site_numbers("Orders");
 
         $Hi_admin = "";
 
@@ -164,7 +190,7 @@ Class admin_Segments{
     <div style="display:flex;margin:50px 1%;justify-content:space-around;width:80%">
         <div class="below_header_div" style="background-color:#ff9100">
             <div class="numbers_and_fa">
-                <div class="numbers">3000</div>
+                <div class="numbers">$num_of_prod</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
             <div>Products</div>
@@ -172,7 +198,7 @@ Class admin_Segments{
 
         <div class="below_header_div">
             <div class="numbers_and_fa">
-                <div class="numbers">700</div>
+                <div class="numbers">$num_of_users</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
             <div>Registered Users</div>
@@ -180,7 +206,7 @@ Class admin_Segments{
 
         <div class="below_header_div" style="background-color:#f3d111">
             <div class="numbers_and_fa">
-                <div class="numbers">33</div>
+                <div class="numbers">$num_of_orders</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
             <div>Pending Orders</div>
