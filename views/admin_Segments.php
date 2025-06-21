@@ -83,7 +83,7 @@ Class admin_Segments{
             text-align:center;
             border:none;
             margin-right:5px;
-            line-height:6px;
+            line-height:9px;
         }
 
         .admin-pages-input{
