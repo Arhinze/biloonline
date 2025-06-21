@@ -1293,7 +1293,7 @@ h1, h2, h3, h4, h5, h6{
 
 .table_row_div{
     display:flex;
-    width:120%;
+    width:100%;
     font-weight:bold;
 }
 
