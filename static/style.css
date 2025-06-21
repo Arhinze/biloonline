@@ -1077,10 +1077,10 @@ h1, h2, h3, h4, h5, h6{
 
 .input {
     width:90%;
-    height:33px;
-    margin-top:6px;
+    height:18px;
+    padding:6px;
     background-color:#fff;
-    font-size:18px;
+    font-size:15px;
     color:var(--site_color_alt);
     border:1px solid var(--site_color_alt);
     border-radius: 6px;
@@ -1250,7 +1250,7 @@ h1, h2, h3, h4, h5, h6{
 .calculator{
     border-radius:6px;
     box-shadow:0px 0px 9px 0px var(--site_color_alt);
-    padding:5px 0px 16px 8px;
+    padding:18px;
     margin:6% 3%;
 }
 

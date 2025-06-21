@@ -18,7 +18,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 ?>
         <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter Product Name: try: abc" style="border:1px solid #000;width:75%"/> 
         
-        <i class="fa fa-search" onclick ="search_icon()" style="padding:12px;border-radius:4px;font-size:16px;color:#fff;background-color:#000"></i>
+        <i class="fa fa-search" onclick ="search_icon()" style="padding:9px;border-radius:4px;font-size:16px;color:#fff;background-color:#000"></i>
 
         <div id="search" style="position:absolute;width:75%"></div>
         
@@ -31,73 +31,40 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <div class="table_row">Edit / Delete</div>
             </div>
 <?php
-        //To Delete User:
-        if(isset($_POST["remove_user"])){
-            //check if user still exists
+        //To Edit Product:
+        if(isset($_POST["edit_product"])){
+            //check if product still exists
+            $edit_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
+            $edit_stmt->execute([$_POST["edit_product"]]);
+    
+            $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
+            if($edit_data){ 
+                //then edit:
+                $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ? WHERE product_id = ?");
+
+                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product"]]);
+
+                echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
+            }
+        }
+
+        //To Delete Product:
+        if(isset($_POST["remove_product"])){
+            //check if product still exists
             $ds_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
-            $ds_stmt->execute([$_POST["remove_user"]]);
+            $ds_stmt->execute([$_POST["remove_product"]]);
     
             $ds_data = $ds_stmt->fetch(PDO::FETCH_OBJ);
             if($ds_data){ 
                 //then delete
                 $dd_stmt = $pdo->prepare("DELETE FROM products WHERE product_id = ?");
-                $dd_stmt->execute([$_POST["remove_user"]]);
+                $dd_stmt->execute([$_POST["remove_product"]]);
 
-                echo "<h4 style='color:red'>User: ", $ds_data->product_name, " has been deleted successfully</h4>";
+                echo "<h4 style='color:red'>Product: ", $ds_data->product_name, " has been deleted successfully</h4>";
             }
         }
 
-        //Mail Investor:
-
-        if(isset($_POST["message_to_investor"]) && !empty($_POST["message_to_investor"])){
-
-            $messageFromAdmin = nl2br(htmlentities($_POST["message_to_investor"]));
-
-            $message = <<<HTML
-                <html>
-                <head>
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong|Arimo"/>
-                            <link rel="stylesheet" href="https://$site_url_short/static/font-awesome-4.7.0/css/font-awesome.min.css"/>
-            
-                </head>
-                <body style ="font-family:Trirong;">
-                    <center>
-                        <img src="https://$site_url_short/static/images/aguanit.png" style="margin-left:36%;margin-right:36%;width:25%;"/>
-                    </center>
-                    <h2 style="color:#00008b;font-family:Arimo;text-align:center">$site_name Investment</h2>
-        
-            HTML;
-
-            $sender = "admin@$site_url_short";
-
-            $headers = "From: $sender \r\n";
-            $headers .="Reply-To: $sender \r\n";
-            $headers .= "MIME-Version: 1.0\r\n";
-            $headers .= "Content-type:text/html; charset=UTF-8\r\n";
-
-            $mail = mail($_POST["investor_mail"],"Message From $site_name Investment",$message.$messageFromAdmin."</body></html>", $headers);
-
-            if($mail){
-            ?>
-
-                <div id="message_success" style="background-color:#ff9100;color:#fff;
-                border-radius:3px;padding:4px;margin:8px 8px;display:block;position:fixed;top:40%;width:80%;
-                box-shadow:0px 0px 9px 0px #fff">
-                    
-                    <div class="clear">
-                        <span class="float:right"><b>A Mail has been sent to the investor </b></span>
-                        &nbsp;&nbsp;&nbsp;
-
-                        <i class="fa fa-times" style="float:right" onclick="show_div('message_success')"></i>
-                    </div>
-                </div>
-
-            <?php
-            } else {
-                echo "Sorry, an error occurred, Mail not sent";
-            }
-
-        }
+        //Mail Customer:
 
 
         //Select and view all users for easy decision making:
@@ -125,7 +92,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         // -- end of pagination algorithm --
 
         
-        //first check if admin searched for someone in particular
+        //first check if admin searched for a product in particular
         if(isset($_GET["product"])){
             $search_q = htmlentities($_GET["product"]);
 
@@ -163,31 +130,29 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         </buton>
 
                         <button onclick = "create_content('remove',<?=$i?>)" style="background-color:red" class="table_row_ED">
-                            <i class="fa fa-warning"></i> Remove 
-                        </buton>
+                            <i class="fa fa-warning"></i>Remove </buton>
                     </div>
-
                 </div>
 
 
             <div class="clear">
-            <div style="margin-top:18px;">
+            <div style="margin-top:12px;">
 
             <!-- To make all hidden div content to appear in the same spot on display: -->
             <div id="content_space<?=$i?>" class="calculator" style="display:none"> 
-            <!-- style="display:block creates undesirable problems like making the div not to appear even onclick" -->
+                <!-- style="display:block creates undesirable problems like making the div not to appear even onclick" -->
             </div>
 
             <!--hidden section 1: Edit -->
-            <div id="edit<?=$i?>" style="display:block;border:2px solid #888;border-radius:6px;margin-top:12px;padding:4px;">
+            <div id="edit<?=$i?>" style="display:block;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
 
                 <form method="post" action="">
                     <!-- -->
-                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" style="border-left:50px solid #000;border-radius:4px;height:21px;width:70%;margin-bottom:15px;" name="product_name" value="<?=$d->product_name?>"/>
-                    <span style="position:absolute;left:6px;top:4px;color:#fff">Name </span></div> 
+                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="product_name" value="<?=$d->product_name?>"/>
+                    <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
 
-                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" style="border-left:36px solid #000;border-radius:4px;height:21px;width:70%;margin-bottom:15px" name="product_name" value="<?=$d->product_url?>"/>
-                    <span style="position:absolute;left:6px;top:4px;color:#fff">Url </span></div> 
+                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="url" value="<?=$d->product_url?>"/>
+                    <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
 
                     <div class="additional_product_images_div_container">
                         <div class="additional_product_images_div">
@@ -203,6 +168,13 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <div><b>Product Description:</b></div>
                     <textarea style="width:75%;height:100px;border-radius:4px" name="product_description"><?=$d->description?> </textarea>
+
+                    <div style="margin:12px 0">
+                        <input type="submit" class="edit_product_action_button" style="background-color:green"/>
+                        
+                        <span class="edit_product_action_button" style="background-color:#ff9100" onclick="hide_content_space('edit',<?=$i?>)">Cancel</span>
+                    </div>
+                    <input type="hidden" name="edit_product" value="<?=$d->product_id?>"/>
                 </form>
             </div>
             <!--End of Edit div-->
@@ -218,7 +190,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
             <b>This can't be Undone</b></span><br /><br />
 
-            <input type="hidden"  name="remove_user" value="<?=$d->product_id?>"/>
+            <input type="hidden"  name="remove_product" value="<?=$d->product_id?>"/>
 
             <input type="submit" value="Remove" style="background-color:red;
                     padding:3px;margin:3px;border-radius:6px;color:#fff;border:none;height:24px;"/> 

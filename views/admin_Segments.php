@@ -85,6 +85,23 @@ Class admin_Segments{
             margin:0 5px 5px 0;
         }
 
+        .edit_product_action_button {
+            padding:9px 12px;
+            border-radius:9px;
+            margin-right:9px;
+            color:#fff;
+            font-weight:bold
+        }
+
+        .edit_product_input {
+            border-left:50px solid #000;
+            border-radius:4px;
+            height:18px;
+            width:80%;
+            margin-bottom:15px;
+            padding:6px;
+        }
+
         .admin-pages-input{
             border-radius:6px;
             border:1px solid #888;
