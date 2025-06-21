@@ -68,8 +68,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         <div style="margin-top:12px">    <!-- 'main' div starts -->
             <div class="table_row_div" style="margin-bottom:18px">
                 <div class="table_row" style="width:8%">#</div>
-                <div class="table_row" style="width:46%">Username</div>
-                <div class="table_row" style="width:46%">View / Delete</div>
+                <div class="table_row">Username</div>
+                <div class="table_row">View / Delete</div>
             </div>
 <?php
         //To Delete User:
@@ -143,9 +143,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <div class="table_row_div">
                     <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
                     
-                    <div class="table_row" style="width:46%"><b><?=$d->customer_username?> </b></div>
+                    <div class="table_row"><b><?=$d->customer_username?> </b></div>
                     
-                    <div class="table_row" style="width:46%">
+                    <div class="table_row">
                         <button onclick = "create_content('view',<?=$i?>)" style="background-color:green"
                     class="table_row_ED">
                             View &nbsp; <i class="fa fa-eye"></i> 
