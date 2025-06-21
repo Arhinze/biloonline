@@ -140,7 +140,7 @@ Class admin_Segments{
         <label for="menu-box"><div class="grey_area"></div></label>
     </ul>
 
-    <div style="display:flex;margin:50px 3%">
+    <div style="display:flex;margin:50px 3%;width:100%">
         <div class="below_header_div" style="background-color:#ff9100">
             <div style="display:flex">
                 <div class="numbers">3000</div>
