@@ -142,7 +142,7 @@ Class admin_Segments{
 
     <div style="display:flex;margin:50px 3%;width:75%">
         <div class="below_header_div" style="background-color:#ff9100">
-            <div style="display:flex">
+            <div class="numbers_and_fa">
                 <div class="numbers">3000</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
@@ -150,7 +150,7 @@ Class admin_Segments{
         </div>
 
         <div class="below_header_div">
-            <div style="display:flex;width:100%">
+            <div class="numbers_and_fa">
                 <div class="numbers">700</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
@@ -158,7 +158,7 @@ Class admin_Segments{
         </div>
 
         <div class="below_header_div" style="background-color:#f3d111">
-            <div style="display:flex">
+            <div class="numbers_and_fa">
                 <div class="numbers">33</div>
                 <div><i class="fa fa-user"></i></div>
             </div>

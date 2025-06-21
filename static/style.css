@@ -398,6 +398,11 @@ h1, h2, h3, h4, h5, h6{
     padding:15px;
 }
 
+.below_header_div .numbers_and_fa {
+    display:flex;
+    width:90%;
+}
+
 .below_header_div .numbers {
     font-size: 21px;
     font-weight: bold;
