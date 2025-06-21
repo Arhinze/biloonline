@@ -157,7 +157,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     </div>
                     
                     <div class="table_row" style="font-size:fit-content">
-                        <button onclick = "create_content('remove',<?=$i?>)" style="background-color:green"
+                        <button onclick = "create_content('edit',<?=$i?>)" style="background-color:green"
                     class="table_row_ED">
                             Edit &nbsp; <i class="fa fa-pencil"></i> 
                         </buton>
@@ -178,63 +178,38 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <!-- style="display:block creates undesirable problems like making the div not to appear even onclick" -->
             </div>
 
-            <!--hidden section 1: View User Details: -->
-            <div id="user_details<?=$i?>" style="display:none;border:2px solid blue;border-radius:6px;margin-top:12px;padding:4px;">
-                <?php
-                    $ud_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ? ORDER BY product_id DESC LIMIT ?, ?");
-                    $ud_stmt->execute([$d->product_id, 0, 100]);
-                    $ud_data = $ud_stmt->fetch(PDO::FETCH_OBJ);
-
-                    if($ud_data){  
-                ?>
-                        <div class="admin_user_details"><b>Product Name: </b><br /><?=$ud_data->product_name?></div>
-                <?php
-                    }
-                ?>
-            </div>
-            <!--End of transaction div-->
-
-
-
-            <!--hidden section 2: Referred By?-->
-            <div id="referred-by<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;padding:4px;">
-                
-                <?php
-                    if(!empty($d->referred_by)){
-                        echo "Referred By: <b>", $d->referred_by, "</b>";
-                    } else {
-                        echo "Not referred";
-                    }
-                ?>
-
-            </div>
-            <!--End of referred by div-->
-
-
-            <!--hidden section 3: Message-->
-            <div id="message<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;
-                padding:4px;">
+            <!--hidden section 1: Edit -->
+            <div id="edit<?=$i?>" style="display:block;border:2px solid #888;border-radius:6px;margin-top:12px;padding:4px;">
 
                 <form method="post" action="">
-                <!-- -->
-                <span style="position:absolute;left:48px;">To:</span> 
-                
-                <input type="text" id="investor_mail<?=$i?>" style=
-                "border-left:30px solid #ff9100;border-right:30px solid #ff9100;border-radius:4px;
-                height:21px;width:70%;margin-bottom:15px"
-                name="investor_mail"/>
+                    <!-- -->
+                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" style="border-left:45px solid #ff9100;border-radius:4px;height:21px;width:70%;margin-bottom:15px;" name="product_name" value="<?=$d->product_name?>"/>
+                    <span style="position:absolute;left:3px;top:5px;">Name </span></div> 
 
-                <textarea style="width:75%;height:100px;
-                border-radius:4px" name="message_to_investor">Hello <?=$d->real_name?>, </textarea>
+                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" style="border-left:30px solid #ff9100;border-radius:4px;height:21px;width:70%;margin-bottom:15px" name="product_name" value="<?=$d->product_url?>"/>
+                    <span style="position:absolute;left:3px;top:5px">Url </span></div> 
 
+                    <div class="additional_product_images_div_container">
+                        <div class="additional_product_images_div">
+                            <img src = "/static/images/<?=$d->image1?>" class="additional_product_image"/>
+                        </div>
+                        <div class="additional_product_images_div">
+                            <img class="additional_product_image"/>
+                        </div>
+                        <div class="additional_product_images_div">
+                            <img class="additional_product_image"/>
+                        </div>
+                    </div>
 
+                    <div><b>Product Description:</b></div>
+                    <textarea style="width:75%;height:100px;border-radius:4px" name="product_description"><?=$d->description?> </textarea>
                 </form>
             </div>
-            <!--End of message div-->
+            <!--End of Edit div-->
 
 
 
-            <!-- hidden section 4: Remove User -->
+            <!-- hidden section 2: Remove Product -->
             
             <div id="remove<?=$i?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
 
@@ -248,7 +223,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <input type="submit" value="Remove" style="background-color:red;
                     padding:3px;margin:3px;border-radius:6px;color:#fff;border:none;height:24px;"/> 
 
-            <!--Cancel "Remove User" (Don't remove):-->
+            <!--Cancel "Remove Product" (Don't remove):-->
             <!--onclick = "show_div('remove <= $i >')"-->
             <span onclick="hide_content_space('remove',<?=$i?>)" style="background-color:#ff9100;
                     padding:3px;border-radius:6px;color:#fff;
