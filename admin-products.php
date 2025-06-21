@@ -274,7 +274,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         <div class="clear" style="font-weight:bold;font-size:18px; margin-bottom:12px">
             <?php if($p > 1) { ?> 
                 <div style="float:left">
-                   <b>
+                    <b>
                        <a href="?page=<?=$p-1?>" style="color:#000"><i class="fa fa-angle-left"> &nbsp; Previous</i></a>
                     </b>
                 </div> 
