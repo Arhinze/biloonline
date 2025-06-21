@@ -75,15 +75,14 @@ Class admin_Segments{
             border:none;
         }
 
-        .show_hidden_divs_button{
-            background-color:#888;
+        .table_row_ED{
             padding:6px;
-            font-size:18px;
+            font-size:9px;
             border-radius:6px;
             color:#fff;
-            margin:12px 6px 0 0;
             text-align:center;
             border:none;
+            margin-right:5px;
         }
 
         .admin-pages-input{
@@ -110,7 +109,7 @@ Class admin_Segments{
 
 </head>
 <body>
-    <div class="headers" style="position:relative;height:36px;width:100%;"> 
+    <div class="headers" style="height:36px;width:100%;"> 
         <div style="display:flex;justify-content:center;position:absolute;top:10px;left:15px">
             <div class="menu-icon" style="font-size:21px"><label for = "menu-box"><i class="fa fa-bars"></i></label></div>
 
@@ -127,7 +126,7 @@ Class admin_Segments{
     <input type="checkbox" id="menu-box" class="menu-box" style="display:none"/>
     
     <ul class="menu_list"> 
-        <li><i class="fa fa-home"></i> <a href="/admin">Home</a></li>
+        <li><i class="fa fa-home"></i> <a href="/admin-products">Products</a></li>
 
         <li><i class="fa fa-users"></i> <a href="/site-users">Users</a></li>
         <li><i class="fa fa-bolt"></i> <a href="/airdrop-participants">Airdrop participants</a></li>
@@ -140,6 +139,32 @@ Class admin_Segments{
         
         <label for="menu-box"><div class="grey_area"></div></label>
     </ul>
+
+    <div style="display:flex;margin:50px 3%">
+        <div class="below_header_div" style="background-color:#ff9100">
+            <div style="display:flex">
+                <div class="numbers">3000</div>
+                <div><i class="fa fa-user"></i></div>
+            </div>
+            <div>Products</div>
+        </div>
+
+        <div class="below_header_div">
+            <div style="display:flex">
+                <div class="numbers">700</div>
+                <div><i class="fa fa-user"></i></div>
+            </div>
+            <div>Registered Users</div>
+        </div>
+
+        <div class="below_header_div" style="background-color:#f3d111">
+            <div style="display:flex">
+                <div class="numbers">33</div>
+                <div><i class="fa fa-user"></i></div>
+            </div>
+            <div>Pending Orders</div>
+        </div>
+    </div>
 HTML;
 }
 

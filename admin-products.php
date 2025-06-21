@@ -10,30 +10,26 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         //that means admin is logged in
         admin_Segments::header();
 ?>
-        <div class="main_body">
+        <div class="dashboard_div" style="margin:0 3%">
 
-        <h1 style="margin:24px 6px">Products on <?=$site_name?></h2>
-
-        <!-- "refresh" class -->
-        <a href = '' style='color:#fff;font-size:19px;margin:0 3px 0 6px;padding:6px 9px;background-color:<?=$site_color_light?>;border-radius:5px' class="refresh">
-        
-            <i class='fa fa-refresh'></i>
-            <span style="font-size:18px; font-weight:bold">&nbsp; Refresh</span>
-
-        </a> 
-        <!-- End of "refresh" class -->
-
-        <br /><br /> 
+        <h1 style="margin:12px 6px">Products on <?=$site_name?></h2>
 <?php
         //check if admin is searching for someone:
 ?>
-        <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter Product Name: try: abc" style="border:1px solid <?=$site_color_light?>;width:75%"/> 
+        <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter Product Name: try: abc" style="border:1px solid #000;width:75%"/> 
         
-        <i class="fa fa-search" onclick ="search_icon()" style="padding:12px;border-radius:4px;font-size:16px;color:#fff;background-color:<?=$site_color_light?>"></i>
+        <i class="fa fa-search" onclick ="search_icon()" style="padding:12px;border-radius:4px;font-size:16px;color:#fff;background-color:#000"></i>
 
         <div id="search" style="position:absolute;width:75%"></div>
         
-        <div class='main'>    <!-- 'main' div starts -->
+        <div style="margin-top:12px">    <!-- 'main' div starts -->
+            <div class="table_row_div" style="margin-bottom:18px">
+                <div class="table_row" style="width:7%">#</div>
+                <div class="table_row">Name</div>
+                <div class="table_row">View Online <i class="fa fa-cog"></i></div>
+                <!--<div class="table_row">Status</div>-->
+                <div class="table_row">Edit / Delete</div>
+            </div>
 <?php
         //To Delete User:
         if(isset($_POST["remove_user"])){
@@ -130,8 +126,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
         
         //first check if admin searched for someone in particular
-        if(isset($_GET["user"])){
-            $search_q = htmlentities($_GET["user"]);
+        if(isset($_GET["product"])){
+            $search_q = htmlentities($_GET["product"]);
 
             $u_search_stmt = $pdo->prepare("SELECT * FROM products WHERE product_name LIKE ? ORDER BY product_id DESC LIMIT ?, ?");
             $u_search_stmt->execute(["%$search_q%",$page_to_call, $num_of_rows]);
@@ -150,37 +146,35 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             foreach($u_data as $d){
                 $i += 1;
 ?>
-        <div class="everything-both-buttons-nd-hidden-divs" style='line-height:30px'> 
-                <div class="visible_buttons">
-                    <?=$i + (($p - 1)*$num_of_rows)?>. &nbsp;<b style='font-size:21px'> <?=$d->product_name?> </b> <br />
-
-                    <button onclick = "create_content('user_details',<?=$i?>)" style="background-color:blue" 
-                    class="show_hidden_divs_button">
-                        <i class="fa fa-user"></i> User Details
-                    </buton>
-
-                    <button onclick = "create_content('referred-by',<?=$i?>)" style="background-color:#888"
-                    class="show_hidden_divs_button">
-                        <i class="fa fa-eye"></i> Referred By? 
-                    </buton>
-
-                    <button onclick = "create_content('message',<?=$i?>)" style="background-color:#ff9100"
-                    class="show_hidden_divs_button">
-                        <i class="fa fa-envelope"></i> Message
-                    </buton>
+        <div class="everything-both-buttons-nd-hidden-divs"> 
+                <div class="table_row_div">
+                    <div class="table_row" style="width:7%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
                     
-                    <button onclick = "create_content('remove',<?=$i?>)" style="background-color:red"
-                    class="show_hidden_divs_button">
-                        <i class="fa fa-warning"></i> Remove 
-                    </buton>
+                    <div class="table_row"><b><?=$d->product_name?> </b></div>
+
+                    <div class="table_row">
+                        <a href="/product/<?=$d->product_url?>"><?=$d->product_url?> &nbsp; <i class="fa fa-angle-double-right"></i></a> 
+                    </div>
+                    
+                    <div class="table_row" style="font-size:fit-content">
+                        <button onclick = "create_content('remove',<?=$i?>)" style="background-color:green"
+                    class="table_row_ED">
+                            Edit &nbsp; <i class="fa fa-pencil"></i> 
+                        </buton>
+
+                        <button onclick = "create_content('remove',<?=$i?>)" style="background-color:red" class="table_row_ED">
+                            <i class="fa fa-warning"></i> Remove 
+                        </buton>
+                    </div>
+
                 </div>
 
 
             <div class="clear">
-            <div style="margin-top:18px;" class="all-hidden-divs">
+            <div style="margin-top:18px;">
 
             <!-- To make all hidden div content to appear in the same spot on display: -->
-            <div id="content_space<?=$i?>" class="calculator" style=""> 
+            <div id="content_space<?=$i?>" class="calculator" style="display:none"> 
             <!-- style="display:block creates undesirable problems like making the div not to appear even onclick" -->
             </div>
 
@@ -228,22 +222,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <input type="text" id="investor_mail<?=$i?>" style=
                 "border-left:30px solid #ff9100;border-right:30px solid #ff9100;border-radius:4px;
                 height:21px;width:70%;margin-bottom:15px"
-                <?php if(!empty($d->user_email)){ ?> value="<?=$d->user_email?>" <?php } ?> 
                 name="investor_mail"/>
-
-                <i style="margin-left:-27px" class="fa fa-copy" onclick="copyText('investor_mail<?=$i?>')"></i>
 
                 <textarea style="width:75%;height:100px;
                 border-radius:4px" name="message_to_investor">Hello <?=$d->real_name?>, </textarea>
 
-                <div class="clear">
-                    <div style="float:left">
-                        <input type="submit" class="admin_invest_now_button" value="Send Mail"/>
-                        <span class="admin_invest_now_button" onclick="hide_content_space('message',<?=$i?>)"; style="
-                        background-color:red">
-                        Cancel</span> 
-                    </div>
-                </div>
 
                 </form>
             </div>
@@ -288,11 +271,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 ?>
 
         <!--Paginator-->
-        <div class="clear" style="font-weight:bold;font-size:18px">
+        <div class="clear" style="font-weight:bold;font-size:18px; margin-bottom:12px">
             <?php if($p > 1) { ?> 
                 <div style="float:left">
                    <b>
-                       <a href="?page=<?=$p-1?>" style="color:#fff"><i class="fa fa-angle-left">&nbsp; Previous</i></a>
+                       <a href="?page=<?=$p-1?>" style="color:#000"><i class="fa fa-angle-left"> &nbsp; Previous</i></a>
                     </b>
                 </div> 
             <?php } ?>
@@ -300,7 +283,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <?php if($p < $max) { ?> 
                 <div style="float:right">
                     <b>
-                        <a href="?page=<?=$p+1?>" style="color:#fff">Next &nbsp;<i class="fa fa-angle-right"></i></a>
+                        <a href="?page=<?=$p+1?>" style="color:#000">Next &nbsp;<i class="fa fa-angle-right"></i></a>
                     </b>
                 </div> 
             <?php } ?>
