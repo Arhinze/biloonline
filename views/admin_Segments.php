@@ -269,23 +269,31 @@ public static function footer($site_name = SITE_NAME, $site_url = SITE_URL){
         obj.send(null);
     }
 
-        function search_icon(){
-            location = "/site-users/" + document.getElementById("search_input").value;
+    function search_icon(){
+        location = "/site-users/" + document.getElementById("search_input").value;
+    }
+
+    var loadFile = function(event, img_id_num) { //function to make pictures visible to user before upload to server
+        var img_id = document.getElementById(img_id_num);
+        img_id.src = URL.createObjectURL(event.target.files[0]);
+        img_id.onload = function(){
+            URL.revokeObjectURL(img_id.src);
         }
+    }
 </script>
 <!--site-users page scripts ends -->
 
     <script>
         function copyText(linkText){
-        x = document.getElementById(linkText);
-
-        x.select();
-        x.setSelectionRange(0, 99999);
-
-        //navigator.clipboard.writeText(x.value);
-        document.execCommand('copy');
-        alert("copied text: " + x.value);
-    }
+            x = document.getElementById(linkText);
+    
+            x.select();
+            x.setSelectionRange(0, 99999);
+    
+            //navigator.clipboard.writeText(x.value);
+            document.execCommand('copy');
+            alert("copied text: " + x.value);
+        }
     </script>
 </body>
 </html>

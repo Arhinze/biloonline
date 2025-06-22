@@ -36,7 +36,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         <div>
             <div onclick="show_div('new_product1')" style="background-color:green;color:#fff;font-weight:bold;padding:9px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Add New Product</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
 
-            <div id="new_product1" style="display:none;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000">
+            <div id="new_product1" style="display:block;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000">
                 <form method="post" action="">
                     <!-- -->
                     <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="new_product_name" placeholder="Enter Product Name"/>
@@ -45,18 +45,25 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="new_url" placeholder="Enter Product URL"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
                     <span>Only letters, numbers and hyphen (-) allowed.</span>
+
+                    <!-- Add Image Starts -->
                     <div style="font-size:18px;font-weight:bold;margin:15px 0 9px 0">Add Images: </div>
                     <div class="additional_product_images_div_container">
                         <div class="additional_product_images_div">
-                            <img src = "/static/images/<?=$d->image1?>" class="additional_product_image"/>
+                            <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
                         </div>
                         <div class="additional_product_images_div">
-                            <img class="additional_product_image"/>
+                            <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon2.png" id="img2" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
                         </div>
                         <div class="additional_product_images_div">
-                            <img class="additional_product_image"/>
+                            <label for="img_file_upload_tag3"><img src="/static/images/add_image_icon.png" id="img3" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
                         </div>
                     </div>
+
+                    <input type="file" name="img1" id="img_file_upload_tag1" accept="image/*" style="display:none" onchange="loadFile(event, 'img1')"/>
+                    <input type="file" name="img1" id="img_file_upload_tag2" accept="image/*" style="display:none" onchange="loadFile(event, 'img2')"/>
+                    <input type="file" name="img1" id="img_file_upload_tag3" accept="image/*" style="display:none" onchange="loadFile(event, 'img3')"/>
+                    <!-- Add Image Ends -->
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
                     <textarea style="width:75%;height:100px;border-radius:4px" name="new_product_description" placeholder="sell this product in a maximum of 50 words."></textarea>
