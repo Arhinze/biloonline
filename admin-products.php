@@ -294,7 +294,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         foreach($images_array as $images_ad) {
 ?>
                             <div class="additional_product_images_div"><!-- img1 to img10 -->
-                                <label for="edit_<?=$images_ad?>_file_upload_tag"><img src="/static/images/<?=$d->image2?>" id="edit_<?=$images_ad?>" class="additional_product_image"/><span class="additional_product_image_number"><?=str_replace("image", "", $images_ad)?></span></label>
+                                <label for="edit_<?=$images_ad?>_file_upload_tag"><img src="/static/images/<?=$d->$images_ad?>" id="edit_<?=$images_ad?>" class="additional_product_image"/><span class="additional_product_image_number"><?=str_replace("image","",$images_ad)?></span></label>
                             </div>
 <?php
                         }
