@@ -178,92 +178,6 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
 
 <?php
-        //To Edit Product:
-        if(isset($_POST["edit_product_id"])){
-            //check if product still exists
-            $edit_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
-            $edit_stmt->execute([$_POST["edit_product_id"]]);
-    
-            $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
-            if($edit_data){ 
-                //then edit:
-                $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ? WHERE product_id = ?");
-                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product_id"]]);
-
-                echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
-
-                //Edit(Update) images:
-                foreach($images_array as $images_ad) { //foreach loop - [images_array] starts
-                    if(!empty($_FILES["edit_".$images_ad]["name"])){ //if (!empty($_FILES["add_".$images_ad])) starts
-                        /* Image Upload Script starts */
-                        $target_dir = "static/images/";
-                        $target_file = $target_dir.basename($_FILES["edit_".$images_ad]["name"]);
-                        $uploadOk = 1;
-                        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        
-                        //Check if image file is a actual image or fake image
-                        $check_img = getimagesize($_FILES["edit_".$images_ad]["tmp_name"]);
-                        if ($check_img !== false) {
-                            echo "image security test passed - ".$check_img["mime"].".";
-                            $uploadOk = 1;
-                        } else {
-                            echo "image security test failed - file is not an image";
-                            $uploadOk = 0;
-                        }
-                        if(file_exists($target_file)) {
-                            echo "Sorry, file already exists";
-                            $uploadOk = 0;
-                        }
-        
-                        //Allow certain file formats:
-                        if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif" ) {
-                            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                            $uploadOk = 0;
-                        }
-        
-                        //Checking if any $uploadOk = 0 by an error:
-                        if ($uploadOk == 0) {
-                            echo "Sorry, your file was not uploaded.";
-                        //if everything is ok, edit(update) file
-                        } else {
-                            if (move_uploaded_file($_FILES["edit_".$images_ad]["tmp_name"], $target_file)) {
-                                echo "The file ". htmlspecialchars( basename($_FILES["edit".$images_ad]["name"])). " has been uploaded.";
-                                //insert(update) product image(s)
-        
-                                $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
-                                $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["new_url"]]);
-         
-                            } else {
-                              echo "Sorry, there was an error uploading your file.";
-                            }
-                        }
-                        /* Image Upload Script ends */
-                    }//if(!empty($_FILE["edit_".$images_ad])) ends
-                }//foreach loop - looping around array to upload multiple product images at once ends
-            }
-        }
-
-        //To Delete Product:
-        if(isset($_POST["remove_product"])){
-            //check if product still exists
-            $ds_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
-            $ds_stmt->execute([$_POST["remove_product"]]);
-    
-            $ds_data = $ds_stmt->fetch(PDO::FETCH_OBJ);
-            if($ds_data){ 
-                //then delete
-                $dd_stmt = $pdo->prepare("DELETE FROM products WHERE product_id = ?");
-                $dd_stmt->execute([$_POST["remove_product"]]);
-
-                echo "<h4 style='color:red'>Product: ", $ds_data->product_name, " has been deleted successfully</h4>";
-            } else {
-                echo "<h4 style='color:red'>Error: Product not found.</h4>";
-            }
-        }
-
-        //Mail Customer:
-
-
         //Select and view all users for easy decision making:
 
         //A Simple Pagination Algorithm:
@@ -307,7 +221,91 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             $i = 0;
             foreach($u_data as $d){
                 $i += 1;
+
+                //To Edit Product:
+                if(isset($_POST["edit_product_id"])){
+                    //check if product still exists
+                    $edit_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
+                    $edit_stmt->execute([$_POST["edit_product_id"]]);
+            
+                    $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
+                    if($edit_data){ 
+                        //then edit:
+                        $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ? WHERE product_id = ?");
+                        $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product_id"]]);
+        
+                        echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
+        
+                        //Edit(Update) images:
+                        foreach($images_array as $images_ad) { //foreach loop - [images_array] starts
+                            if(!empty($_FILES["edit_".$d->product_id."_".$images_ad]["name"])){ //if (!empty($_FILES["add_".$images_ad])) starts
+                                /* Image Upload Script starts */
+                                $target_dir = "static/images/";
+                                $target_file = $target_dir.basename($_FILES["edit_".$images_ad]["name"]);
+                                $uploadOk = 1;
+                                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                
+                                //Check if image file is a actual image or fake image
+                                $check_img = getimagesize($_FILES["edit_".$images_ad]["tmp_name"]);
+                                if ($check_img !== false) {
+                                    echo "image security test passed - ".$check_img["mime"].".";
+                                    $uploadOk = 1;
+                                } else {
+                                    echo "image security test failed - file is not an image";
+                                    $uploadOk = 0;
+                                }
+                                if(file_exists($target_file)) {
+                                    echo "Sorry, file already exists";
+                                    $uploadOk = 0;
+                                }
+                
+                                //Allow certain file formats:
+                                if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif" ) {
+                                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                                    $uploadOk = 0;
+                                }
+                
+                                //Checking if any $uploadOk = 0 by an error:
+                                if ($uploadOk == 0) {
+                                    echo "Sorry, your file was not uploaded.";
+                                //if everything is ok, edit(update) file
+                                } else {
+                                    if (move_uploaded_file($_FILES["edit_".$images_ad]["tmp_name"], $target_file)) {
+                                        echo "The file ". htmlspecialchars( basename($_FILES["edit".$images_ad]["name"])). " has been uploaded.";
+                                        //insert(update) product image(s)
+                
+                                        $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
+                                        $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["new_url"]]);
+                 
+                                    } else {
+                                      echo "Sorry, there was an error uploading your file.";
+                                    }
+                                }
+                                /* Image Upload Script ends */
+                            }//if(!empty($_FILE["edit_".$images_ad])) ends
+                        }//foreach loop - looping around array to upload multiple product images at once ends
+                    }
+                }
+        
+                //To Delete Product:
+                if(isset($_POST["remove_product"])){
+                    //check if product still exists
+                    $ds_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
+                    $ds_stmt->execute([$_POST["remove_product"]]);
+            
+                    $ds_data = $ds_stmt->fetch(PDO::FETCH_OBJ);
+                    if($ds_data){ 
+                        //then delete
+                        $dd_stmt = $pdo->prepare("DELETE FROM products WHERE product_id = ?");
+                        $dd_stmt->execute([$_POST["remove_product"]]);
+        
+                        echo "<h4 style='color:red'>Product: ", $ds_data->product_name, " has been deleted successfully</h4>";
+                    } else {
+                        echo "<h4 style='color:red'>Error: Product not found.</h4>";
+                    }
+                }
 ?>
+
         <div class="everything-both-buttons-nd-hidden-divs"> 
             <div class="table_row_div">
                 <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
@@ -372,7 +370,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 <?php
                 foreach($images_array as $images_ad) {
 ?>
-                    <input type="file" name="edit_<?=$images_ad?>" id="edit_<?=$images_ad?>_<?=$d->product_id?>_file_upload_tag" accept="image/*" style="display:none" onchange="loadFile(event, 'edit_<?=$images_ad.$d->product_id?>')"/><!-- file tag 1 to 10 -->
+                    <input type="file" name="edit_<?=$d->product_id."_".$images_ad?>" id="edit_<?=$images_ad?>_<?=$d->product_id?>_file_upload_tag" accept="image/*" style="display:none" onchange="loadFile(event, 'edit_<?=$images_ad.$d->product_id?>')"/><!-- file tag 1 to 10 -->
 <?php
                 }
 ?>
