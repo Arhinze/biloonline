@@ -223,10 +223,10 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 $i += 1;
 
                 //To Edit Product:
-                if(isset($_POST["edit_product_id"])){
+                if(isset($_POST["edit_product_id".$d->product_id])){
                     //check if product still exists
                     $edit_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
-                    $edit_stmt->execute([$_POST["edit_product_id"]]);
+                    $edit_stmt->execute([$_POST["edit_product_id".$d->product_id]]);
             
                     $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
                     if($edit_data){ 
@@ -375,7 +375,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 }
 ?>
                     <!-- For Editing Product Image ~ The input tags which does the work but remains hidden ends -->
-                    <input type="hidden" name="edit_product_id" value="<?=$d->product_id?>"/>
+                    <input type="hidden" name='<?="edit_product_id".$d->product_id?>' value="<?=$d->product_id?>"/>
                 </form>
             </div>
             <!--End of Edit div-->
