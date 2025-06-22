@@ -104,6 +104,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <!-- Add Image Starts -->
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Add Images:</b> <span style="font-size:12px;color:green">(image1 is required, others are optional)</span></div>
+
                     <div class="x_scroll"><!-- style .overflow-x:scroll -->
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
                             <div class="additional_product_images_div"><!-- img1 -->
@@ -306,17 +307,40 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="url" value="<?=$d->product_url?>"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
 
-                    <div class="additional_product_images_div_container">
-                        <div class="additional_product_images_div">
-                            <img src = "/static/images/<?=$d->image1?>" class="additional_product_image"/>
-                        </div>
-                        <div class="additional_product_images_div">
-                            <img class="additional_product_image"/>
-                        </div>
-                        <div class="additional_product_images_div">
-                            <img class="additional_product_image"/>
-                        </div>
-                    </div>
+                    <div class="x_scroll"><!-- style .overflow-x:scroll -->
+                        <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
+                            <div class="additional_product_images_div"><!-- img1 -->
+                                <label for="img_file_upload_tag1"><img src="/static/images/<?=$d->image1?>" id="img1" class="additional_product_image"/><span class="additional_product_image_number">1</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img2 -->
+                                <label for="img_file_upload_tag2"><img src="/static/images/<?=$d->image2?>" id="img2" class="additional_product_image"/><span class="additional_product_image_number">2</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img3 -->
+                                <label for="img_file_upload_tag3"><img src="/static/images/<?=$d->image3?>" id="img3" class="additional_product_image"/><span class="additional_product_image_number">3</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img4 -->
+                                <label for="img_file_upload_tag4"><img src="/static/images/<?=$d->image4?>" id="img4" class="additional_product_image"/><span class="additional_product_image_number">4</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img5 -->
+                                <label for="img_file_upload_tag5"><img src="/static/images/<?=$d->image5?>" id="img5" class="additional_product_image"/><span class="additional_product_image_number">5</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img6 -->
+                                <label for="img_file_upload_tag6"><img src="/static/images/<?=$d->image6?>" id="img6" class="additional_product_image"/><span class="additional_product_image_number">6</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img7 -->
+                                <label for="img_file_upload_tag7"><img src="/static/images/<?=$d->image7?>" id="img7" class="additional_product_image"/><span class="additional_product_image_number">7</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img8 -->
+                                <label for="img_file_upload_tag8"><img src="/static/images/<?=$d->image8?>" id="img8" class="additional_product_image"/><span class="additional_product_image_number">8</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img9 -->
+                                <label for="img_file_upload_tag9"><img src="/static/images/<?=$d->image9?>" id="img9" class="additional_product_image"/><span class="additional_product_image_number">9</span></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img10 -->
+                                <label for="img_file_upload_tag10"><img src="/static/images/<?=$d->image10?>" id="img10" class="additional_product_image"/><span class="additional_product_image_number" style="padding:2px 3px">10</span></label>
+                            </div>
+                        </div><!-- .additional_product_images_div_container ends -->
+                    </div><!-- style .overflow-x:scroll -->
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
                     <textarea style="width:90%;height:100px;border-radius:4px" name="product_description"><?=$d->description?> </textarea>
