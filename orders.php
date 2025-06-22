@@ -112,12 +112,14 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         // -- end of pagination algorithm --
 
         
-        //first check if admin searched for a product in particular
+        //first check if admin filtered the expected output
         if(isset($_GET["filter"])){
             $u_filter_stmt = $pdo->prepare("SELECT * FROM orders WHERE `status` = ?");
             $u_filter_stmt->execute([htmlentities($_GET["filter"])]);
 
             $u_data = $u_filter_stmt->fetchAll(PDO::FETCH_OBJ);
+        
+        //then check if admin searched for a product in particular
         }  else if(isset($_GET["product"])) {
             $search_q = htmlentities($_GET["product"]);
 
@@ -126,7 +128,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
             $u_data = $u_search_stmt->fetchAll(PDO::FETCH_OBJ);
         } else {
-            //if no particular person is searched for, call out everyone:
+            //if no filter is applied / no particular peroduct is searched for, list out all orders:
             $u_stmt = $pdo->prepare("SELECT * FROM orders ORDER BY order_id DESC LIMIT ?, ?");
             $u_stmt->execute([$page_to_call, $num_of_rows]);
     
