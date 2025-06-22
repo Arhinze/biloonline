@@ -48,8 +48,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <!-- Add Image Starts -->
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Add Images:</b> <span style="font-size:12px;color:green">(image1 is required, others are optional)</span></div>
-                    <div style="width:100%;overflow-x:scroll"><!-- style .overflow-x:scroll -->
-                        <div class="additional_product_images_div_container" style="width:fit-content;overflow:visoble"><!-- .additional_product_images_div_container starts -->
+                    <div class="x_scroll"><!-- style .overflow-x:scroll -->
+                        <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
                             <div class="additional_product_images_div"><!-- img1 -->
                                 <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><span class="additional_product_image_number">1</span></label>
                             </div>

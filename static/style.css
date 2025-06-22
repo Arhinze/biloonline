@@ -22,6 +22,19 @@ a{
     text-decoration:none;
 }
 
+.x_scroll {
+    width:100%;
+    overflow-x:scroll;
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.x_scroll::-webkit-scrollbar{
+    display: none;
+}
+
 .main_body{
     margin:30px 12px 0 12px;
     overflow: hidden;
@@ -178,7 +191,7 @@ a{
     scrollbar-width: none;  /* Firefox */
 }
 
-.multiple_product_div::-webkit-scrollbar {
+.multiple_product_div_container::-webkit-scrollbar {
     display: none;
 }
 
