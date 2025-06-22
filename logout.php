@@ -15,7 +15,7 @@ Index_Segments::header();
 <div class="dashboard_div" style="text-align:center;padding-bottom:21px">   
     <h3>You've Logged Out Successfully</h3>
 
-    <b><a href="/login">Login Again</a> or Proceed to <a href="/"><i class="fa fa-home"></i> Home</a></b>
+    <b><a href="/admin">Login Again</a> or Proceed to <a href="/"><i class="fa fa-home"></i> Home</a></b>
 </div>
 
 <?php
