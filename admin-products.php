@@ -18,57 +18,71 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             $add_data = $add_stmt->fetch(PDO::FETCH_OBJ);
             if(!$add_data){//that means this is a unique product url
 
+                //then insert new product data:
+                $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`) VALUES(?,?,?)");
+                
+                $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"])]);
+
+                echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
+
                 //upload images:
-                /* Image Upload Script starts */
-                $target_dir = "static/images/";
-                $target_file = $target_dir.basename($_FILES["img1"]["name"]);
+                //[array to loop through to upload multiple product images at once]:
+                $images_array = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"];
 
-                $uploadOk = 1;
+                foreach($images_array as $image_ad) { //foreach loop - [images_array] starts
+                    if(!empty($_FILES["add_".$image_ad]["name"])){ //if (!empty($_FILES["add_".$image_ad])) starts
+                        /* Image Upload Script starts */
+                        $target_dir = "static/images/";
+                        $target_file = $target_dir.basename($_FILES["add_".$image_ad]["name"]);
+                        $uploadOk = 1;
+                        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        
+                        //Check if image file is a actual image or fake image
+                        $check_img = getimagesize($_FILES["add_".$image_ad]["tmp_name"]);
+                        if ($check_img !== false) {
+                            echo "image security test passed - ".$check_img["mime"].".";
+                            $uploadOk = 1;
+                        } else {
+                            echo "image security test failed - file is not an image";
+                            $uploadOk = 0;
+                        }
+                        if(file_exists($target_file)) {
+                            echo "Sorry, file already exists";
+                            $uploadOk = 0;
+                        }
+        
+                        //Allow certain file formats:
+                        if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif" ) {
+                            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                            $uploadOk = 0;
+                        }
+        
+                        //Checking if any $uploadOk = 0 by an error:
+                        if ($uploadOk == 0) {
+                            echo "Sorry, your file was not uploaded.";
+                        //if everything is ok, upload file
+                        } else {
+                            if (move_uploaded_file($_FILES["add_".$image_ad]["tmp_name"], $target_file)) {
+                                echo "The file ". htmlspecialchars( basename($_FILES["add_".$image_ad]["name"])). " has been uploaded.";
+                                //insert(update) product image(s)
+        
+                                $up_stmt = $pdo->prepare("UPDATE products SET $image_ad = ? WHERE product_url = ?");
+                                $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["new_url"]]);
+         
+                            } else {
+                              echo "Sorry, there was an error uploading your file.";
+                            }
+                        }
+                        /* Image Upload Script ends */
+                    }//if(!empty($_FILE["add_".$image_ad])) ends
+                }//foreach loop - looping around array to upload multiple product images at once ends
+                
 
-                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-                //Check if image file is a actual image or fake image
-                $check_img = getimagesize($_FILES["img1"]["tmp_name"]);
-                if ($check_img !== false) {
-                    echo "image security test passed - ".$check_img["mime"].".";
-                    $uploadOk = 1;
-                } else {
-                    echo "image security test failed - file is not an image";
-                    $uploadOk = 0;
-                }
-
-                if(file_exists($target_file)) {
-                    echo "Sorry, file already exists";
-                    $uploadOk = 0;
-                }
-
-                //Allow certain file formats:
-                if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif" ) {
-                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                    $uploadOk = 0;
-                }
-
-                //Checking if any $uploadOk is = 0 by an error:
-                if ($uploadOk == 0) {
-                    echo "Sorry, your file was not uploaded.";
-                //if everything is ok, upload file
-                } else {
-                    if (move_uploaded_file($_FILES["img1"]["tmp_name"], $target_file)) {
-                        echo "The file ". htmlspecialchars( basename($_FILES["img1"]["name"])). " has been uploaded.";
-                        //then insert new product data(including image filename):
-                        $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`, image1) VALUES(?,?,?,?)");
-                        $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"]), pathinfo($target_file, PATHINFO_BASENAME)]);
-
-                        echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
-                    } else {
-                      echo "Sorry, there was an error uploading your file.";
-                    }
-                }
-                /* Image Upload Script ends */
-            } else {
+            } else {//if product_url exists:
                 echo "<h4 style='color:red'>Error, Product: ", $add_data->product_url, " already exists</h4>";
             }
         }
+        //end of php script to insert new product
 ?>
         <div class="dashboard_div" style="margin:-30px 3% 10% 3%;">
 
@@ -125,16 +139,18 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         </div><!-- .additional_product_images_div_container ends -->
                     </div><!-- style .overflow-x:scroll -->
 
-                    <input type="file" name="img1" id="img_file_upload_tag1" accept="image/*" style="display:none" onchange="loadFile(event, 'img1')" required/><!-- file tag 1 -->
-                    <input type="file" name="img2" id="img_file_upload_tag2" accept="image/*" style="display:none" onchange="loadFile(event, 'img2')"/><!-- file tag 2 -->
-                    <input type="file" name="img3" id="img_file_upload_tag3" accept="image/*" style="display:none" onchange="loadFile(event, 'img3')"/><!-- file tag 3 -->
-                    <input type="file" name="img4" id="img_file_upload_tag4" accept="image/*" style="display:none" onchange="loadFile(event, 'img4')"/><!-- file tag  4-->
-                    <input type="file" name="img5" id="img_file_upload_tag5" accept="image/*" style="display:none" onchange="loadFile(event, 'img5')"/><!-- file tag 5 -->
-                    <input type="file" name="img6" id="img_file_upload_tag6" accept="image/*" style="display:none" onchange="loadFile(event, 'img6')"/><!-- file tag 6 -->
-                    <input type="file" name="img7" id="img_file_upload_tag7" accept="image/*" style="display:none" onchange="loadFile(event, 'img7')"/><!-- file tag 7 -->
-                    <input type="file" name="img8" id="img_file_upload_tag8" accept="image/*" style="display:none" onchange="loadFile(event, 'img8')"/><!-- file tag 8 -->
-                    <input type="file" name="img9" id="img_file_upload_tag9" accept="image/*" style="display:none" onchange="loadFile(event, 'img9')"/><!-- file tag 9 -->
-                    <input type="file" name="img10" id="img_file_upload_tag10" accept="image/*" style="display:none" onchange="loadFile(event, 'img10')"/><!-- file tag 10 -->
+                    <!-- The input tags which does the work but remains hidden starts -->
+                    <input type="file" name="add_image1" id="img_file_upload_tag1" accept="image/*" style="display:none" onchange="loadFile(event, 'img1')"/><!-- file tag 1 -->
+                    <input type="file" name="add_image2" id="img_file_upload_tag2" accept="image/*" style="display:none" onchange="loadFile(event, 'img2')"/><!-- file tag 2 -->
+                    <input type="file" name="add_image3" id="img_file_upload_tag3" accept="image/*" style="display:none" onchange="loadFile(event, 'img3')"/><!-- file tag 3 -->
+                    <input type="file" name="add_image4" id="img_file_upload_tag4" accept="image/*" style="display:none" onchange="loadFile(event, 'img4')"/><!-- file tag  4-->
+                    <input type="file" name="add_image5" id="img_file_upload_tag5" accept="image/*" style="display:none" onchange="loadFile(event, 'img5')"/><!-- file tag 5 -->
+                    <input type="file" name="add_image6" id="img_file_upload_tag6" accept="image/*" style="display:none" onchange="loadFile(event, 'img6')"/><!-- file tag 6 -->
+                    <input type="file" name="add_image7" id="img_file_upload_tag7" accept="image/*" style="display:none" onchange="loadFile(event, 'img7')"/><!-- file tag 7 -->
+                    <input type="file" name="add_image8" id="img_file_upload_tag8" accept="image/*" style="display:none" onchange="loadFile(event, 'img8')"/><!-- file tag 8 -->
+                    <input type="file" name="add_image9" id="img_file_upload_tag9" accept="image/*" style="display:none" onchange="loadFile(event, 'img9')"/><!-- file tag 9 -->
+                    <input type="file" name="add_image10" id="img_file_upload_tag10" accept="image/*" style="display:none" onchange="loadFile(event, 'img10')"/><!-- file tag 10 -->
+                    <!-- The input tags which does the work but remains hidden ends -->
                     <!-- Add Image Ends -->
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
