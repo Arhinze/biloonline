@@ -78,7 +78,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                                 <label for="img_file_upload_tag9"><img src="/static/images/add_image_icon.png" id="img9" class="additional_product_image"/><span class="additional_product_image_number">9</span></label>
                             </div>
                             <div class="additional_product_images_div"><!-- img10 -->
-                                <label for="img_file_upload_tag10"><img src="/static/images/add_image_icon.png" id="img10" class="additional_product_image"/><span class="additional_product_image_number">10</span></label>
+                                <label for="img_file_upload_tag10"><img src="/static/images/add_image_icon.png" id="img10" class="additional_product_image"/><span class="additional_product_image_number" style="padding:2px 3px">10</span></label>
                             </div>
                         </div><!-- .additional_product_images_div_container ends -->
                     </div>
