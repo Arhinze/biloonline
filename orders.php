@@ -16,13 +16,14 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
         <!-- Add new product div starts -->
         <div>
-            <div onclick="show_div('filter_options')" style="background-color:green;color:#fff;font-weight:bold;padding:9px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Filter</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
+            <div onclick="show_div('filter_options')" style="background-color:green;color:#fff;font-weight:bold;padding:6px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Filter By:</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
 
-            <div id="filter_options" style="display:none;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000">
+            <div id="filter_options" style="display:none;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000;position:fixed;top:30%;width:80%">
                 <div>Processing</div>
                 <div>Delivered</div>
                 <div>Canceled</div>
-                <span class="edit_product_action_button" style="background-color:#ff9100" onclick="show_div('filter_options')"><i class="fa fa-ban"></i>Close</span>
+                <div>View All</div>
+                <div class="edit_product_action_button" style="background-color:#ff9100;margin-top:15px;width:fit-content" onclick="show_div('filter_options')"><i class="fa fa-ban"></i>&nbsp; Close</div>
             </div>
         </div>
         <!-- Add new product div ends -->
@@ -30,7 +31,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         //check if admin is searching for someone:
 ?>
         <div style="margin-top:18px;padding:12px 9px;border:1px solid #000;border-radius:12px;background-color:#f3f3f3">
-            <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter Product Name: try: abc" style="border:1px solid #000;width:75%"/>
+            <input type="text" onkeyup="ajax_search()" id="search_input" class="input" placeholder="Enter Order Title/Order ID: try: abc" style="border:1px solid #000;width:75%"/>
         
             <i class="fa fa-search" onclick ="search_icon()" style="padding:9px;border-radius:4px;font-size:16px;color:#fff;background-color:#000"></i>
 
@@ -63,6 +64,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         }
 
         //To Delete Product:
+        /*
         if(isset($_POST["remove_product"])){
             //check if product still exists
             $ds_stmt = $pdo->prepare("SELECT * FROM orders WHERE order_id = ?");
@@ -79,11 +81,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 echo "<h4 style='color:red'>Error: Product not found.</h4>";
             }
         }
-
+        */
         //Mail Customer:
 
 
-        //Select and view all users for easy decision making:
+        //Select and view all orders for easy decision making:
 
         //A Simple Pagination Algorithm:
         $p = 1;
@@ -130,21 +132,18 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 $i += 1;
 ?>
         <div class="everything-both-buttons-nd-hidden-divs"> 
-                <div class="table_row_div">
-                    <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
-                    
-                    <div class="table_row"><b><a href="/product/<?=$d->product_url?>"><?=$d->order_name?> </a></b></div>
-                    
-                    <div class="table_row" style="font-size:fit-content">
-                        <button onclick = "create_content('edit',<?=$i?>)" style="background-color:green"
-                    class="table_row_ED">
-                            Edit &nbsp; <i class="fa fa-pencil"></i> 
-                        </buton>
-
-                        <button onclick = "create_content('remove',<?=$i?>)" style="background-color:red" class="table_row_ED">
-                            <i class="fa fa-warning"></i> &nbsp; Remove </buton>
-                    </div>
+            <div class="table_row_div">
+                <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
+                
+                <div class="table_row"><b><a href="/product/<?=$d->product_url?>">Bilo000<?=$d->order_id?></a></b></div>
+                <div class="table_row"><?=$d->status?></div>
+                <div class="table_row" style="font-size:fit-content">
+                    <button onclick = "create_content('edit',<?=$i?>)" style="background-color:green"
+                class="table_row_ED">
+                        View &nbsp; <i class="fa fa-eye"></i> 
+                    </buton>
                 </div>
+            </div>
 
 
             <div class="clear">
@@ -185,7 +184,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     </div>
 
                     <div>
-                        Status: 
+                        <span style="margin-right:9px;font-size:18px">Status:</span> 
                         <select name="order_status">
                             <option value="processing">processing</option>
                             <option value="delivered">delivered</option>
