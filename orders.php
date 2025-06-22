@@ -46,22 +46,24 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <div class="table_row">View</div>
             </div>
 <?php
-        //To Edit Product:
+        //To Update Order Status:
         if(isset($_POST["order_id"])){
-            //check if product still exists
+            //check if order still exists
             $edit_stmt = $pdo->prepare("SELECT * FROM orders WHERE order_id = ?");
             $edit_stmt->execute([$_POST["order_id"]]);
     
             $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
             if($edit_data){ 
                 //then edit:
-                $edd_stmt = $pdo->prepare("UPDATE orders SET order_name = ?, product_url = ?, `description` = ? WHERE order_id = ?");
+                $edd_stmt = $pdo->prepare("UPDATE orders SET `status` = ? WHERE order_id = ?");
 
-                $edd_stmt->execute([$_POST["order_name"], $_POST["url"], $_POST["product_description"], $_POST["order_id"]]);
+                $edd_stmt->execute([htmlentities($_POST["order_status"]), htmlentities($_POST["order_id"])]);
 
-                echo "<h4 style='color:green'>Product: ", $edit_data->order_name, " has been Updated successfully</h4>";
+                echo "<h4 style='color:green'>Order Status for: ", $edit_data->order_id, " updated successfully</h4>";
+            } else {
+                echo "<h4 style='color:gred'>Error: Order not found.</h4>";
             }
-        }
+        } 
 
         //To Delete Product:
         /*
