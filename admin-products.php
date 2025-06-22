@@ -51,13 +51,13 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <div style="width:100%;overflow:scroll">
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visoble"><!-- .additional_product_images_div_container starts -->
                             <div class="additional_product_images_div"><!-- img1 -->
-                                <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                                <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/>1<!--<i class="fa fa-file-image-o"></i>--></label>
                             </div>
                             <div class="additional_product_images_div"><!-- img2 -->
-                                <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon.png" id="img2" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                                <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon.png" id="img2" class="additional_product_image"/>2<!--<i class="fa fa-file-image-o"></i>--></label>
                             </div>
                             <div class="additional_product_images_div"><!-- img3 -->
-                                <label for="img_file_upload_tag3"><img src="/static/images/add_image_icon.png" id="img3" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                                <label for="img_file_upload_tag3"><img src="/static/images/add_image_icon.png" id="img3" class="additional_product_image"/>3<!--<i class="fa fa-file-image-o"></i>--></label>
                             </div>
                             <div class="additional_product_images_div"><!-- img4 -->
                                 <label for="img_file_upload_tag4"><img src="/static/images/add_image_icon.png" id="img4" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
