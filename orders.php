@@ -22,7 +22,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <div><a href="/orders?filter=processing" style="color:#f3d111">Processing</a></div>
                 <div><a href="/orders?filter=delivered" style="color:green">Delivered</a></div>
                 <div><a href="/orders?filter=cancelled" style="color:red">Canceled</a></div>
-                <div><a href="/orders" style="color:#000">View All</a></div>
+                <div><a href="/orders" style="color:#000">-- View All --</a></div>
                 <div class="edit_product_action_button" style="background-color:#ff9100;margin-top:15px;width:fit-content" onclick="show_div('filter_options')"><i class="fa fa-ban"></i>&nbsp; Close</div>
             </div>
         </div>
