@@ -20,7 +20,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                 //upload images:
                 /* Image Upload Script starts */
-                $target_dir = "/static/images/";
+                $target_dir = "static/images/";
                 $target_file = $target_dir.basename($_FILES["img1"]["name"]);
 
                 $uploadOk = 1;
@@ -56,15 +56,15 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     if (move_uploaded_file($_FILES["img1"]["tmp_name"], $target_file)) {
                         echo "The file ". htmlspecialchars( basename($_FILES["img1"]["name"])). " has been uploaded.";
                         //then insert new product data(including image filename):
-                        $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`, image1) VALUES(?,?,?)");
+                        $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`, image1) VALUES(?,?,?,?)");
                         $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"]), pathinfo($target_file, PATHINFO_FILENAME)]);
+
+                        echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
                     } else {
                       echo "Sorry, there was an error uploading your file.";
                     }
                 }
                 /* Image Upload Script ends */
-
-                echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
             } else {
                 echo "<h4 style='color:red'>Error, Product: ", $add_data->product_url, " already exists</h4>";
             }
