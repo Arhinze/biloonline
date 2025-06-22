@@ -9,6 +9,10 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
     if($data){
         //that means admin is logged in
         admin_Segments::header();
+
+        //[array to loop through to upload multiple product images at once]:
+        $images_array = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"];
+
         //To Insert Product:
         if(isset($_POST["new_product"])){
             //check if product already exists
@@ -25,10 +29,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                 echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
 
+                
                 //upload images:
-                //[array to loop through to upload multiple product images at once]:
-                $images_array = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"];
-
                 foreach($images_array as $image_ad) { //foreach loop - [images_array] starts
                     if(!empty($_FILES["add_".$image_ad]["name"])){ //if (!empty($_FILES["add_".$image_ad])) starts
                         /* Image Upload Script starts */
@@ -107,50 +109,29 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <div class="x_scroll"><!-- style .overflow-x:scroll -->
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
-                            <div class="additional_product_images_div"><!-- img1 -->
+                            <!--<div class="additional_product_images_div"> < - - img1 ->                               
                                 <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><span class="additional_product_image_number">1</span></label>
+                            </div>-->
+<?php
+                        foreach($images_array as $images_ad) {
+?>
+                            <div class="additional_product_images_div"><!-- img1 to img10 -->
+                                <label for="add_<?=$images_ad?>_file_upload_tag"><img src="/static/images/add_image_icon.png" id="add_<?=$images_ad?>" class="additional_product_image"/><span class="additional_product_image_number"><?=str_replace("image", "", $images_ad)?></span></label>
                             </div>
-                            <div class="additional_product_images_div"><!-- img2 -->
-                                <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon.png" id="img2" class="additional_product_image"/><span class="additional_product_image_number">2</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img3 -->
-                                <label for="img_file_upload_tag3"><img src="/static/images/add_image_icon.png" id="img3" class="additional_product_image"/><span class="additional_product_image_number">3</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img4 -->
-                                <label for="img_file_upload_tag4"><img src="/static/images/add_image_icon.png" id="img4" class="additional_product_image"/><span class="additional_product_image_number">4</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img5 -->
-                                <label for="img_file_upload_tag5"><img src="/static/images/add_image_icon.png" id="img5" class="additional_product_image"/><span class="additional_product_image_number">5</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img6 -->
-                                <label for="img_file_upload_tag6"><img src="/static/images/add_image_icon.png" id="img6" class="additional_product_image"/><span class="additional_product_image_number">6</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img7 -->
-                                <label for="img_file_upload_tag7"><img src="/static/images/add_image_icon.png" id="img7" class="additional_product_image"/><span class="additional_product_image_number">7</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img8 -->
-                                <label for="img_file_upload_tag8"><img src="/static/images/add_image_icon.png" id="img8" class="additional_product_image"/><span class="additional_product_image_number">8</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img9 -->
-                                <label for="img_file_upload_tag9"><img src="/static/images/add_image_icon.png" id="img9" class="additional_product_image"/><span class="additional_product_image_number">9</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img10 -->
-                                <label for="img_file_upload_tag10"><img src="/static/images/add_image_icon.png" id="img10" class="additional_product_image"/><span class="additional_product_image_number" style="padding:2px 3px">10</span></label>
-                            </div>
+<?php
+                        }
+?>
                         </div><!-- .additional_product_images_div_container ends -->
                     </div><!-- style .overflow-x:scroll -->
 
                     <!-- The input tags which does the work but remains hidden starts -->
-                    <input type="file" name="add_image1" id="img_file_upload_tag1" accept="image/*" style="display:none" onchange="loadFile(event, 'img1')"/><!-- file tag 1 -->
-                    <input type="file" name="add_image2" id="img_file_upload_tag2" accept="image/*" style="display:none" onchange="loadFile(event, 'img2')"/><!-- file tag 2 -->
-                    <input type="file" name="add_image3" id="img_file_upload_tag3" accept="image/*" style="display:none" onchange="loadFile(event, 'img3')"/><!-- file tag 3 -->
-                    <input type="file" name="add_image4" id="img_file_upload_tag4" accept="image/*" style="display:none" onchange="loadFile(event, 'img4')"/><!-- file tag  4-->
-                    <input type="file" name="add_image5" id="img_file_upload_tag5" accept="image/*" style="display:none" onchange="loadFile(event, 'img5')"/><!-- file tag 5 -->
-                    <input type="file" name="add_image6" id="img_file_upload_tag6" accept="image/*" style="display:none" onchange="loadFile(event, 'img6')"/><!-- file tag 6 -->
-                    <input type="file" name="add_image7" id="img_file_upload_tag7" accept="image/*" style="display:none" onchange="loadFile(event, 'img7')"/><!-- file tag 7 -->
-                    <input type="file" name="add_image8" id="img_file_upload_tag8" accept="image/*" style="display:none" onchange="loadFile(event, 'img8')"/><!-- file tag 8 -->
-                    <input type="file" name="add_image9" id="img_file_upload_tag9" accept="image/*" style="display:none" onchange="loadFile(event, 'img9')"/><!-- file tag 9 -->
-                    <input type="file" name="add_image10" id="img_file_upload_tag10" accept="image/*" style="display:none" onchange="loadFile(event, 'img10')"/><!-- file tag 10 -->
+<?php
+                        foreach($images_array as $images_ad) {
+?>
+                            <input type="file" name="add_<?=$images_ad?>" id="add_<?=$images_ad?>_file_upload_tag" accept="image/*" style="display:none" onchange="loadFile(event, 'add_<?=$images_ad?>')"/><!-- file tag 1 to file tag 10 -->
+<?php
+                        }   
+?>
                     <!-- The input tags which does the work but remains hidden ends -->
                     <!-- Add Image Ends -->
 
@@ -309,36 +290,15 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <div class="x_scroll"><!-- style .overflow-x:scroll -->
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
-                            <div class="additional_product_images_div"><!-- img1 -->
-                                <label for="img_file_upload_tag1"><img src="/static/images/<?=$d->image1?>" id="img1" class="additional_product_image"/><span class="additional_product_image_number">1</span></label>
+<?php
+                        foreach($images_array as $images_ad) {
+?>
+                            <div class="additional_product_images_div"><!-- img1 to img10 -->
+                                <label for="edit_<?=$images_ad?>_file_upload_tag"><img src="/static/images/<?=$d->image2?>" id="edit_<?=$images_ad?>" class="additional_product_image"/><span class="additional_product_image_number"><?=str_replace("image", "", $images_ad)?></span></label>
                             </div>
-                            <div class="additional_product_images_div"><!-- img2 -->
-                                <label for="img_file_upload_tag2"><img src="/static/images/<?=$d->image2?>" id="img2" class="additional_product_image"/><span class="additional_product_image_number">2</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img3 -->
-                                <label for="img_file_upload_tag3"><img src="/static/images/<?=$d->image3?>" id="img3" class="additional_product_image"/><span class="additional_product_image_number">3</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img4 -->
-                                <label for="img_file_upload_tag4"><img src="/static/images/<?=$d->image4?>" id="img4" class="additional_product_image"/><span class="additional_product_image_number">4</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img5 -->
-                                <label for="img_file_upload_tag5"><img src="/static/images/<?=$d->image5?>" id="img5" class="additional_product_image"/><span class="additional_product_image_number">5</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img6 -->
-                                <label for="img_file_upload_tag6"><img src="/static/images/<?=$d->image6?>" id="img6" class="additional_product_image"/><span class="additional_product_image_number">6</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img7 -->
-                                <label for="img_file_upload_tag7"><img src="/static/images/<?=$d->image7?>" id="img7" class="additional_product_image"/><span class="additional_product_image_number">7</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img8 -->
-                                <label for="img_file_upload_tag8"><img src="/static/images/<?=$d->image8?>" id="img8" class="additional_product_image"/><span class="additional_product_image_number">8</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img9 -->
-                                <label for="img_file_upload_tag9"><img src="/static/images/<?=$d->image9?>" id="img9" class="additional_product_image"/><span class="additional_product_image_number">9</span></label>
-                            </div>
-                            <div class="additional_product_images_div"><!-- img10 -->
-                                <label for="img_file_upload_tag10"><img src="/static/images/<?=$d->image10?>" id="img10" class="additional_product_image"/><span class="additional_product_image_number" style="padding:2px 3px">10</span></label>
-                            </div>
+<?php
+                        }
+?>
                         </div><!-- .additional_product_images_div_container ends -->
                     </div><!-- style .overflow-x:scroll -->
 
@@ -350,6 +310,16 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         
                         <span class="edit_product_action_button" style="background-color:#ff9100" onclick="hide_content_space('edit',<?=$i?>)">Cancel</span>
                     </div>
+
+                    <!-- For Editing Product Image ~ The input tags which does the work but remains hidden starts -->
+<?php
+                foreach($images_array as $images_ad) {
+?>
+                    <input type="file" name="edit_<?=$images_ad?>" id="edit_<?=$images_ad?>_file_upload_tag" accept="image/*" style="display:none" onchange="loadFile(event, 'edit_<?=$images_ad?>')"/><!-- file tag 1 to 10 -->
+<?php
+                }
+?>
+                    <!-- For Editing Product Image ~ The input tags which does the work but remains hidden ends -->
                     <input type="hidden" name="edit_product" value="<?=$d->product_id?>"/>
                 </form>
             </div>
