@@ -16,15 +16,57 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             $add_stmt->execute([$_POST["new_url"]]);
     
             $add_data = $add_stmt->fetch(PDO::FETCH_OBJ);
-            if(!$add_data){ 
-                //then insert:
-                $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`) VALUES(?,?,?)");
+            if(!$add_data){//that means this is a unique product url
 
-                $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"])]);
+                //upload images:
+                /* Image Upload Script starts */
+                $target_dir = "/static/images/";
+                $target_file = $target_dir.basename($_FILES["img1"]["name"]);
+
+                $uploadOk = 1;
+
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+                //Check if image file is a actual image or fake image
+                $check_img = getimagesize($_FILES["img1"]["tmp_name"]);
+                if ($check_img !== false) {
+                    echo "image security test passed - ".$check_img["mime"].".";
+                    $uploadOk = 1;
+                } else {
+                    echo "image security test failed - file is not an image";
+                    $uploadOk = 0;
+                }
+
+                if(file_exists($target_file)) {
+                    echo "Sorry, file already exists";
+                    $uploadOk = 0;
+                }
+
+                //Allow certain file formats:
+                if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif" ) {
+                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    $uploadOk = 0;
+                }
+
+                //Checking if any $uploadOk is = 0 by an error:
+                if ($uploadOk == 0) {
+                    echo "Sorry, your file was not uploaded.";
+                //if everything is ok, upload file
+                } else {
+                    if (move_uploaded_file($_FILES["img1"]["tmp_name"], $target_file)) {
+                        echo "The file ". htmlspecialchars( basename($_FILES["img1"]["name"])). " has been uploaded.";
+                        //then insert new product data(including image filename):
+                        $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`, image1) VALUES(?,?,?)");
+                        $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"]), pathinfo($target_file, PATHINFO_FILENAME)]);
+                    } else {
+                      echo "Sorry, there was an error uploading your file.";
+                    }
+                }
+                /* Image Upload Script ends */
 
                 echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
             } else {
-                echo "<h4 style='color:red'>Error, Product:", $add_data->product_name, " already exists</h4>";
+                echo "<h4 style='color:red'>Error, Product: ", $add_data->product_url, " already exists</h4>";
             }
         }
 ?>
@@ -37,7 +79,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <div onclick="show_div('new_product1')" style="background-color:green;color:#fff;font-weight:bold;padding:9px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Add New Product</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
 
             <div id="new_product1" style="display:block;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000">
-                <form method="post" action="">
+                <form method="post" action="" enctype="multipart/form-data">
                     <!-- -->
                     <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="new_product_name" placeholder="Enter Product Name"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
