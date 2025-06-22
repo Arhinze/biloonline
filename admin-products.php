@@ -232,7 +232,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     if($edit_data){ 
                         //then edit:
                         $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ? WHERE product_id = ?");
-                        $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product_id"]]);
+                        $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product_id".$d->product_id]]);
         
                         echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
         
@@ -282,7 +282,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                                     }
                                 }
                                 /* Image Upload Script ends */
-                            }//if(!empty($_FILE["edit_".$images_ad])) ends
+                            } else {//if(!empty($_FILE["edit_".$images_ad])) ends
+                                echo "<h1>Totally empty HTML File Headers";
+                            }
                         }//foreach loop - looping around array to upload multiple product images at once ends
                     }
                 }
