@@ -57,7 +57,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         echo "The file ". htmlspecialchars( basename($_FILES["img1"]["name"])). " has been uploaded.";
                         //then insert new product data(including image filename):
                         $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`, image1) VALUES(?,?,?,?)");
-                        $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"]), pathinfo($target_file, PATHINFO_FILENAME)]);
+                        $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"]), pathinfo($target_file, PATHINFO_BASENAME)]);
 
                         echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
                     } else {
