@@ -197,7 +197,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <div>
                         <span style="margin-right:9px;font-size:18px">Status:</span> 
-                        <select name="order_status">
+                        <select name="order_status" style="width:90px;height:30px">
                             <option value="<?=$d->status?>"><?=$d->status?></option>
                             <option value="processing">processing</option>
                             <option value="delivered">delivered</option>
