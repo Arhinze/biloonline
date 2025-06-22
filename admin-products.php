@@ -290,15 +290,13 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
         
         //first check if admin searched for a product in particular
-        if(isset($_GET["product"])){
+        if(isset($_GET["product"])) {
             $search_q = htmlentities($_GET["product"]);
-
             $u_search_stmt = $pdo->prepare("SELECT * FROM products WHERE product_name LIKE ? ORDER BY product_id DESC LIMIT ?, ?");
             $u_search_stmt->execute(["%$search_q%",$page_to_call, $num_of_rows]);
 
             $u_data = $u_search_stmt->fetchAll(PDO::FETCH_OBJ);
-        }  else {
-            //if no particular person is searched for, call out everyone:
+        }  else {//if no particular person is searched for, call out all products:
             $u_stmt = $pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
             $u_stmt->execute([$page_to_call, $num_of_rows]);
     
@@ -338,9 +336,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
             <!--hidden section 1: Edit -->
             <div id="edit<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
-
                 <form method="post" action="">
-                    <!-- -->
                     <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="product_name" value="<?=$d->product_name?>"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
 
@@ -353,7 +349,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         foreach($images_array as $images_ad) {
 ?>
                             <div class="additional_product_images_div"><!-- img1 to img10 -->
-                                <label for="edit_<?=$images_ad?>_file_upload_tag"><img src="/static/images/<?=$d->$images_ad?>" id="edit_<?=$images_ad?>" class="additional_product_image"/><span class="additional_product_image_number"><?=str_replace("image","",$images_ad)?></span></label>
+                                <label for="edit_<?=$images_ad?>_<?=$d->product_id?>_file_upload_tag">
+                                    <img src="/static/images/<?=$d->$images_ad?>" id="edit_<?=$images_ad.$d->product_id?>" class="additional_product_image"/><span class="additional_product_image_number"><?=str_replace("image","",$images_ad)?></span>
+                                </label>
                             </div>
 <?php
                         }
@@ -374,7 +372,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 <?php
                 foreach($images_array as $images_ad) {
 ?>
-                    <input type="file" name="edit_<?=$images_ad?>" id="edit_<?=$images_ad?>_file_upload_tag" accept="image/*" style="display:none" onchange="loadFile(event, 'edit_<?=$images_ad?>')"/><!-- file tag 1 to 10 -->
+                    <input type="file" name="edit_<?=$images_ad?>" id="edit_<?=$images_ad?>_<?=$d->product_id?>_file_upload_tag" accept="image/*" style="display:none" onchange="loadFile(event, 'edit_<?=$images_ad.$d->product_id?>')"/><!-- file tag 1 to 10 -->
 <?php
                 }
 ?>
@@ -383,13 +381,6 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 </form>
             </div>
             <!--End of Edit div-->
-
-
-
-
-
-
-
 
 
 
