@@ -136,7 +136,7 @@ Class admin_Segments{
         .menu_list .fa {
             margin-right:6px;
         }
-
+        
         /*
         .goog-logo-link {
             display:none !important;
