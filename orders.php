@@ -59,7 +59,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                 $edd_stmt->execute([htmlentities($_POST["order_status"]), htmlentities($_POST["order_id"])]);
 
-                echo "<h4 style='color:green'>Order Status for: ", $edit_data->order_id, " updated successfully</h4>";
+                echo "<h4 style='color:green'>Order Status for: Bilo000", $edit_data->order_id, " updated successfully</h4>";
             } else {
                 echo "<h4 style='color:gred'>Error: Order not found.</h4>";
             }
