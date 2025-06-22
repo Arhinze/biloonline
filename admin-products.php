@@ -31,16 +31,16 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                 
                 //upload images:
-                foreach($images_array as $image_ad) { //foreach loop - [images_array] starts
-                    if(!empty($_FILES["add_".$image_ad]["name"])){ //if (!empty($_FILES["add_".$image_ad])) starts
+                foreach($images_array as $images_ad) { //foreach loop - [images_array] starts
+                    if(!empty($_FILES["add_".$images_ad]["name"])){ //if (!empty($_FILES["add_".$images_ad])) starts
                         /* Image Upload Script starts */
                         $target_dir = "static/images/";
-                        $target_file = $target_dir.basename($_FILES["add_".$image_ad]["name"]);
+                        $target_file = $target_dir.basename($_FILES["add_".$images_ad]["name"]);
                         $uploadOk = 1;
                         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         
                         //Check if image file is a actual image or fake image
-                        $check_img = getimagesize($_FILES["add_".$image_ad]["tmp_name"]);
+                        $check_img = getimagesize($_FILES["add_".$images_ad]["tmp_name"]);
                         if ($check_img !== false) {
                             echo "image security test passed - ".$check_img["mime"].".";
                             $uploadOk = 1;
@@ -64,11 +64,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                             echo "Sorry, your file was not uploaded.";
                         //if everything is ok, upload file
                         } else {
-                            if (move_uploaded_file($_FILES["add_".$image_ad]["tmp_name"], $target_file)) {
-                                echo "The file ". htmlspecialchars( basename($_FILES["add_".$image_ad]["name"])). " has been uploaded.";
+                            if (move_uploaded_file($_FILES["add_".$images_ad]["tmp_name"], $target_file)) {
+                                echo "The file ". htmlspecialchars( basename($_FILES["add_".$images_ad]["name"])). " has been uploaded.";
                                 //insert(update) product image(s)
         
-                                $up_stmt = $pdo->prepare("UPDATE products SET $image_ad = ? WHERE product_url = ?");
+                                $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
                                 $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["new_url"]]);
          
                             } else {
@@ -76,7 +76,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                             }
                         }
                         /* Image Upload Script ends */
-                    }//if(!empty($_FILE["add_".$image_ad])) ends
+                    }//if(!empty($_FILE["add_".$images_ad])) ends
                 }//foreach loop - looping around array to upload multiple product images at once ends
                 
 
@@ -166,21 +166,80 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <!--<div class="table_row">Status</div>-->
                 <div class="table_row">Edit / Delete</div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
 <?php
         //To Edit Product:
-        if(isset($_POST["edit_product"])){
+        if(isset($_POST["edit_product_id"])){
             //check if product still exists
             $edit_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
-            $edit_stmt->execute([$_POST["edit_product"]]);
+            $edit_stmt->execute([$_POST["edit_product_id"]]);
     
             $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
             if($edit_data){ 
                 //then edit:
                 $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ? WHERE product_id = ?");
-
-                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product"]]);
+                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product_id"]]);
 
                 echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
+
+                //Edit(Update) images:
+                foreach($images_array as $images_ad) { //foreach loop - [images_array] starts
+                    if(!empty($_FILES["edit_".$images_ad]["name"])){ //if (!empty($_FILES["add_".$images_ad])) starts
+                        /* Image Upload Script starts */
+                        $target_dir = "static/images/";
+                        $target_file = $target_dir.basename($_FILES["edit_".$images_ad]["name"]);
+                        $uploadOk = 1;
+                        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        
+                        //Check if image file is a actual image or fake image
+                        $check_img = getimagesize($_FILES["edit_".$images_ad]["tmp_name"]);
+                        if ($check_img !== false) {
+                            echo "image security test passed - ".$check_img["mime"].".";
+                            $uploadOk = 1;
+                        } else {
+                            echo "image security test failed - file is not an image";
+                            $uploadOk = 0;
+                        }
+                        if(file_exists($target_file)) {
+                            echo "Sorry, file already exists";
+                            $uploadOk = 0;
+                        }
+        
+                        //Allow certain file formats:
+                        if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif" ) {
+                            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                            $uploadOk = 0;
+                        }
+        
+                        //Checking if any $uploadOk = 0 by an error:
+                        if ($uploadOk == 0) {
+                            echo "Sorry, your file was not uploaded.";
+                        //if everything is ok, edit(update) file
+                        } else {
+                            if (move_uploaded_file($_FILES["edit_".$images_ad]["tmp_name"], $target_file)) {
+                                echo "The file ". htmlspecialchars( basename($_FILES["edit".$images_ad]["name"])). " has been uploaded.";
+                                //insert(update) product image(s)
+        
+                                $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
+                                $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["new_url"]]);
+         
+                            } else {
+                              echo "Sorry, there was an error uploading your file.";
+                            }
+                        }
+                        /* Image Upload Script ends */
+                    }//if(!empty($_FILE["edit_".$images_ad])) ends
+                }//foreach loop - looping around array to upload multiple product images at once ends
             }
         }
 
@@ -252,21 +311,21 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 $i += 1;
 ?>
         <div class="everything-both-buttons-nd-hidden-divs"> 
-                <div class="table_row_div">
-                    <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
-                    
-                    <div class="table_row"><b><a href="/product/<?=$d->product_url?>"><?=$d->product_name?> </a></b></div>
-                    
-                    <div class="table_row" style="font-size:fit-content">
-                        <button onclick = "create_content('edit',<?=$i?>)" style="background-color:green"
-                    class="table_row_ED">
-                            Edit &nbsp; <i class="fa fa-pencil"></i> 
-                        </buton>
+            <div class="table_row_div">
+                <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
+                
+                <div class="table_row"><b><a href="/product/<?=$d->product_url?>"><?=$d->product_name?> </a></b></div>
+                
+                <div class="table_row" style="font-size:fit-content">
+                    <button onclick = "create_content('edit',<?=$i?>)" style="background-color:green"
+                class="table_row_ED">
+                        Edit &nbsp; <i class="fa fa-pencil"></i> 
+                    </buton>
 
-                        <button onclick = "create_content('remove',<?=$i?>)" style="background-color:red" class="table_row_ED">
-                            <i class="fa fa-warning"></i> &nbsp; Remove </buton>
-                    </div>
+                    <button onclick = "create_content('remove',<?=$i?>)" style="background-color:red" class="table_row_ED">
+                        <i class="fa fa-warning"></i> &nbsp; Remove </buton>
                 </div>
+            </div>
 
 
             <div class="clear">
@@ -320,15 +379,21 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 }
 ?>
                     <!-- For Editing Product Image ~ The input tags which does the work but remains hidden ends -->
-                    <input type="hidden" name="edit_product" value="<?=$d->product_id?>"/>
+                    <input type="hidden" name="edit_product_id" value="<?=$d->product_id?>"/>
                 </form>
             </div>
             <!--End of Edit div-->
 
 
 
-            <!-- hidden section 2: Remove Product -->
-            
+
+
+
+
+
+
+
+            <!-- hidden section 2: Remove Product -->    
             <div id="remove<?=$i?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
 
             <form method="post" action="" id="message_form<?=$i?>" class="pop_up">
