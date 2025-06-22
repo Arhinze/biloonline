@@ -1298,7 +1298,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .table_row{
-    width:46%;
+    width:46%; hcolor:#cfcf00;
     overflow: hidden;
     text-align: left;
 }

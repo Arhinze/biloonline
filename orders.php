@@ -126,6 +126,16 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             $u_data = $u_stmt->fetchAll(PDO::FETCH_OBJ);
         }
 
+        function status_color($state){
+            if($state == "processing") {
+                return "#cfcf00"; //yellow(a darker variant)
+            } else if($state == "delivered") {
+                return "green";
+            } else if($state == "cancelled") {
+                return "red";
+            }
+        }
+
         if(count($u_data)>0){     
             $i = 0;
             foreach($u_data as $d){
@@ -136,7 +146,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
                 
                 <div class="table_row"><b><a href="/product/<?=$d->product_url?>">Bilo000<?=$d->order_id?></a></b></div>
-                <div class="table_row"><?=$d->status?></div>
+                <div class="table_row" style="color:<?=status_color($d->status)?>"><?=$d->status?></div>
                 <div class="table_row" style="font-size:fit-content">
                     <button onclick = "create_content('edit',<?=$i?>)" style="background-color:green"
                 class="table_row_ED">
