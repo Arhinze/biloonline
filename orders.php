@@ -12,17 +12,17 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 ?>
         <div class="dashboard_div" style="margin:-30px 3% 10% 3%;">
 
-        <h1 style="margin:12px 6px">orders - <?=$site_name?></h2>
+        <h1 style="margin:12px 6px">Orders - <?=$site_name?></h2>
 
         <!-- Add new product div starts -->
         <div>
             <div onclick="show_div('filter_options')" style="background-color:green;color:#fff;font-weight:bold;padding:6px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Filter By:</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
 
             <div id="filter_options" style="display:block;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000;position:fixed;top:30%;width:80%;line-height:24px">
-                <div>Processing</div>
-                <div>Delivered</div>
-                <div>Canceled</div>
-                <div>View All</div>
+                <div><a href="/orders?filter=processing" style="color:#000">Processing</a></div>
+                <div><a href="/orders?filter=delivered" style="color:#000">Delivered</a></div>
+                <div><a href="/orders?filter=cancelled" style="color:#000">Canceled</a></div>
+                <div><a href="/orders" style="color:#000">View All</a></div>
                 <div class="edit_product_action_button" style="background-color:#ff9100;margin-top:15px;width:fit-content" onclick="show_div('filter_options')"><i class="fa fa-ban"></i>&nbsp; Close</div>
             </div>
         </div>
@@ -113,14 +113,19 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
         
         //first check if admin searched for a product in particular
-        if(isset($_GET["product"])){
+        if(isset($_GET["filter"])){
+            $u_filter_stmt = $pdo->prepare("SELECT * FROM orders WHERE `status` = ?");
+            $u_filter_stmt->execute([htmlentities($_GET["filter"])]);
+
+            $u_data = $u_filter_stmt->fetchAll(PDO::FETCH_OBJ);
+        }  else if(isset($_GET["product"])) {
             $search_q = htmlentities($_GET["product"]);
 
             $u_search_stmt = $pdo->prepare("SELECT * FROM orders WHERE order_name LIKE ? ORDER BY order_id DESC LIMIT ?, ?");
             $u_search_stmt->execute(["%$search_q%",$page_to_call, $num_of_rows]);
 
             $u_data = $u_search_stmt->fetchAll(PDO::FETCH_OBJ);
-        }  else {
+        } else {
             //if no particular person is searched for, call out everyone:
             $u_stmt = $pdo->prepare("SELECT * FROM orders ORDER BY order_id DESC LIMIT ?, ?");
             $u_stmt->execute([$page_to_call, $num_of_rows]);
