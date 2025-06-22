@@ -170,7 +170,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <form method="post" action="">
                     <!-- -->
                     <div>
-                        <p><b>Order ID:</b> <?=$d->order_id?></p>
+                        <p><b>Order ID:</b> Bilo000<?=$d->order_id?></p>
                         <p><b>Order Title:</b> <?=$d->order_name?></p>
                     </div>
 
@@ -196,6 +196,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <div>
                         <span style="margin-right:9px;font-size:18px">Status:</span> 
                         <select name="order_status">
+                            <option value="<?=$d->status?>"><?=$d->status?></option>
                             <option value="processing">processing</option>
                             <option value="delivered">delivered</option>
                             <option value="cancelled">cancelled</option>
