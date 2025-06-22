@@ -88,7 +88,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 ?>
         <div class="dashboard_div" style="margin:-30px 3% 10% 3%;">
 
-        <h1 style="margin:12px 6px">Products - <?=$site_name?></h2>
+        <h1 style="margin:12px 6px">Products - <?=$site_name?></h1>
 
         <!-- Add new product div starts -->
         <div>
@@ -271,11 +271,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                                 //if everything is ok, edit(update) file
                                 } else {
                                     if (move_uploaded_file($_FILES["edit_".$d->product_id."_".$images_ad]["tmp_name"], $target_file)) {
-                                        echo "The file ". htmlspecialchars( basename($_FILES["edit_".$d->product_id."_".$images_ad]["name"])). " has been uploaded.";
+                                        echo "<h3>The file ". htmlspecialchars( basename($_FILES["edit_".$d->product_id."_".$images_ad]["name"])). " has been uploaded.</h3>";
                                         //insert(update) product image(s)
                 
-                                        $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
-                                        $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["edit_product_id".$d->product_id]]);
+                                        $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_id = ?");
+                                        $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $d->product_id]);
                  
                                     } else {
                                       echo "Sorry, there was an error uploading your file.";
@@ -283,7 +283,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                                 }
                                 /* Image Upload Script ends */
                             } else {//if(!empty($_FILE["edit_".$images_ad])) ends
-                                echo "<h1>Totally empty HTML File Headers";
+                                echo "<h1>Totally empty HTML File Headers</h1>";
                             }
                         }//foreach loop - looping around array to upload multiple product images at once ends
                     }
