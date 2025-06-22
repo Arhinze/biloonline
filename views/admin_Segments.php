@@ -85,7 +85,6 @@ Class admin_Segments{
 <head>
     <link rel="stylesheet" href="/static/style.css?$css_version"/>
     <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/static/themify-icons.css"/>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -136,7 +135,7 @@ Class admin_Segments{
         .menu_list .fa {
             margin-right:6px;
         }
-        
+
         /*
         .goog-logo-link {
             display:none !important;
