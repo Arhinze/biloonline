@@ -47,38 +47,40 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <span>Only letters, numbers and hyphen (-) allowed.</span>
 
                     <!-- Add Image Starts -->
-                    <div style="font-size:18px;margin:15px 0 9px 0"><b>Add Images:</b> <span style="font-size:12px">(image1 is required, others are optional)</span></div>
-                    <div class="additional_product_images_div_container">
-                        <div class="additional_product_images_div"><!-- img1 -->
-                            <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img2 -->
-                            <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon.png" id="img2" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img3 -->
-                            <label for="img_file_upload_tag3"><img src="/static/images/add_image_icon.png" id="img3" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img4 -->
-                            <label for="img_file_upload_tag4"><img src="/static/images/add_image_icon.png" id="img4" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img5 -->
-                            <label for="img_file_upload_tag5"><img src="/static/images/add_image_icon.png" id="img5" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img6 -->
-                            <label for="img_file_upload_tag6"><img src="/static/images/add_image_icon.png" id="img6" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img7 -->
-                            <label for="img_file_upload_tag7"><img src="/static/images/add_image_icon.png" id="img7" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img8 -->
-                            <label for="img_file_upload_tag8"><img src="/static/images/add_image_icon.png" id="img8" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img9 -->
-                            <label for="img_file_upload_tag9"><img src="/static/images/add_image_icon.png" id="img9" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
-                        <div class="additional_product_images_div"><!-- img10 -->
-                            <label for="img_file_upload_tag10"><img src="/static/images/add_image_icon.png" id="img10" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
-                        </div>
+                    <div style="font-size:18px;margin:15px 0 9px 0"><b>Add Images:</b> <span style="font-size:12px;color:green">(image1 is required, others are optional)</span></div>
+                    <div style="width:100%;overflow:scroll">
+                        <div class="additional_product_images_div_container" style="width:fit-content;overflow:visoble"><!-- .additional_product_images_div_container starts -->
+                            <div class="additional_product_images_div"><!-- img1 -->
+                                <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img2 -->
+                                <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon.png" id="img2" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img3 -->
+                                <label for="img_file_upload_tag3"><img src="/static/images/add_image_icon.png" id="img3" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img4 -->
+                                <label for="img_file_upload_tag4"><img src="/static/images/add_image_icon.png" id="img4" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img5 -->
+                                <label for="img_file_upload_tag5"><img src="/static/images/add_image_icon.png" id="img5" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img6 -->
+                                <label for="img_file_upload_tag6"><img src="/static/images/add_image_icon.png" id="img6" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img7 -->
+                                <label for="img_file_upload_tag7"><img src="/static/images/add_image_icon.png" id="img7" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img8 -->
+                                <label for="img_file_upload_tag8"><img src="/static/images/add_image_icon.png" id="img8" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img9 -->
+                                <label for="img_file_upload_tag9"><img src="/static/images/add_image_icon.png" id="img9" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                            <div class="additional_product_images_div"><!-- img10 -->
+                                <label for="img_file_upload_tag10"><img src="/static/images/add_image_icon.png" id="img10" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                            </div>
+                        </div><!-- .additional_product_images_div_container ends -->
                     </div>
 
                     <input type="file" name="img1" id="img_file_upload_tag1" accept="image/*" style="display:none" onchange="loadFile(event, 'img1')" required/><!-- file tag 1 -->
