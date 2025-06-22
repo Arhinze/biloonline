@@ -51,7 +51,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <div style="width:100%;overflow:scroll">
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visoble"><!-- .additional_product_images_div_container starts -->
                             <div class="additional_product_images_div"><!-- img1 -->
-                                <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/>1<!--<i class="fa fa-file-image-o"></i>--></label>
+                                <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><span style="position:absolute;background-color:#ff9100;padding:3px;border-radius:100%">1</span><!--<i class="fa fa-file-image-o"></i>--></label>
                             </div>
                             <div class="additional_product_images_div"><!-- img2 -->
                                 <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon.png" id="img2" class="additional_product_image"/>2<!--<i class="fa fa-file-image-o"></i>--></label>
