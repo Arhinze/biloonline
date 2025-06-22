@@ -47,22 +47,50 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <span>Only letters, numbers and hyphen (-) allowed.</span>
 
                     <!-- Add Image Starts -->
-                    <div style="font-size:18px;font-weight:bold;margin:15px 0 9px 0">Add Images: </div>
+                    <div style="font-size:18px;margin:15px 0 9px 0"><b>Add Images:</b> <span style="font-size:12px">(image1 is required, others are optional)</span></div>
                     <div class="additional_product_images_div_container">
-                        <div class="additional_product_images_div">
+                        <div class="additional_product_images_div"><!-- img1 -->
                             <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
                         </div>
-                        <div class="additional_product_images_div">
-                            <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon2.png" id="img2" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                        <div class="additional_product_images_div"><!-- img2 -->
+                            <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon.png" id="img2" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
                         </div>
-                        <div class="additional_product_images_div">
+                        <div class="additional_product_images_div"><!-- img3 -->
                             <label for="img_file_upload_tag3"><img src="/static/images/add_image_icon.png" id="img3" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                        </div>
+                        <div class="additional_product_images_div"><!-- img4 -->
+                            <label for="img_file_upload_tag4"><img src="/static/images/add_image_icon.png" id="img4" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                        </div>
+                        <div class="additional_product_images_div"><!-- img5 -->
+                            <label for="img_file_upload_tag5"><img src="/static/images/add_image_icon.png" id="img5" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                        </div>
+                        <div class="additional_product_images_div"><!-- img6 -->
+                            <label for="img_file_upload_tag6"><img src="/static/images/add_image_icon.png" id="img6" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                        </div>
+                        <div class="additional_product_images_div"><!-- img7 -->
+                            <label for="img_file_upload_tag7"><img src="/static/images/add_image_icon.png" id="img7" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                        </div>
+                        <div class="additional_product_images_div"><!-- img8 -->
+                            <label for="img_file_upload_tag8"><img src="/static/images/add_image_icon.png" id="img8" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                        </div>
+                        <div class="additional_product_images_div"><!-- img9 -->
+                            <label for="img_file_upload_tag9"><img src="/static/images/add_image_icon.png" id="img9" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
+                        </div>
+                        <div class="additional_product_images_div"><!-- img10 -->
+                            <label for="img_file_upload_tag10"><img src="/static/images/add_image_icon.png" id="img10" class="additional_product_image"/><!--<i class="fa fa-file-image-o"></i>--></label>
                         </div>
                     </div>
 
-                    <input type="file" name="img1" id="img_file_upload_tag1" accept="image/*" style="display:none" onchange="loadFile(event, 'img1')"/>
-                    <input type="file" name="img1" id="img_file_upload_tag2" accept="image/*" style="display:none" onchange="loadFile(event, 'img2')"/>
-                    <input type="file" name="img1" id="img_file_upload_tag3" accept="image/*" style="display:none" onchange="loadFile(event, 'img3')"/>
+                    <input type="file" name="img1" id="img_file_upload_tag1" accept="image/*" style="display:none" onchange="loadFile(event, 'img1')" required/><!-- file tag 1 -->
+                    <input type="file" name="img2" id="img_file_upload_tag2" accept="image/*" style="display:none" onchange="loadFile(event, 'img2')"/><!-- file tag 2 -->
+                    <input type="file" name="img3" id="img_file_upload_tag3" accept="image/*" style="display:none" onchange="loadFile(event, 'img3')"/><!-- file tag 3 -->
+                    <input type="file" name="img4" id="img_file_upload_tag4" accept="image/*" style="display:none" onchange="loadFile(event, 'img4')"/><!-- file tag  4-->
+                    <input type="file" name="img5" id="img_file_upload_tag5" accept="image/*" style="display:none" onchange="loadFile(event, 'img5')"/><!-- file tag 5 -->
+                    <input type="file" name="img6" id="img_file_upload_tag6" accept="image/*" style="display:none" onchange="loadFile(event, 'img6')"/><!-- file tag 6 -->
+                    <input type="file" name="img7" id="img_file_upload_tag7" accept="image/*" style="display:none" onchange="loadFile(event, 'img7')"/><!-- file tag 7 -->
+                    <input type="file" name="img8" id="img_file_upload_tag8" accept="image/*" style="display:none" onchange="loadFile(event, 'img8')"/><!-- file tag 8 -->
+                    <input type="file" name="img9" id="img_file_upload_tag9" accept="image/*" style="display:none" onchange="loadFile(event, 'img9')"/><!-- file tag 9 -->
+                    <input type="file" name="img10" id="img_file_upload_tag10" accept="image/*" style="display:none" onchange="loadFile(event, 'img10')"/><!-- file tag 10 -->
                     <!-- Add Image Ends -->
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
