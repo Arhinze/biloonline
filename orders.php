@@ -18,7 +18,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         <div>
             <div onclick="show_div('filter_options')" style="background-color:green;color:#fff;font-weight:bold;padding:6px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Filter By:</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
 
-            <div id="filter_options" style="display:none;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000;position:fixed;top:30%;width:80%">
+            <div id="filter_options" style="display:block;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000;position:fixed;top:30%;width:80%;line-height:24px">
                 <div>Processing</div>
                 <div>Delivered</div>
                 <div>Canceled</div>
