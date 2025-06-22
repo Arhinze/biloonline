@@ -181,7 +181,7 @@ Class admin_Segments{
 
         <li><i class="fa fa-key"></i> <a href="/admin-reset-password">Reset Password</a></li>
 
-        <li><a href="https://mine.aguanit.com/logout.php" style="color:#fff;font-weight:bold;background-color:#0bee3ccc;padding:6px;border-radius:12px">Log out</a></li>
+        <li><a href="/logout" style="color:#fff;font-weight:bold;background-color:#0bee3ccc;padding:6px;border-radius:12px">Log out</a></li>
         
         <label for="menu-box"><div class="grey_area"></div></label>
     </ul>
