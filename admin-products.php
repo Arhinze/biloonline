@@ -48,10 +48,10 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <!-- Add Image Starts -->
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Add Images:</b> <span style="font-size:12px;color:green">(image1 is required, others are optional)</span></div>
-                    <div style="width:100%;overflow:scroll">
+                    <div style="width:100%;overflow-x:scroll"><!-- style .overflow-x:scroll -->
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visoble"><!-- .additional_product_images_div_container starts -->
                             <div class="additional_product_images_div"><!-- img1 -->
-                                <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon.png" id="img1" class="additional_product_image"/><span class="additional_product_image_number">1</span></label>
+                                <label for="img_file_upload_tag1"><img src="/static/images/add_image_icon_img1.png" id="img1" class="additional_product_image"/><span class="additional_product_image_number">1</span></label>
                             </div>
                             <div class="additional_product_images_div"><!-- img2 -->
                                 <label for="img_file_upload_tag2"><img src="/static/images/add_image_icon.png" id="img2" class="additional_product_image"/><span class="additional_product_image_number">2</span></label>
@@ -81,7 +81,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                                 <label for="img_file_upload_tag10"><img src="/static/images/add_image_icon.png" id="img10" class="additional_product_image"/><span class="additional_product_image_number" style="padding:2px 3px">10</span></label>
                             </div>
                         </div><!-- .additional_product_images_div_container ends -->
-                    </div>
+                    </div><!-- style .overflow-x:scroll -->
 
                     <input type="file" name="img1" id="img_file_upload_tag1" accept="image/*" style="display:none" onchange="loadFile(event, 'img1')" required/><!-- file tag 1 -->
                     <input type="file" name="img2" id="img_file_upload_tag2" accept="image/*" style="display:none" onchange="loadFile(event, 'img2')"/><!-- file tag 2 -->
