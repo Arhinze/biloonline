@@ -128,7 +128,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
         function status_color($state){
             if($state == "processing") {
-                return "#cfcf00"; //yellow(a darker variant)
+                return "#f3d111"; //yellow(a darker variant)
             } else if($state == "delivered") {
                 return "green";
             } else if($state == "cancelled") {
