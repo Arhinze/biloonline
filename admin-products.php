@@ -237,16 +237,16 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
         
                         //Edit(Update) images:
-                        foreach($images_array as $images_ad) { //foreach loop - [images_array] starts
+                        foreach($images_array as $images_ad) {//foreach loop - [images_array] starts
                             if(!empty($_FILES["edit_".$d->product_id."_".$images_ad]["name"])){ //if (!empty($_FILES["add_".$images_ad])) starts
                                 /* Image Upload Script starts */
                                 $target_dir = "static/images/";
-                                $target_file = $target_dir.basename($_FILES["edit_".$images_ad]["name"]);
+                                $target_file = $target_dir.basename($_FILES["edit_".$d->product_id."_".$images_ad]["name"]);
                                 $uploadOk = 1;
                                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                 
                                 //Check if image file is a actual image or fake image
-                                $check_img = getimagesize($_FILES["edit_".$images_ad]["tmp_name"]);
+                                $check_img = getimagesize($_FILES["edit_".$d->product_id."_".$images_ad]["tmp_name"]);
                                 if ($check_img !== false) {
                                     echo "image security test passed - ".$check_img["mime"].".";
                                     $uploadOk = 1;
@@ -270,12 +270,12 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                                     echo "Sorry, your file was not uploaded.";
                                 //if everything is ok, edit(update) file
                                 } else {
-                                    if (move_uploaded_file($_FILES["edit_".$images_ad]["tmp_name"], $target_file)) {
-                                        echo "The file ". htmlspecialchars( basename($_FILES["edit".$images_ad]["name"])). " has been uploaded.";
+                                    if (move_uploaded_file($_FILES["edit_".$d->product_id."_".$images_ad]["tmp_name"], $target_file)) {
+                                        echo "The file ". htmlspecialchars( basename($_FILES["edit_".$d->product_id."_".$images_ad]["name"])). " has been uploaded.";
                                         //insert(update) product image(s)
                 
                                         $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
-                                        $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["new_url"]]);
+                                        $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["edit_product_id".$d->product_id]]);
                  
                                     } else {
                                       echo "Sorry, there was an error uploading your file.";
@@ -336,7 +336,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
             <!--hidden section 1: Edit -->
             <div id="edit<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
-                <form method="post" action="">
+                <form method="post" action="" enctype="multipart/form-data">
                     <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="product_name" value="<?=$d->product_name?>"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
 
@@ -388,22 +388,22 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <div id="remove<?=$i?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
 
             <form method="post" action="" id="message_form<?=$i?>" class="pop_up">
-            <span style="text-align:center">Are you sure you want to remove user: <b style="font-size:18px;color:red;border-bottom:2px solid #fff"><?=$d->product_name?>?</b> &nbsp;
-
-            <b>This can't be Undone</b></span><br /><br />
-
-            <input type="hidden"  name="remove_product" value="<?=$d->product_id?>"/>
-
-            <input type="submit" value="Remove" style="background-color:red;
-                    padding:3px;margin:3px;border-radius:6px;color:#fff;border:none;height:24px;"/> 
-
-            <!--Cancel "Remove Product" (Don't remove):-->
-            <!--onclick = "show_div('remove <= $i >')"-->
-            <span onclick="hide_content_space('remove',<?=$i?>)" style="background-color:#ff9100;
-                    padding:3px;border-radius:6px;color:#fff;
-                    margin-left:6px;text-align:center;height:24px;border:none">
-                    Cancel 
-            </span>    
+                <span style="text-align:center">Are you sure you want to remove user: <b style="font-size:18px;color:red;border-bottom:2px solid #fff"><?=$d->product_name?>?</b> &nbsp;
+    
+                <b>This can't be Undone</b></span><br /><br />
+    
+                <input type="hidden"  name="remove_product" value="<?=$d->product_id?>"/>
+    
+                <input type="submit" value="Remove" style="background-color:red;
+                        padding:3px;margin:3px;border-radius:6px;color:#fff;border:none;height:24px;"/> 
+    
+                <!--Cancel "Remove Product" (Don't remove):-->
+                <!--onclick = "show_div('remove <= $i >')"-->
+                <span onclick="hide_content_space('remove',<?=$i?>)" style="background-color:#ff9100;
+                        padding:3px;border-radius:6px;color:#fff;
+                        margin-left:6px;text-align:center;height:24px;border:none">
+                        Cancel 
+                </span>    
             </form>
 
             </div> <!--End of remove<=i> div-->
