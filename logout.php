@@ -1,6 +1,6 @@
 <?php
 
-include_once("/home/u590828029/domains/aguanit.com/public_html/views/Index_Segments.php");
+include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
 $cookies = ["username_or_email","password","admin_name","admin_password"];
 foreach($cookies as $c){
