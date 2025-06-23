@@ -9,6 +9,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
     if($data){
         //that means admin is logged in
         admin_Segments::header();
+        //print_r($_POST);
+        //echo "<br /><br /><b>",print_r($_FILES),"</b>";
 
         //[array to loop through to upload multiple product images at once]:
         $images_array = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"];
@@ -76,7 +78,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                             }
                         }
                         /* Image Upload Script ends */
-                    }//if(!empty($_FILE["add_".$images_ad])) ends
+                    }//if(!empty($_FILES["add_".$images_ad])) ends
                 }//foreach loop - looping around array to upload multiple product images at once ends
                 
 
@@ -210,7 +212,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             $u_search_stmt->execute(["%$search_q%",$page_to_call, $num_of_rows]);
 
             $u_data = $u_search_stmt->fetchAll(PDO::FETCH_OBJ);
-        }  else {//if no particular person is searched for, call out all products:
+        }  else {//if no particular person is searched for, list out all products:
             $u_stmt = $pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
             $u_stmt->execute([$page_to_call, $num_of_rows]);
     
@@ -282,7 +284,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                                     }
                                 }
                                 /* Image Upload Script ends */
-                            } else {//if(!empty($_FILE["edit_".$images_ad])) ends
+                            } else {//if(!empty($_FILES["edit_".$images_ad])) ends
                                 echo "<h1>Totally empty HTML File Headers</h1>";
                             }
                         }//foreach loop - looping around array to upload multiple product images at once ends
