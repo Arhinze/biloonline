@@ -188,10 +188,10 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                             <img src = "/static/images/<?=$d->image1?>" class="additional_product_image"/>
                         </div>
                         <div class="additional_product_images_div">
-                            <img class="additional_product_image"/>
+                            <img src = "/static/images/<?=$d->image2?>" class="additional_product_image"/>
                         </div>
                         <div class="additional_product_images_div">
-                            <img class="additional_product_image"/>
+                            <img src = "/static/images/<?=$d->image3?>" class="additional_product_image"/>
                         </div>
                     </div>
 
