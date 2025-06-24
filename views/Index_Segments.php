@@ -409,8 +409,6 @@ HTML;
                     <!-- Top selling on Biloonline starts -->
                     <!-- 3, 4 -->
                     <div class="topselling_div"><!-- .flex_div starts(.topselling) --> 
-
-
                         <div class="deal_div"><!-- .deal_div starts --> 
                             <img src="/static/images/cooking_pot.png" class="deal_img"/>   
                             <div class="below_deal_img"><!-- .below_deal_img starts -->
