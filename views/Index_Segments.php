@@ -373,6 +373,7 @@ HTML;
                                 $short_description = substr($sel_c2->description,0,36);
                                 echo <<<HTML
                                     <div class="deal_div"><!-- .deal_div starts --> 
+                                        <a href="/product/$sel_c2->product_url"><!-- link to product page starts -->
                                         <img src="/static/images/$sel_c2->image1" class="deal_img"/>   
                                         <div class="below_deal_img"><!-- .below_deal_img starts -->
                                             <div class="topselling_choice_and_title">
@@ -396,6 +397,7 @@ HTML;
                                             </div>
                                             <i class="fa fa-motorcycle"></i> Free shipping
                                         </div><!-- .below_deal_img ends -->
+                                        </a><!-- link to product page ends -->
                                     </div><!-- .deal_div ends -->
 HTML;
                             }
