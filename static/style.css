@@ -154,13 +154,14 @@ a{
 }
 
 .topselling_div {
+    width:105%;
     display:flex;
     justify-content: space-around;
 }
 
 .topselling_div .deal_div {
     border:none;
-    width:40%;
+    width:50%;
     height:auto;
 }
 
