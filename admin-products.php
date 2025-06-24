@@ -33,18 +33,21 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                 
                 //upload images:
+                $img_i = 0;
                 foreach($images_array as $images_ad) { //foreach loop - [images_array] starts
+                    $img_i++;
                     if(!empty($_FILES["add_".$images_ad]["name"])){ //if (!empty($_FILES["add_".$images_ad])) starts
                         /* Image Upload Script starts */
                         $target_dir = "static/images/";
-                        $target_file = $target_dir.basename($_FILES["add_".$images_ad]["name"]);
+                        $target_basename = $_POST["new_url"]."_".time()."_".$img_i.".png";
+                        $target_file = $target_dir.$target_basename;
                         $uploadOk = 1;
                         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         
                         //Check if image file is a actual image or fake image
                         $check_img = getimagesize($_FILES["add_".$images_ad]["tmp_name"]);
                         if ($check_img !== false) {
-                            echo "image security test passed - ".$check_img["mime"].".";
+                            echo "image security test passed - ".$check_img["mime"].".<br/>";
                             $uploadOk = 1;
                         } else {
                             echo "image security test failed - file is not an image";
@@ -67,12 +70,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         //if everything is ok, upload file
                         } else {
                             if (move_uploaded_file($_FILES["add_".$images_ad]["tmp_name"], $target_file)) {
-                                echo "The file ". htmlspecialchars( basename($_FILES["add_".$images_ad]["name"])). " has been uploaded.";
+                                echo "The file ".$target_basename." has been uploaded.<br />";
+                                
                                 //insert(update) product image(s)
-        
                                 $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
-                                $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $_POST["new_url"]]);
-         
+                                $up_stmt->execute([$target_basename, $_POST["new_url"]]);
                             } else {
                               echo "Sorry, there was an error uploading your file.";
                             }
@@ -80,8 +82,6 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         /* Image Upload Script ends */
                     }//if(!empty($_FILES["add_".$images_ad])) ends
                 }//foreach loop - looping around array to upload multiple product images at once ends
-                
-
             } else {//if product_url exists:
                 echo "<h4 style='color:red'>Error, Product: ", $add_data->product_url, " already exists</h4>";
             }
@@ -100,7 +100,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             if($edit_data){ 
                 //then edit:
                 $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ? WHERE product_id = ?");
-                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product_id".$d->product_id]]);
+                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product_id"]]);
         
                 echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
         
@@ -109,7 +109,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     if(!empty($_FILES["edit_".$images_ad]["name"])){ //if (!empty($_FILES["add_".$images_ad])) starts
                         /* Image Upload Script starts */
                         $target_dir = "static/images/";
-                        $target_file = $target_dir.basename($_FILES["edit_".$images_ad]["name"]);
+                        $target_basename = $_POST["url"]."_".time()."_".$img_i.".png";
+                        $target_file = $target_dir.$target_basename;
                         $uploadOk = 1;
                         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
         
@@ -139,15 +140,15 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         //if everything is ok, edit(update) file
                         } else {
                             if (move_uploaded_file($_FILES["edit_".$images_ad]["tmp_name"], $target_file)) {
-                                echo "<h3>The file ". htmlspecialchars(basename($_FILES["edit_".$images_ad]["name"])). " has been uploaded.</h3>";
+                                echo "<h3>The file ".$target_basename. " has been uploaded.</h3>";
 
                                 //insert(update) product image(s)
                                 $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_id = ?");
-                                $up_stmt->execute([pathinfo($target_file, PATHINFO_BASENAME), $d->product_id]);
+                                $up_stmt->execute([$target_basename, $_POST["edit_product_id"]]);
 
-                                echo htmlspecialchars(basename($_FILES["edit_".$images_ad]["name"]))." added to the database.";
+                                echo $target_basename." added to the database.<br />";
                             } else {
-                              echo "Sorry, there was an error uploading your file.";
+                              echo "Sorry, there was an error uploading your file.<br />";
                             }
                         }
                         /* Image Upload Script ends */
