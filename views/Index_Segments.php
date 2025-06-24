@@ -140,15 +140,15 @@ HTML;
 
                     <!-- 1, 2 -->
                     <div class="deals"><!--.deals start-->
-                        <div class="deal_header">Bundle deals</div> 
+                        <div class="deal_header">Super deals</div> 
                         <center> 
                         <div class="deal_price"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp; 3+ from N5000 &nbsp;&nbsp;<i class="fa fa-angle-right"></i> </div>  
                         </center>            
                         <div class="deal_flex" style="display:flex"><!-- .deal_flex starts -->
 
 HTML;
-                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
-                        $select_call2_stmt->execute([0,2]);
+                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products WHERE `label` = ? ORDER BY product_id DESC LIMIT ?, ?");
+                        $select_call2_stmt->execute(["super-deal",0,2]);
                         $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
 
                         if (count($select_call2_data)>0) { 
@@ -196,7 +196,7 @@ HTML;
 
                     <!-- 3, 4 -->
                     <div class="deals"><!--.deals start-->
-                        <div class="deal_header">Super deals</div> 
+                        <div class="deal_header">New Arrivals</div> 
                         <center> 
                         <div class="deal_price"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp; 3+ from N5000 &nbsp;&nbsp;<i class="fa fa-angle-right"></i> </div>  
                         </center>            
