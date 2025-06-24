@@ -363,7 +363,7 @@ HTML;
                     <div class="topselling_div"><!-- .flex_div starts(.topselling) --> 
 HTML;
                         $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
-                        $select_call2_stmt->execute([0,2]);
+                        $select_call2_stmt->execute([0,6]);
                         $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
 
                         if (count($select_call2_data)>0) { 
@@ -410,7 +410,7 @@ HTML;
                     <!-- 3, 4 -->
                     <div class="topselling_div"><!-- .flex_div starts(.topselling) --> 
                         <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/cooking_pot.png" class="deal_img"/>   
+                            <img src="/static/images/cooking_pot000.png" class="deal_img"/>   
                             <div class="below_deal_img"><!-- .below_deal_img starts -->
                                 <div class="topselling_choice_and_title">
                                     <span class="topselling_choice"> Choice </span> &nbsp;
@@ -437,7 +437,7 @@ HTML;
 
 
                         <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/belt.png" class="deal_img"/>   
+                            <img src="/static/images/belt00.png" class="deal_img"/>   
                             <div class="below_deal_img"><!-- .below_deal_img starts -->
                                 <div class="topselling_choice_and_title">
                                     <span class="topselling_choice"> Choice </span> &nbsp;
