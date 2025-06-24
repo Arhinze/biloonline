@@ -355,69 +355,57 @@ HTML;
 
                         </div><!-- .flex_div ends --> 
                     </div><!-- .fashion_choice ends --> 
-
+HTML;
                     
-                    
-                    <!-- Top selling on Biloonline starts -->
+                echo <<<HTML
+                    <!-- All selling on Biloonline starts -->
                     <!-- 1, 2 -->
                     <div class="topselling_div"><!-- .flex_div starts(.topselling) --> 
+HTML;
+                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
+                        $select_call2_stmt->execute([0,2]);
+                        $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
 
-
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/air_fryer.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span class="topselling_choice"> Choice </span> &nbsp;
-                                    <span>
-                                        Hot sale Luxury Fashio...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N150,000
-                                </span>  &nbsp; 
-                                <span class="deal_former_price">
-                                    <s>NG N270,000</s>
-                                </span> 
-                                <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.6</b> <span style="color:#888"> | </span> 1,000+ sold
-                                </div>
-
-                                <div class="topselling_text">
-                                    <i class="fa fa-fire"></i> Top selling on BiloOnline
-                                </div>
-                                <i class="fa fa-motorcycle"></i> Free shipping
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/footwear.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span class="topselling_choice"> Choice </span> &nbsp;
-                                    <span>
-                                        Hot sale Luxury Fashio...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N25,000
-                                </span>  &nbsp; 
-                                <span class="deal_former_price">
-                                    <s>NG N35,000</s>
-                                </span> 
-                                <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 1,200+ sold
-                                </div>
-
-                                <div class="topselling_text">
-                                    <i class="fa fa-fire"></i> Top selling on BiloOnline
-                                </div>
-                                <i class="fa fa-motorcycle"></i> Free shipping
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
+                        if (count($select_call2_data)>0) { 
+                            $i=0;
+                            foreach ($select_call2_data as $sel_c2) {
+                                $i++;
+                                $short_description = substr($sel_c2->description,0,36);
+                                echo <<<HTML
+                                    <div class="deal_div"><!-- .deal_div starts --> 
+                                        <img src="/static/images/$sel_c2->image1" class="deal_img"/>   
+                                        <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                            <div class="topselling_choice_and_title">
+                                                <span class="topselling_choice"> Choice </span> &nbsp;
+                                                <span>
+                                                    $short_description
+                                                </span>
+                                            </div>
+                                            <span class="deal_price_black">
+                                                NG N$sel_c2->price
+                                            </span>  &nbsp; 
+                                            <span class="deal_former_price">
+                                                <s>NG N$sel_c2->former_price</s>
+                                            </span> 
+                                            <div class="star_and_rating">
+                                                <i class="fa fa-star"></i> <b>4.6</b> <span style="color:#888"> | </span> 1,000+ sold
+                                            </div>
+            
+                                            <div class="topselling_text">
+                                                <i class="fa fa-fire"></i> Top selling on BiloOnline
+                                            </div>
+                                            <i class="fa fa-motorcycle"></i> Free shipping
+                                        </div><!-- .below_deal_img ends -->
+                                    </div><!-- .deal_div ends -->
+HTML;
+                            }
+                        }
+                echo <<<HTML
                     </div><!-- .flex_div(.topselling_div) ends -->
+HTML;
 
 
+                echo <<<HTML
                     <!-- Top selling on Biloonline starts -->
                     <!-- 3, 4 -->
                     <div class="topselling_div"><!-- .flex_div starts(.topselling) --> 
@@ -536,7 +524,7 @@ HTML;
                             </div><!-- .below_deal_img ends -->
                         </div><!-- .deal_div ends -->
                     </div><!-- .flex_div(.topselling_div) ends -->
-                    <!-- Top selling on Biloonline ends -->
+                    <!-- All selling on Biloonline ends -->
 
 
 
