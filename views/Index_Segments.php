@@ -400,133 +400,17 @@ HTML;
 HTML;
                             }
                         }
-                echo <<<HTML
-                    </div><!-- .flex_div(.topselling_div) ends -->
-HTML;
 
 
                 echo <<<HTML
-                    <!-- Top selling on Biloonline starts -->
-                    <!-- 3, 4 -->
-                    <div class="topselling_div"><!-- .flex_div starts(.topselling) --> 
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/cooking_pot000.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span class="topselling_choice"> Choice </span> &nbsp;
-                                    <span>
-                                        Hot sale Luxury Fashio...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N50,000
-                                </span>  &nbsp; 
-                                <span class="deal_former_price">
-                                    <s>NG N70,000</s>
-                                </span> 
-                                <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.8</b> <span style="color:#888"> | </span> 1,300+ sold
-                                </div>
-
-                                <div class="topselling_text">
-                                    <i class="fa fa-fire"></i> Top selling on BiloOnline
-                                </div>
-                                <i class="fa fa-motorcycle"></i> Free shipping
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/belt00.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span class="topselling_choice"> Choice </span> &nbsp;
-                                    <span>
-                                        Hot sale Luxury Fashio...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N10,000
-                                </span>  &nbsp; 
-                                <span class="deal_former_price">
-                                    <s>NG N15,000</s>
-                                </span> 
-                                <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.2</b> <span style="color:#888"> | </span> 3,000+ sold
-                                </div>
-
-                                <div class="topselling_text">
-                                    <i class="fa fa-fire"></i> Top selling on BiloOnline
-                                </div>
-                                <i class="fa fa-motorcycle"></i> Free shipping
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-                    </div><!-- .flex_div(.topselling_div) ends -->
-
-
-                    <!-- Top selling on Biloonline starts -->
-                    <!-- 5, 6 -->
-                    <div class="topselling_div"><!-- .flex_div starts(.topselling) --> 
-
-
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/electric_iron.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span class="topselling_choice"> Choice </span> &nbsp;
-                                    <span>
-                                        Hot sale Luxury Fashio...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N25,000
-                                </span>  &nbsp; 
-                                <span class="deal_former_price">
-                                    <s>NG N42,000</s>
-                                </span> 
-                                <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.4</b> <span style="color:#888"> | </span> 1,800+ sold
-                                </div>
-
-                                <div class="topselling_text">
-                                    <i class="fa fa-fire"></i> Top selling on BiloOnline
-                                </div>
-                                <i class="fa fa-motorcycle"></i> Free shipping
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/tv.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span class="topselling_choice"> Choice </span> &nbsp;
-                                    <span>
-                                        Hot sale Luxury Fashio...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N500,000
-                                </span>  &nbsp; 
-                                <span class="deal_former_price">
-                                    <s>NG N650,000</s>
-                                </span> 
-                                <div class="star_and_rating">
-                                    <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 500+ sold
-                                </div>
-
-                                <div class="topselling_text">
-                                    <i class="fa fa-fire"></i> Top selling on BiloOnline
-                                </div>
-                                <i class="fa fa-motorcycle"></i> Free shipping
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
                     </div><!-- .flex_div(.topselling_div) ends -->
                     <!-- All selling on Biloonline ends -->
+HTML;
+
+                    
 
 
-
-
+                echo <<<HTML
                     <!-- Sponsored Products start -->
                     <div class="mpdc_heading">Sponsored products</div>
                     <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts -->
