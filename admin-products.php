@@ -344,12 +344,13 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="url" value="<?=$d->product_url?>"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
 
-                    <div style="color:green"><?=$img_output?></div>
-
                     <div class="x_scroll"><!-- style .overflow-x:scroll starts -->
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
 <?php
                         foreach($images_array as $images_ad) {
+                            if($_POST["edit_product_id"] == $d->product_id) {
+                                echo "<div style='color:green'>",$img_output,"</div>";
+                            }
 ?>
                             <div class="additional_product_images_div"><!-- img1 to img10 -->
                                 <label for="edit_<?=$images_ad?>_<?=$d->product_id?>_file_upload_tag">
