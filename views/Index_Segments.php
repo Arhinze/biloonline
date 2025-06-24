@@ -138,7 +138,7 @@ HTML;
                 <div class="main_body">
                     <h2 style="text-align:center">Today's deals</h2>
 
-                    <!-- 1, 2 -->
+                    <!-- 1, 2 (Super Deals)-->
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">Super deals</div> 
                         <center> 
@@ -187,13 +187,13 @@ HTML;
                         </div><!-- .deal_flex ends -->
                     </div><!--.deals end-->
 
+HTML;
 
 
 
 
 
-
-
+            echo <<<HTML
                     <!-- 3, 4 -->
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">New Arrivals</div> 
