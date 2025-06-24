@@ -30,9 +30,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 
                 $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"])]);
 
-                echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " has been inserted successfully</h4>";
-
-                
+                echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " added successfully.</h4>";
+    
                 //upload images:
                 $img_i = 0;
                 foreach($images_array as $images_ad) { //foreach loop - [images_array] starts
@@ -48,7 +47,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         //Check if image file is a actual image or fake image
                         $check_img = getimagesize($_FILES["add_".$images_ad]["tmp_name"]);
                         if ($check_img !== false) {
-                            echo "image security test passed - ".$check_img["mime"].".<br/>";
+                            //echo "image security test passed - ".$check_img["mime"].".<br/>";
                             $uploadOk = 1;
                         } else {
                             echo "image security test failed - file is not an image";
@@ -71,7 +70,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         //if everything is ok, upload file
                         } else {
                             if (move_uploaded_file($_FILES["add_".$images_ad]["tmp_name"], $target_file)) {
-                                echo "The file ".$target_basename." has been uploaded.<br />";
+                                //echo "The file ".$target_basename." has been uploaded.<br />";
                                 
                                 //insert(update) product image(s)
                                 $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
