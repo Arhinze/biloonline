@@ -155,6 +155,7 @@ HTML;
                             $i=0;
                             foreach ($select_call2_data as $sel_c2) {
                                 $i++;
+                                $short_description = substr($sel_c2->description,0,36);
                                 echo <<<HTML
                                     <div class="deal$i" style="width:50%"><!-- .deal1 starts -->   
                                         <div class="deal_div"><!-- .deal_div starts -->
@@ -162,7 +163,7 @@ HTML;
                                             <img src="/static/images/$sel_c2->image1" class="deal_img"/>   
                                             <div class="below_deal_img"><!-- .below_deal_img starts -->
                                                 <div class="deal_text">
-                                                    $sel_c2->description
+                                                    $short_description...
                                                 </div>    
                                                 <div class="deal_price">
                                                     NG N$sel_c2->price
