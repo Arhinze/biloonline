@@ -9,8 +9,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
     if($data){
         //that means admin is logged in
         admin_Segments::header();
-        //print_r($_POST);
-        //echo "<br /><br /><b>",print_r($_FILES),"</b>";
+        print_r($_POST);
+        echo "<br /><br /><b>",print_r($_FILES),"</b>";
 
         //[array to loop through to upload multiple product images at once]:
         $images_array = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"];
@@ -372,7 +372,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 }
 ?>
                     <!-- For Editing Product Image ~ The input tags which does the work but remains hidden ends -->
-                    <input type="hidden" name='<?="edit_product_id".$d->product_id?>' value="<?=$d->product_id?>"/>
+                    <input type="hidden" name='<?="edit_product_id"?>' value="<?=$d->product_id?>"/><!-- hidden html input tag which is passed to php if statement to know if user wants to edit any product -->
                 </form>
             </div>
             <!--End of Edit div-->
