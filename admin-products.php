@@ -14,6 +14,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
         //[array to loop through to upload multiple product images at once]:
         $images_array = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"];
+        $img_output = "";
 
         //To Insert Product:
         if(isset($_POST["new_product"])){
@@ -119,10 +120,10 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         //Check if image file is a actual image or fake image
                         $check_img = getimagesize($_FILES["edit_".$images_ad]["tmp_name"]);
                         if ($check_img !== false) {
-                            echo "image security test passed - ".$check_img["mime"].".";
+                            //echo "image security test passed - ".$check_img["mime"].".";
                             $uploadOk = 1;
                         } else {
-                            echo "image security test failed - file is not an image";
+                            //echo "image security test failed - file is not an image";
                             $uploadOk = 0;
                         }
                         if(file_exists($target_file)) {
@@ -142,20 +143,22 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         //if everything is ok, edit(update) file
                         } else {
                             if (move_uploaded_file($_FILES["edit_".$images_ad]["tmp_name"], $target_file)) {
-                                echo "<h3>The file ".$target_basename. " has been uploaded.</h3>";
+                                //echo "<h3>The file ".$target_basename. " has been uploaded.</h3>";
 
                                 //insert(update) product image(s)
                                 $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_id = ?");
                                 $up_stmt->execute([$target_basename, $_POST["edit_product_id"]]);
 
-                                echo $target_basename." added to the database.<br />";
+                                //echo $target_basename." added to the database.<br />";
+                                $img_output .= "image: <b>".$target_basename."</b> added and recorded.<br />";
                             } else {
                               echo "Sorry, there was an error uploading your file.<br />";
                             }
                         }
                         /* Image Upload Script ends */
                     } else {//if(!empty($_FILES["edit_".$images_ad])) ends
-                        echo "<h1>Totally empty HTML File Headers</h1>";
+                        //echo "<h1>Totally empty HTML File Headers</h1>";
+                        $img_output .= "";
                     }
                 }//foreach loop - looping around array to upload multiple product images at once ends
             }
@@ -204,6 +207,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <!-- Add Image Starts -->
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Add Images:</b> <span style="font-size:12px;color:green">(image1 is required, others are optional)</span></div>
+
+                    <?=$img_output?>
 
                     <div class="x_scroll"><!-- style .overflow-x:scroll starts -->
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
