@@ -155,7 +155,6 @@ a{
 
 .topselling_div {
     width:105%;
-    position: relative;
     display:flex;
     justify-content: space-around;
 }
