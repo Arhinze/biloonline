@@ -89,7 +89,7 @@ HTML;
                     <div class="menu_item"><a href="/category/appliances">Appliances</a></div>
                     <div class="menu_item"><a href="/category/food">Food</a></div>
                     <div class="menu_item"><a href="/category/books">Books</a></div>
-                    <div class="menu_item"><a href="/logout">Logout</a></div>
+                    <div class="menu_item"><a href="/logout" style="color:red">Logout</a></div>
 
                     <!--<div class="menu_item"><a href=""><i class="fa fa-user"></i>&nbsp; Sign Up</a></div>-->
                 </div> 
