@@ -147,7 +147,7 @@ HTML;
                         <div class="deal_flex" style="display:flex"><!-- .deal_flex starts -->
 
 HTML;
-                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
+                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products LIMIT ?, ?");
                         $select_call2_stmt->execute([0,2]);
                         $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -183,7 +183,16 @@ HTML;
                                                           
                                                 
             echo <<<HTML
-                            
+                        </div><!-- .deal_flex ends -->
+                    </div><!--.deals end-->
+
+
+
+
+
+
+
+
                     <!-- 3, 4 -->
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">Super deals</div> 
