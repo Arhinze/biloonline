@@ -208,8 +208,6 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <!-- Add Image Starts -->
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Add Images:</b> <span style="font-size:12px;color:green">(image1 is required, others are optional)</span></div>
 
-                    <?=$img_output?>
-
                     <div class="x_scroll"><!-- style .overflow-x:scroll starts -->
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
 <?php
@@ -345,6 +343,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
                     <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="url" value="<?=$d->product_url?>"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
+
+                    <div style="color:green"><?=$img_output?></div>
 
                     <div class="x_scroll"><!-- style .overflow-x:scroll starts -->
                         <div class="additional_product_images_div_container" style="width:fit-content;overflow:visible"><!-- .additional_product_images_div_container starts -->
