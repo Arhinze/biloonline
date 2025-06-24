@@ -360,7 +360,7 @@ HTML;
                 echo <<<HTML
                     <!-- All selling on Biloonline starts -->
                     <!-- 1, 2 -->
-                    <div class="topselling_div"><!-- .flex_div starts(.topselling) --> 
+                    <div class="topselling_div" style="overflow:wrap"><!-- .flex_div starts(.topselling) --> 
 HTML;
                         $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
                         $select_call2_stmt->execute([0,6]);
