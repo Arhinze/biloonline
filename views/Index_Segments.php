@@ -4,6 +4,11 @@ ini_set("display_errors", '1'); //for testing purposes..
 include_once($_SERVER["DOCUMENT_ROOT"]."/php/connection.php");
 
 class Index_Segments{
+    public static function inject($obj) {
+        Index_Segments::$pdo = $obj;
+    }
+    private static $pdo;
+
     public static function main_header($site_name = SITE_NAME_SHORT) {
         echo <<<HTML
             <div class="headers"> <!-- start of .headers --> 
@@ -128,10 +133,10 @@ HTML;
                 
         public static function body($site_name = SITE_NAME_SHORT, $site_url = SITE_URL){
             $site_name_uc = strtoupper($site_name);
+
             echo <<<HTML
                 <div class="main_body">
                     <h2 style="text-align:center">Today's deals</h2>
-
 
                     <!-- 1, 2 -->
                     <div class="deals"><!--.deals start-->
@@ -140,57 +145,45 @@ HTML;
                         <div class="deal_price"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp; 3+ from N5000 &nbsp;&nbsp;<i class="fa fa-angle-right"></i> </div>  
                         </center>            
                         <div class="deal_flex" style="display:flex"><!-- .deal_flex starts -->
+
+HTML;
+                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
+                        $select_call2_stmt->execute([0,2]);
+                        $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
+
+                        if (count($select_call2_data)>0) { 
+                            $i=0;
+                            foreach ($select_call2_data as $sel_c2) {
+                                $i++;
+                                echo <<<HTML
+                                    <div class="deal$i" style="width:50%"><!-- .deal1 starts -->   
+                                        <div class="deal_div"><!-- .deal_div starts -->
+                                            <a href="/product/$sel_c2->product_url" class="deal_div_link_to_product_page"> <!-- click to see product start tag -->
+                                            <img src="/static/images/$sel_c2->image1" class="deal_img"/>   
+                                            <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                                <div class="deal_text">
+                                                    $sel_c2->description
+                                                </div>    
+                                                <div class="deal_price">
+                                                    NG N$sel_c2->price
+                                                </div>   
+                                                <div class="deal_former_price">
+                                                    <s>NG N$sel_c2->former_price</s>
+                                                </div> 
+                                                <div class="star_and_rating">
+                                                    <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
+                                                </div>
+                                            </div><!-- .below_deal_img ends -->
+                                            </a> <!-- click to see product end tag -->
+                                        </div><!-- .deal_div ends -->
+                                    </div><!-- .deal1 ends -->
+HTML;  
+                            }
+                        }
+                                                          
+                                                
+            echo <<<HTML
                             
-                            <div class="deal1" style="width:50%"><!-- .deal1 starts -->   
-                                <div class="deal_div"><!-- .deal_div starts -->
-                                    <a href="/product/iphone12" class="deal_div_link_to_product_page"> <!-- click to see product start tag -->
-                                    <img src="/static/images/iphone12.png" class="deal_img"/>   
-                                    <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                        <div class="deal_text">
-                                           Original Unlocked Apple iPhone 12 Pro Face ID...
-                                        </div>    
-                                        <div class="deal_price">
-                                            NG N420,000
-                                        </div>   
-                                        <div class="deal_former_price">
-                                            <s>NG N630,000</s>
-                                        </div> 
-                                        <div class="star_and_rating">
-                                            <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
-                                        </div>
-                                    </div><!-- .below_deal_img ends -->
-                                    </a> <!-- click to see product end tag -->
-                                </div><!-- .deal_div ends -->
-                            </div><!-- .deal1 ends -->
-                                                
-                                                
-                                                
-                            <div class="deal2" style="width:50%"><!-- .deal2 starts -->   
-                                <div class="deal_div"><!-- .deal_div starts -->
-                                    <a href="/product/comfy-bed" class="deal_div_link_to_product_page"> <!-- click to see product start tag --> 
-                                    <img src="/static/images/comfy_bed.png" class="deal_img"/>  
-                                    <div class="below_deal_img"><!-- .below_deal_img starts --> 
-                                        <div class="deal_text">
-                                           Size 6 Stylish Comfy Bed Soft Foam...
-                                        </div>    
-                                        <div class="deal_price">
-                                            NG N350,000
-                                        </div>   
-                                        <div class="deal_former_price">
-                                            <s>NG N700,000</s>
-                                        </div> 
-                                        <div class="star_and_rating">
-                                            <i class="fa fa-star"></i> <b>4.2</b> <span style="color:#888"> | </span> 1,000+ sold
-                                        </div>
-                                    </div><!-- .below_deal_img ends -->
-                                    </a><!-- click to see product end tag --> 
-                                </div><!-- .deal_div ends -->
-                            </div><!-- .deal2 ends -->
-                        </div><!-- .deal_flex ends -->
-                    </div><!--.deals end-->
-
-
-
                     <!-- 3, 4 -->
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">Super deals</div> 
@@ -872,4 +865,6 @@ HTML;
 HTML;
     }
 }
+
+Index_Segments::inject($pdo);
 ?>
