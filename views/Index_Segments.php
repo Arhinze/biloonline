@@ -64,59 +64,65 @@ HTML;
             $main_header
             <div class="menu_div"><!-- .menu_div starts -->  
                 <div class="menu">
-                    <div class="all_categories"><i class="fa fa-bars"></i>&nbsp; All Categories &nbsp; <i class="fa fa-angle-down"></i></div>
+                    <label for="menu-box"><div class="all_categories"><i class="fa fa-bars"></i>&nbsp; All Categories &nbsp; <i class="fa fa-angle-down"></i></div></label>
 
-                    <div class="menu_item" style="margin-left:180px"><a href="">Women</a></div>
-
-                    <div class="menu_item"><a href="">Men</a></div>
-
-                    <div class="menu_item"><a href="">Home</a></div>
-
-                    <div class="menu_item"><a href="">Xenx</a></div>
-
-                    <div class="menu_item"><a href="">Sports</a></div>
-
-                    <div class="menu_item"><a href="">Jewelry</a></div>
-
-                    <div class="menu_item"><a href="">Industrial</a></div>
-
-                    <div class="menu_item"><a href="">Electronics</a></div>
-
-                    <div class="menu_item"><a href="">Kids</a></div>
-
-                    <div class="menu_item"><a href="">Bags</a></div>
-
-                    <div class="menu_item"><a href="">Toy</a></div>
-
-                    <div class="menu_item"><a href="">Crafts</a></div>
-
-                    <div class="menu_item"><a href="">Beauty</a></div>
-                    
-                    <div class="menu_item"><a href="">Automotive</a></div>
-                    
-                    <div class="menu_item"><a href="">Garden</a></div>
-                    
-                    <div class="menu_item"><a href="">Office</a></div>
-
-                    <div class="menu_item"><a href="">Health</a></div>
-
-                    <div class="menu_item"><a href="">Baby</a></div>
-
-                    <div class="menu_item"><a href="">Household</a></div>
-
-                    <div class="menu_item"><a href="">Musical</a></div>
-
-                    <div class="menu_item"><a href="">Appliances</a></div>
-
-                    <div class="menu_item"><a href="">Food</a></div>
-
-                    <div class="menu_item"><a href="">Books</a></div>
-
-                    <div class="menu_item"><a href="">More &nbsp; <i class="fa fa-angle-down"></i></a></div>
+                    <div class="menu_item" style="margin-left:180px"><a href="/category/women">Women</a></div>
+                    <div class="menu_item"><a href="/category/men">Men</a></div>
+                    <div class="menu_item"><a href="/category/home">Home</a></div>
+                    <div class="menu_item"><a href="https://xenxhq.com">Xenx</a></div>
+                    <div class="menu_item"><a href="/category/sports">Sports</a></div>
+                    <div class="menu_item"><a href="/category/jewelry">Jewelry</a></div>
+                    <div class="menu_item"><a href="/category/industrial">Industrial</a></div>
+                    <div class="menu_item"><a href="/category/electronics">Electronics</a></div>
+                    <div class="menu_item"><a href="/category/kids">Kids</a></div>
+                    <div class="menu_item"><a href="/category/bags">Bags</a></div>
+                    <div class="menu_item"><a href="/category/toy">Toy</a></div>
+                    <div class="menu_item"><a href="/category/crafts">Crafts</a></div>
+                    <div class="menu_item"><a href="/category/beauty">Beauty</a></div>                    
+                    <div class="menu_item"><a href="/category/automotive">Automotive</a></div>                    
+                    <div class="menu_item"><a href="/category/garden">Garden</a></div>                    
+                    <div class="menu_item"><a href="/category/office">Office</a></div>
+                    <div class="menu_item"><a href="/category/health">Health</a></div>
+                    <div class="menu_item"><a href="/category/baby">Baby</a></div>
+                    <div class="menu_item"><a href="/category/household">Household</a></div>
+                    <div class="menu_item"><a href="/category/musical">Musical</a></div>
+                    <div class="menu_item"><a href="/category/appliances">Appliances</a></div>
+                    <div class="menu_item"><a href="/category/food">Food</a></div>
+                    <div class="menu_item"><a href="/category/books">Books</a></div>
+                    <div class="menu_item"><a href="/logout">Logout</a></div>
 
                     <!--<div class="menu_item"><a href=""><i class="fa fa-user"></i>&nbsp; Sign Up</a></div>-->
                 </div> 
             </div> <!-- .menu_div ends -->  
+
+
+
+            <input type="checkbox" id="menu-box" class="menu-box" style="display:none"/>
+            
+            <ul class="menu_list"> 
+                <li><a href="/category/women">Women</a></li>
+                <li><a href="/category/men">Men</a></li>
+                <li><a href="https://xenxhq.com">Xenx</a></li>
+                <li><a href="/category/jewelry">Jewelry</a></li>
+                <li><a href="/category/industrial">Industrial</a></li>
+                <li><a href="/category/electronics">Electronics</a></li>
+                <li><a href="/category/kids">Kids</a></li>
+                <li><a href="/category/bags">Bags</a></li>
+                <li><a href="/category/toy">Toy</a></li>
+                <li><a href="/category/crafts">Crafts</a></li>
+                <li><a href="/category/beauty">Beauty</a></li>
+                <li><a href="/category/automotive">Automotive</a></li>
+                <li><a href="/category/garden">Garden</a></li>
+                <li><a href="/category/health">Health</a></li>
+                <li><a href="/category/baby">Baby</a></li>
+                <li><a href="/category/household">Household</a></li>
+                <li><a href="/category/musical-appliances">Musical Appliances</a></li>
+                <li><a href="/category/food">Food</a></li>
+                <li><a href="/category/books">Books</a></li>
+                <li><a href="/logout" style="color:#fff;font-weight:bold;background-color:red;padding:6px;border-radius:12px">Log out</a></li>
+                
+                <label for="menu-box"><div class="grey_area"></div></label>
+            </ul>
 HTML;
        }
                 

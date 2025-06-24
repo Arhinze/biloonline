@@ -380,7 +380,7 @@ h1, h2, h3, h4, h5, h6{
 .menu {
     display:flex;
     overflow:visible;
-    width:500%;
+    width:fit-content;
     margin:0;
     padding:0;
     box-shadow: 0 0 6px 0 #ffe2bb inset;
