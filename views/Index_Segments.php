@@ -137,7 +137,9 @@ HTML;
             echo <<<HTML
                 <div class="main_body">
                     <h2 style="text-align:center">Today's deals</h2>
+HTML;
 
+                echo <<<HTML
                     <!-- 1, 2 (Super Deals)-->
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">Super deals</div> 
@@ -181,9 +183,60 @@ HTML;
 HTML;  
                             }
                         }
-                                                          
-                                                
-            echo <<<HTML
+                                                                                                       
+                echo <<<HTML
+                        </div><!-- .deal_flex ends -->
+                    </div><!--.deals end-->
+
+HTML;
+
+
+                echo <<<HTML
+                    <!-- 1, 2 (New Arrivals)-->
+                    <div class="deals"><!--.deals start-->
+                        <div class="deal_header">New Arrivals</div> 
+                        <center> 
+                        <div class="deal_price"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp; 3+ from N5000 &nbsp;&nbsp;<i class="fa fa-angle-right"></i> </div>  
+                        </center>            
+                        <div class="deal_flex" style="display:flex"><!-- .deal_flex starts -->
+HTML;
+
+                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
+                        $select_call2_stmt->execute([0,2]);
+                        $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
+
+                        if (count($select_call2_data)>0) { 
+                            $i=0;
+                            foreach ($select_call2_data as $sel_c2) {
+                                $i++;
+                                $short_description = substr($sel_c2->description,0,36);
+                                echo <<<HTML
+                                    <div class="deal$i" style="width:50%"><!-- .deal1 starts -->   
+                                        <div class="deal_div"><!-- .deal_div starts -->
+                                            <a href="/product/$sel_c2->product_url" class="deal_div_link_to_product_page"> <!-- click to see product start tag -->
+                                            <img src="/static/images/$sel_c2->image1" class="deal_img"/>   
+                                            <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                                <div class="deal_text">
+                                                    $short_description...
+                                                </div>    
+                                                <div class="deal_price">
+                                                    NG N$sel_c2->price
+                                                </div>   
+                                                <div class="deal_former_price">
+                                                    <s>NG N$sel_c2->former_price</s>
+                                                </div> 
+                                                <div class="star_and_rating">
+                                                    <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
+                                                </div>
+                                            </div><!-- .below_deal_img ends -->
+                                            </a> <!-- click to see product end tag -->
+                                        </div><!-- .deal_div ends -->
+                                    </div><!-- .deal1 ends -->
+HTML;  
+                            }
+                        }
+                                                                                                       
+                echo <<<HTML
                         </div><!-- .deal_flex ends -->
                     </div><!--.deals end-->
 
@@ -192,65 +245,7 @@ HTML;
 
 
 
-
             echo <<<HTML
-                    <!-- 3, 4 -->
-                    <div class="deals"><!--.deals start-->
-                        <div class="deal_header">New Arrivals</div> 
-                        <center> 
-                        <div class="deal_price"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp; 3+ from N5000 &nbsp;&nbsp;<i class="fa fa-angle-right"></i> </div>  
-                        </center>            
-                        <div class="deal_flex" style="display:flex"><!-- .deal_flex starts -->
-                            <div class="deal1" style="width:50%"><!-- .deal1 starts -->   
-                                <div class="deal_div"><!-- .deal_div starts --> 
-                                    <a href="/product/footwear" class="deal_div_link_to_product_page"> <!-- click to see product start tag --> 
-                                    <img src="/static/images/footwear.png" class="deal_img"/>   
-                                    <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                        <div class="deal_text">
-                                           Beautiful footwear, made from pure leathe...
-                                        </div>    
-                                        <div class="deal_price">
-                                            NG N25,000
-                                        </div>   
-                                        <div class="deal_former_price">
-                                            <s>NG N60,000</s>
-                                        </div> 
-                                        <div class="star_and_rating">
-                                            <i class="fa fa-star"></i> <b>4.8</b> <span style="color:#888"> | </span> 5,000+ sold
-                                        </div>
-                                    </div><!-- .below_deal_img ends -->
-                                    </a> <!-- click to see product end tag --> 
-                                </div><!-- .deal_div ends -->
-                            </div><!-- .deal1 ends -->
-                                                
-                                                
-                                                
-                            <div class="deal2" style="width:50%"><!-- .deal2 starts -->   
-                                <div class="deal_div"><!-- .deal_div starts --> 
-                                    <a href="/product/laptop-desk" class="deal_div_link_to_product_page"> <!-- click to see product start tag --> 
-                                    <img src="/static/images/laptop_desk.png" class="deal_img"/>  
-                                    <div class="below_deal_img"><!-- .below_deal_img starts --> 
-                                        <div class="deal_text">
-                                           Bedside Laptop Desk, portable and easy to use...
-                                        </div>    
-                                        <div class="deal_price">
-                                            NG N75,000
-                                        </div>   
-                                        <div class="deal_former_price">
-                                            <s>NG N160,000</s>
-                                        </div> 
-                                        <div class="star_and_rating">
-                                            <i class="fa fa-star"></i> <b>4.8</b> <span style="color:#888"> | </span> 2,000+ sold
-                                        </div>
-                                    </div><!-- .below_deal_img ends -->
-                                    </a> <!-- click to see product end tag --> 
-                                </div><!-- .deal_div ends -->
-                            </div><!-- .deal2 ends -->
-                        </div><!-- .deal_flex ends -->
-                    </div><!--.deals end-->
-
-
-
                     <!-- 5, 6 -->
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">Big Save</div> 
