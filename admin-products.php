@@ -105,7 +105,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
         
                 //Edit(Update) images:
+                $img_i = 0;
                 foreach($images_array as $images_ad) {//foreach loop - [images_array] starts
+                    $img_i++;
                     if(!empty($_FILES["edit_".$images_ad]["name"])){ //if (!empty($_FILES["add_".$images_ad])) starts
                         /* Image Upload Script starts */
                         $target_dir = "static/images/";
