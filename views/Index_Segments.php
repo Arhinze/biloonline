@@ -187,12 +187,11 @@ HTML;
                 echo <<<HTML
                         </div><!-- .deal_flex ends -->
                     </div><!--.deals end-->
-
 HTML;
 
 
                 echo <<<HTML
-                    <!-- 1, 2 (New Arrivals)-->
+                    <!-- 3, 4 (New Arrivals)-->
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">New Arrivals</div> 
                         <center> 
@@ -239,67 +238,64 @@ HTML;
                 echo <<<HTML
                         </div><!-- .deal_flex ends -->
                     </div><!--.deals end-->
-
 HTML;
 
 
 
 
             echo <<<HTML
-                    <!-- 5, 6 -->
+                    <!-- 5, 6 (Big Save)-->
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">Big Save</div> 
                         <center> 
                         <div class="deal_price"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp; 3+ from N5000 &nbsp;&nbsp;<i class="fa fa-angle-right"></i> </div>  
                         </center>            
                         <div class="deal_flex" style="display:flex"><!-- .deal_flex starts -->
-                            <div class="deal1" style="width:50%"><!-- .deal1 starts -->   
-                                <div class="deal_div"><!-- .deal_div starts --> 
-                                    <img src="/static/images/iphone12.png" class="deal_img"/>   
-                                    <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                        <div class="deal_text">
-                                           iPhone 12 Pro, 5G smart phone 1 sim...
-                                        </div>    
-                                        <div class="deal_price">
-                                            NG N450,000
-                                        </div>   
-                                        <div class="deal_former_price">
-                                            <s>NG N700,000</s>
-                                        </div> 
-                                        <div class="star_and_rating">
-                                            <i class="fa fa-star"></i> <b>4.5</b> <span style="color:#888"> | </span> 2,000+ sold
-                                        </div>
-                                    </div><!-- .below_deal_img ends -->
-                                </div><!-- .deal_div ends -->
-                            </div><!-- .deal1 ends -->
-                                                
-                                                
-                                                
-                            <div class="deal2" style="width:50%"><!-- .deal2 starts -->   
-                                <div class="deal_div"><!-- .deal_div starts --> 
-                                    <img src="/static/images/stylish_chair.png" class="deal_img"/>  
-                                    <div class="below_deal_img"><!-- .below_deal_img starts --> 
-                                        <div class="deal_text">
-                                           Stylish indoor chair, sit comfortaby on...
-                                        </div>    
-                                        <div class="deal_price">
-                                            NG N150,000
-                                        </div>   
-                                        <div class="deal_former_price">
-                                            <s>NG N190,000</s>
-                                        </div> 
-                                        <div class="star_and_rating">
-                                            <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 1,200+ sold
-                                        </div>
-                                    </div><!-- .below_deal_img ends -->
-                                </div><!-- .deal_div ends -->
-                            </div><!-- .deal2 ends -->
+
+HTML;
+                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products WHERE `label` = ? ORDER BY product_id DESC LIMIT ?, ?");
+                        $select_call2_stmt->execute(["big-save",0,2]);
+                        $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
+
+                        if (count($select_call2_data)>0) { 
+                            $i=0;
+                            foreach ($select_call2_data as $sel_c2) {
+                                $i++;
+                                $short_description = substr($sel_c2->description,0,36);
+                                echo <<<HTML
+                                    <div class="deal$i" style="width:50%"><!-- .deal1 starts -->   
+                                        <div class="deal_div"><!-- .deal_div starts -->
+                                            <a href="/product/$sel_c2->product_url" class="deal_div_link_to_product_page"> <!-- click to see product start tag -->
+                                            <img src="/static/images/$sel_c2->image1" class="deal_img"/>   
+                                            <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                                <div class="deal_text">
+                                                    $short_description...
+                                                </div>    
+                                                <div class="deal_price">
+                                                    NG N$sel_c2->price
+                                                </div>   
+                                                <div class="deal_former_price">
+                                                    <s>NG N$sel_c2->former_price</s>
+                                                </div> 
+                                                <div class="star_and_rating">
+                                                    <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
+                                                </div>
+                                            </div><!-- .below_deal_img ends -->
+                                            </a> <!-- click to see product end tag -->
+                                        </div><!-- .deal_div ends -->
+                                    </div><!-- .deal1 ends -->
+HTML;  
+                            }
+                        }
+                                                                                                       
+                echo <<<HTML
                         </div><!-- .deal_flex ends -->
                     </div><!--.deals end-->
+HTML;
 
 
 
-
+                echo <<<HTML
                     <div class="fashion_choice"><!-- .fashion_choice starts --> 
                         <div class="fashion_choice_header"><i>Viva</i></div>
 
