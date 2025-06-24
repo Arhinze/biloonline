@@ -194,7 +194,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         <div>
             <div onclick="show_div('new_product')" style="background-color:green;color:#fff;font-weight:bold;padding:9px 12px;border-radius:6px;margin:12px 0 18px 0;width:fit-content"><span>Add New Product</span> <i class="fa fa-angle-down" style="margin-left:12px;font-size:21px"></i></div>
 
-            <div id="new_product" style="display:block;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000">
+            <div id="new_product" style="display:block;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000;box-shadow:0 0 3px 0 #ff9100">
                 <form method="post" action="" enctype="multipart/form-data">
                     <!-- -->
                     <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="new_product_name" placeholder="Enter Product Name"/>
