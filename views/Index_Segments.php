@@ -662,11 +662,15 @@ HTML;
             $index_scripts = Index_Segments::index_scripts();    
                                                                 
         echo <<<HTML
-        <br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/>
             <div class="footer"><!-- .footer starts --> 
                 <div class="footer_site_name">Bilo<span style="color:#ff9100">Online</span></div>
 
                 <div>This is your best online shop. We sell wholesale, retail, and single units to individuals. Enjoy free shipping.</div>
+
+                <!-- fixed whatsapp sticker(bottom-right) starts -->
+                <div style="color:#fff;font-size:30px;padding:15px;border-radius:100%;background-color:green position:fixed;bottom:18px;right:18px"><i class="fa fa-whatsapp"></i></div>
+                <!-- fixed whatsapp sticker(bottom-right) ends -->
                 
                 <div class="footer_fa_links">
                     <i class="fa fa-facebook"></i> &nbsp;
