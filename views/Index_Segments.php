@@ -672,7 +672,7 @@ HTML;
                 <div class="whatsapp_box" id="whatsapp_box" style="display:block;position:fixed;bottom:78px;right:18px;background-color:#fff;border-radius:9px;width:75%;box-shadow:0 0 3px 0 #888">
                     <div class="whatsapp_box_top" style="display:flex;justify-content:space-around;height:30%;padding:12px;background-color:green;color:#fff;border-radius:9px 9px 0 0">
                         <div style="width:10%;margin-right:0"><i class="fa fa-whatsapp" style="font-size:42px;color:#fff"></i></div>
-                        <div style="width:70%;text-align:left;margin-left:0">
+                        <div style="width:80%;text-align:left;margin-left:0">
                             <div style="font-size:21px;margin-bottom:6px">Start a Conversation</div>
                             <div>Hi! Click one of our member below to chat on <b>WhatsApp</b></div>
                         </div>
