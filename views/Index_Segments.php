@@ -414,30 +414,50 @@ HTML;
 
                 echo <<<HTML
                     <!-- Sponsored Products start -->
-                    <div class="mpdc_heading">Sponsored products</div>
-                    <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts -->
-                    
+                    <div class="mpdc_heading">Top Selling products</div>
+                    <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts --> 
                     <div class="multiple_product_div"><!-- .flex_div starts(.multiple_product_div) --> 
+HTML;
+                    $select_tops_stmt = Index_Segments::$pdo->prepare("SELECT * FROM orders ORDER BY product_id DESC LIMIT ?, ?");
+                    $select_tops_stmt->execute([0,100]);
+                    $select_tops_data = $select_tops_stmt->fetchAll(PDO::FETCH_OBJ);
 
-                        <!-- multi - 1 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/iphone12.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        iPhone12 Pro 5G...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N420,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
+                    $all_orders = [];
+                    foreach($select_tops_data as $std) {
+                        $all_orders[] = $std;
+                    }
+                    rsort($all_orders);
+                    array_unique($all_orders);
 
-
+                    foreach($all_orders as $ao) {
+                        $select_ao_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products WHERE product_id = ? LIMIT ?, ?");
+                        $select_ao_stmt->execute([$ao,0,1]);
+                        $select_ao_data = $select_ao_stmt->fetchAll(PDO::FETCH_OBJ);
+                        foreach($select_ao_data as $sel_ao) {
+                            $short_desc = substr($sel_ao->description, 0, 12);
+                            echo <<<HTML
+                                <!-- multi - 1 to inf. -->
+                                <div class="deal_div"><!-- .deal_div starts --> 
+                                    <img src="/static/images/iphone12.png" class="deal_img"/>   
+                                    <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                        <div class="topselling_choice_and_title">
+                                            <span>
+                                                $short_desc
+                                            </span>
+                                        </div>
+                                        <span class="deal_price_black">
+                                            NG N$sel_ao->price
+                                        </span>  
+                                    </div><!-- .below_deal_img ends -->
+                                </div><!-- .deal_div ends -->
+                            HTML;
+                        }
+                    }
+                
+                echo <<<HTML
                         <!-- multi - 2 -->
                         <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/belt.png" class="deal_img"/>   
+                            <img src="/static/images/belt000.png" class="deal_img"/>   
                             <div class="below_deal_img"><!-- .below_deal_img starts -->
                                 <div class="topselling_choice_and_title">
                                     <span>
@@ -498,16 +518,17 @@ HTML;
                                 </span>  
                             </div><!-- .below_deal_img ends -->
                         </div><!-- .deal_div ends -->
-                    
+HTML;
+                echo <<<HTML
                     </div><!-- .flex_div(.multiple_product_div) ends -->
                     
                     </div><!-- .multiple_product_div_container ends -->
                     <!-- Sponsored Products end -->
+HTML;
 
 
 
-
-
+                echo <<<HTML
                     <!-- Anniversary Deals start -->
                     <div class="anniversary_deals"><!--- //header for the multiple_product_div below -->
                         <div class="ann_d1"><span style="color:#ff9100">Anniversary</span> Deals</div>
