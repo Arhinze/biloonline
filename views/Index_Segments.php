@@ -434,91 +434,28 @@ HTML;
                         $select_ao_stmt->execute([$ao,0,1]);
                         $select_ao_data = $select_ao_stmt->fetchAll(PDO::FETCH_OBJ);
                         foreach($select_ao_data as $sel_ao) {
-                            $short_desc = substr($sel_ao->description, 0, 21);
+                            //$short_desc = substr($sel_ao->description, 0, 21);
                             echo <<<HTML
                                 <!-- multi - 1 to inf. -->
-                                <div class="deal_div"><!-- .deal_div starts --> 
+                                <div class="deal_div"><!-- .deal_div starts -->
+                                    <a href="/product/$sel_ao->product_url"><!-- start of link to product page --> 
                                     <img src="/static/images/$sel_ao->image1" class="deal_img"/>   
                                     <div class="below_deal_img"><!-- .below_deal_img starts -->
                                         <div class="topselling_choice_and_title">
                                             <span>
-                                                $short_desc
+                                                $sel_ao->product_name
                                             </span>
                                         </div>
                                         <span class="deal_price_black">
                                             NG N$sel_ao->price
                                         </span>  
                                     </div><!-- .below_deal_img ends -->
+                                    </a><!-- end of link to product page -->
                                 </div><!-- .deal_div ends -->
                             HTML;
                         }
                     }
                 
-                echo <<<HTML
-                        <!-- multi - 2 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/belt000.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Premium quality leather belt...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N10,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 3 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/comfy_bed.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Soft comfy bed 6 x 4.5...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N350,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 4 -->
-
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/cooking_pot.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        High Heat-Resistant Cooking Po...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N50,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 5 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/footwear.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Black Stylish Footwear...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N25,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-HTML;
                 echo <<<HTML
                     </div><!-- .flex_div(.multiple_product_div) ends -->
                     
