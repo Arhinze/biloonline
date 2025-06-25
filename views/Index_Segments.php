@@ -657,9 +657,40 @@ HTML;
         }
                                                                 
                                                                 
-        public static function footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = ""){ 
+        public static function footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = "", $whatsapp_chat = "on"){ 
                                                                             
             $index_scripts = Index_Segments::index_scripts();    
+            if ($whatsapp_chat == "on") {
+                echo <<<HTML
+                    <!-- .whatsapp_box starts -->
+                    <div class="whatsapp_box" id="whatsapp_box" style="display:none;position:fixed;bottom:78px;right:18px;background-color:#fff;border-radius:9px;width:75%;box-shadow:0 0 3px 0 #888">
+                        <div class="whatsapp_box_top" style="display:flex;justify-content:space-around;height:30%;padding:12px;background-color:green;color:#fff;border-radius:9px 9px 0 0">
+                            <div style="width:10%;margin-right:0"><i class="fa fa-whatsapp" style="font-size:42px;color:#fff"></i></div>
+                            <div style="width:80%;text-align:left;margin-left:0">
+                                <div style="font-size:21px;margin-bottom:6px">Start a Conversation</div>
+                                <div>Hi! Click one of our member below to chat on <b>WhatsApp</b></div>
+                            </div>
+                        </div>
+                        <div class="whatsapp_box_bottom" style="padding:12px">
+                            <div style="font-size:12px;color:#888">The team typically replies in a few minutes.</div>
+                            <a href="https://wa.me/2348147964486" style="color:#000"><!-- whatsapp link starts -->
+                            <div style="display:flex;border-radius:0 6px 6px 0;background-color:#d9eee0;margin-top:15px">
+                                <div style="display:flex;border-left:3px solid green">
+                                    <div style="color:#fff;font-size:24px;padding:6px 8px;margin:15px 6px;border-radius:100%;background-color:green;"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
+                                    <div style="font-size:21px;margin:16px 3">Support</div>
+                                </div>
+                                <div style="margin-left:42px;margin-top:21px;font-size:18px;color:green"><i class="fa fa-whatsapp"></i></div>
+                            </div>
+                            </a><!-- whatsapp link ends -->
+                        </div>
+                    </div>
+                    <!-- .whatsapp_box ends -->
+    
+                    <!-- fixed whatsapp sticker(bottom-right) starts -->
+                    <div style="color:#fff;font-size:33px;padding:9px 12px;border-radius:100%;background-color:green;position:fixed;bottom:18px;right:18px"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
+                    <!-- fixed whatsapp sticker(bottom-right) ends -->
+HTML;
+            }
                                                                 
         echo <<<HTML
         <br/><br/><br/><br/>
@@ -668,34 +699,6 @@ HTML;
 
                 <div>This is your best online shop. We sell wholesale, retail, and single units to individuals. Enjoy free shipping.</div>
 
-                <!-- .whatsapp_box starts -->
-                <div class="whatsapp_box" id="whatsapp_box" style="display:none;position:fixed;bottom:78px;right:18px;background-color:#fff;border-radius:9px;width:75%;box-shadow:0 0 3px 0 #888">
-                    <div class="whatsapp_box_top" style="display:flex;justify-content:space-around;height:30%;padding:12px;background-color:green;color:#fff;border-radius:9px 9px 0 0">
-                        <div style="width:10%;margin-right:0"><i class="fa fa-whatsapp" style="font-size:42px;color:#fff"></i></div>
-                        <div style="width:80%;text-align:left;margin-left:0">
-                            <div style="font-size:21px;margin-bottom:6px">Start a Conversation</div>
-                            <div>Hi! Click one of our member below to chat on <b>WhatsApp</b></div>
-                        </div>
-                    </div>
-                    <div class="whatsapp_box_bottom" style="padding:12px">
-                        <div style="font-size:12px;color:#888">The team typically replies in a few minutes.</div>
-                        <a href="https://wa.me/2348147964486" style="color:#000"><!-- whatsapp link starts -->
-                        <div style="display:flex;border-radius:0 6px 6px 0;background-color:#d9eee0;margin-top:15px">
-                            <div style="display:flex;border-left:3px solid green">
-                                <div style="color:#fff;font-size:24px;padding:6px 8px;margin:15px 6px;border-radius:100%;background-color:green;"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
-                                <div style="font-size:21px;margin:16px 3">Support</div>
-                            </div>
-                            <div style="margin-left:42px;margin-top:21px;font-size:18px;color:green"><i class="fa fa-whatsapp"></i></div>
-                        </div>
-                        </a><!-- whatsapp link ends -->
-                    </div>
-                </div>
-                <!-- .whatsapp_box ends -->
-
-                <!-- fixed whatsapp sticker(bottom-right) starts -->
-                <div style="color:#fff;font-size:33px;padding:9px 12px;border-radius:100%;background-color:green;position:fixed;bottom:18px;right:18px"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
-                <!-- fixed whatsapp sticker(bottom-right) ends -->
-                
                 <div class="footer_fa_links">
                     <i class="fa fa-facebook"></i> &nbsp;
                     <img src="/static/images/tiktok_logo.png" style="height:24px;width:auto;margin-bottom:-4px"/> &nbsp;
