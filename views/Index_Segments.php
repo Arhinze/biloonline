@@ -424,7 +424,7 @@ HTML;
 
                     $all_orders = [];
                     foreach($select_tops_data as $std) {
-                        $all_orders[] = $std;
+                        $all_orders[] = $std->product_id;
                     }
                     rsort($all_orders);
                     array_unique($all_orders);
