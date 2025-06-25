@@ -552,8 +552,6 @@ HTML;
 HTML;
                             }
                         }
-
-
                 echo <<<HTML
                     </div><!-- .flex_div(.topselling_div) ends -->
                     <!-- All selling on Biloonline ends -->
