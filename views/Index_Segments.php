@@ -479,7 +479,7 @@ HTML;
 
                 if (count($label3_data)>0) { 
                     foreach ($label3_data as $l3) {
-                        $short_desc = substr($l3->description,0,21);
+                        //$short_desc = substr($l3->description,0,21);
                         echo <<<HTML
                             <!-- multi - 1 to 5 -->
                             <div class="deal_div"><!-- .deal_div starts --> 
@@ -488,7 +488,7 @@ HTML;
                                 <div class="below_deal_img"><!-- .below_deal_img starts -->
                                     <div class="topselling_choice_and_title">
                                         <span>
-                                            $short_desc
+                                            $l3->product_name
                                         </span>
                                     </div>
                                     <span class="deal_price_black">
@@ -531,7 +531,7 @@ HTML;
                                             <div class="topselling_choice_and_title">
                                                 <span class="topselling_choice"> Choice </span> &nbsp;
                                                 <span>
-                                                    $short_description
+                                                    $short_description...
                                                 </span>
                                             </div>
                                             <span class="deal_price_black">
