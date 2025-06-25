@@ -679,6 +679,7 @@ HTML;
                     </div>
                     <div class="whatsapp_box_bottom" style="padding:12px">
                         <div style="font-size:12px;color:#888">The team typically replies in a few minutes.</div>
+                        <a href="https://wa.me/2348147964486" style="color:#000"><!-- whatsapp link starts -->
                         <div style="display:flex;border-radius:0 6px 6px 0;background-color:#d9eee0;margin-top:15px">
                             <div style="display:flex;border-left:3px solid green">
                                 <div style="color:#fff;font-size:24px;padding:6px 8px;margin:15px 6px;border-radius:100%;background-color:green;"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
@@ -686,6 +687,7 @@ HTML;
                             </div>
                             <div style="margin-left:42px;margin-top:21px;font-size:18px;color:green"><i class="fa fa-whatsapp"></i></div>
                         </div>
+                        </a><!-- whatsapp link ends -->
                     </div>
                 </div>
                 <!-- .whatsapp_box ends -->
