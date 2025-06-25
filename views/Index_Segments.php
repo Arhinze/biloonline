@@ -359,7 +359,7 @@ HTML;
                     
                 echo <<<HTML
                     <!-- All selling on Biloonline starts -->
-                    <!-- 1, 2 -->
+                    <!-- 1 to 6 -->
                     <div class="topselling_div" style="flex-wrap:wrap"><!-- .flex_div starts(.topselling) --> 
 HTML;
                         $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
@@ -411,9 +411,8 @@ HTML;
 
                     
 
-
                 echo <<<HTML
-                    <!-- Sponsored Products start -->
+                    <!-- Top Selling Products start -->
                     <div class="mpdc_heading">Top Selling products</div>
                     <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts --> 
                     <div class="multiple_product_div"><!-- .flex_div starts(.multiple_product_div) --> 
@@ -459,7 +458,7 @@ HTML;
                 echo <<<HTML
                     </div><!-- .flex_div(.multiple_product_div) ends -->
                     </div><!-- .multiple_product_div_container ends -->
-                    <!-- Sponsored Products end -->
+                    <!-- Top Selling Products end -->
 HTML;
 
 
@@ -473,91 +472,96 @@ HTML;
 
                     <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts -->
                     <div class="multiple_product_div"><!-- .flex_div starts(.multiple_product_div) --> 
+HTML;
+                $label3_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products WHERE `label` = ? ORDER BY product_id DESC LIMIT ?, ?");
+                $label3_stmt->execute(["anniversary-deal",0,5]);
+                $label3_data = $label3_stmt->fetchAll(PDO::FETCH_OBJ);
 
-                        <!-- multi - 1 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/milo.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Milo Energizing Morning Tea...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N7,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 2 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/stylish_chair.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Stylish Comfortable Chair...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N120,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 3 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/washing_machine.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Household Washing Machine...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N390,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 4 -->
-
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/tv.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Flat Screen TV Set...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N400,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 5 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/work_setup.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Laptop Work Setup Area...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N750,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-                    
+                if (count($label3_data)>0) { 
+                    foreach ($label3_data as $l3) {
+                        $short_desc = substr($l3->description,0,21);
+                        echo <<<HTML
+                            <!-- multi - 1 to 5 -->
+                            <div class="deal_div"><!-- .deal_div starts --> 
+                                <img src="/static/images/$l3->image1" class="deal_img"/>   
+                                <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                    <div class="topselling_choice_and_title">
+                                        <span>
+                                            $short_desc
+                                        </span>
+                                    </div>
+                                    <span class="deal_price_black">
+                                        NG N$l3->price
+                                    </span>  
+                                </div><!-- .below_deal_img ends -->
+                            </div><!-- .deal_div ends -->
+HTML;
+                    }
+                }
+                
+                echo <<<HTML
                     </div><!-- .flex_div(.multiple_product_div) ends -->
-                    
                     </div><!-- .multiple_product_div_container ends -->
                     <!-- Anniversary Deals end -->
+HTML;
+
+
+
+               echo <<<HTML
+                    <!-- All selling on Biloonline starts -->
+                    <!-- 6 to 12 -->
+                    <div class="topselling_div" style="flex-wrap:wrap"><!-- .flex_div starts(.topselling) --> 
+HTML;
+                        $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
+                        $select_call2_stmt->execute([6,12]);
+                        $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
+
+                        if (count($select_call2_data)>0) { 
+                            $i=0;
+                            foreach ($select_call2_data as $sel_c2) {
+                                $i++;
+                                $short_description = substr($sel_c2->description,0,36);
+                                echo <<<HTML
+                                    <div class="deal_div"><!-- .deal_div starts --> 
+                                        <a href="/product/$sel_c2->product_url" style="color:inherit"><!-- link to product page starts -->
+                                        <img src="/static/images/$sel_c2->image1" class="deal_img"/>   
+                                        <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                            <div class="topselling_choice_and_title">
+                                                <span class="topselling_choice"> Choice </span> &nbsp;
+                                                <span>
+                                                    $short_description
+                                                </span>
+                                            </div>
+                                            <span class="deal_price_black">
+                                                NG N$sel_c2->price
+                                            </span>  &nbsp; 
+                                            <span class="deal_former_price">
+                                                <s>NG N$sel_c2->former_price</s>
+                                            </span> 
+                                            <div class="star_and_rating">
+                                                <i class="fa fa-star"></i> <b>4.6</b> <span style="color:#888"> | </span> 1,000+ sold
+                                            </div>
+            
+                                            <div class="topselling_text">
+                                                <i class="fa fa-fire"></i> Top selling on BiloOnline
+                                            </div>
+                                            <i class="fa fa-motorcycle"></i> Free shipping
+                                        </div><!-- .below_deal_img ends -->
+                                        </a><!-- link to product page ends -->
+                                    </div><!-- .deal_div ends -->
+HTML;
+                            }
+                        }
+
+
+                echo <<<HTML
+                    </div><!-- .flex_div(.topselling_div) ends -->
+                    <!-- All selling on Biloonline ends -->
+HTML;
+
+
+
+            echo<<<HTML
                 </div><!--.main_body end-->
 HTML;
        }
