@@ -513,7 +513,7 @@ HTML;
                     <div class="topselling_div" style="flex-wrap:wrap"><!-- .flex_div starts(.topselling) --> 
 HTML;
                         $select_call2_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT ?, ?");
-                        $select_call2_stmt->execute([6,12]);
+                        $select_call2_stmt->execute([6,6]);
                         $select_call2_data = $select_call2_stmt->fetchAll(PDO::FETCH_OBJ);
 
                         if (count($select_call2_data)>0) { 
