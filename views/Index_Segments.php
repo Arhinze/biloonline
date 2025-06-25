@@ -698,7 +698,7 @@ HTML;
                 
                 <div class="footer_fa_links">
                     <i class="fa fa-facebook"></i> &nbsp;
-                    <img src="/static/images/tiktok_logo.png" style="height:30px;width:auto"/> &nbsp;
+                    <img src="/static/images/tiktok_logo.png" style="height:24px;width:auto;margin-bottom:-4px"/> &nbsp;
                     <i class="fa fa-instagram"></i> &nbsp;
                     <i class="fa fa-youtube-play"></i> &nbsp;
                 </div>
