@@ -668,8 +668,15 @@ HTML;
 
                 <div>This is your best online shop. We sell wholesale, retail, and single units to individuals. Enjoy free shipping.</div>
 
+                <!-- .whatsapp_box starts -->
+                <div class="whatsapp_box" style="display:none;position:fixed;bottom:36px;right:18px;background-color:#fff;border-radius:9px;width:75%">
+                    <div class="whatsapp_box_top"></div>
+                    <div class="whatsapp_box_bottom"></div>
+                </div>
+                <!-- .whatsapp_box ends -->
+
                 <!-- fixed whatsapp sticker(bottom-right) starts -->
-                <div style="color:#fff;font-size:30px;padding:15px;border-radius:100%;background-color:green position:fixed;bottom:18px;right:18px"><i class="fa fa-whatsapp"></i></div>
+                <div style="color:#fff;font-size:33px;padding:9px 12px;border-radius:100%;background-color:green;position:fixed;bottom:18px;right:18px"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
                 <!-- fixed whatsapp sticker(bottom-right) ends -->
                 
                 <div class="footer_fa_links">
