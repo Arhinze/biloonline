@@ -438,7 +438,7 @@ HTML;
                             echo <<<HTML
                                 <!-- multi - 1 to inf. -->
                                 <div class="deal_div"><!-- .deal_div starts -->
-                                    <a href="/product/$sel_ao->product_url"><!-- start of link to product page --> 
+                                    <a href="/product/$sel_ao->product_url" style="color:inherit"><!-- start of link to product page --> 
                                     <img src="/static/images/$sel_ao->image1" class="deal_img"/>   
                                     <div class="below_deal_img"><!-- .below_deal_img starts -->
                                         <div class="topselling_choice_and_title">
