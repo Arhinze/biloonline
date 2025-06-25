@@ -458,7 +458,6 @@ HTML;
                 
                 echo <<<HTML
                     </div><!-- .flex_div(.multiple_product_div) ends -->
-                    
                     </div><!-- .multiple_product_div_container ends -->
                     <!-- Sponsored Products end -->
 HTML;

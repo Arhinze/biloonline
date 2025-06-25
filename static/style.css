@@ -203,7 +203,7 @@ a{
 
 .multiple_product_div {
     display:flex;
-    width:150%;
+    width:fit-content;
     overflow:visible;
 }
 
