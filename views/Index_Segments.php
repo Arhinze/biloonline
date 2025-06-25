@@ -434,7 +434,7 @@ HTML;
                         $select_ao_stmt->execute([$ao,0,1]);
                         $select_ao_data = $select_ao_stmt->fetchAll(PDO::FETCH_OBJ);
                         foreach($select_ao_data as $sel_ao) {
-                            $short_desc = substr($sel_ao->description, 0, 12);
+                            $short_desc = substr($sel_ao->description, 0, 21);
                             echo <<<HTML
                                 <!-- multi - 1 to inf. -->
                                 <div class="deal_div"><!-- .deal_div starts --> 
