@@ -24,11 +24,13 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
     
             $add_data = $add_stmt->fetch(PDO::FETCH_OBJ);
             if(!$add_data){//that means this is a unique product url
-
+                //former_price percentage array:
+                $fp_array = [3, 4, 5, 6, 7, 8, 9];
+                shuffle($fp_array);
                 //then insert new product data:
-                $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, price, `description`) VALUES(?,?,?,?)");
+                $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, price, former_price, `description`) VALUES(?,?,?,?,?)");
                 
-                $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_price"]),htmlentities($_POST["new_product_description"])]);
+                $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_price"]),(htmlentities($_POST["new_product_price"]) + (($fp_array[0]/100)*htmlentities($_POST["new_product_price"]))),htmlentities($_POST["new_product_description"])]);
 
                 echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " added successfully.</h4>";
     
