@@ -246,7 +246,7 @@ class Product_Segments extends Index_Segments{
                 </div><!-- .below_product_images ends again (for Related Products)-->  
 
                 <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
-                    <div class="long_action_button" onclick="ajax_product_view()">
+                    <div class="long_action_button" onclick="ajax_product_view()" style="background-color:#ff9100">
                         <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks
                     </div>
                 </div><!-- .add_to_my_picks ends -->
@@ -258,6 +258,22 @@ HTML;
         echo <<<HTML
                                                                 
         <!-- Footer - index_scripts -->
+        <script>
+            function ajax_product_view() {
+                obj = new XMLHttpRequest;
+                obj.onreadystatechange = function(){
+                    if(obj.readyState == 4){
+                        if (document.getElementById("cajax_product_view_div")){
+                            document.getElementById("current_balance_text").innerHTML = obj.responseText;
+                        }
+                    }
+                }
+                                                                        
+                obj.open("GET","/ajax/ajax_cb.php?total_="+total_amount);
+                obj.send(null);
+            }
+        </script>
+
         <script>
             function show_div(vari) {
                 if (document.getElementById(vari).style.display == "none") {
