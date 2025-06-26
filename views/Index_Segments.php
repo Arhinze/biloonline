@@ -158,6 +158,8 @@ HTML;
                             foreach ($select_call2_data as $sel_c2) {
                                 $i++;
                                 $short_description = substr($sel_c2->description,0,36);
+                                $sel_c2_price = number_format($sel_c2->price);
+                                $sel_c2_former_price = number_format($sel_c2->former_price);
                                 echo <<<HTML
                                     <div class="deal$i" style="width:50%"><!-- .deal1 starts -->   
                                         <div class="deal_div"><!-- .deal_div starts -->
@@ -168,10 +170,10 @@ HTML;
                                                     $short_description...
                                                 </div>    
                                                 <div class="deal_price">
-                                                    NG N$sel_c2->price
+                                                    NG N$sel_c2_price
                                                 </div>   
                                                 <div class="deal_former_price">
-                                                    <s>NG N$sel_c2->former_price</s>
+                                                    <s>NG N$sel_c2_former_price</s>
                                                 </div> 
                                                 <div class="star_and_rating">
                                                     <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
@@ -209,6 +211,8 @@ HTML;
                             foreach ($select_call2_data as $sel_c2) {
                                 $i++;
                                 $short_description = substr($sel_c2->description,0,36);
+                                $sel_c2_price = number_format($sel_c2->price);
+                                $sel_c2_former_price = number_format($sel_c2->former_price);
                                 echo <<<HTML
                                     <div class="deal$i" style="width:50%"><!-- .deal1 starts -->   
                                         <div class="deal_div"><!-- .deal_div starts -->
@@ -219,10 +223,10 @@ HTML;
                                                     $short_description...
                                                 </div>    
                                                 <div class="deal_price">
-                                                    NG N$sel_c2->price
+                                                    NG N$sel_c2_price
                                                 </div>   
                                                 <div class="deal_former_price">
-                                                    <s>NG N$sel_c2->former_price</s>
+                                                    <s>NG N$sel_c2_former_price</s>
                                                 </div> 
                                                 <div class="star_and_rating">
                                                     <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
@@ -262,6 +266,8 @@ HTML;
                             foreach ($select_call2_data as $sel_c2) {
                                 $i++;
                                 $short_description = substr($sel_c2->description,0,36);
+                                $sel_c2_price = number_format($sel_c2->price);
+                                $sel_c2_former_price = number_format($sel_c2->former_price);
                                 echo <<<HTML
                                     <div class="deal$i" style="width:50%"><!-- .deal1 starts -->   
                                         <div class="deal_div"><!-- .deal_div starts -->
@@ -272,10 +278,10 @@ HTML;
                                                     $short_description...
                                                 </div>    
                                                 <div class="deal_price">
-                                                    NG N$sel_c2->price
+                                                    NG N$sel_c2_price
                                                 </div>   
                                                 <div class="deal_former_price">
-                                                    <s>NG N$sel_c2->former_price</s>
+                                                    <s>NG N$sel_c2_former_price</s>
                                                 </div> 
                                                 <div class="star_and_rating">
                                                     <i class="fa fa-star"></i> <b>4.9</b> <span style="color:#888"> | </span> 2000+ sold
@@ -371,6 +377,8 @@ HTML;
                             foreach ($select_call2_data as $sel_c2) {
                                 $i++;
                                 $short_description = substr($sel_c2->description,0,36);
+                                $sel_c2_price = number_format($sel_c2->price);
+                                $sel_c2_former_price = number_format($sel_c2->former_price);
                                 echo <<<HTML
                                     <div class="deal_div"><!-- .deal_div starts --> 
                                         <a href="/product/$sel_c2->product_url" style="color:inherit"><!-- link to product page starts -->
@@ -383,10 +391,10 @@ HTML;
                                                 </span>
                                             </div>
                                             <span class="deal_price_black">
-                                                NG N$sel_c2->price
+                                                NG N$sel_c2_price
                                             </span>  &nbsp; 
                                             <span class="deal_former_price">
-                                                <s>NG N$sel_c2->former_price</s>
+                                                <s>NG N$sel_c2_former_price</s>
                                             </span> 
                                             <div class="star_and_rating">
                                                 <i class="fa fa-star"></i> <b>4.6</b> <span style="color:#888"> | </span> 1,000+ sold
@@ -433,6 +441,7 @@ HTML;
                         $select_ao_stmt->execute([$ao,0,1]);
                         $select_ao_data = $select_ao_stmt->fetchAll(PDO::FETCH_OBJ);
                         foreach($select_ao_data as $sel_ao) {
+                            $sel_ao_price = number_format($sel_ao->price);
                             //$short_desc = substr($sel_ao->description, 0, 21);
                             echo <<<HTML
                                 <!-- multi - 1 to inf. -->
@@ -446,7 +455,7 @@ HTML;
                                             </span>
                                         </div>
                                         <span class="deal_price_black">
-                                            NG N$sel_ao->price
+                                            NG N$sel_ao_price
                                         </span>  
                                     </div><!-- .below_deal_img ends -->
                                     </a><!-- end of link to product page -->
@@ -479,6 +488,7 @@ HTML;
 
                 if (count($label3_data)>0) { 
                     foreach ($label3_data as $l3) {
+                        $l3_price = number_format($l3->price);
                         //$short_desc = substr($l3->description,0,21);
                         echo <<<HTML
                             <!-- multi - 1 to 5 -->
@@ -492,7 +502,7 @@ HTML;
                                         </span>
                                     </div>
                                     <span class="deal_price_black">
-                                        NG N$l3->price
+                                        NG N$l3_price
                                     </span>  
                                 </div><!-- .below_deal_img ends -->
                                 </a><!-- end of link to product page -->
@@ -523,6 +533,8 @@ HTML;
                             foreach ($select_call2_data as $sel_c2) {
                                 $i++;
                                 $short_description = substr($sel_c2->description,0,36);
+                                $sel_c2_price = number_format($sel_c2->price);
+                                $sel_c2_former_price = number_format($sel_c2->former_price);
                                 echo <<<HTML
                                     <div class="deal_div"><!-- .deal_div starts --> 
                                         <a href="/product/$sel_c2->product_url" style="color:inherit"><!-- link to product page starts -->
@@ -535,10 +547,10 @@ HTML;
                                                 </span>
                                             </div>
                                             <span class="deal_price_black">
-                                                NG N$sel_c2->price
+                                                NG N$sel_c2_price
                                             </span>  &nbsp; 
                                             <span class="deal_former_price">
-                                                <s>NG N$sel_c2->former_price</s>
+                                                <s>NG N$sel_c2_former_price</s>
                                             </span> 
                                             <div class="star_and_rating">
                                                 <i class="fa fa-star"></i> <b>4.6</b> <span style="color:#888"> | </span> 1,000+ sold
