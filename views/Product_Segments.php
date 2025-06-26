@@ -246,7 +246,7 @@ class Product_Segments extends Index_Segments{
                 </div><!-- .below_product_images ends again (for Related Products)-->  
 
                 <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
-                    <div class="long_action_button" onclick="ajax_product_view()" style="background-color:#ff9100">
+                    <div class="long_action_button" onclick="ajax_product_view()" style="background-color:#ff9100;box-shadow: 0 0 3px inset">
                         <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks
                     </div>
                 </div><!-- .add_to_my_picks ends -->
