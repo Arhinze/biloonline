@@ -712,10 +712,10 @@ HTML;
                 <div>This is your best online shop. We sell wholesale, retail, and single units to individuals. Enjoy free shipping.</div>
 
                 <div class="footer_fa_links">
-                    <i class="fa fa-facebook"></i> &nbsp;
-                    <img src="/static/images/tiktok_logo.png" style="height:24px;width:auto;margin-bottom:-4px"/> &nbsp;
-                    <i class="fa fa-instagram"></i> &nbsp;
-                    <i class="fa fa-youtube-play"></i> &nbsp;
+                    <a href="https://www.facebook.com/share/19MmpBuEn6/?mibextid=wwXIfr" style="color:#000"><i class="fa fa-facebook"></i></a> &nbsp;
+                    <a href="https://www.tiktok.com/@bilo.ng?_t=ZM-8xVIXWH0E21&_r=1"><img src="/static/images/tiktok_logo.png" style="height:24px;width:auto;margin-bottom:-4px"/></a> &nbsp;
+                    <a href="" style="color:#000"><i class="fa fa-instagram"></i></a> &nbsp;
+                    <a href="https://www.youtube.com/@biloonline" style="color:#000"><i class="fa fa-youtube-play"></i></a> &nbsp;
                 </div>
 
                 <div class="footer_heading">Shop</div>
