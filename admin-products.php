@@ -197,10 +197,10 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <div id="new_product" style="display:none;padding:9px;background-color:#f3f3f3;border-radius:6px;border:1px dotted #000;box-shadow:0 0 6px 0 #ff9100">
                 <form method="post" action="" enctype="multipart/form-data">
                     <!-- -->
-                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="new_product_name" placeholder="Enter Product Name"/>
+                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="new_product_name" placeholder="Enter Product Name" required/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
 
-                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="new_url" placeholder="Enter Product URL"/>
+                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="new_url" placeholder="Enter Product URL" required/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
                     <span>Only letters, numbers and hyphen (-) allowed.</span>
 
@@ -232,7 +232,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <!-- The input tags which does the work but remains hidden ends -->
                     <!-- Add Image Ends -->
 
-                    <div style="position:relative"><input type="number" id="product_price<?=$i?>" class="edit_product_input"  name="new_product_price" placeholder="Enter Product URL"/>
+                    <div style="position:relative"><input type="number" id="product_price<?=$i?>" class="edit_product_input"  name="new_product_price" placeholder="Enter Product URL" required/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Price </span></div>
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
@@ -340,10 +340,10 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <!--hidden section 1: Edit -->
             <div id="edit<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
                 <form method="post" action="" enctype="multipart/form-data">
-                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="product_name" value="<?=$d->product_name?>"/>
+                    <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="product_name" value="<?=$d->product_name?>" required/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
 
-                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="url" value="<?=$d->product_url?>"/>
+                    <div style="position:relative"><input type="text" id="product_url<?=$i?>" class="edit_product_input"  name="url" value="<?=$d->product_url?>" required/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Url </span></div> 
                     <?php
                         if(isset($_POST["edit_product_id"])) {
@@ -368,7 +368,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         </div><!-- .additional_product_images_div_container ends -->
                     </div><!-- style .overflow-x:scroll ends -->
 
-                    <div style="position:relative"><input type="number" id="product_price<?=$i?>" class="edit_product_input" name="product_price" value="<?=$d->price?>"/>
+                    <div style="position:relative"><input type="number" id="product_price<?=$i?>" class="edit_product_input" name="product_price" value="<?=$d->price?>" required/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Price </span></div> 
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
