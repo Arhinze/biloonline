@@ -26,9 +26,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             if(!$add_data){//that means this is a unique product url
 
                 //then insert new product data:
-                $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, `description`) VALUES(?,?,?)");
+                $addi_stmt = $pdo->prepare("INSERT INTO products(product_name, product_url, price, `description`) VALUES(?,?,?,?)");
                 
-                $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_description"])]);
+                $addi_stmt->execute([htmlentities($_POST["new_product_name"]), htmlentities($_POST["new_url"]), htmlentities($_POST["new_product_price"]),htmlentities($_POST["new_product_description"])]);
 
                 echo "<h4 style='color:green'>Product: ", $_POST["new_product_name"], " added successfully.</h4>";
     
@@ -99,8 +99,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
             if($edit_data){ 
                 //then edit:
-                $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ? WHERE product_id = ?");
-                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["edit_product_id"]]);
+                $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, `description` = ?, price = ? WHERE product_id = ?");
+                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $_POST["product_description"], $_POST["product_price"], $_POST["edit_product_id"]]);
         
                 echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
         
@@ -231,6 +231,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 ?>
                     <!-- The input tags which does the work but remains hidden ends -->
                     <!-- Add Image Ends -->
+
+                    <div style="position:relative"><input type="text" id="product_price<?=$i?>" class="edit_product_input"  name="new_product_price" placeholder="Enter Product URL"/>
+                    <span style="position:absolute;left:6px;top:6px;color:#fff">Price </span></div>
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
                     <textarea style="width:75%;height:100px;border-radius:4px" name="new_product_description" placeholder="sell this product in a maximum of 50 words."></textarea>
@@ -364,6 +367,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 ?>
                         </div><!-- .additional_product_images_div_container ends -->
                     </div><!-- style .overflow-x:scroll ends -->
+
+                    <div style="position:relative"><input type="text" id="product_price<?=$i?>" class="edit_product_input" name="product_price" value="<?=$d->price?>"/>
+                    <span style="position:absolute;left:6px;top:6px;color:#fff">Price </span></div> 
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
                     <textarea style="width:90%;height:100px;border-radius:4px" name="product_description"><?=$d->description?></textarea>
