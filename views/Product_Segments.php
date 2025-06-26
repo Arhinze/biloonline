@@ -37,7 +37,7 @@ class Product_Segments extends Index_Segments{
         $description = PRODUCT_DESC,
         $price = PRODUCT_PRICE
     ){
-        $price=number_format($price);
+        $price="N".number_format($price);
         echo <<<HTML
             <!--<head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
