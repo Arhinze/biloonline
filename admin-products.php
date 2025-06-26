@@ -232,7 +232,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <!-- The input tags which does the work but remains hidden ends -->
                     <!-- Add Image Ends -->
 
-                    <div style="position:relative"><input type="text" id="product_price<?=$i?>" class="edit_product_input"  name="new_product_price" placeholder="Enter Product URL"/>
+                    <div style="position:relative"><input type="number" id="product_price<?=$i?>" class="edit_product_input"  name="new_product_price" placeholder="Enter Product URL"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Price </span></div>
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
@@ -368,7 +368,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         </div><!-- .additional_product_images_div_container ends -->
                     </div><!-- style .overflow-x:scroll ends -->
 
-                    <div style="position:relative"><input type="text" id="product_price<?=$i?>" class="edit_product_input" name="product_price" value="<?=$d->price?>"/>
+                    <div style="position:relative"><input type="number" id="product_price<?=$i?>" class="edit_product_input" name="product_price" value="<?=$d->price?>"/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Price </span></div> 
 
                     <div style="font-size:18px;margin:15px 0 9px 0"><b>Product Description:</b></div>
