@@ -74,7 +74,7 @@ HTML;
                     <div class="menu_item" style="margin-left:180px"><a href="/category/women">Women</a></div>
                     <div class="menu_item"><a href="/category/men">Men</a></div>
                     <div class="menu_item"><a href="/category/home">Home</a></div>
-                    <div class="menu_item"><a href="https://xenxhq.com">Xenx</a></div>
+                    <div class="menu_item"><a href="/category/xenx">Xenx</a></div>
                     <div class="menu_item"><a href="/category/sports">Sports</a></div>
                     <div class="menu_item"><a href="/category/jewelry">Jewelry</a></div>
                     <div class="menu_item"><a href="/category/industrial">Industrial</a></div>
