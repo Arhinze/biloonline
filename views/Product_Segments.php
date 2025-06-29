@@ -24,6 +24,7 @@ define("PRODUCT_IMAGE2", $product_data->image2);
 define("PRODUCT_IMAGE3", $product_data->image3);
 define("PRODUCT_DESC", $product_data->description);
 define("PRODUCT_PRICE", $product_data->price);
+define("PRODUCT_CATEGORY", $product_data->category);
 
 
 class Product_Segments extends Index_Segments{     
@@ -35,16 +36,11 @@ class Product_Segments extends Index_Segments{
         $image2 = PRODUCT_IMAGE2,
         $image3 = PRODUCT_IMAGE3,
         $description = PRODUCT_DESC,
-        $price = PRODUCT_PRICE
+        $price = PRODUCT_PRICE,
+        $category = PRODUCT_CATEGORY
     ){
         $price="N ".number_format($price);
         echo <<<HTML
-            <!--<head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
-                <link rel="stylesheet" href="/static/style.css"/>
-            </head>-->
-
             <div class="main_body" style="margin:0"><!-- .main_body starts -->
                 <div class="product_image_div"><!-- .product_image_div starts -->
                     <img class="product_image" src="/static/images/$image1"/>
@@ -159,93 +155,55 @@ class Product_Segments extends Index_Segments{
                     <div class="multiple_product_div_container"><!-- .multiple_product_div_container starts -->
                     
                     <div class="multiple_product_div"><!-- .flex_div starts(.multiple_product_div) --> 
+HTML;
+                $obj_array = [];
+                $category_array = explode(";", $category);
+                foreach($category_array as $cat_arr){
+                    $category_array_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products WHERE category LIKE ? ORDER BY product_id DESC LIMIT ?, ?");
+                    $category_array_stmt->execute(["%$cat_arr%", 0, 3]);
+                    $category_array_data = $category_array_stmt->fetchAll(PDO::FETCH_OBJ);
 
-                        <!-- multi - 1 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/iphone12.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        iPhone12 Pro 5G...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N420,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
+                    foreach($category_array_data as $cd) {
+                        if(!in_array($cd, $obj_array)) {
+                            $obj_array[] = $cd;
+                        }
+                    }
+                }
 
+                $main_obj_array = $obj_array;//array_unique($obj_array);
 
-                        <!-- multi - 2 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/belt.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Premium quality leather belt...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N10,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
+                if (count($main_obj_array)>0) { 
+                    foreach ($main_obj_array as $moa) {
+                        $moa_price = number_format($moa->price);
+                        //$short_desc = substr($l3->description,0,21);
+                        echo <<<HTML
+                            <!-- multi - 1 to 5 -->
+                            <div class="deal_div"><!-- .deal_div starts --> 
+                                <a href ="/product/$moa->product_url" style="color:inherit"><!-- start of link to product page -->
+                                <img src="/static/images/$moa->image1" class="deal_img"/>   
+                                <div class="below_deal_img"><!-- .below_deal_img starts -->
+                                    <div class="topselling_choice_and_title">
+                                        <span>
+                                            $moa->product_name
+                                        </span>
+                                    </div>
+                                    <span class="deal_price_black">
+                                        NG N$moa_price
+                                    </span>  
+                                </div><!-- .below_deal_img ends -->
+                                </a><!-- end of link to product page -->
+                            </div><!-- .deal_div ends -->
+HTML;
+                    }
+                }
 
-
-                        <!-- multi - 3 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/comfy_bed.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Soft comfy bed 6 x 4.5...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N350,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 4 -->
-
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/cooking_pot.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        High Heat-Resistant Cooking Po...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N50,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-
-
-                        <!-- multi - 5 -->
-                        <div class="deal_div"><!-- .deal_div starts --> 
-                            <img src="/static/images/footwear.png" class="deal_img"/>   
-                            <div class="below_deal_img"><!-- .below_deal_img starts -->
-                                <div class="topselling_choice_and_title">
-                                    <span>
-                                        Black Stylish Footwear...
-                                    </span>
-                                </div>
-                                <span class="deal_price_black">
-                                    NG N25,000
-                                </span>  
-                            </div><!-- .below_deal_img ends -->
-                        </div><!-- .deal_div ends -->
-                    
+        echo <<<HTML
                     </div><!-- .flex_div(.multiple_product_div) ends -->
-                    
                     </div><!-- .multiple_product_div_container ends -->
                     <!-- Related Products end -->
                 </div><!-- .below_product_images ends again (for Related Products)-->  
 
+                
                 <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
                     <div class="long_action_button" onclick="ajax_product_view()" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
                         <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks

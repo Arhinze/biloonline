@@ -7,7 +7,7 @@ class Index_Segments{
     public static function inject($obj) {
         Index_Segments::$pdo = $obj;
     }
-    private static $pdo;
+    protected static $pdo;
 
     public static function main_header($site_name = SITE_NAME_SHORT) {
         echo <<<HTML
@@ -73,7 +73,6 @@ HTML;
 
                     <div class="menu_item" style="margin-left:180px"><a href="/category/women">Women</a></div>
                     <div class="menu_item"><a href="/category/men">Men</a></div>
-                    <div class="menu_item"><a href="/category/home">Home</a></div>
                     <div class="menu_item"><a href="/category/xenx">Xenx</a></div>
                     <div class="menu_item"><a href="/category/sports">Sports</a></div>
                     <div class="menu_item"><a href="/category/jewelry">Jewelry</a></div>

@@ -4,7 +4,7 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
 $category = "no-category";
 if(isset($_GET["title"])) {
-    $category = htmlentities($_GET["title"]);
+    $category = str_replace(" ", "", htmlentities($_GET["title"]));
 } 
 
 $category_stmt = $pdo->prepare("SELECT * FROM categories WHERE category_title =  ?");
