@@ -204,8 +204,44 @@ HTML;
                 </div><!-- .below_product_images ends again (for Related Products)-->  
 
                 
+                
+                
+                
+                <div id="continue_to_cashout" style="position:fixed;width:100%;margin:0;border-radius:9px 9px 0 0;background-color:#fff;display:block"><!-- .continue to cashout starts -->
+                    <div>
+                        <img src="/static/images/$image1" style="width:80%;height:auto"/>
+                    </div>
+                    <div class="product_price_div"><!-- .product_price_div starts -->
+                        <div class="product_price_top">
+                            <div class="product_price_head">Choice Deals</div>
+                            <div class="product_price_img_div">
+                                <img class="product_price_img" src="/static/images/tiny_site_logo.png"/>
+                            </div>
+                        </div>
+                        <div class="product_price_bottom">
+                            $price
+                        </div>
+                    </div><!-- .product_price_div ends -->
+
+                    <div><!-- .pay in NGN starts -->
+                        <p style="margin-bottom:-7px"><i class="fa fa-address-card-o"></i>&nbsp; Pay in NGN</p>
+                        <p><i class="fa fa-ban"></i>&nbsp; Tax excluded</p>
+                    </div><!-- .pay in NGN ends -->
+
+                    <div><!-- .product_qty starts -->
+                        <b>Qty</b> &nbsp; 
+                        <span style="padding:6px 3px">
+                            <b>-</b>&nbsp;
+                            1 &nbsp;
+                            <b>+</b>
+                        </span>
+                    </div><!-- .product_qty ends -->
+                </div><!-- .continue to cashout ends -->
+
+
+
                 <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
-                    <div class="long_action_button" onclick="ajax_product_view()" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
+                    <div class="long_action_button" onclick="show_div('continue_to_cashout')" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
                         <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks
                     </div>
                 </div><!-- .add_to_my_picks ends -->
@@ -222,7 +258,7 @@ HTML;
                 obj = new XMLHttpRequest;
                 obj.onreadystatechange = function(){
                     if(obj.readyState == 4){
-                        if (document.getElementById("cajax_product_view_div")){
+                        if (document.getElementById("ajax_product_view_div")){
                             document.getElementById("current_balance_text").innerHTML = obj.responseText;
                         }
                     }
