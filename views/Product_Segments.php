@@ -4,7 +4,7 @@ ini_set("display_errors", '1'); //for testing purposes..
 include_once($_SERVER["DOCUMENT_ROOT"]."/php/connection.php");
 include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
-$prod_url = "iphone12";
+$prod_url = "no-product";
 
 if(isset($_GET["url"])) {
     $prod_url = htmlentities($_GET["url"]);
@@ -358,7 +358,7 @@ HTML;
             }
                                                                 
         </script>
-        HTML;
+HTML;
     }
                                                                 
                                                                 

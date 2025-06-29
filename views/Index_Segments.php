@@ -13,7 +13,7 @@ class Index_Segments{
         echo <<<HTML
             <div class="headers"> <!-- start of .headers --> 
                 <div class="site_logo_div">
-                    <img src="/static/images/logo.png" class="site_logo"/>
+                    <img src="/static/images/tiny_site_logo.png" class="site_logo"/>
                 </div>
                 <h3 class="site_name">
                     <a href="/">Bilo<span style="color:#ff9100">Online</span><!--site_name--></a>
@@ -107,7 +107,7 @@ HTML;
             <ul class="menu_list"> 
                 <li><a href="/category/women">Women</a></li>
                 <li><a href="/category/men">Men</a></li>
-                <li><a href="https://xenxhq.com">Xenx</a></li>
+                <li><a href="/category/xenx">Xenx</a></li>
                 <li><a href="/category/jewelry">Jewelry</a></li>
                 <li><a href="/category/industrial">Industrial</a></li>
                 <li><a href="/category/electronics">Electronics</a></li>
@@ -410,7 +410,6 @@ HTML;
 HTML;
                             }
                         }
-
 
                 echo <<<HTML
                     </div><!-- .flex_div(.topselling_div) ends -->
@@ -721,7 +720,7 @@ HTML;
                 <div class="footer_heading">Shop</div>
                 Terms & Conditions
                 Sitemap
-                Press
+                Press   
 
                 <div class="footer_heading">Support</div>
                 Documentation
