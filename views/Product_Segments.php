@@ -211,7 +211,7 @@ HTML;
                 </div><!-- .add_to_my_picks ends -->
                 
         
-                <div id="continue_to_cashout" style="position:fixed;bottom:0;left:0;right:0;z-index:9;width:100%;height:100%;margin:0;display:block;"><!-- .continue to cashout starts -->
+                <div id="continue_to_cashout" style="position:fixed;bottom:0;left:0;right:0;z-index:9;width:100%;height:100%;margin:0;display:none;"><!-- .continue to cashout starts -->
                     <div style="height:20%;width:100%;background-color:#888;opacity:0.1" onclick="show_div('continue_to_cashout')">
 
                     </div>
