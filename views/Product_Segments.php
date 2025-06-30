@@ -253,7 +253,7 @@ HTML;
                         </div><!-- .add_to_my_picks ends -->
 
                         <div class="shopping-cart" style="position:fixed;top:24%;right:4%;padding:9px 5px;width:fit-content;display:flex;border:1px solid #888;border-radius:100%;background-color:#fff">
-                            <div style="font-size:12px;margin-bottom:-77px">3</div><img src="/static/images/shopping_cart.png" style="width:15px;height:auto"/>
+                            <div style="font-size:12px;margin-bottom:-77px">3</div><img src="/static/images/shopping_cart.png"/>
                         </div>
                     </div><!-- ..height:80% ends -->
                 </div><!-- .continue to cashout ends -->
