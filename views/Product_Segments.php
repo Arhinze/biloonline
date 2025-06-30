@@ -204,47 +204,57 @@ HTML;
                 </div><!-- .below_product_images ends again (for Related Products)-->  
 
                 
-                
-                
-                
-                <div id="continue_to_cashout" style="position:fixed;width:100%;margin:0;border-radius:9px 9px 0 0;background-color:#fff;display:block"><!-- .continue to cashout starts -->
-                    <div>
-                        <img src="/static/images/$image1" style="width:80%;height:auto"/>
-                    </div>
-                    <div class="product_price_div"><!-- .product_price_div starts -->
-                        <div class="product_price_top">
-                            <div class="product_price_head">Choice Deals</div>
-                            <div class="product_price_img_div">
-                                <img class="product_price_img" src="/static/images/tiny_site_logo.png"/>
-                            </div>
-                        </div>
-                        <div class="product_price_bottom">
-                            $price
-                        </div>
-                    </div><!-- .product_price_div ends -->
-
-                    <div><!-- .pay in NGN starts -->
-                        <p style="margin-bottom:-7px"><i class="fa fa-address-card-o"></i>&nbsp; Pay in NGN</p>
-                        <p><i class="fa fa-ban"></i>&nbsp; Tax excluded</p>
-                    </div><!-- .pay in NGN ends -->
-
-                    <div><!-- .product_qty starts -->
-                        <b>Qty</b> &nbsp; 
-                        <span style="padding:6px 3px">
-                            <b>-</b>&nbsp;
-                            1 &nbsp;
-                            <b>+</b>
-                        </span>
-                    </div><!-- .product_qty ends -->
-                </div><!-- .continue to cashout ends -->
-
-
-
                 <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
                     <div class="long_action_button" onclick="show_div('continue_to_cashout')" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
                         <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks
                     </div>
                 </div><!-- .add_to_my_picks ends -->
+                
+        
+                <div id="continue_to_cashout" style="position:fixed;bottom:0;left:0;right:0;z-index:9;width:100%;height:100%;margin:0;display:block;"><!-- .continue to cashout starts -->
+                    <div style="height:20%;width:100%;background-color:#888;opacity:0.1" onclick="show_div('continue_to_cashout')">
+
+                    </div>
+                    <div style="height:80%;border-radius:21px 21px 0 0;background-color:#fff;box-shadow:0 0 3px 0 #ff9100"><!-- ..height:80% starts -->
+                        <div style="margin-bottom:12px;height:40%">
+                            <center><img src="/static/images/$image1" style="width:auto;height:100%"/></center>
+                        </div>
+                        <div class="below_continue_to_cashout_img" style="padding:12px"><!-- .below_continue_to_cashout_img starts -->
+                            <div class="product_price_div"><!-- .product_price_div starts -->
+                                <div class="product_price_top">
+                                    <div class="product_price_head">Choice Deals</div>
+                                    <div class="product_price_img_div">
+                                        <img class="product_price_img" src="/static/images/tiny_site_logo.png"/>
+                                    </div>
+                                </div>
+                                <div class="product_price_bottom">
+                                    $price
+                                </div>
+                            </div><!-- .product_price_div ends -->
+        
+                            <div><!-- .pay in NGN starts -->
+                                <p style="margin-bottom:-7px"><i class="fa fa-address-card-o"></i>&nbsp; Pay in NGN</p>
+                                <p><i class="fa fa-ban"></i>&nbsp; Tax excluded</p>
+                            </div><!-- .pay in NGN ends -->
+        
+                            <div><!-- .product_qty starts -->
+                                <b>Qty</b> &nbsp; 
+                                <span style="padding:3px 6px;border:1px solid #888;border-radius:12px">
+                                    <b style="font-size:24px">-</b>&nbsp;
+                                    1 &nbsp;
+                                    <b style="font-size:18px">+</b>
+                                </span>
+                            </div><!-- .product_qty ends -->
+                        </div><!-- .below_continue_to_cashout_img ends -->
+    
+                        <div class="add_to_my_picks" style="position:static"><!-- .add_to_my_picks starts -->
+                            <div class="long_action_button" onclick="show_div('continue_to_cashout')" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
+                                <b>Continue</b>
+                        </div><!-- .add_to_my_picks ends -->
+                    </div><!-- ..height:80% ends -->
+                </div><!-- .continue to cashout ends -->
+
+
             </div><!--.main_body end-->     
 HTML;
     }

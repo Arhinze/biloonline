@@ -641,6 +641,11 @@ h1, h2, h3, h4, h5, h6{
     right:0;
     width:100%;
     padding:9px;
+    z-index:3;
+}
+
+.continue_to_cashout {
+
 }
 
 /*** Product Page Styling ends ***/
