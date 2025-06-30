@@ -211,7 +211,7 @@ HTML;
                 </div><!-- .add_to_my_picks ends -->
                 
         
-                <div id="continue_to_cashout" style="position:fixed;bottom:0;left:0;right:0;z-index:9;width:100%;height:100%;margin:0;display:none;"><!-- .continue to cashout starts -->
+                <div id="continue_to_cashout" style="position:fixed;bottom:0;left:0;right:0;z-index:9;width:100%;height:100%;margin:0;display:block;"><!-- .continue to cashout starts -->
                     <div style="height:20%;width:100%;background-color:#888;opacity:0.1" onclick="show_div('continue_to_cashout')">
 
                     </div>
@@ -251,6 +251,10 @@ HTML;
                             <div class="long_action_button" onclick="show_div('continue_to_cashout')" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
                                 <b>Continue</b>
                         </div><!-- .add_to_my_picks ends -->
+
+                        <div class="shopping-cart" style="position:fixed;top:24%;right:4%;padding:9px 5px;width:fit-content;display:flex;border:1px solid #888;border-radius:100%;background-color:#fff">
+                            <div style="font-size:12px;margin-bottom:-77px">3</div><img src="/static/images/shopping_cart.png" style="width:15px;height:auto"/>
+                        </div>
                     </div><!-- ..height:80% ends -->
                 </div><!-- .continue to cashout ends -->
 
