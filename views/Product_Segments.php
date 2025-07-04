@@ -18,26 +18,50 @@ if(!$product_data){
     header("location: /404.php");
 }
 
+$num_products_in_cart = 0;
+$customer_id = 1;
+$num_products_in_cart_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id = ? AND qty > ? LIMIT ?, ?");
+$num_products_in_cart_stmt->execute([$customer_id, 0, 0, 100]);
+$num_products_in_cart_data = $num_products_in_cart_stmt->fetchAll(PDO::FETCH_OBJ);
+$num_products_in_cart = count($num_products_in_cart_data);
+
+$orders_qty = 0;
+$orders_qty_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id = ? AND product_id = ?");
+$orders_qty_stmt->execute([$customer_id, $product_data->product_id]);
+$orders_qty_data = $orders_qty_stmt->fetch(PDO::FETCH_OBJ);
+if($orders_qty_data) {
+    $orders_qty = $orders_qty_data->qty;
+    if($orders_qty == 0){
+        $orders_qty = "<span style='color:#888'>0</span>";
+    }
+}
+
 define("PRODUCT_URL", $prod_url);
+define("PRODUCT_ID", $product_data->product_id);
 define("PRODUCT_IMAGE1", $product_data->image1);
 define("PRODUCT_IMAGE2", $product_data->image2);
 define("PRODUCT_IMAGE3", $product_data->image3);
 define("PRODUCT_DESC", $product_data->description);
 define("PRODUCT_PRICE", $product_data->price);
 define("PRODUCT_CATEGORY", $product_data->category);
+define("NUM_OF_PRODUCTS_IN_CART", $num_products_in_cart);
+define("ORDERS_QTY", $orders_qty);
 
 
 class Product_Segments extends Index_Segments{     
     public static function body(
         $site_name = SITE_NAME_SHORT, 
         $site_url = SITE_URL, 
+        $product_id = PRODUCT_ID,
         $product_url = PRODUCT_URL,
         $image1 = PRODUCT_IMAGE1,
         $image2 = PRODUCT_IMAGE2,
         $image3 = PRODUCT_IMAGE3,
         $description = PRODUCT_DESC,
         $price = PRODUCT_PRICE,
-        $category = PRODUCT_CATEGORY
+        $category = PRODUCT_CATEGORY,
+        $number_of_products_in_cart = NUM_OF_PRODUCTS_IN_CART,
+        $orders_qty = ORDERS_QTY
     ){
         $price="N ".number_format($price);
         echo <<<HTML
@@ -239,21 +263,22 @@ HTML;
         
                             <div><!-- .product_qty starts -->
                                 <b>Qty</b> &nbsp; 
-                                <span style="padding:3px 6px;border:1px solid #888;border-radius:12px">
-                                    <b style="font-size:24px">-</b>&nbsp;
-                                    1 &nbsp;
-                                    <b style="font-size:18px">+</b>
+                                <span style="padding:1px 6px;border:1px solid #888;border-radius:12px">
+                                    <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;
+                                    <span id="qty">$orders_qty</span> &nbsp;
+                                    <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")'>+</b>
                                 </span>
                             </div><!-- .product_qty ends -->
                         </div><!-- .below_continue_to_cashout_img ends -->
     
                         <div class="add_to_my_picks" style="position:static"><!-- .add_to_my_picks starts -->
-                            <div class="long_action_button" onclick="show_div('continue_to_cashout')" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
-                                <b>Continue</b>
+                            <div class="long_action_button" onclick='ajax_add_to_cart("$product_id")' style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
+                                <b id="add_or_checkout">Continue</b>
                         </div><!-- .add_to_my_picks ends -->
 
                         <div class="shopping-cart" style="position:fixed;top:24%;right:4%;padding:9px 5px;width:fit-content;display:flex;border:1px solid #888;border-radius:100%;background-color:#fff">
-                            <div style="font-size:12px;margin-bottom:-77px">3</div><img src="/static/images/shopping_cart.png"/>
+                            <div id="num_of_products_in_cart" style="font-size:12px;margin-bottom:-77px">$number_of_products_in_cart</div>
+                            <a href="/cart"><img src="/static/images/shopping_cart.png"/></a>
                         </div>
                     </div><!-- ..height:80% ends -->
                 </div><!-- .continue to cashout ends -->
@@ -268,18 +293,35 @@ HTML;
                                                                 
         <!-- Footer - index_scripts -->
         <script>
-            function ajax_product_view() {
-                obj = new XMLHttpRequest;
-                obj.onreadystatechange = function(){
-                    if(obj.readyState == 4){
-                        if (document.getElementById("ajax_product_view_div")){
-                            document.getElementById("current_balance_text").innerHTML = obj.responseText;
+            function ajax_add_to_cart(prod_id) {
+                let obj2 = new XMLHttpRequest;
+                obj2.onreadystatechange = function(){
+                    if(obj2.readyState == 4){
+                        if (document.getElementById("num_of_products_in_cart")){
+                            document.getElementById("num_of_products_in_cart").innerHTML = obj2.responseText;
                         }
                     }
                 }
-                                                                        
-                obj.open("GET","/ajax/ajax_cb.php?total_="+total_amount);
+ 
+                obj2.open("GET","/ajax/ajax_add_to_num_of_products.php?id="+prod_id);
+                obj2.send(null);
+            }
+
+            function ajax_qty(prod_id, incr_or_decr) {
+                let obj = new XMLHttpRequest;
+                obj.onreadystatechange = function(){
+                    if(obj.readyState == 4){
+                        if (document.getElementById("qty")){
+                            document.getElementById("qty").innerHTML = obj.responseText;
+                        }
+                    }
+                }
+ 
+                obj.open("GET","/ajax/ajax_qty.php?id="+prod_id+"&increase_or_decrease="+incr_or_decr);
                 obj.send(null);
+
+                //call ajax_add_to_cart() function to automatically update cart if items get to 0 or 1, etc.
+                ajax_add_to_cart(prod_id);
             }
         </script>
 
