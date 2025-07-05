@@ -235,7 +235,7 @@ HTML;
                 </div><!-- .add_to_my_picks ends -->
                 
         
-                <div id="continue_to_cashout" class="continue_to_cashout" style="display:none"><!-- .continue to cashout starts -->
+                <div id="continue_to_cashout" class="continue_to_cashout" style="display:block"><!-- .continue to cashout starts -->
                     <div style="height:20%;width:100%;background-color:#888;opacity:0.1" onclick="show_div('continue_to_cashout')">
 
                     </div>
@@ -264,9 +264,9 @@ HTML;
                             <div><!-- .product_qty starts -->
                                 <b>Qty</b> &nbsp; 
                                 <!--<div style="display:none;position:relative;background-color:#000" id='atc_div'><div style="width:60px;height:60px;border-radius:100%;background-color:#ff9100;position:absolute" class="add_to_cart_ball"></div></div>-->
-                                <span style="padding:1px 6px;border:1px solid #888;border-radius:12px">
-                                    <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;
-                                    <span id="qty">$orders_qty</span> &nbsp;
+                                <span style="padding:3px 12px;border:1px solid #888;border-radius:18px">
+                                    <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;&nbsp;
+                                    <span id="qty">$orders_qty</span>&nbsp;&nbsp;
                                     <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")'>+</b>
                                 </span>
                             </div><!-- .product_qty ends -->
