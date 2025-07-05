@@ -69,7 +69,7 @@ class Product_Segments extends Index_Segments{
                 <div class="product_image_div"><!-- .product_image_div starts -->
                     <img class="product_image" src="/static/images/$image1"/>
                     <div class="upi_top_left">
-                        <i class="fa fa-angle-left" style="font-size:18px;padding:6px 12px"></i>
+                        <a href="/" style="color:#000"><i class="fa fa-angle-left" style="font-size:18px;padding:6px 12px"></i></a>
                     </div>
                     <div class="upi_top_right">
                         <i class="fa fa-search" style="margin-right:3px"></i>
