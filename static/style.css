@@ -655,6 +655,12 @@ h1, h2, h3, h4, h5, h6{
     margin:0;
 }
 
+.qty {
+    padding:3px 12px;
+    border:1px solid #888;
+    border-radius:18px;
+}
+
 .add_to_cart_ball {
     animation: add_to_cart_ball_transition 1.8s 1 .1s normal;
 }

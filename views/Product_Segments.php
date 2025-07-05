@@ -264,7 +264,7 @@ HTML;
                             <div><!-- .product_qty starts -->
                                 <b>Qty</b> &nbsp; 
                                 <!--<div style="display:none;position:relative;background-color:#000" id='atc_div'><div style="width:60px;height:60px;border-radius:100%;background-color:#ff9100;position:absolute" class="add_to_cart_ball"></div></div>-->
-                                <span style="padding:3px 12px;border:1px solid #888;border-radius:18px">
+                                <span class="qty">
                                     <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;&nbsp;
                                     <span id="qty">$orders_qty</span>&nbsp;&nbsp;
                                     <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")'>+</b>
