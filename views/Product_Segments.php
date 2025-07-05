@@ -26,6 +26,7 @@ $num_products_in_cart_data = $num_products_in_cart_stmt->fetchAll(PDO::FETCH_OBJ
 $num_products_in_cart = count($num_products_in_cart_data);
 
 $orders_qty = 0;
+$added_or_not = "Add to my picks";
 $orders_qty_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id = ? AND product_id = ?");
 $orders_qty_stmt->execute([$customer_id, $product_data->product_id]);
 $orders_qty_data = $orders_qty_stmt->fetch(PDO::FETCH_OBJ);
@@ -33,6 +34,8 @@ if($orders_qty_data) {
     $orders_qty = $orders_qty_data->qty;
     if($orders_qty == 0){
         $orders_qty = "<span style='color:#888'>0</span>";
+    } else {
+        $added_or_not = "Added to my picks <i class='fa fa-check-circle-o'></i>";
     }
 }
 
@@ -46,6 +49,7 @@ define("PRODUCT_PRICE", $product_data->price);
 define("PRODUCT_CATEGORY", $product_data->category);
 define("NUM_OF_PRODUCTS_IN_CART", $num_products_in_cart);
 define("ORDERS_QTY", $orders_qty);
+define("ADDED_OR_NOT", $added_or_not);
 
 
 class Product_Segments extends Index_Segments{     
@@ -61,7 +65,8 @@ class Product_Segments extends Index_Segments{
         $price = PRODUCT_PRICE,
         $category = PRODUCT_CATEGORY,
         $number_of_products_in_cart = NUM_OF_PRODUCTS_IN_CART,
-        $orders_qty = ORDERS_QTY
+        $orders_qty = ORDERS_QTY,
+        $added_or_not = ADDED_OR_NOT
     ){
         $price="N ".number_format($price);
         echo <<<HTML
@@ -229,9 +234,9 @@ HTML;
 
                 
                 <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
-                    <label for="increase_qty"><div class="long_action_button" onclick="show_div('continue_to_cashout')" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
-                        <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks
-                    </div></label>
+                    <div class="long_action_button" onclick='added_or_not("$product_id")' style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
+                        <i class="fa fa-shopping-cart"></i>&nbsp; <span id="added_or_not_id">$added_or_not</span>
+                    </div>
                 </div><!-- .add_to_my_picks ends -->
                 
         
@@ -274,7 +279,7 @@ HTML;
     
                         <div class="add_to_my_picks" style="position:static"><!-- .add_to_my_picks starts -->
                             <div class="long_action_button" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
-                                <a href="/cart" style="color:#fff">Continue</a>
+                                <a href="/cart" style="color:#fff">Continue <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div><!-- .add_to_my_picks ends -->
 
@@ -292,9 +297,16 @@ HTML;
                                                                 
     public static function product_scripts(){
         echo <<<HTML
-                                                                
         <!-- Footer - index_scripts -->
         <script>
+            function added_or_not(prod_id) {
+                show_div('continue_to_cashout');
+                if (document.getElementById("added_or_not_id").innerHTML == "Add to my picks") {
+                    ajax_qty(prod_id, "increase");
+                    document.getElementById("added_or_not_id").innerHTML = "Added to my picks <i class='fa fa-check-circle-o'></i>";
+                }              
+            }
+
             function ajax_add_to_cart(prod_id) {
                 let obj2 = new XMLHttpRequest;
                 obj2.onreadystatechange = function(){
