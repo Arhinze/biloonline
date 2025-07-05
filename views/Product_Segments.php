@@ -229,9 +229,9 @@ HTML;
 
                 
                 <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
-                    <div class="long_action_button" onclick="show_div('continue_to_cashout')" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
+                    <label for="increase_qty"><div class="long_action_button" onclick="show_div('continue_to_cashout')" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
                         <i class="fa fa-shopping-cart"></i>&nbsp; Add to my picks
-                    </div>
+                    </div></label>
                 </div><!-- .add_to_my_picks ends -->
                 
         
@@ -267,7 +267,7 @@ HTML;
                                 <span class="qty">
                                     <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;&nbsp;
                                     <span id="qty">$orders_qty</span>&nbsp;&nbsp;
-                                    <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")'>+</b>
+                                    <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")' id="increase_qty">+</b>
                                 </span>
                             </div><!-- .product_qty ends -->
                         </div><!-- .below_continue_to_cashout_img ends -->
