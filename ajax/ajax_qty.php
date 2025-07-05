@@ -45,6 +45,10 @@ if ($first_sel_data) {//that means order is recorded, --proceed to update quanti
             echo "<span style='color:#888'>0</span>";
         }
     }  
+} else {//if product is not yet added, but user clicks on 'increase', just return 1, it will be updated in the DB by the ajax_add_to_cart() function called via ajax after this one.
+    if($inc_or_dec == "increase") {
+        echo "1";
+    }
 }
 
 //$select_processing_orders_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id = ? AND product_id = ?");
