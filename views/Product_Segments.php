@@ -235,7 +235,7 @@ HTML;
                 </div><!-- .add_to_my_picks ends -->
                 
         
-                <div id="continue_to_cashout" class="continue_to_cashout" style="display:block"><!-- .continue to cashout starts -->
+                <div id="continue_to_cashout" class="continue_to_cashout" style="display:none"><!-- .continue to cashout starts -->
                     <div style="height:20%;width:100%;background-color:#888;opacity:0.1" onclick="show_div('continue_to_cashout')">
 
                     </div>
