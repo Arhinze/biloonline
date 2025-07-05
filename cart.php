@@ -36,7 +36,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
                     </span>
                 </div>
                 <div>
-                    <b>NG N<?=$cpd->price?><strikethrough><?=$cpd->former_price?></strikethrough></b>
+                    <b>NG N<?=$cpd->price?></b> &nbsp; <s><?=$cpd->former_price?></s>
                 </div>
             </div>
         </div>
