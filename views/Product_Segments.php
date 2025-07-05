@@ -315,13 +315,12 @@ HTML;
                             document.getElementById("qty").innerHTML = obj.responseText;
                         }
                     }
+                    //call ajax_add_to_cart() function to automatically update cart if items get to 0 or 1, etc.
+                    ajax_add_to_cart(prod_id);
                 }
  
                 obj.open("GET","/ajax/ajax_qty.php?id="+prod_id+"&increase_or_decrease="+incr_or_decr);
-                obj.send(null);
-
-                //call ajax_add_to_cart() function to automatically update cart if items get to 0 or 1, etc.
-                ajax_add_to_cart(prod_id);
+                obj.send(null);    
             }
         </script>
 
