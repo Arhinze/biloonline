@@ -24,7 +24,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
 ?>
         <div style="display:flex;margin:12px">
             <div class="cart_image_div" style="width:120px;height:120px;margin-right:15px;overflow:hidden">
-                <img src="/static/images/<?=$cpd->image1?>" style="width:100%;height:auto"/>
+                <img src="/static/images/<?=$cpd->image1?>" style="width:100%;height:auto;border-radius:9px"/>
             </div>
             <div>
                 <div style="font-size:12px;color:#888"><?=$short_description?></div>
