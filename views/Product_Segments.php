@@ -235,7 +235,7 @@ HTML;
                 </div><!-- .add_to_my_picks ends -->
                 
         
-                <div id="continue_to_cashout" class="continue_to_cashout"><!-- .continue to cashout starts -->
+                <div id="continue_to_cashout" class="continue_to_cashout" style="display:none"><!-- .continue to cashout starts -->
                     <div style="height:20%;width:100%;background-color:#888;opacity:0.1" onclick="show_div('continue_to_cashout')">
 
                     </div>
@@ -273,8 +273,8 @@ HTML;
                         </div><!-- .below_continue_to_cashout_img ends -->
     
                         <div class="add_to_my_picks" style="position:static"><!-- .add_to_my_picks starts -->
-                            <div class="long_action_button" onclick='ajax_add_to_cart("$product_id")' style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
-                                <b id="add_or_checkout">Continue</b>
+                            <div class="long_action_button" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
+                                <a href="/cart" style="color:#fff">Continue</a>
                             </div>
                         </div><!-- .add_to_my_picks ends -->
 
