@@ -35,7 +35,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
                         <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")'>+</b>
                     </span>
                 </div>
-                <div style="margin-top:21px">
+                <div style="margin-top:16px">
                     <b>NG N<?=number_format($cpd->price)?></b> &nbsp; <s>N<?=number_format($cpd->former_price)?></s>
                 </div>
             </div>
