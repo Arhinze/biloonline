@@ -20,14 +20,14 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
         $cart_prod_data = $prod_stmt->fetchAll(PDO::FETCH_OBJ);
 
         foreach($cart_prod_data as $cpd) {
-            $short_description = substr($cpd->description,0,12)."... ";
+            $short_description = substr($cpd->description,0,36)."... ";
 ?>
         <div style="display:flex;margin:12px">
             <div class="cart_image_div" style="width:120px;height:120px;margin-right:15px;overflow:hidden">
-                <img src="/static/images/<?=$cpd->image1?>"/>
+                <img src="/static/images/<?=$cpd->image1?>" style="width:100%;height:auto"/>
             </div>
             <div>
-                <div style="font-size:9px;color:#888"><?=$short_description?></div>
+                <div style="font-size:12px;color:#888"><?=$short_description?></div>
                 <div>
                     <span class="qty">
                         <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;&nbsp;
