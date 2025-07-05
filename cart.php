@@ -27,15 +27,15 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
                 <img src="/static/images/<?=$cpd->image1?>" style="width:100%;height:auto;overflow:hidden;border-radius:9px"/>
             </div>
             <div>
-                <div style="font-size:15px;color:#888"><?=$short_description?></div>
-                <div style="margin:18px 0">
+                <div style="font-size:12px;color:#888"><?=$short_description?></div>
+                <div style="margin:9px 0">
                     <span class="qty">
                         <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;&nbsp;
                         <span id="qty"><?=$cart_d->qty?></span>&nbsp;&nbsp;
                         <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")'>+</b>
                     </span>
                 </div>
-                <div style="margin-bottom:18px">
+                <div>
                     <b>NG N<?=number_format($cpd->price)?></b> &nbsp; <s>N<?=number_format($cpd->former_price)?></s>
                 </div>
             </div>
