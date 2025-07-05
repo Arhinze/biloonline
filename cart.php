@@ -6,12 +6,13 @@ $customer_id = 1;
 $cart_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id =  ? AND qty > ? LIMIT ?, ?");
 $cart_stmt->execute([$customer_id, 0, 0, 25]);
 $cart_data = $cart_stmt->fetchAll(PDO::FETCH_OBJ);
-
+$cart_count = count($cart_data);
 Index_Segments::header(); 
 ?>
 <div class="main_body" style="margin:0"><!-- .main_body starts -->
 
 <?php
+echo "<div style='margin:12px;font-weight:bold'>Cart ($cart_count)</div>";
 if (count($cart_data) > 0) {//that means user has an item or more in cart -- list them out:
     foreach($cart_data as $cart_d) {
         $prod_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ?");
@@ -21,7 +22,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
         foreach($cart_prod_data as $cpd) {
             $short_description = substr($cpd->description,0,12)."... ";
 ?>
-        <div style="display:flex">
+        <div style="display:flex;margin:12px">
             <div class="cart_image_div" style="width:120px;height:120px;margin-right:15px;overflow:hidden">
                 <img src="/static/images/<?=$cpd->image1?>"/>
             </div>
@@ -30,7 +31,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
                 <div>
                     <span class="qty">
                         <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;&nbsp;
-                        <span id="qty"><?=$cart_product_data->qty?></span>&nbsp;&nbsp;
+                        <span id="qty"><?=$cart_d->qty?></span>&nbsp;&nbsp;
                         <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")'>+</b>
                     </span>
                 </div>
