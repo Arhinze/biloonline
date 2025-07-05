@@ -62,7 +62,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
 ?>
 
     <div class="add_to_my_picks" style="display:flex"><!-- .add_to_my_picks starts -->
-        <div style="margin:9px 15px 0 15%;font-weight:bold">
+        <div style="margin:9px 15px 0 12%;padding-bottom:18px;font-weight:bold">
             NG N<span id="total_amount"><?=number_format($total_amount)?></span> &nbsp; <i class="fa fa-angle-up"></i>
         </div>
         <div class="long_action_button" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset;width:fit-content;padding:9px 18px">
