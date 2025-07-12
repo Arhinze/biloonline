@@ -21,7 +21,7 @@ Index_Segments::header();
         <div style="text-align:center;margin-top:45px">
             <a href="/login"><img src="/static/images/signout.png" style=""/></a>
             <p><b>You are currently Logged Out</b></p>
-            <p>Already have an account? <b><a href="/login">Login</a></b>. Don't have an account? <b><a href="/signup">Signup</a></b>.</p>
+            <p>Already have an account? <b><a href="/login">Login</a></b>. Don't have an account? <b><a href="/sign-up">Sign up</a></b>.</p>
         </div>
 <?php
     }

@@ -23,6 +23,19 @@ $remember_username = "";
         <a href="/auth/facebook-login.php"><i class="fa fa-facebook" style="color:blue"></i>&nbsp; Continue with Facebook -- </a>
     </div>-->
     <div class="input" style="border-radius:36px;text-align:center;margin-top:9px;font-weight:bold"><i class="fa fa-envelope"></i>&nbsp; Continue with Email</div>    
+
+    <div style="border:1px solid #000;border-radius:15px;width:90%;margin-top:21px">
+        <div style="position:relative;width:100%;height:30px"><!-- .fa times starts -->
+            <div style="position:absolute;float:right;right:12px;top:9px;color:red;font-size:21px"><i class="fa fa-times"></i></div>
+        </div><!-- .fa times ends -->
+        <div style="position:relative;height:fit-content;margin:6px 12px"><!-- .email and continue button starts -->
+            <form method="POST" action="/create-or-login">
+                <div><input type="email" class="input" placeholder="Enter Email Address"/></div>
+                <div style="margin:9px 0 24px 0;width:100%"><button class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#ff9100">Continute</button></div>
+                <input type="hidden" name="xsrf_code" value="<?=$code_out?>"/>
+            </form>
+        </div><!-- .email and continue button ends -->
+    </div>
 </div><!-- .main_body ends -->
     
 <?php Index_Segments::footer(); ?>
