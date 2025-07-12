@@ -14,7 +14,7 @@ Index_Segments::header();
 <?php 
     if($user_data) {
 ?>
-        <h1>Hi <?=$user_data->customer_realname?></h1>
+        <h1>Hi <?=$user_data->customer_realname?>, Welcome to BiloOnline</h1>
 <?php
     } else {//if user is not logged in:
 ?>
