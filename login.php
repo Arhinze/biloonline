@@ -19,7 +19,8 @@ $remember_username = "";
     <div class="input" style="border-radius:36px;text-align:center;background-color:blue;border:1px solid blue;font-weight:bold;color:#fff;margin-top:30px">
         <a href="/auth/google-login.php"><i class="fa fa-google" id="signinButton"></i>&nbsp; Continue with Google -- </a>
     </div>
-    <div class="input" style="border-radius:36px;text-align:center;margin-top:9px;font-weight:bold"><i class="fa fa-facebook" style="color:blue"></i>&nbsp; Continue with Facebook</div>
+    <div class="input" style="border-radius:36px;text-align:center;margin-top:9px;font-weight:bold">
+        <a href="/auth/facebook-login.php"><i class="fa fa-facebook" style="color:blue"></i>&nbsp; Continue with Facebook</div></a>
     <div class="input" style="border-radius:36px;text-align:center;margin-top:9px;font-weight:bold"><i class="fa fa-envelope"></i>&nbsp; Continue with Email</div>
         
 </div><!-- .main_body ends -->
