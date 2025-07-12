@@ -70,7 +70,7 @@ HTML;
             $main_header
             <div class="menu_div"><!-- .menu_div starts -->  
                 <div class="menu">
-                    <label for="menu-box"><div class="all_categories"><i class="fa fa-bars"></i>&nbsp; All Categories &nbsp; <i class="fa fa-angle-down"></i></div></label>
+                    <label for="menu-box"><div class="all_categories"><i class="fa fa-bars"></i>&nbsp; All &nbsp; <i class="fa fa-angle-down"></i></div></label>
 
                     <div class="menu_item" style="margin-left:180px"><a href="/category/women">Women</a></div>
                     <div class="menu_item"><a href="/category/men">Men</a></div>
@@ -105,7 +105,8 @@ HTML;
             <input type="checkbox" id="menu-box" class="menu-box" style="display:none"/>
             
             <ul class="menu_list"> 
-                <li><a href="/my-account" style="color:#fff;font-weight:bold;background-color:green;padding:6px 12px;border-radius:12px"><i class="fa fa-user"></i>&nbsp; Account</a></li>
+                <li style="font-weight:bold">All Categories</li>
+                <li><a href="/my-account" style="color:#fff;font-weight:bold;background-color:green;padding:6px 12px;border-radius:12px"><i class="fa fa-user"></i>&nbsp;My Account</a></li>
                 <li><a href="/category/women">Women</a></li>
                 <li><a href="/category/men">Men</a></li>
                 <li><a href="/category/xenx">Xenx</a></li>
