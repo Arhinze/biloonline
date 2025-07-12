@@ -9,32 +9,6 @@ $remember_username = "";
 //    header("location:/dashboard");
 //}
 
-if (isset($_POST["username_or_email"]) && isset($_POST["password"])) {
-    $user_id = $_POST["username_or_email"];
-    $password = $_POST["password"];
-
-    $remember_username = $_POST["username_or_email"];
-
-    $stmt = $pdo->prepare("SELECT * FROM miners WHERE (username = ? OR user_email = ?) AND `password` = ?");
-    $stmt->execute([$user_id, $user_id, $password]);
-    
-    $data = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-    if(count($data)>0){
-        setcookie("username_or_email", $_POST["username_or_email"], time()+(24*3600), "/");
-        setcookie("password", $_POST["password"], time()+(24*3600), "/");
-
-        //redirect to dashboard
-        header("location:/dashboard");
-
-    } else {
-?>
-    <div class = "invalid">
-        invalid username/password combination
-    </div>
-<?php 
-    }
-}
 ?>
 
 <!--HTML:-->
@@ -83,7 +57,7 @@ function signInCallback(authResult) {
         // Send the code to the server
         $.ajax({
           type: 'POST',
-          url: '/ajax/storeauthcode.php',
+          url: '/auth/storeauthcode.php',
           // Always include an `X-Requested-With` header in every AJAX request,
           // to protect against CSRF attacks.
           headers: {
