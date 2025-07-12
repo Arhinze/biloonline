@@ -72,7 +72,7 @@ HTML;
                 <div class="menu">
                     <label for="menu-box"><div class="all_categories"><i class="fa fa-bars"></i>&nbsp; All &nbsp; <i class="fa fa-angle-down"></i></div></label>
 
-                    <div class="menu_item" style="margin-left:90px"><a href="/category/women">Women</a></div>
+                    <div class="menu_item" style="margin-left:118px"><a href="/category/women">Women</a></div>
                     <div class="menu_item"><a href="/category/men">Men</a></div>
                     <div class="menu_item"><a href="/category/xenx">Xenx</a></div>
                     <div class="menu_item"><a href="/category/sports">Sports</a></div>
