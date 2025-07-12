@@ -105,7 +105,7 @@ HTML;
             <input type="checkbox" id="menu-box" class="menu-box" style="display:none"/>
             
             <ul class="menu_list"> 
-                <li style="font-weight:bold"><h3>All Categories</h3></li>
+                <li><h3>All Categories</h3></li>
                 <li><a href="/my-account" style="color:#fff;font-weight:bold;background-color:green;padding:6px 12px;border-radius:12px"><i class="fa fa-user"></i>&nbsp;My Account</a></li>
                 <li><a href="/category/women">Women</a></li>
                 <li><a href="/category/men">Men</a></li>
