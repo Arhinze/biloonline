@@ -20,7 +20,8 @@ $remember_username = "";
         <a href="/auth/google-login.php"><i class="fa fa-google" id="signinButton"></i>&nbsp; Continue with Google -- </a>
     </div>
     <div class="input" style="border-radius:36px;text-align:center;margin-top:9px;font-weight:bold">
-        <a href="/auth/facebook-login.php"><i class="fa fa-facebook" style="color:blue"></i>&nbsp; Continue with Facebook</div></a>
+        <a href="/auth/facebook-login.php"><i class="fa fa-facebook" style="color:blue"></i>&nbsp; Continue with Facebook -- </a>
+    </div>
     <div class="input" style="border-radius:36px;text-align:center;margin-top:9px;font-weight:bold"><i class="fa fa-envelope"></i>&nbsp; Continue with Email</div>
         
 </div><!-- .main_body ends -->
