@@ -17,7 +17,7 @@ $remember_username = "";
     <div style="color:green;font-size:15px;text-align:center;margin-top:-19px"><i class="fa fa-key"></i>&nbsp; All data is encrypted</div>
 
     <div class="input" style="border-radius:36px;text-align:center;background-color:blue;border:1px solid blue;font-weight:bold;color:#fff;margin-top:30px">
-        <a href="/auth/google-login.php"><i class="fa fa-google" id="signinButton"></i>&nbsp; Continue with Google -- </a>
+        <a href="/auth/google-login.php" style="color:#fff"><i class="fa fa-google" id="signinButton"></i>&nbsp; Continue with Google -- </a>
     </div>
     <!--<div class="input" style="border-radius:36px;text-align:center;margin-top:9px;font-weight:bold">
         <a href="/auth/facebook-login.php"><i class="fa fa-facebook" style="color:blue"></i>&nbsp; Continue with Facebook -- </a>
