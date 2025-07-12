@@ -70,7 +70,7 @@ HTML;
             $main_header
             <div class="menu_div"><!-- .menu_div starts -->  
                 <div class="menu">
-                    <label for="menu-box"><div class="all_categories"><i class="fa fa-bars"></i>&nbsp; All &nbsp; <i class="fa fa-angle-down"></i></div></label>
+                    <label for="menu-box"><h3 class="all_categories"><i class="fa fa-bars"></i>&nbsp; All &nbsp; <i class="fa fa-angle-down"></i></h3></label>
 
                     <div class="menu_item" style="margin-left:99px"><a href="/category/women">Women</a></div>
                     <div class="menu_item"><a href="/category/men">Men</a></div>
