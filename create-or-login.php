@@ -31,7 +31,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
     } else {//user has no account ~ display create account form:
         $heading = "Create Account";
         $full_name_tag = '<div style="margin-top:9px"><input name = "full_name" type="text" class="input" placeholder="Enter Full Name:"/></div>';
-        $repeat_password_tag = '<div><input type="text" name="repeat_password" class="input" id="password2"  '.'onkeyup='."check_password('password1','password2') ".'placeholder="Repeat Password: ******"/></div>';
+        $repeat_password_tag = '<div><input type="text" name="repeat_password" class="input" id="password2"  '.'onkeyup='."check_password('password1','password2') ".'placeholder="Repeat Password: ******"/></div><div id="status"></div>';
         
     }
 
