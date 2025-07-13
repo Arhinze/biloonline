@@ -33,7 +33,6 @@ $remember_username = "";
                 <div><input type="email" name="email" class="input" minlength="3" maxlength="250" placeholder="Enter Email Address"/></div>
                 <!-- code(captcha) starts -->
                 <?php include($_SERVER["DOCUMENT_ROOT"]."/views/captcha.php"); ?>
-                <input type="hidden" name="xsrf_code" value="<?=$code_out?>"/>
                 <!-- code(captcha) ends -->
                 <div style="margin:9px 0 24px 0;width:100%"><button class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#ff9100">Continute</button></div>
             </form>

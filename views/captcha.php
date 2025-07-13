@@ -22,6 +22,5 @@ foreach($arr as $a){
 <!--Hidden Captcha Code-->
 <input type="hidden" name="xsrf_code" value="<?=$code?>"/>
 
-Enter Code:
-<input type = "number" placeholder = "The 6 Digit Code: example - 123456" name = "user_code" class="input"/>
+<input type = "number" placeholder = "The 6 Digit Code: example - 123456" name = "user_code" class="input" style=""/>
 </div>
