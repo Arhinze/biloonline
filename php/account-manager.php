@@ -29,9 +29,9 @@ if(isset($_COOKIE["google_user_email"])) {
 
     if($nge_data) {//that means user already exists, just delete google cookies, possible old unique_id cookie and set new unique_id cookie:
         //delete google cookies:
-        setcookie("google_user_name", $_SESSION["google_name"], time()-(48*3600), "/");
-        setcookie("google_user_email", $_SESSION["google_email"], time()-(48*3600), "/");
-        setcookie("google_user_picture", $_SESSION["google_picture"], time()-(48*3600), "/");
+        setcookie("google_user_name", "", time()-(48*3600), "/");
+        setcookie("google_user_email", "", time()-(48*3600), "/");
+        setcookie("google_user_picture", "", time()-(48*3600), "/");
 
         //delete possible old unique_id cookie:
         setcookie("unique_id", $nge->unique_id,  time()-(48*3600), "/");
