@@ -24,9 +24,7 @@ Index_Segments::header();
             <p>Already have an account? <b><a href="/login">Login</a></b>. Don't have an account? <b><a href="/sign-up">Sign up</a></b>.</p>
         </div>
 
-        <h1><?=$_SESSION["google_picture"]?></h1>
-        <h1><?=$_SESSION["google_name"]?></h1>
-        <h1><?=$_SESSION["google_email"]?></h1>
+        <h1><?=$_COOKIE["new_user_email"]?></h1>
 <?php
     }
 ?>
