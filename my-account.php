@@ -2,19 +2,17 @@
 
 include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
-$user_stmt = $pdo->prepare("SELECT * FROM customers WHERE unique_id =  ? LIMIT ?, ?");
-$user_stmt->execute([$user_unique_id, 0, 1]);
-$user_data = $user_stmt->fetch(PDO::FETCH_OBJ);
-
 Index_Segments::header(); 
 ?>
 
 <div class="main_body" style="margin:0"><!-- .main_body starts -->
     
 <?php 
-    if($user_data) {
+    if($data) {//if user is logged in... ~ $data from /php/account-manager.php
 ?>
-        <h1>Hi <?=$user_data->customer_realname?>, Welcome to BiloOnline</h1>
+        <h1>Hi <?=$data->customer_realname?>, Welcome to BiloOnline</h1>
+        <h4>Your email address is: <?=$data->customer_realname?></h4>
+        <div style="width:120px;height:120px;border-radius:100%"><img src="/images/customer_image??" style="width:100%;height:auto"/></div>
 <?php
     } else {//if user is not logged in:
 ?>
@@ -23,10 +21,6 @@ Index_Segments::header();
             <p><b>You are currently Logged Out</b></p>
             <p>Already have an account? <b><a href="/login">Login</a></b>. Don't have an account? <b><a href="/sign-up">Sign up</a></b>.</p>
         </div>
-
-        <h1><?=$_COOKIE["new_user_name"]?></h1>
-        <h1><?=$_COOKIE["new_user_email"]?></h1>
-        <h1><?=$_COOKIE["new_user_picture"]?></h1>
 <?php
     }
 ?>

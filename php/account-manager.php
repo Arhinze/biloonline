@@ -21,6 +21,39 @@ function generate_unique_id(){
     return $user_unique_id;
 }
 
+if(isset($_COOKIE["new_google_email"])) {
+    $nge = htmlentities($_COOKIE["new_google_email"]);
+    $nge_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email = ? LIMIT ?, ?");
+    $nge_stmt->execute($nge, 0, 1);
+    $nge_data = $nge_stmt->fetch(PDO::FETCH_OBJ);
+
+    if($nge_data) {//that means user already exists, just delete google cookies, possible old unique_id cookie and set new unique_id cookie:
+        //delete google cookies:
+        setcookie("google_user_name", $_SESSION["google_name"], time()-(48*3600), "/");
+        setcookie("google_user_email", $_SESSION["google_email"], time()-(48*3600), "/");
+        setcookie("google_user_picture", $_SESSION["google_picture"], time()-(48*3600), "/");
+
+        //delete possible old unique_id cookie:
+        setcookie("unique_id", $nge->unique_id,  time()-(48*3600), "/");
+
+        //set new unique_id cookie:
+        setcookie("unique_id", $nge->unique_id,  time()+(48*3600), "/");
+    } else {//that means user doesn't exist yet, create(insert) new user and delete google cookies
+        //generate_unique_id()
+        $user_unique_id = generate_unique_id();
+
+        //create(insert) new user
+        $create_user_stmt = $pdo->prepare("INSERT INTO customers(date_joined, customer_realname, `password` customer_email, unique_id) VALUES(?,?,?,?,?)");
+        $create_user_stmt->execute(date("Y-m-d H:i:s", time()), htmlentities($_COOKIE["new_google_name"]), "Goo--gle1",htmlentities($_COOKIE["new_google_email"]),$user_unique_id);
+
+        //delete possible old unique_id cookie:
+        setcookie("unique_id", $user_unique_id,  time()-(48*3600), "/");
+
+        //set new unique_id cookie:
+        setcookie("unique_id", $user_unique_id,  time()+(48*3600), "/");
+    }
+}
+
 if((isset($_COOKIE["unique_id"]))){
     $user_unique_id = htmlentities($_COOKIE["unique_id"]);
 
