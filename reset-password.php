@@ -1,7 +1,6 @@
 <?php
-
 ini_set("session.use_only_cookies", 1);
-include_once("/home/u590828029/domains/aguanit.com/public_html/views/Index_Segments.php");
+include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 Index_Segments::header();
 
 $check_email = '';
