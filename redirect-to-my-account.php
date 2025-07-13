@@ -34,6 +34,11 @@ if(isset($_POST["email"])){//check if new user already exists:
                     //create(insert) new user
                     $create_user_stmt = $pdo->prepare("INSERT INTO customers(date_joined, customer_realname, `password`, customer_email, unique_id) VALUES(?,?,?,?,?)");
                     $create_user_stmt->execute([date("Y-m-d H:i:s", time()), htmlentities($_POST["full_name"]), htmlentities($_POST["password"]), $email, $user_unique_id]);
+
+                    //delete possible old unique_id cookie:
+                    setcookie("unique_id", "",  time()-(48*3600), "/");
+                    //set new unique_id cookie:
+                    setcookie("unique_id", $user_unique_id,  time()+(48*3600), "/");
                 } else {//invalid email address:
                     $error_button = "<div class='invalid'>Invalid Email Address</div>
                     <div style='margin:60px 12px;text-align:center'>
