@@ -18,5 +18,5 @@
     <input type="hidden" name="xsrf_code" value="<?=$code?>"/>
     
     <!-- Visible Input Tag for user:-->
-    <div><input type = "number" placeholder = "The 6 Digit Code: example - 123456" name = "user_code" class="input" style="height:30px"/></div>
+    <div><input type = "number" placeholder = "The 6 Digit Code: example - 123456" name = "user_code" class="input" style="height:30px;margin-top:18px"/></div>
 </div>

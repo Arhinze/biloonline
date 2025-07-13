@@ -1280,10 +1280,10 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .code1, .code2, .code3, .code4, .code5, .code0{
-    flex:3 3 auto;
+    flex:1 1 auto;
     font-weight:bold;
     font-size:15px;
-    margin:0px 3px 0px 3px;
+    margin:0px 1.5px 0px 1.5px;
 }
 
 .code1, .code0{
