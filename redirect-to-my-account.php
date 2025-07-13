@@ -3,6 +3,7 @@
 include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
 $error_button = "";
+$email = "";
 if(isset($_POST["email"])){//check if new user already exists:
     $email = trim(htmlentities($_POST["email"]));
     $sel_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email = ? LIMIT ?, ?");
@@ -19,7 +20,7 @@ if(isset($_POST["email"])){//check if new user already exists:
             $error_button = "<div class='invalid'>Invalid Username or Password</div>
             <div style='margin:60px 12px;text-align:center'>
                 <form method = 'POST' action='/login'>
-                    <input type='hidden' name='email' value='$remember_email'/>
+                    <input type='hidden' name='email' value='$email'/>
                     <button type='submit' class='input' style='color:#fff;background-color:#ff9100;border:1px solid #fff;font-weight:bold'><i class='fa fa-arrow-left'></i> &nbsp; return to previous page</button>
                 </form>
             </div>";
@@ -43,16 +44,16 @@ if(isset($_POST["email"])){//check if new user already exists:
                     $error_button = "<div class='invalid'>Invalid Email Address</div>
                     <div style='margin:60px 12px;text-align:center'>
                         <form method = 'POST' action='/login'>
-                            <input type='hidden' name='email' value='$remember_email'/>
+                            <input type='hidden' name='email' value='$email'/>
                             <button type='submit' class='input' style='color:#fff;background-color:#ff9100;border:1px solid #fff;font-weight:bold'><i class='fa fa-arrow-left'></i> &nbsp; return to previous page</button>
                         </form>
                     </div>";
                 }
-            } else {
+            } else {//if passwords do not match ~ ~ ~ might not be called because JS already handles this
                 $error_button = "<div class='invalid'>Passwords do not match</div>
                 <div style='margin:60px 12px;text-align:center'>
                     <form method = 'POST' action='/login'>
-                        <input type='hidden' name='email' value='$remember_email'/>
+                        <input type='hidden' name='email' value='$email'/>
                         <button type='submit' class='input' style='color:#fff;background-color:#ff9100;border:1px solid #fff;font-weight:bold'><i class='fa fa-arrow-left'></i> &nbsp; return to previous page</button>
                     </form>
                 </div>";
