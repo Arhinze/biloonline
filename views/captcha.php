@@ -1,5 +1,5 @@
 <div style="display:flex">
-    <div style="background-color:#0bee3ccc;color:#fff;margin:14px 12px 12px 3px;padding:5px;width:190px;border-radius:4px;display:flex;">                   
+    <div style="background-color:#0bee3ccc;color:#fff;margin:14px 8px 12px 3px;padding:5px;width:190px;border-radius:4px;display:flex;">                   
         <?php 
             $code_array = [0,1,2,3,4,5,6,7,8,9];
             shuffle($code_array);
