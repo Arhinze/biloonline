@@ -97,7 +97,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
 
     function check_email() {
         email = document.getElementById("email").value;
-        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const pattern = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/";
         if (pattern.test(email)) {//valid email:
             document.getElementById("email_status").innerHTML = '';
 
