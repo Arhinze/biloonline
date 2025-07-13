@@ -25,6 +25,7 @@ Index_Segments::header();
         </div>
 
         <h1><?=$_COOKIE["new_user_email"]?></h1>
+        <h1><?=$_SESSION["google_email"]?></h1>
 <?php
     }
 ?>
