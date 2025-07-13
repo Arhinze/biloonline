@@ -45,7 +45,8 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
             <h2 style="text-align:center"><?=$heading?></h2>
             <div style="position:relative;height:fit-content;margin:6px 12px"><!-- .email and continue button starts -->
                 <form method="POST" action="/redirect-to-my-account">
-                    <div><input name="email" type="email" class="input" placeholder="Enter Email Address:abc@example.com" value="<?=$remember_email?>"/></div>
+                    <div><input name="email" type="email" class="input" placeholder="Enter Email Address:abc@example.com" value="<?=$remember_email?>" onclick="check_email()" id="email"/><div id="email_status"></div></div>
+
                     <?=$full_name_tag?>
     
                     <?php
@@ -89,6 +90,20 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
             document.getElementById("continue_button").innerHTML = '<button class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#ff9100">Continute</button>';
         } else {//if passwords don't match ~ client-side validation:
             document.getElementById("status").innerHTML = "<p style='color:red'><b>Passwords Do Not Match</b>.</p> <small><i class='fa fa-warning' style='color:red'></i> Make sure both password fields match to avoid starting the entire process afresh.<br /></small>";
+
+            document.getElementById("continue_button").innerHTML = '<span class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#888">Continute</span>';
+        }
+    }
+
+    function check_email() {
+        email = document.getElementById("email").value;
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (pattern.test(email)) {//valid email:
+            document.getElementById("email_status").innerHTML = '';
+
+            document.getElementById("continue_button").innerHTML = '<button class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#ff9100">Continute</button>';
+        } else {//invalid email
+            document.getElementById("email_status").innerHTML = "<p style='color:red'><b>Invalid Email</b>.</p> <small><i class='fa fa-warning' style='color:red'></i> Kindly input a valid email to continue.<br /></small>";
 
             document.getElementById("continue_button").innerHTML = '<span class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#888">Continute</span>';
         }
