@@ -21,6 +21,8 @@ function generate_unique_id(){
     return $user_unique_id;
 }
 
+$code_out = explode("_", generate_unique_id())[1];
+
 if(isset($_COOKIE["google_user_email"])) {
     $nge = htmlentities($_COOKIE["google_user_email"]);
     $nge_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email = ? LIMIT ?, ?");
