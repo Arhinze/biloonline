@@ -38,6 +38,9 @@ if(isset($_COOKIE["google_user_email"])) {
 
         //set new unique_id cookie:
         setcookie("unique_id", $nge_data->unique_id,  time()+(48*3600), "/");
+
+        //get user details from database: 
+        $data = $nge_data;
     } else {//that means user doesn't exist yet, create(insert) new user and delete google cookies
         //generate_unique_id()
         $user_unique_id = generate_unique_id();
@@ -51,6 +54,12 @@ if(isset($_COOKIE["google_user_email"])) {
 
         //set new unique_id cookie:
         setcookie("unique_id", $user_unique_id,  time()+(48*3600), "/");
+
+        //get user details from database:
+        //$stmt = $pdo->prepare("SELECT * FROM customers WHERE unique_id = ? LIMIT ?, ?");
+        //$stmt->execute([$user_unique_id, 0, 1]);
+      
+        //$data = $stmt->fetch(PDO::FETCH_OBJ);
     }
 }
 
