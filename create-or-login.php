@@ -23,7 +23,7 @@ $remember_username = "";
                 <div><input type="email" class="input" placeholder="Enter Email Address:abc@example.com"/></div>
                 <div><input type="text" class="input" placeholder="Enter Full Name:"/></div>
 
-
+                <h3>Password:</h3>
                 <div style="margin:6px 0"><input type="text" class="input" placeholder="Enter Password: ******"/></div>
                 <div><input type="text" class="input" placeholder="Repeat Password: ******"/></div>
                 <div style="margin:9px 0 24px 0;width:100%"><button class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#ff9100">Continute</button></div>
