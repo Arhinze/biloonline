@@ -2,6 +2,13 @@
 
 include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
+$user_unique_id = htmlentities($_COOKIE["unique_id"]);
+
+$stmt = $pdo->prepare("SELECT * FROM customers WHERE unique_id = ? LIMIT ?, ?");
+$stmt->execute([$user_unique_id, 0, 1]);
+
+$data = $stmt->fetch(PDO::FETCH_OBJ);
+
 Index_Segments::header(); 
 ?>
 
