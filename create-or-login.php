@@ -5,6 +5,7 @@ Index_Segments::header();
 
 $remember_email = "";
 $heading = "";
+$full_name_tag = "";
 $repeat_password_tag = "";
 $remember_email = "";
 
@@ -25,6 +26,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
         $heading = "Login";
     } else {
         $heading = "Create Account";
+        $full_name_tag = '<div style="margin-top:9px"><input type="text" class="input" placeholder="Enter Full Name:"/></div>';
         $repeat_password_tag = '<div><input type="text" name="repeat_password" class="input"  placeholder="Repeat Password: ******"/></div>';
     }
 
@@ -39,8 +41,8 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
             <h2 style="text-align:center"><?=$heading?></h2>
             <div style="position:relative;height:fit-content;margin:6px 12px"><!-- .email and continue button starts -->
                 <form method="POST" action="/redirect-to-my-account">
-                    <div><input type="email" class="input" placeholder="Enter Email Address:abc@example.com"/></div>
-                    <div style="margin-top:9px"><input type="text" class="input" placeholder="Enter Full Name:" value="<?=$remember_email?>"/></div>
+                    <div><input type="email" class="input" placeholder="Enter Email Address:abc@example.com" value="<?=$remember_email?>"/></div>
+                    <?=$full_name_tag?>
     
                     <h3>Password:</h3>
                     <div style="margin:6px 0"><input type="text" name="password" class="input" placeholder="Enter Password: ******"/></div>
