@@ -4,6 +4,7 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 Index_Segments::header();
 
 $remember_email = "";
+$remember_full_name = "";
 $heading = "";
 $full_name_tag = "";
 $repeat_password_tag = "";
@@ -12,6 +13,10 @@ $google_or_email_log_in = "";
 
 if(isset($_POST["email"])) {
     $remember_email = htmlentities($_POST["email"]);
+}
+
+if(isset($_POST["full_name"])) {
+    $remember_full_name = htmlentities($_POST["full_name"]);
 }
 
 if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities($_POST["user_code"]) == $_POST["xsrf_code"])){
@@ -30,7 +35,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
         }
     } else {//user has no account ~ display create account form:
         $heading = "Create Account";
-        $full_name_tag = '<div style="margin-top:9px"><input name = "full_name" type="text" class="input" placeholder="Enter Full Name:" required/></div>';
+        $full_name_tag = '<div style="margin-top:9px"><input name = "full_name" type="text" class="input" placeholder="Enter Full Name:" value="'.$fullName.'" required/></div>';
         $repeat_password_tag = '<div><input type="text" name="repeat_password" class="input" id="password2"  '.'onkeyup='."check_password('password1','password2') ".'placeholder="Repeat Password: ******" required/></div><div id="status"></div>';      
     }
 

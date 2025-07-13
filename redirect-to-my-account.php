@@ -4,6 +4,7 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
 $error_button = "";
 $email = "";
+$fullName = "";
 if(isset($_POST["email"])){//check if new user already exists:
     $email = trim(htmlentities($_POST["email"]));
     $sel_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email = ? LIMIT ?, ?");
@@ -27,6 +28,7 @@ if(isset($_POST["email"])){//check if new user already exists:
         }
     } else {//if user doesn't exist: ~ create(insert) user
         if(isset($_POST["repeat_password"])) {//user is attempting to create new account
+            $fullName = htmlentities($_POST["full_name"]);
             if(htmlentities($_POST["password"]) == htmlentities($_POST["repeat_password"])) {//if passwords match:
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {//if valid email ~ insert user
                     //generate_unique_id()
@@ -45,6 +47,7 @@ if(isset($_POST["email"])){//check if new user already exists:
                     <div style='margin:60px 12px;text-align:center'>
                         <form method = 'POST' action='/login'>
                             <input type='hidden' name='email' value='$email'/>
+                            <input type='hidden' name='full_name' value='$fullName'/>
                             <button type='submit' class='input' style='color:#fff;background-color:#ff9100;border:1px solid #fff;font-weight:bold'><i class='fa fa-arrow-left'></i> &nbsp; return to previous page</button>
                         </form>
                     </div>";
@@ -54,6 +57,7 @@ if(isset($_POST["email"])){//check if new user already exists:
                 <div style='margin:60px 12px;text-align:center'>
                     <form method = 'POST' action='/login'>
                         <input type='hidden' name='email' value='$email'/>
+                        <input type='hidden' name='full_name' value='$fullName'/>
                         <button type='submit' class='input' style='color:#fff;background-color:#ff9100;border:1px solid #fff;font-weight:bold'><i class='fa fa-arrow-left'></i> &nbsp; return to previous page</button>
                     </form>
                 </div>";
