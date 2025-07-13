@@ -31,7 +31,8 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
     } else {//user has no account ~ display create account form:
         $heading = "Create Account";
         $full_name_tag = '<div style="margin-top:9px"><input name = "full_name" type="text" class="input" placeholder="Enter Full Name:"/></div>';
-        $repeat_password_tag = '<div><input type="text" name="repeat_password" class="input"  placeholder="Repeat Password: ******"/></div>';
+        $repeat_password_tag = '<div><input type="text" name="repeat_password" class="input" id="password2"  '.'onkeyup='."check_password('password1','password2') ".'placeholder="Repeat Password: ******"/></div>';
+        
     }
 
 ?>
@@ -52,7 +53,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
                     if ($google_or_email_log_in == "") { //that means user has not logged in with google account before or has added a password to his account
                     ?>
                         <h3>Password:</h3>
-                        <div style="margin:6px 0"><input type="text" name="password" class="input" placeholder="Enter Password: ******"/></div>
+                        <div style="margin:6px 0"><input type="text" name="password" class="input" id="password1" placeholder="Enter Password: ******"/></div>
 
                         <?=$repeat_password_tag?>
 
@@ -80,5 +81,15 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
 <?php
 }
 ?>
+
+<script>
+    function check_password(smtn1, smtn2){
+        if(document.getElementById(smtn1).value == document.getElementById(smtn2).value){
+            document.getElementById("status").innerHTML = "<b style='color:green'>Nice. Passwords Match <i class='fa fa-check'></i></b>";
+        } else {
+            document.getElementById("status").innerHTML = "<p style='color:red'><b>Passwords Do Not Match</b>.</p> <small><i class='fa fa-warning' style='color:red'></i> Make sure both password fields match to avoid starting the entire password reset Process afresh.<br /></small>";
+        }
+    }
+</script>
     
 <?php Index_Segments::footer(); ?>
