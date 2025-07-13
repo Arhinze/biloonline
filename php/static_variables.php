@@ -5,7 +5,7 @@ $site_url="https://test-biloonline.xyz";
 $site_url_short="test-biloonline.xyz";
 
 $site_color_dark = "#042c06";
-$site_color_light = "#0bee3ccc";
+$site_color_light = "#ff9100";
 
 define("SITE_NAME", "Bilo");
 define("SITE_NAME_SHORT", "Bilo");
