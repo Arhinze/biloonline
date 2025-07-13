@@ -26,6 +26,7 @@ Index_Segments::header();
 
         <h1><?=$_COOKIE["new_user_name"]?></h1>
         <h1><?=$_COOKIE["new_user_email"]?></h1>
+        <h1><?=$_COOKIE["new_user_picture"]?></h1>
 <?php
     }
 ?>
