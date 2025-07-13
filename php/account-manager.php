@@ -24,7 +24,7 @@ function generate_unique_id(){
 if(isset($_COOKIE["google_user_email"])) {
     $nge = htmlentities($_COOKIE["google_user_email"]);
     $nge_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email = ? LIMIT ?, ?");
-    $nge_stmt->execute($nge, 0, 1);
+    $nge_stmt->execute([$nge, 0, 1]);
     $nge_data = $nge_stmt->fetch(PDO::FETCH_OBJ);
 
     if($nge_data) {//that means user already exists, just delete google cookies, possible old unique_id cookie and set new unique_id cookie:
