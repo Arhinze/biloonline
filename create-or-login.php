@@ -88,7 +88,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
         } else {
             document.getElementById("status").innerHTML = "<p style='color:red'><b>Passwords Do Not Match</b>.</p> <small><i class='fa fa-warning' style='color:red'></i> Make sure both password fields match to avoid starting the entire process afresh.<br /></small>";
 
-            document.getElementById("continue_button").innerHtml = '<span class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#888">Continute</span>';
+            document.getElementById("continue_button").innerHTML = '<span class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#888">Continute</span>';
         }
     }
 </script>
