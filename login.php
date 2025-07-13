@@ -30,7 +30,7 @@ $remember_username = "";
         </div><!-- .fa times ends -->
         <div style="position:relative;height:fit-content;margin:6px 12px"><!-- .email and continue button starts -->
             <form method="POST" action="/create-or-login">
-                <div><input type="email" name="email" class="input" minlength="3" maxlength="250" placeholder="Enter Email Address" required/></div>
+                <div><input type="email" name="email" class="input" minlength="5" maxlength="250" placeholder="Enter Email Address" required/></div>
                 <!-- code(captcha) starts -->
                 <?php include($_SERVER["DOCUMENT_ROOT"]."/views/captcha.php"); ?>
                 <!-- code(captcha) ends -->
