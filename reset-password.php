@@ -169,7 +169,7 @@ if (isset($_POST["code"])) {
             <div id="message_success" class="message_success" style="display:block">     
                 <div class="clear">
                     <span class="float:right"><b>Password Updated successfully.<br />
-                       Proceed to <a href="/login" style="color:#042c06">Login</a></b></span>
+                       Proceed to <a href="/login" style="color:#ff9100">Login</a></b></span>
                     &nbsp;&nbsp;&nbsp;
 
                     <i class="fa fa-times" style="float:right" onclick="show_div('message_success')"></i>

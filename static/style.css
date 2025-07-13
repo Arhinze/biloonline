@@ -1411,7 +1411,7 @@ h1, h2, h3, h4, h5, h6{
 
 .message_success{
     background-color:var(--site_color_alt);
-    color:var(--site_color_alt);
+    color:var(--site_color_main);
     border-radius:3px;
     padding:4px;
     margin:8px 8px;
