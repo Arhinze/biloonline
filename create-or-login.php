@@ -42,7 +42,7 @@ $remember_username = "";
         <div style="margin:60px 12px;text-align:center">
             <form method = "post" action="/login">
                 <input type="hidden" value="<?=htmlentities($_POST["email"])?>"/>
-                <button type="submit" class="input" style="color:#fff;background-color:#ff9100;border:1px solid #fff"><i class="fa fa-arrow-left"></i> &nbsp; return to previous page</button>
+                <button type="submit" class="input" style="color:#fff;background-color:#ff9100;border:1px solid #fff;font-weight:bold"><i class="fa fa-arrow-left"></i> &nbsp; return to previous page</button>
             </form>
         </div>
 <?php
