@@ -8,6 +8,10 @@ $heading = "";
 $repeat_password_tag = "";
 $remember_email = "";
 
+if(isset($_POST["email"])) {
+    $remember_email = htmlentities($_POST["email"]);
+}
+
 if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities($_POST["user_code"]) == $_POST["xsrf_code"])){
     $user_email = htmlentities($_POST["email"]);
     $stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email = ? LIMIT ?, ?");
@@ -36,7 +40,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
             <div style="position:relative;height:fit-content;margin:6px 12px"><!-- .email and continue button starts -->
                 <form method="POST" action="/redirect-to-my-account">
                     <div><input type="email" class="input" placeholder="Enter Email Address:abc@example.com"/></div>
-                    <div style="margin-top:9px"><input type="text" class="input" placeholder="Enter Full Name:"/></div>
+                    <div style="margin-top:9px"><input type="text" class="input" placeholder="Enter Full Name:" value="<?=$remember_email?>"/></div>
     
                     <h3>Password:</h3>
                     <div style="margin:6px 0"><input type="text" name="password" class="input" placeholder="Enter Password: ******"/></div>
