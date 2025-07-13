@@ -17,7 +17,7 @@ $data = $stmt->fetch(PDO::FETCH_OBJ);
     if($data) {//if user is logged in... ~ $data from /php/account-manager.php
 ?>
         <h1>Hi <?=$data->customer_realname?>, Welcome to BiloOnline</h1>
-        <h4>Your email address is: <?=$data->customer_realname?></h4>
+        <h4>Your email address is: <?=$data->customer_email?></h4>
         <div style="width:120px;height:120px;border-radius:100%"><img src="/images/customer_image??" style="width:100%;height:auto"/></div>
 <?php
     } else {//if user is not logged in:
