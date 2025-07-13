@@ -1,3 +1,4 @@
+<div style="display:flex">
 <div style="background-color:#0bee3ccc;color:#fff;margin:14px 0px 12px 3px;padding:5px;width:190px;border-radius:4px;display:flex;">
             
 <?php 
@@ -19,7 +20,8 @@ foreach($arr as $a){
 </div>
 
 <!--Hidden Captcha Code-->
-<input type="hidden" name="code" value="<?=$code?>"/>
+<input type="hidden" name="xsrf_code" value="<?=$code?>"/>
 
-Enter Code:<br />
-<input type = "number" placeholder = "The 6 Digit Code Above: example - 123456" name = "user_code" class="input"/><br />
+Enter Code:
+<input type = "number" placeholder = "The 6 Digit Code: example - 123456" name = "user_code" class="input"/>
+</div>
