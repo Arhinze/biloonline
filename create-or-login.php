@@ -8,6 +8,7 @@ $heading = "";
 $full_name_tag = "";
 $repeat_password_tag = "";
 $remember_email = "";
+$google_or_email_log_in = "";
 
 if(isset($_POST["email"])) {
     $remember_email = htmlentities($_POST["email"]);
@@ -24,6 +25,9 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
 
     if($data){ //data from php/account-manager.php ~ if true, that means user has an account already.
         $heading = "Login";
+        if($data->password == "Goo--gle1") {//user has previously logged in with google
+            $google_or_email_log_in = "<div style='text-align:center'>We found that you've previously logged in with google, would you like to continue to google or set a password for your account?</div>     <div class='input' style='border-radius:36px;text-align:center;background-color:blue;border:1px solid blue;font-weight:bold;color:#fff;margin-top:30px'><a href='/auth/google-login.php' style='color:#fff'><i class='fa fa-google' id='signinButton'></i>&nbsp; Continue with Google</a></div>     <div class='input' style='border-radius:36px;text-align:center;background-color:green;border:1px solid blue;font-weight:bold;color:#fff;margin-top:30px'><a href='/reset-password' style='color:#fff'><i class='fa fa-convert' id='signinButton'></i>&nbsp; Add Password</a></div>";     
+        }
     } else {
         $heading = "Create Account";
         $full_name_tag = '<div style="margin-top:9px"><input type="text" class="input" placeholder="Enter Full Name:"/></div>';
@@ -44,10 +48,18 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
                     <div><input type="email" class="input" placeholder="Enter Email Address:abc@example.com" value="<?=$remember_email?>"/></div>
                     <?=$full_name_tag?>
     
-                    <h3>Password:</h3>
-                    <div style="margin:6px 0"><input type="text" name="password" class="input" placeholder="Enter Password: ******"/></div>
-                    <?=$repeat_password_tag?>
-                    <div style="margin:9px 0 24px 0;width:100%"><button class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#ff9100">Continute</button></div>
+                    <?php
+                    if ($google_or_email_log_in == "") { //that means user has not logged in with google account before or has added a password to his account
+                    ?>
+                        <h3>Password:</h3>
+                        <div style="margin:6px 0"><input type="text" name="password" class="input" placeholder="Enter Password: ******"/></div>
+                        <?=$repeat_password_tag?>
+                        <div style="margin:9px 0 24px 0;width:100%"><button class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#ff9100">Continute</button></div>
+                    <?php
+                    } else {//user has previously logged in with google, suggest him to do same again or add(reset) password
+                        echo $google_or_email_log_in;
+                    }
+                    ?>
                 </form>
             </div><!-- .email and continue button ends -->
         </div>
