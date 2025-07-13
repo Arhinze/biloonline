@@ -222,7 +222,7 @@ if (isset($_POST["code"])) {
         <input type="text" name="email" placeholder="Enter Your Email Address: " class="input" 
         <?php if (isset($_POST["email"])) { ?> value="<?=htmlentities($_POST["email"])?>" <?php } if(!$c || isset($_POST["password1"])) { ?>/>    
 
-        <button type="submit" class="long-action-button" style="margin-top:12px">Submit <i class="fa fa-telegram"></i> </button> <br />
+        <button type="submit" class="input" style="margin-top:12px">Submit <i class="fa fa-telegram"></i> </button> <br />
 
         <div style="font-size:15px;margin-top:15px">
             <a href="/login" style="font-weight:bold;color:<?=$site_color_light?>">Login</a>.
