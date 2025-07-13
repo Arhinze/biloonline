@@ -37,7 +37,7 @@ if(isset($_COOKIE["google_user_email"])) {
         setcookie("unique_id", "",  time()-(48*3600), "/");
 
         //set new unique_id cookie:
-        setcookie("unique_id", $nge->unique_id,  time()+(48*3600), "/");
+        setcookie("unique_id", $nge_data->unique_id,  time()+(48*3600), "/");
     } else {//that means user doesn't exist yet, create(insert) new user and delete google cookies
         //generate_unique_id()
         $user_unique_id = generate_unique_id();
