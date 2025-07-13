@@ -64,7 +64,7 @@ HTML;
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 
             <title>$title</title>
-              
+            <meta name="google-site-verification" content="myB30Ys5EUELpwugPrQITsFCTnKdfNCf9Owd0t6pjmM" /><!-- google site ownership verification -->  
         </head>
         <body>
             $main_header
