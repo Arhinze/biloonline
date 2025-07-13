@@ -6,6 +6,7 @@ Index_Segments::header();
 $remember_email = "";
 $heading = "";
 $repeat_password_tag = "";
+$remember_email = "";
 
 if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities($_POST["user_code"]) == $_POST["xsrf_code"])){
     $user_email = htmlentities($_POST["email"]);
@@ -52,7 +53,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
     <div class="invalid">Invalid Captcha Code</div>
     <div style="margin:60px 12px;text-align:center">
         <form method = "post" action="/login">
-            <input type="hidden" value="<?=htmlentities($_POST["email"])?>"/>
+            <input type="hidden" value="<?=$remember_email?>"/>
             <button type="submit" class="input" style="color:#fff;background-color:#ff9100;border:1px solid #fff;font-weight:bold"><i class="fa fa-arrow-left"></i> &nbsp; return to previous page</button>
         </form>
     </div>
