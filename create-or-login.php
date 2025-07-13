@@ -21,7 +21,7 @@ $remember_username = "";
         <div style="position:relative;height:fit-content;margin:6px 12px"><!-- .email and continue button starts -->
             <form method="POST" action="">
                 <div><input type="email" class="input" placeholder="Enter Email Address:abc@example.com"/></div>
-                <div><input type="text" class="input" placeholder="Enter Full Name:"/></div>
+                <div style="margin-top:9px"><input type="text" class="input" placeholder="Enter Full Name:"/></div>
 
                 <h3>Password:</h3>
                 <div style="margin:6px 0"><input type="text" class="input" placeholder="Enter Password: ******"/></div>
