@@ -44,7 +44,12 @@ if(isset($_COOKIE["google_user_email"])) {
 
         //create(insert) new user
         $create_user_stmt = $pdo->prepare("INSERT INTO customers(date_joined, customer_realname, `password`, customer_email, unique_id) VALUES(?,?,?,?,?)");
-        $create_user_stmt->execute(date("Y-m-d H:i:s", time()), htmlentities($_COOKIE["google_user_name"]), "Goo--gle1",htmlentities($_COOKIE["google_user_email"]),$user_unique_id);
+        $create_user_stmt->execute([date("Y-m-d H:i:s", time()), htmlentities($_COOKIE["google_user_name"]), "Goo--gle1",htmlentities($_COOKIE["google_user_email"]),$user_unique_id]);
+
+        //delete google cookies:
+        setcookie("google_user_name", "", time()-(48*3600), "/");
+        setcookie("google_user_email", "", time()-(48*3600), "/");
+        setcookie("google_user_picture", "", time()-(48*3600), "/");
 
         //delete possible old unique_id cookie:
         setcookie("unique_id", $user_unique_id,  time()-(48*3600), "/");
