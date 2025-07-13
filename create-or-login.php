@@ -3,7 +3,7 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
 Index_Segments::header();
 
-if(isset($_POST["user_code"]) && (!empty($_POST["user_code"]))) {
+if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities($_POST["user_code"]) == $_POST["xsrf_code"])){
 
 
 $remember_username = "";
