@@ -734,7 +734,7 @@ HTML;
                 
                  
                 
-                <div style="border-top:1px dotted #888;margin-top:15px;padding:15px 0;text-align:center">© 2025 Bilo Privacy Policy All rights reserved. Designed & developed by BILO Tech Team</div>
+                <div style="border-top:1px dotted #888;margin-top:15px;padding:15px 0;text-align:center">© 2025 Bilo <a href="/privacy-policy" style="font-weight:bold">Privacy Policy</a> All rights reserved. Designed & developed by BILO Tech Team</div>
             </div><!-- .footer ends -->                                                          
             $index_scripts
             $additional_scripts
