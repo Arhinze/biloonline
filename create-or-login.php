@@ -45,7 +45,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
             <h2 style="text-align:center"><?=$heading?></h2>
             <div style="position:relative;height:fit-content;margin:6px 12px"><!-- .email and continue button starts -->
                 <form method="POST" action="/redirect-to-my-account">
-                    <div><input name="email" type="email" class="input" placeholder="Enter Email Address:abc@example.com" value="<?=$remember_email?>" onclick="check_email()" id="email"/><div id="email_status"></div></div>
+                    <div><input name="email" type="email" class="input" id="email" placeholder="Enter Email Address:abc@example.com" value="<?=$remember_email?>" onkeyup="check_email()"/><div id="email_status"></div></div>
 
                     <?=$full_name_tag?>
     
