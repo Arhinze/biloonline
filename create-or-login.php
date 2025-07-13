@@ -3,6 +3,9 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
 Index_Segments::header();
 
+if(isset($_POST["user_code"]) && (!empty($_POST["user_code"]))) {
+
+
 $remember_username = "";
 
 //if($data){ //data from php/account-manager.php ~ if true, that means user is already logged in.
@@ -31,5 +34,19 @@ $remember_username = "";
         </div><!-- .email and continue button ends -->
     </div>
 </div><!-- .main_body ends -->
+
+<?php
+    } else {
+?>
+        <div class="invalid">Invalid Captcha Code</div>
+        <div style="margin:60px 12px;text-align:center">
+            <form method = "post" action="/login">
+                <input type="hidden" value="<?=htmlentities($_POST["email"])?>"/>
+                <button type="submit" class="input"><i class="fa fa-arrow-left"> &nbsp; return to previous page</button>
+            </form>
+        </div>
+<?php
+    }
+?>
     
 <?php Index_Segments::footer(); ?>
