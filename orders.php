@@ -78,7 +78,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 $dd_stmt = $pdo->prepare("DELETE FROM orders WHERE order_id = ?");
                 $dd_stmt->execute([$_POST["remove_product"]]);
 
-                echo "<h4 style='color:red'>Product: ", $ds_data->order_name, " has been deleted successfully</h4>";
+                echo "<h4 style='color:red'>Product: ", $ds_data->product_name, " has been deleted successfully</h4>";
             } else {
                 echo "<h4 style='color:red'>Error: Product not found.</h4>";
             }
@@ -123,7 +123,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         }  else if(isset($_GET["product"])) {
             $search_q = htmlentities($_GET["product"]);
 
-            $u_search_stmt = $pdo->prepare("SELECT * FROM orders WHERE order_name LIKE ? ORDER BY order_id DESC LIMIT ?, ?");
+            $u_search_stmt = $pdo->prepare("SELECT * FROM orders WHERE product_name LIKE ? ORDER BY order_id DESC LIMIT ?, ?");
             $u_search_stmt->execute(["%$search_q%",$page_to_call, $num_of_rows]);
 
             $u_data = $u_search_stmt->fetchAll(PDO::FETCH_OBJ);
@@ -180,7 +180,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <!-- -->
                     <div>
                         <p><b>Order ID:</b> Bilo000<?=$d->order_id?></p>
-                        <p><b>Order Title:</b> <?=$d->order_name?></p>
+                        <p><b>Order Title:</b> <?=$d->product_name?></p>
                     </div>
 
                     <div class="additional_product_images_div_container">
@@ -229,7 +229,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             <div id="remove<=$i?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
 
             <form method="post" action="" id="message_form<=$i?>" class="pop_up">
-            <span style="text-align:center">Are you sure you want to remove user: <b style="font-size:18px;color:red;border-bottom:2px solid #fff"><=$d->order_name?>?</b> &nbsp;
+            <span style="text-align:center">Are you sure you want to remove user: <b style="font-size:18px;color:red;border-bottom:2px solid #fff"><=$d->product_name?>?</b> &nbsp;
 
             <b>This can't be Undone</b></span><br /><br />
 
