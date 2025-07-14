@@ -11,8 +11,10 @@ Index_Segments::header();
 <?php 
     if($data) {//if user is logged in... ~ $data from /php/account-manager.php
 ?>
-        <h1>Hi <?=$data->customer_realname?>, Welcome to BiloOnline</h1>
-        <h4>Your email address is: <?=$data->customer_email?></h4>
+        <div style="margin:45px 15px">
+            <h3>Hi <?=$data->customer_realname?>, Welcome to BiloOnline</h3>
+            <h4 style="margin-top:18px">You're currently logged in with the email address: <span style="color:#ff9100"><?=$data->customer_email?></span></h4>
+        </div>
 <?php
     } else {//if user is not logged in:
 ?>
