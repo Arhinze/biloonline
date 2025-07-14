@@ -86,10 +86,8 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
     } else {//either transaction has already been made or user is just visiting this page:
 ?>
     <div class='invalid' style='background-color:green;color:#fff'>Please proceed to the <a href='/my-account'>dashboard</a></div>
-    <div style="margin:45px 12px 75px 12px" style="text-align:center">
-        - - -
-    </div>
 
+    <div style="margin:45px 12px 75px 12px;text-align:center">- - -</div>
 <?php
     }
     Index_Segments::footer();
