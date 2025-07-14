@@ -23,7 +23,7 @@ if($cart_count > 0) {//that means cart is not empty
 
     //create a user if this user doesn't exist yet:
     if (isset($_POST["email"])) {
-        $new_user_stmt = $pdo->prepare("SELECT * FROM customers WHERE email =  ? LIMIT ?, ?");
+        $new_user_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email =  ? LIMIT ?, ?");
         $new_user_stmt->execute([htmlentities($_POST["email"]), 0, 1]);
         $new_user_data = $new_user_stmt->fetch(PDO::FETCH_OBJ);
 
