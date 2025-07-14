@@ -78,7 +78,7 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
             <h1>Deposit Successful</h1>
             <p>Thank you for banking with us! Your transaction was successful.</p>
             <p>You will receive an email confirmation shortly.</p>
-            <p style="font-weight:bold"><a href="/dashboard">Return to Dashboard</a></p>
+            <p style="font-weight:bold"><a href="/my-account">Return to Dashboard</a></p>
         </div>
     </div>
 
