@@ -19,9 +19,9 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
         $tr_attempt_check_stmt->execute([$uu_id, $my_refx, 0, 999]);
         $tr_attempt_data =  $tr_attempt_check_stmt->fetchAll(PDO::FETCH_OBJ);
 
-        if ($tr_attempt_data > 0) { // ~ transaction is a valid transaction
-            foreach($tr_attempt_data as $tr_ad) {
-                //use these next 3 lines to get data object for product name and price:
+        if (count($tr_attempt_data) > 0) {// ~ transaction is a valid transaction
+            foreach($tr_attempt_data as $tr_ad) {//looping through all data in orders_processor
+                //use these next 3 lines to get data object for product_name and price for each item in orders_processor:
                 $product_stmt = $pdo->prepare("SELECT * FROM products WHERE product_id = ? LIMIT ?, ?");
                 $product_stmt->execute([$tr_ad->product_id, 0, 1]);
                 $product_data =  $product_stmt->fetch(PDO::FETCH_OBJ);
