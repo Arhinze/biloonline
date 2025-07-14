@@ -10,6 +10,7 @@ $cart_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id =  
 $cart_stmt->execute([$customer_id, 0, 0, 25]);
 $cart_data = $cart_stmt->fetchAll(PDO::FETCH_OBJ);
 $cart_count = count($cart_data);
+$proceed_to_pay = '<div class="long_action_button" style="background-color:green;box-shadow: 0 0 6px #888 inset;width:fit-content;padding:9px 18px"><label for="proceed_to_pay"><b>Proceed to pay</b> &nbsp; <i class="fa fa-chevron-circle-right"></i></label></div>';
 
 $new_user_data = "false";
 if($cart_count > 0) {//that means cart is not empty
@@ -34,8 +35,9 @@ if($cart_count > 0) {//that means cart is not empty
                 $update_user_stmt->execute([htmlentities($_POST["name"]), htmlentities($_POST["email"]), htmlentities($_POST["phone_number"]), htmlentities($_POST["address"]), htmlentities($_POST["customer_state"]), htmlentities($_POST["lga"]), htmlentities($_POST["postal_code"]), $customer_id]);
     
                 //echo "customer updated";
-            } else {
+            } else {//verified owner of the email not yet logged in
                 echo "<div class='invalid'><b><a href='/login'>Login</a></b> to your account to continue</div>";
+                $proceed_to_pay = '<div class="long_action_button" style="background-color:#888;box-shadow: 0 0 6px #888 inset;width:fit-content;padding:9px 18px"><b>Proceed to pay</b> &nbsp; <i class="fa fa-chevron-circle-right"></i></div>';
             }
         } else { //this is a new user, create(insert)
             $insert_user_stmt = $pdo->prepare("INSERT INTO customers(date_joined, customer_realname,customer_email, unique_id, phone_number, `address`, `state`, LGA, postal_code) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -187,9 +189,7 @@ if ($cart_count > 0) {//that means user has an item or more in cart -- list them
         <div style="margin:9px 15px 0 12%;font-weight:bold">
             <span style="color:green">NG N<span id="total_amount"><?=number_format($total_amount)?></span> &nbsp; <!--<i class="fa fa-angle-up"></i>--></span>
         </div>
-        <div class="long_action_button" style="background-color:green;box-shadow: 0 0 6px #888 inset;width:fit-content;padding:9px 18px">
-            <label for="proceed_to_pay"><b>Proceed to pay</b> &nbsp; <i class="fa fa-chevron-circle-right"></i></label>
-        </div>
+        <?=$proceed_to_pay?>
     </div><!-- .add_to_my_picks ends -->
 </div><!-- .main_body ends -->
 
