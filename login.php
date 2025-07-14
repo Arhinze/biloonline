@@ -4,9 +4,14 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 Index_Segments::header();
 
 $remember_email = "";
+$remember_full_name = "";
 
 if(isset($_POST["email"])) {
     $remember_email = htmlentities($_POST["email"]);
+}
+
+if(isset($_POST["full_name"])) {
+    $remember_full_name = htmlentities($_POST["full_name"]);
 }
 
 ?>
@@ -34,6 +39,7 @@ if(isset($_POST["email"])) {
                 <!-- code(captcha) starts -->
                 <?php include($_SERVER["DOCUMENT_ROOT"]."/views/captcha.php"); ?>
                 <!-- code(captcha) ends -->
+                <input name="full_name" type="hidden" value="<?=$remember_full_name?>"/>
                 <div style="margin:9px 0 24px 0;width:100%"><button class="input" style="padding:9px 36%;border-radius:30px;color:#fff;font-weight:bold;background-color:#ff9100">Continute</button></div>
             </form>
         </div><!-- .email and continue button ends -->

@@ -5,6 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 $error_button = "";
 $email = "";
 $fullName = "";
+
 if(isset($_POST["email"])){//check if new user already exists:
     $email = trim(htmlentities($_POST["email"]));
     $sel_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email = ? LIMIT ?, ?");
@@ -28,8 +29,8 @@ if(isset($_POST["email"])){//check if new user already exists:
         }
     } else {//if user doesn't exist: ~ create(insert) user
         if(isset($_POST["repeat_password"])) {//user is attempting to create new account
-            $fullName = htmlentities($_POST["full_name"]);
-            if(htmlentities($_POST["password"]) == htmlentities($_POST["repeat_password"])) {//if passwords match:
+            if(htmlentities($_POST["password"]) == htmlentities($_POST["repeat_password"])) {//if passwords match: ~~~ JS enforces this to work
+                $fullName = htmlentities($_POST["full_name"]);
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {//if valid email ~ insert user
                     //generate_unique_id()
                     $user_unique_id = generate_unique_id();
@@ -71,15 +72,15 @@ Index_Segments::header();
 ?>
 
 <div class="main_body">
-<?php
-    if ($error_button == "") {//if there are no errors:
-?>
-        <div style="margin:21px 9px;border:1px solid #fff;text-align:center"><a class="input" style="color:#fff;border:1px solid #fff;background-color:#ff9100;font-weight:bold;padding:6px 9px" href="/my-account">Continue to my Account &nbsp; <i class="fa fa-arrow-right"></i></a></div>
-<?php 
-    } else {
-        echo $error_button;
-    }
-?>
+    <?php
+        if ($error_button == "") {//if there are no errors:
+    ?>
+            <div style="margin:21px 9px;border:1px solid #fff;text-align:center"><a class="input" style="color:#fff;border:1px solid #fff;background-color:#ff9100;font-weight:bold;padding:6px 9px" href="/my-account">Continue to my Account &nbsp; <i class="fa fa-arrow-right"></i></a></div>
+    <?php 
+        } else {
+            echo $error_button;
+        }
+    ?>
 </div>
 
 <?php Index_Segments::footer(); ?>
