@@ -57,7 +57,7 @@ if(isset($_POST["user_code"]) && (!empty($_POST["user_code"])) && (htmlentities(
                     <?php
                     if ($google_or_email_log_in == "") { //that means user has not logged in with google account before or has added a password to his account
                     ?>
-                        <h3>Password:</h3>
+                        <h3>Password: <span style="font-size:12px"><a href="/reset-password">Forgot Password?</a></span></h3>
                         <div style="margin:6px 0"><input type="text" name="password" class="input" id="password1" placeholder="Enter Password: ******" required/></div>
 
                         <?=$repeat_password_tag?>
