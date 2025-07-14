@@ -22,17 +22,21 @@ if($cart_count > 0) {//that means cart is not empty
     }
 
     //create a user if this user doesn't exist yet:
-    if (isset($_POST["name"])) {
-        $new_user_stmt = $pdo->prepare("SELECT * FROM customers WHERE unique_id =  ? LIMIT ?, ?");
-        $new_user_stmt->execute([$customer_id, 0, 1]);
+    if (isset($_POST["email"])) {
+        $new_user_stmt = $pdo->prepare("SELECT * FROM customers WHERE email =  ? LIMIT ?, ?");
+        $new_user_stmt->execute([htmlentities($_POST["email"]), 0, 1]);
         $new_user_data = $new_user_stmt->fetch(PDO::FETCH_OBJ);
 
-        if($new_user_data) {//that means user already exist, just update new shipping address:
-            $update_user_stmt = $pdo->prepare("UPDATE customers SET customer_realname = ?, customer_email = ?, phone_number = ?, `address` = ?, `state` = ?, LGA = ?, postal_code = ? WHERE unique_id =  ?");
-
-            $update_user_stmt->execute([htmlentities($_POST["name"]), htmlentities($_POST["email"]), htmlentities($_POST["phone_number"]), htmlentities($_POST["address"]), htmlentities($_POST["customer_state"]), htmlentities($_POST["lga"]), htmlentities($_POST["postal_code"]), $customer_id]);
-
-            //echo "customer updated";
+        if($new_user_data) {//that means user already exist
+            if($new_user_data->unique_id == $user_unique_id) {//that means the verified user is logged in ~~~ update shipping details and continue . .
+                $update_user_stmt = $pdo->prepare("UPDATE customers SET customer_realname = ?, customer_email = ?, phone_number = ?, `address` = ?, `state` = ?, LGA = ?, postal_code = ? WHERE unique_id =  ?");
+    
+                $update_user_stmt->execute([htmlentities($_POST["name"]), htmlentities($_POST["email"]), htmlentities($_POST["phone_number"]), htmlentities($_POST["address"]), htmlentities($_POST["customer_state"]), htmlentities($_POST["lga"]), htmlentities($_POST["postal_code"]), $customer_id]);
+    
+                //echo "customer updated";
+            } else {
+                echo "<div class='invalid'><b><a href='/login'>Login</a></b> to your account to continue</div>";
+            }
         } else { //this is a new user, create(insert)
             $insert_user_stmt = $pdo->prepare("INSERT INTO customers(date_joined, customer_realname,customer_email, unique_id, phone_number, `address`, `state`, LGA, postal_code) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
