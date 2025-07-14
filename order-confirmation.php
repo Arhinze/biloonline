@@ -64,7 +64,7 @@ if(isset($_POST["total_amount"])) {//paystack initialization starts
         }
 
         //insert generated ps_attempt_refx to database(tr_attempts) to avoid duplicate transactions ~ this would be deleted once 1 transaction is made
-        $refx_stmt = $pdo->prepare("INSERT INTO tr_attempts(user_id, rq_type, rq_amount, rq_time, ps_attempt_refx) VALUES (?, ?, ?, ?, ?)");
+        $refx_stmt = $pdo->prepare("INSERT INTO tr_attempts(rq_user_unique_id, rq_type, rq_amount, rq_time, ps_attempt_refx) VALUES (?, ?, ?, ?, ?)");
         $refx_stmt->execute([$customer_id, "inflow", $total_amount, date("Y-m-d H:i:s", time()),$code_out]);
           
         $url = "https://api.paystack.co/transaction/initialize";
