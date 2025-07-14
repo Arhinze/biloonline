@@ -9,14 +9,14 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
     Index_Segments::header($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $Hi_user = "", $title="Payment Successful");
  
         // $_GET variables:
-        $dep_amount = isset($_GET["total_amount"]) ? htmlentities($_GET["total_amount"]) : "";
-        $my_refx = isset($_GET["refx"]) ? htmlentities($_GET["refx"]) : "";
-        $uu_id = isset($_GET["unique_id"]) ? htmlentities($_GET["unique_id"]) : "";
-        $ps_trx_ref = isset($_GET["trxref"]) ? htmlentities($_GET["trxref"]) : "";
+        $dep_amount = isset($_GET["total_amount"]) ? htmlentities($_GET["total_amount"]) : "---";
+        $my_refx = isset($_GET["refx"]) ? htmlentities($_GET["refx"]) : "---";
+        $uu_id = isset($_GET["unique_id"]) ? htmlentities($_GET["unique_id"]) : "---";
+        $ps_trx_ref = isset($_GET["trxref"]) ? htmlentities($_GET["trxref"]) : "---";
 
         //Check if transaction is a valid transaction before recording payment:
         $tr_attempt_check_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id = ? AND my_refx_id = ? LIMIT ?, ?");
-        $tr_attempt_check_stmt->execute([$uu_id, $my_refx, 0, 1]);
+        $tr_attempt_check_stmt->execute([$uu_id, $my_refx, 0, 999]);
         $tr_attempt_data =  $tr_attempt_check_stmt->fetchAll(PDO::FETCH_OBJ);
 
         if ($tr_attempt_data > 0) { // ~ transaction is a valid transaction
