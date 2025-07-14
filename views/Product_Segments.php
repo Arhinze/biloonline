@@ -285,7 +285,7 @@ HTML;
     
                         <div class="add_to_my_picks" style="position:static"><!-- .add_to_my_picks starts -->
                             <div class="long_action_button" style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
-                                <a href="/cart" style="color:#fff;padding:100%">Continue <i class="fa fa-chevron-circle-right"></i></a>
+                                <a href="/cart" style="color:#fff;padding:12px 30%">Continue <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div><!-- .add_to_my_picks ends -->
 
