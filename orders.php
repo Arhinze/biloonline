@@ -183,7 +183,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         <p><b>Order ID:</b> Bilo000<?=$d->order_id?></p>
                         <p><b>Order Title:</b> <?=$d->product_name?></p>
                         <p><b>Price:</b> <?=$d->price?></p>
-                        <p><b>x <?=$d->qty?></b> = <?=$d->price*$d->qty?></p>
+                        <p style="margin-top:-8px"><b>x <?=$d->qty?></b> = <?=$d->price*$d->qty?></p>
                     </div>
 
                     <div class="additional_product_images_div_container">
