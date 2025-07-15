@@ -264,12 +264,12 @@ public static function footer($site_name = SITE_NAME, $site_url = SITE_URL){
             }
         }
 
-        obj.open("GET","/ajax_search.php?search_query="+sq+"&page=site-users");
+        obj.open("GET","/ajax_search.php?search_query="+sq+"&page=admin-products");
         obj.send(null);
     }
 
     function search_icon(){
-        location = "/site-users/" + document.getElementById("search_input").value;
+        location = "/admin-products/" + document.getElementById("search_input").value;
     }
 
     var loadFile = function(event, img_id_num) { //function to make pictures visible to user before upload to server
