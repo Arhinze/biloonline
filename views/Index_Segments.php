@@ -34,7 +34,7 @@ class Index_Segments{
                     <input type="text" placeholder="search for .." class="header_input"/>
                 </div>                       
                 <div class="header_shopping_cart">
-                    <span style="font-size:12px">$number_of_products_in_cart</span> <a href="/cart"><img src="/static/images/shopping_cart.png"/><!--<i class="fa fa-shopping-cart" style="color:#ff9100"></i>--></a>
+                    <span style="font-size:12px;padding:3px;border-radius:100%;color:#fff;background-color:#ff9100">$number_of_products_in_cart</span> <a href="/cart"><img src="/static/images/shopping_cart.png"/><!--<i class="fa fa-shopping-cart" style="color:#ff9100"></i>--></a>
                 </div> 
             </div> <a name="#top"></a> <!-- end of .headers --> 
 HTML;
