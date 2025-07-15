@@ -91,33 +91,31 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
                     <b>NG N<?=number_format($cpd->price)?></b> &nbsp; <s>N<?=number_format($cpd->former_price)?></s>
                 </div>
             </div><!-- cart details ends -->
-            <div style="width:12px;margin-top:42px;margin-right:15px" onclick="show_div('remove_cart_item_<?=$cart_data->orders_processor_id?>')"><i class="fa fa-times" style="font-size:10px;background-color:red;color:#fff;padding:3px;border-radius:100%"></i></div>
+            <div style="width:12px;margin-top:42px;margin-right:15px" onclick="show_div('remove_cart_item_<?=$cart_d->orders_processor_id?>')"><i class="fa fa-times" style="font-size:10px;background-color:red;color:#fff;padding:3px;border-radius:100%"></i></div>
         </div><!-- cart ends -->
 
-        <!-- hidden prompt for user to confirm order delete -->
-        <div id="remove_cart_item_<?=$cart_data->orders_processor_id?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
+        <!-- hidden prompt for user to confirm order delete starts -->
+        <div id="remove_cart_item_<?=$cart_d->orders_processor_id?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
             <form method="post" action="" class="pop_up">
                 <span style="text-align:center">Are you sure you want to remove product: <b style="font-size:18px;color:red;border-bottom:2px solid #fff"><?=$cpd->product_name?>?</b> &nbsp;
     
                 <br /><br />
     
-                <input type="hidden" name="remove_product" value="<?=$cart_data->orders_processor_id?>"/>
+                <input type="hidden" name="remove_product" value="<?=$cart_d->orders_processor_id?>"/>
     
                 <input type="submit" value="Remove" style="background-color:red;
                         padding:3px;margin:3px;border-radius:6px;color:#fff;border:none;height:24px;"/> 
     
                 <!--Cancel "Remove Product" (Don't remove):-->
                 <!--onclick = "show_div('remove <= $i >')"-->
-                <span onclick="show_div('remove_cart_item_<?=$cart_data->orders_processor_id?>')" style="background-color:#ff9100;
+                <span onclick="show_div('remove_cart_item_<?=$cart_d->orders_processor_id?>')" style="background-color:#ff9100;
                         padding:3px;border-radius:6px;color:#fff;
                         margin-left:6px;text-align:center;height:24px;border:none">
                         Cancel 
                 </span>    
             </form>
-        </div>
-
-
-        
+        </div><!-- hidden prompt for user to confirm order delete ends -->
+   
 <?php
         }
     }
