@@ -443,10 +443,12 @@ HTML;
 
                     $all_orders = [];
                     foreach($select_tops_data as $std) {
-                        $all_orders[] = $std->product_id;
+                        if(!in(array($std, $all_orders))) {
+                            $all_orders[] = $std->product_id;
+                        }
                     }
-                    rsort($all_orders);
-                    array_unique($all_orders);
+                    //rsort($all_orders);
+                    //array_unique($all_orders);
 
                     foreach($all_orders as $ao) {
                         $select_ao_stmt = Index_Segments::$pdo->prepare("SELECT * FROM products WHERE product_id = ? LIMIT ?, ?");
