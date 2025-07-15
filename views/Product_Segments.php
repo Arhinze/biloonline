@@ -240,16 +240,15 @@ HTML;
 
                 
                 <div class="add_to_my_picks"><!-- .add_to_my_picks starts -->
-                    <div class="long_action_button" onclick='added_or_not("$product_id")' style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
+                    <div class="long_action_button" onclick='added_or_not($product_id)' style="background-color:#ff9100;box-shadow: 0 0 6px #888 inset">
                         <i class="fa fa-shopping-cart"></i>&nbsp; <span id="added_or_not_id">$added_or_not</span>
                     </div>
                 </div><!-- .add_to_my_picks ends -->
                 
         
                 <div id="continue_to_cashout" class="continue_to_cashout" style="display:none"><!-- .continue to cashout starts -->
-                    <div style="height:20%;width:100%;background-color:#888;opacity:0.1" onclick="show_div('continue_to_cashout')">
+                    <div style="height:20%;width:100%;background-color:#888;opacity:0.1" onclick="show_div('continue_to_cashout')"></div><!-- dummy "grey area" div used to close continue_to_cashout div-->
 
-                    </div>
                     <div style="height:80%;border-radius:21px 21px 0 0;background-color:#fff;box-shadow:0 0 3px 0 #ff9100"><!-- ..height:80% starts -->
                         <div style="margin-bottom:12px;height:40%">
                             <center><img src="/static/images/$image1" style="width:auto;height:100%"/></center>
