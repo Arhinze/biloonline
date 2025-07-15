@@ -71,7 +71,7 @@ HTML;
                                 <div class="topselling_choice_and_title">
                                     <span class="topselling_choice"> Choice </span> &nbsp;
                                     <span>
-                                        $short_description
+                                        $short_description...
                                     </span>
                                 </div>
                                 <span class="deal_price_black">
