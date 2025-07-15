@@ -204,8 +204,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         <p><b>Phone Number:</b> +234<?=$d->phone_number?></p>
                         <p><b>Email:</b> <?=$d->customer_email?></p>
                         <p><b>Detailed Location:</b></p>
-                        <p>Country: <?=$d->country?>, State: <?=$d->state?></p>
-                        <p>LGA: <?=$d->LGA?></p>
+                        <p>Country: <?=ucfirst($d->country)?>, State: <?=ucfirst($d->state)?></p>
+                        <p>LGA: <?=ucfirst($d->LGA)?></p>
                         <p>Address: <?=ucfirst($d->address)?></p>
                         <p>Postal Code: <?=$d->postal_code?></p>
                     </div>
