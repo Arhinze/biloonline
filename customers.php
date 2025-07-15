@@ -143,7 +143,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <div class="table_row_div">
                     <div class="table_row" style="width:8%"><?=$i + (($p - 1)*$num_of_rows)?>. </div>
                     
-                    <div class="table_row"><b><?=substr(0, 9, $d->customer_email)."..."?> </b></div>
+                    <div class="table_row"><b><?=substr($d->customer_email, 0, 9)."..."?> </b></div>
                     
                     <div class="table_row">
                         <button onclick = "create_content('view',<?=$i?>)" style="background-color:green"
