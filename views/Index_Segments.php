@@ -4,13 +4,24 @@ ini_set("display_errors", '1'); //for testing purposes..
 include_once($_SERVER["DOCUMENT_ROOT"]."/php/connection.php");
 include_once($_SERVER["DOCUMENT_ROOT"]."/php/account-manager.php");
 
+//getting number of products in cart starts
+$num_of_products_in_cart = 0;
+$customer_id = $user_unique_id;
+$num_of_products_in_cart_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id = ? AND qty > ? LIMIT ?, ?");
+$num_of_products_in_cart_stmt->execute([$customer_id, 0, 0, 100]);
+$num_of_products_in_cart_data = $num_of_products_in_cart_stmt->fetchAll(PDO::FETCH_OBJ);
+$num_of_products_in_cart = count($num_of_products_in_cart_data);
+
+define("NUM_OF_PRODUCTS_IN_CART", $num_of_products_in_cart);
+//getting number of products in cart ends
+
 class Index_Segments{
     public static function inject($obj) {
         Index_Segments::$pdo = $obj;
     }
     protected static $pdo;
 
-    public static function main_header($site_name = SITE_NAME_SHORT) {
+    public static function main_header($site_name = SITE_NAME_SHORT, $number_of_products_in_cart = NUM_OF_PRODUCTS_IN_CART) {
         echo <<<HTML
             <div class="headers"> <!-- start of .headers --> 
                 <div class="site_logo_div">
@@ -23,7 +34,7 @@ class Index_Segments{
                     <input type="text" placeholder="search for .." class="header_input"/>
                 </div>                       
                 <div class="header_shopping_cart">
-                    <a href="/cart"><i class="fa fa-shopping-cart" style="color:#ff9100"></i></a>
+                    $number_of_products_in_cart <a href="/cart"><img src="/static/images/shopping_cart.png"/><!--<i class="fa fa-shopping-cart" style="color:#ff9100"></i>--></a>
                 </div> 
             </div> <a name="#top"></a> <!-- end of .headers --> 
 HTML;
@@ -133,7 +144,7 @@ HTML;
 HTML;
        }
                 
-        public static function body($site_name = SITE_NAME_SHORT, $site_url = SITE_URL){
+        public static function body($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $number_of_products_in_cart = NUM_OF_PRODUCTS_IN_CART){
             $site_name_uc = strtoupper($site_name);
 
             echo <<<HTML
@@ -576,11 +587,7 @@ HTML;
 
             echo<<<HTML
                     <div class="shopping_cart" style="bottom:18px;left:18px"><!-- .shopping_cart starts -->
-                        <div id="num_of_products_in_cart" style="font-size:12px;margin-bottom:-77px">
-HTML;
-                        include($_SERVER["DOCUMENT_ROOT"]."/ajax/ajax_add_to_num_of_products.php");
-            echo <<<HTML
-                        </div>
+                        <div id="num_of_products_in_cart" style="font-size:12px;margin-bottom:-77px">$number_of_products_in_cart</div>
                         <a href="/cart"><img src="/static/images/shopping_cart.png"/></a>
                     </div><!-- .shopping_cart ends -->
                 </div><!--.main_body end-->
