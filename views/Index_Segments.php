@@ -586,10 +586,6 @@ HTML;
 
 
             echo<<<HTML
-                    <div class="shopping_cart" style="bottom:18px;left:18px"><!-- .shopping_cart starts -->
-                        <div id="num_of_products_in_cart" style="font-size:12px;margin-bottom:-77px">$number_of_products_in_cart</div>
-                        <a href="/cart"><img src="/static/images/shopping_cart.png"/></a>
-                    </div><!-- .shopping_cart ends -->
                 </div><!--.main_body end-->
 HTML;
        }
@@ -688,6 +684,14 @@ HTML;
         public static function footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = "", $whatsapp_chat = "on"){ 
                                                                             
             $index_scripts = Index_Segments::index_scripts();    
+            if($shopping_cart == "on") {
+                echo <<<HTML
+                    <div class="shopping_cart" style="bottom:18px;left:18px"><!-- .shopping_cart starts -->
+                        <div id="num_of_products_in_cart" style="font-size:12px;margin-bottom:-77px">$number_of_products_in_cart</div>
+                        <a href="/cart"><img src="/static/images/shopping_cart.png"/></a>
+                    </div><!-- .shopping_cart ends -->
+HTML;
+            }
             if ($whatsapp_chat == "on") {
                 echo <<<HTML
                     <!-- .whatsapp_box starts -->

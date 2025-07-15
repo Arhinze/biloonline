@@ -106,10 +106,6 @@ HTML;
     echo "<div style='font-weight:bold;text-align:center;margin:24px 6px'>Sorry, category not found, kindly select a category on the menu items to browse from.</div>";
 }
 ?>
-    <div class="shopping_cart" style="bottom:18px;left:18px"><!-- .shopping_cart starts -->
-        <div id="num_of_products_in_cart" style="font-size:12px;margin-bottom:-77px">$number_of_products_in_cart</div>
-        <a href="/cart"><img src="/static/images/shopping_cart.png"/></a>
-    </div><!-- .shopping_cart ends -->
 </div><!-- .main_body ends -->
 
 <?php
