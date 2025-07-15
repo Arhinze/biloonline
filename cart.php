@@ -2,6 +2,19 @@
 
 include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
+if(isset($_POST["remove_product"])) {
+    $product = htmlentities($_POST["remove_product"]);
+    //ensure product exists first:
+    $pre_del_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE orders_processor_id = ? LIMIT ?, ?");
+    $pre_del_stmt->execute([$product, 0, 1]);
+    $pre_del_data = $pre_del_stmt->fetch(PDO::FETCH_OBJ);
+
+    if($pre_del_data) {//that means order still exist ~ proceed to delete:
+        $del_order_stmt = $pdo->prepare("DELETE FROM orders_processor WHERE orders_processor_id = ?");
+        $del_order_stmt->execute([$product]);
+    }
+}
+
 $customer_id = $user_unique_id;
 $total_amount = 0;
 $cart_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id =  ? AND qty > ? LIMIT ?, ?");
@@ -78,8 +91,31 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
                     <b>NG N<?=number_format($cpd->price)?></b> &nbsp; <s>N<?=number_format($cpd->former_price)?></s>
                 </div>
             </div><!-- cart details ends -->
-            <div style="width:12px;margin-top:42px;margin-right:15px" onclick=""><i class="fa fa-times" style="font-size:10px;background-color:red;color:#fff;padding:3px;border-radius:100%"></i></div>
+            <div style="width:12px;margin-top:42px;margin-right:15px" onclick="show_div('remove_cart_item_<?=$cart_data->orders_processor_id?>')"><i class="fa fa-times" style="font-size:10px;background-color:red;color:#fff;padding:3px;border-radius:100%"></i></div>
         </div><!-- cart ends -->
+
+        <!-- hidden prompt for user to confirm order delete -->
+        <div id="remove_cart_item_<?=$cart_data->orders_processor_id?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
+            <form method="post" action="" class="pop_up">
+                <span style="text-align:center">Are you sure you want to remove product: <b style="font-size:18px;color:red;border-bottom:2px solid #fff"><?=$cpd->product_name?>?</b> &nbsp;
+    
+                <br /><br />
+    
+                <input type="hidden" name="remove_product" value="<?=$cart_data->orders_processor_id?>"/>
+    
+                <input type="submit" value="Remove" style="background-color:red;
+                        padding:3px;margin:3px;border-radius:6px;color:#fff;border:none;height:24px;"/> 
+    
+                <!--Cancel "Remove Product" (Don't remove):-->
+                <!--onclick = "show_div('remove <= $i >')"-->
+                <span onclick="show_div('remove_cart_item_<?=$cart_data->orders_processor_id?>')" style="background-color:#ff9100;
+                        padding:3px;border-radius:6px;color:#fff;
+                        margin-left:6px;text-align:center;height:24px;border:none">
+                        Cancel 
+                </span>    
+            </form>
+        </div>
+
 
         
 <?php
