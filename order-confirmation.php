@@ -39,7 +39,7 @@ if($cart_count > 0) {//that means cart is not empty
                 echo "<div class='invalid'><b><a href='/login'>Login</a></b> to your account to continue</div>";
                 $proceed_to_pay = '<div class="long_action_button" style="background-color:#888;box-shadow: 0 0 6px #888 inset;width:fit-content;padding:9px 18px"><b>Proceed to pay</b> &nbsp; <i class="fa fa-chevron-circle-right"></i></div>';
             }
-        } else { //this is a new user, create(insert)
+        } else {//this is a new user, create(insert)
             $insert_user_stmt = $pdo->prepare("INSERT INTO customers(date_joined, customer_realname,customer_email, unique_id, phone_number, `address`, `state`, LGA, postal_code) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             $insert_user_stmt->execute([date("Y-m-d H:i:s", time()), htmlentities($_POST["name"]), htmlentities($_POST["email"]), $user_unique_id, htmlentities($_POST["phone_number"]), htmlentities($_POST["address"]), htmlentities($_POST["customer_state"]), htmlentities($_POST["lga"]), htmlentities($_POST["postal_code"])]);
