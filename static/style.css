@@ -648,8 +648,6 @@ h1, h2, h3, h4, h5, h6{
 
 .shopping_cart{
     position:fixed;
-    top:24%;
-    right:4%;
     padding:9px 5px;
     width:fit-content;
     display:flex;

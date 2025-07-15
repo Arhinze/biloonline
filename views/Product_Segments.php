@@ -289,7 +289,7 @@ HTML;
                             </div>
                         </div><!-- .add_to_my_picks ends -->
 
-                        <div class="shopping_cart">
+                        <div class="shopping_cart" style="top:24%;right:4%;">
                             <div id="num_of_products_in_cart" style="font-size:12px;margin-bottom:-77px">$number_of_products_in_cart</div>
                             <a href="/cart"><img src="/static/images/shopping_cart.png"/></a>
                         </div>
