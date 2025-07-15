@@ -1,5 +1,7 @@
 <?php
 
+include_once($_SERVER["DOCUMENT_ROOT"]."/php/connection.php");
+
 //if user wants to delete an order:
 //~~placing this here so that changes can be reflected on the header cart count immediately any deletion is made
 if(isset($_POST["remove_product"])) {
