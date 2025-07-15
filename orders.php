@@ -206,7 +206,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         <p><b>Detailed Location:</b></p>
                         <p>Country: <?=$d->country?>, State: <?=$d->state?></p>
                         <p>LGA: <?=$d->LGA?></p>
-                        <p>Address: <?=$d->address?></p>
+                        <p>Address: <?=ucfirst($d->address)?></p>
                         <p>Postal Code: <?=$d->postal_code?></p>
                     </div>
 
