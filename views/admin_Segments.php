@@ -189,15 +189,15 @@ Class admin_Segments{
     <div style="display:flex;margin:50px 1%;justify-content:space-around;width:80%">
         <div class="below_header_div" style="background-color:#ff9100">
             <div class="numbers_and_fa">
-                <div class="numbers">$num_of_prod</div>
-                <div><i class="fa fa-user"></i></div>
+                <div class="numbers"><a href="/admin-products" style="color:#000">$num_of_prod</a></div>
+                <div><a href="/admin-products" style="color:#000"><i class="fa fa-user"></i></a></div>
             </div>
             <div><a href="/admin-products" style="color:#000">Products</a></div>
         </div>
 
         <div class="below_header_div">
             <div class="numbers_and_fa">
-                <div class="numbers">$num_of_users</div>
+                <div class="numbers"><a href="/customers" style="color:#000">$num_of_users</a></div>
                 <div><i class="fa fa-user"></i></div>
             </div>
             <div><a href="/customers" style="color:#000">Registered Users</a></div>
@@ -205,7 +205,7 @@ Class admin_Segments{
 
         <div class="below_header_div" style="background-color:#f3d111">
             <div class="numbers_and_fa">
-                <div class="numbers">$num_of_orders</div>
+                <div class="numbers"><a href="/orders" style="color:#000">$num_of_orders</a></div>
                 <div><i class="fa fa-user"></i></div>
             </div>
             <div><a href="/orders" style="color:#000">Pending Orders</a></div>
