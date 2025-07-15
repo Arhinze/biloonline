@@ -33,7 +33,7 @@ $orders_qty_data = $orders_qty_stmt->fetch(PDO::FETCH_OBJ);
 if($orders_qty_data) {
     $orders_qty = $orders_qty_data->qty;
     if($orders_qty == 0){
-        $orders_qty = "<span style='color:#888'>0</span>";
+        //$orders_qty = "<span style='color:#888'>0</span>";
     } else {
         $added_or_not = "Added to my picks <i class='fa fa-check-circle-o' style='color:green'></i>";
     }
