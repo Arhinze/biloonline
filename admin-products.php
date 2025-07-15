@@ -330,7 +330,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         //first check if admin searched for a product in particular
         if(isset($_GET["product"])) {
             $search_q = htmlentities($_GET["product"]);
-            $u_search_stmt = $pdo->prepare("SELECT * FROM products WHERE product_name LIKE ? ORDER BY product_id DESC LIMIT ?, ?");
+            $u_search_stmt = $pdo->prepare("SELECT * FROM products WHERE product_url LIKE ? ORDER BY product_id DESC LIMIT ?, ?");
             $u_search_stmt->execute(["%$search_q%",$page_to_call, $num_of_rows]);
 
             $u_data = $u_search_stmt->fetchAll(PDO::FETCH_OBJ);
