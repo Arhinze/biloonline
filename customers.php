@@ -84,7 +84,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 $dd_stmt = $pdo->prepare("DELETE FROM customers WHERE customer_id = ?");
                 $dd_stmt->execute([$_POST["remove_user"]]);
 
-                echo "<h4 style='color:red'>User: ", $ds_data->customer_username, " has been deleted successfully</h4>";
+                echo "<h4 style='color:red'>User: ", substr(0, 9, $ds_data->customer_username)."...", " has been deleted successfully</h4>";
             } else {
                 echo "<h4 style='color:red'>Error: User does not exist.</h4>";
             }
