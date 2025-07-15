@@ -35,7 +35,7 @@ if($orders_qty_data) {
     if($orders_qty == 0){
         $orders_qty = "<span style='color:#888'>0</span>";
     } else {
-        $added_or_not = "Added to my picks <i class='fa fa-check-circle-o'></i>";
+        $added_or_not = "Added to my picks <i class='fa fa-check-circle-o' style='color:green'></i>";
     }
 }
 
@@ -309,7 +309,7 @@ HTML;
                 show_div('continue_to_cashout');
                 if (document.getElementById("added_or_not_id").innerHTML == "Add to my picks") {
                     ajax_qty(prod_id, "increase");
-                    document.getElementById("added_or_not_id").innerHTML = "Added to my picks <i class='fa fa-check-circle-o'></i>";
+                    document.getElementById("added_or_not_id").innerHTML = "Added to my picks <i class='fa fa-check-circle-o' style='color:green'></i>";
                 }              
             }
 
