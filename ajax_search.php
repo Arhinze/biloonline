@@ -14,7 +14,7 @@ if(isset($_GET["search_query"])){
         $page = htmlentities($_GET["page"]);
     
     
-    $search_stmt = $pdo->prepare("SELECT * FROM miners WHERE username LIKE ? LIMIT ?, ?");
+    $search_stmt = $pdo->prepare("SELECT * FROM products WHERE product_name LIKE ? LIMIT ?, ?");
     $search_stmt->execute(["%$search_q%", 0, 100]);
     $search_data = $search_stmt->fetchAll(PDO::FETCH_OBJ);
 
