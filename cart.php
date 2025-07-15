@@ -1,7 +1,7 @@
 <?php
 
-include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
-
+//if user wants to delete an order:
+//~~placing this here so that changes can be reflected on the header cart count immediately any deletion is made
 if(isset($_POST["remove_product"])) {
     $product = htmlentities($_POST["remove_product"]);
     //ensure product exists first:
@@ -14,6 +14,8 @@ if(isset($_POST["remove_product"])) {
         $del_order_stmt->execute([$product]);
     }
 }
+
+include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
 $customer_id = $user_unique_id;
 $total_amount = 0;
