@@ -371,7 +371,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
             </div>
 
             <!--hidden section 1: Edit -->
-            <div id="edit<?=$i?>" style="display:block;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
+            <div id="edit<?=$i?>" style="display:none;border:2px solid #888;border-radius:6px;margin-top:12px;padding:9px;">
                 <form method="post" action="" enctype="multipart/form-data">
                     <div style="position:relative"><input type="text" id="product_name<?=$i?>" class="edit_product_input" name="product_name" value="<?=$d->product_name?>" required/>
                     <span style="position:absolute;left:6px;top:6px;color:#fff">Name </span></div> 
