@@ -50,8 +50,8 @@ Class admin_Segments{
         $num_of_users_stmt->execute([]);
         $num_of_users_data = $num_of_users_stmt->fetchAll(PDO::FETCH_OBJ);
 
-        $num_of_orders_stmt = admin_Segments::$pdo->prepare("SELECT * FROM orders LIMIT 0, 1000");
-        $num_of_orders_stmt->execute([]);
+        $num_of_orders_stmt = admin_Segments::$pdo->prepare("SELECT * FROM orders WHERE `status` = ? LIMIT ?, ?");
+        $num_of_orders_stmt->execute(["processing", 0, 1000]);
         $num_of_orders_data = $num_of_orders_stmt->fetchAll(PDO::FETCH_OBJ);
 
         if($query == "Products") {
