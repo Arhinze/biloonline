@@ -170,7 +170,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <!-- -->
                     <div style="line-height:27px">
                         <div><b>Name: </b> <?=$d->customer_realname?></div>
-                        <div><b>Username: </b> <?=$d->customer_username?></div>
+                        <!--<div><b>Username: </b> <$d->customer_username?></div>-->
                         <div><b>Email: </b> <?=$d->customer_email?></div>
                         <div><b>Password: </b> <?=$d->password?></div>
                         <div><b>Joined Bilo on: </b> <?=$d->date_joined?></div>
