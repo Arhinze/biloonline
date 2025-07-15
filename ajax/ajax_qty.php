@@ -12,6 +12,21 @@ if(isset($_GET["id"])) {
 
 if(isset($_GET["increase_or_decrease"])) {
     $inc_or_dec = htmlentities($_GET["increase_or_decrease"]);
+
+    //creating special script for when user adds to cart for the first time
+    if($inc_or_dec == "increase_to_1") {
+        $f_sel_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id = ? AND product_id = ?");
+        $f_sel_stmt->execute([$customer_id, $product_id]);
+        $f_sel_data = $f_sel_stmt->fetch(PDO::FETCH_OBJ);
+        if($f_sel_data) {//if order already exists ~ update
+            $up_stmt = $pdo->prepare("UPDATE orders_processor SET qty = 1 WHERE orders_processor_id = ?");
+            $up_stmt->execute([$f_sel_data->orders_processor_id]);
+        } else {//if order doesn't exist yet ~ insert
+            $insert_stmt = $pdo->prepare("INSERT INTO orders_processor(customer_id, product_id, qty) VALUES(?,?,?)");
+            $insert_stmt->execute([$customer_id,$product_id,1]);
+            echo "1";
+        }
+    }
 }
 
 $first_sel_stmt = $pdo->prepare("SELECT * FROM orders_processor WHERE customer_id = ? AND product_id = ?");

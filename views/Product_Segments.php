@@ -307,7 +307,7 @@ HTML;
             function added_or_not(prod_id) {
                 show_div('continue_to_cashout');
                 if (document.getElementById("added_or_not_id").innerHTML == "Add to my picks") {
-                    ajax_qty(prod_id, "increase");
+                    ajax_qty(prod_id, "increase_to_1");
                     document.getElementById("added_or_not_id").innerHTML = "Added to my picks <i class='fa fa-check-circle-o' style='color:green'></i>";
                 }              
             }
