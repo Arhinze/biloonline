@@ -14,6 +14,9 @@ Index_Segments::header();
         <div style="margin:45px 15px">
             <h3>Hi <?=$data->customer_realname?>, Welcome to BiloOnline</h3>
             <h4 style="margin-top:18px">You're currently logged in with the email address: <span style="color:#ff9100"><?=$data->customer_email?></span></h4>
+            <div style="margin-top:18px;text-align:center">
+                <a href="/" style="color:#fff;font-weight:bold;background-color:green;padding:6px;border-radius:12px">Continue shopping <i class="fa fa-chevron-circle-right"></i></a> &nbsp; &nbsp; <a href="/logout" style="color:#fff;font-weight:bold;background-color:red;padding:6px;border-radius:12px">Log out</a>
+            </div>
         </div>
 <?php
     } else {//if user is not logged in:
