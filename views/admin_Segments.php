@@ -192,7 +192,7 @@ Class admin_Segments{
                 <div class="numbers">$num_of_prod</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
-            <div>Products</div>
+            <div><a href="/admin-products" style="color:#000">Products</a></div>
         </div>
 
         <div class="below_header_div">
@@ -200,7 +200,7 @@ Class admin_Segments{
                 <div class="numbers">$num_of_users</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
-            <div>Registered Users</div>
+            <div><a href="/customers" style="color:#000">Registered Users</a></div>
         </div>
 
         <div class="below_header_div" style="background-color:#f3d111">
@@ -208,7 +208,7 @@ Class admin_Segments{
                 <div class="numbers">$num_of_orders</div>
                 <div><i class="fa fa-user"></i></div>
             </div>
-            <div>Pending Orders</div>
+            <div><a href="/orders" style="color:#000">Pending Orders</a></div>
         </div>
     </div>
 HTML;
