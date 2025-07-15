@@ -29,8 +29,8 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
                 //Insert deposit transaction . .
                 //$hstkp_transactions->deposit($data->user_id, $dep_amount, "You made a deposit");
                 if ($tr_ad->qty > 0) {//if ordered product quantity is more than 0(is at least 1): ~ record the order
-                    $new_tr_stmt = $pdo->prepare("INSERT INTO orders(unique_id, product_id, product_name, `price`, qty, order_time, my_refx_id, ps_refx_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-                    $new_tr_stmt->execute([$uu_id, $tr_ad->product_id, $product_data->product_name, $product_data->price, $tr_ad->qty, date("Y-m-d H:i:s", time()), $my_refx, $ps_trx_ref]);  
+                    $new_tr_stmt = $pdo->prepare("INSERT INTO orders(unique_id, product_id, product_name, `status`, `price`, qty, order_time, my_refx_id, ps_refx_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $new_tr_stmt->execute([$uu_id, $tr_ad->product_id, $product_data->product_name, "processing", $product_data->price, $tr_ad->qty, date("Y-m-d H:i:s", time()), $my_refx, $ps_trx_ref]);  
                 }
             }
 
