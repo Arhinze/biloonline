@@ -97,7 +97,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
         <!-- hidden prompt for user to confirm order delete starts -->
         <div id="remove_cart_item_<?=$cart_d->orders_processor_id?>" style="display:none;border:2px solid red;border-radius:6px;margin-top:12px;padding:3px">
             <form method="post" action="" class="pop_up">
-                <span style="text-align:center">Are you sure you want to remove product: <a href="/product/<?=$cart_d->product_url?>"><b style="font-size:18px;color:red;border-bottom:2px solid #fff"><?=$cpd->product_name?>?</b></a> &nbsp;
+                <span style="text-align:center">Are you sure you want to remove product: <b><a href="/product/<?=$cart_d->product_url?>" style="font-size:18px;color:red;border-bottom:2px solid #fff"><?=$cpd->product_name?>?</a></b> &nbsp;
     
                 <br /><br />
     
