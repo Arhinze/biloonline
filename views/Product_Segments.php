@@ -276,7 +276,7 @@ HTML;
                                 <!--<div style="display:none;position:relative;background-color:#000" id='atc_div'><div style="width:60px;height:60px;border-radius:100%;background-color:#ff9100;position:absolute" class="add_to_cart_ball"></div></div>-->
                                 <span class="qty">
                                     <b style="font-size:24px" onclick='ajax_qty("$product_id","decrease")'>-</b>&nbsp;&nbsp;
-                                    <span id="qty">$orders_qty</span>&nbsp;&nbsp;
+                                    <span id="qty_$product_id">$orders_qty</span>&nbsp;&nbsp;
                                     <b style="font-size:18px" onclick='ajax_qty("$product_id","increase")' id="increase_qty">+</b>
                                 </span>
                             </div><!-- .product_qty ends -->
@@ -316,8 +316,8 @@ HTML;
                 let obj = new XMLHttpRequest;
                 obj.onreadystatechange = function(){
                     if(obj.readyState == 4){
-                        if (document.getElementById("qty")){
-                            document.getElementById("qty").innerHTML = obj.responseText;
+                        if (document.getElementById("qty_".prod_id)){
+                            document.getElementById("qty_".prod_id).innerHTML = obj.responseText;
                         }
                     }
                     //call ajax_add_to_cart() function to automatically update cart if items get to 0 or 1, etc.
