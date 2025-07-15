@@ -199,7 +199,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                     <div>
                         <p style="font-size:21px"><b>Contact Details</b> </p>
                         <p><b>Name:</b> <?=$d->customer_realname?></p>
-                        <p><b>Phone Number:</b> <?=$d->phone_number?></p>
+                        <p><b>Phone Number:</b> +234<?=$d->phone_number?></p>
                         <p><b>Email:</b> <?=$d->customer_email?></p>
                     </div>
 
