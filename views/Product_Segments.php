@@ -313,22 +313,6 @@ HTML;
                 }              
             }
 
-            function ajax_add_to_cart(prod_id) {
-                let obj2 = new XMLHttpRequest;
-                obj2.onreadystatechange = function(){
-                    if(obj2.readyState == 4){
-                        if (document.getElementById("num_of_products_in_cart")){
-                            document.getElementById("num_of_products_in_cart").innerHTML = obj2.responseText;
-                            document.getElementById("index_num_of_products_in_cart").innerHTML = obj2.responseText;
-                        }
-                    }
-                }
- 
-                obj2.open("GET","/ajax/ajax_add_to_num_of_products.php?id="+prod_id);
-                obj2.send(null);
-                //added_or_not(prod_id);
-            }
-
             function ajax_qty(prod_id, incr_or_decr) {
                 let obj = new XMLHttpRequest;
                 obj.onreadystatechange = function(){
@@ -343,6 +327,21 @@ HTML;
  
                 obj.open("GET","/ajax/ajax_qty.php?id="+prod_id+"&increase_or_decrease="+incr_or_decr);
                 obj.send(null);    
+            }
+
+            function ajax_add_to_cart(prod_id) {
+                let obj2 = new XMLHttpRequest;
+                obj2.onreadystatechange = function(){
+                    if(obj2.readyState == 4){
+                        if (document.getElementById("num_of_products_in_cart")){
+                            document.getElementById("num_of_products_in_cart").innerHTML = obj2.responseText;
+                            document.getElementById("index_num_of_products_in_cart").innerHTML = obj2.responseText;
+                        }
+                    }
+                }
+ 
+                obj2.open("GET","/ajax/ajax_add_to_num_of_products.php?id="+prod_id);
+                obj2.send(null);
             }
         </script>
 
