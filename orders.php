@@ -6,7 +6,27 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
     $stmt->execute([$_COOKIE["admin_name"], $_COOKIE["admin_password"]]);
 
     $data = $stmt->fetch(PDO::FETCH_OBJ);
-    if($data){
+    if($data){//that means Admin is logged in
+        //~~(placing this here so that changes in "pending orders" tab on the top of admin pages can be reflected on updating status)
+        //To Update Order Status:
+        if(isset($_POST["order_id"])){
+            //check if order still exists
+            $edit_stmt = $pdo->prepare("SELECT * FROM orders WHERE order_id = ?");
+            $edit_stmt->execute([$_POST["order_id"]]);
+    
+            $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
+            if($edit_data){ 
+                //then edit:
+                $edd_stmt = $pdo->prepare("UPDATE orders SET `status` = ? WHERE order_id = ?");
+
+                $edd_stmt->execute([htmlentities($_POST["order_status"]), htmlentities($_POST["order_id"])]);
+
+                echo "<h4 style='color:green'>Order Status for: Bilo000", $edit_data->order_id, " updated successfully</h4>";
+            } else {
+                echo "<h4 style='color:gred'>Error: Order not found.</h4>";
+            }
+        } 
+
         //that means admin is logged in
         admin_Segments::header();
 ?>
@@ -46,25 +66,6 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 <div class="table_row">View</div>
             </div>
 <?php
-        //To Update Order Status:
-        if(isset($_POST["order_id"])){
-            //check if order still exists
-            $edit_stmt = $pdo->prepare("SELECT * FROM orders WHERE order_id = ?");
-            $edit_stmt->execute([$_POST["order_id"]]);
-    
-            $edit_data = $edit_stmt->fetch(PDO::FETCH_OBJ);
-            if($edit_data){ 
-                //then edit:
-                $edd_stmt = $pdo->prepare("UPDATE orders SET `status` = ? WHERE order_id = ?");
-
-                $edd_stmt->execute([htmlentities($_POST["order_status"]), htmlentities($_POST["order_id"])]);
-
-                echo "<h4 style='color:green'>Order Status for: Bilo000", $edit_data->order_id, " updated successfully</h4>";
-            } else {
-                echo "<h4 style='color:gred'>Error: Order not found.</h4>";
-            }
-        } 
-
         //To Delete Product:
         /*
         if(isset($_POST["remove_product"])){
