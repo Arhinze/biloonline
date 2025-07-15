@@ -316,8 +316,8 @@ HTML;
                 let obj = new XMLHttpRequest;
                 obj.onreadystatechange = function(){
                     if(obj.readyState == 4){
-                        if (document.getElementById("qty_".prod_id)){
-                            document.getElementById("qty_".prod_id).innerHTML = obj.responseText;
+                        if (document.getElementById("qty_"+prod_id)){
+                            document.getElementById("qty_"+prod_id).innerHTML = obj.responseText;
                         }
                     }
                     //call ajax_add_to_cart() function to automatically update cart if items get to 0 or 1, etc.
