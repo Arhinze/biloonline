@@ -443,7 +443,7 @@ HTML;
 
                     $all_orders = [];
                     foreach($select_tops_data as $std) {
-                        if(!in(array($std, $all_orders))) {
+                        if(!in_array($std, $all_orders)) {
                             $all_orders[] = $std->product_id;
                         }
                     }
