@@ -21,7 +21,7 @@ if(isset($_GET["search_query"])){
     foreach($search_data as $sd){
 ?>
         <div style="border-bottom:1px solid #888;padding:12px 6px;background-color:#fff">
-            <a href ="/<?=$page?>/<?=substr($sd->product_name, 0, 15)."..."?>" style="color:#2b8eeb"><?=$sd->username?></a>
+            <a href ="/<?=$page?>/<?=$d->product_url?>" style="color:#2b8eeb"><?=substr($sd->product_name, 0, 15)."..."?></a>
         </div>
 <?php 
        }
