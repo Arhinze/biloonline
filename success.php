@@ -26,7 +26,7 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
                 $product_stmt->execute([$tr_ad->product_id, 0, 1]);
                 $product_data =  $product_stmt->fetch(PDO::FETCH_OBJ);
 
-                //use these next 3 lines to get data object for customer_name, email address and phone number for each item in orders_processor:
+                //use these next 3 lines to get data object for customer_name, email address, phone number and detailed location for each item in orders_processor:
                 $customer_stmt = $pdo->prepare("SELECT * FROM customers WHERE unique_id = ? LIMIT ?, ?");
                 $customer_stmt->execute([$uu_id, 0, 1]);
                 $customer_data =  $customer_stmt->fetch(PDO::FETCH_OBJ);
@@ -34,8 +34,8 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
                 //Insert deposit transaction . .
                 //$hstkp_transactions->deposit($data->user_id, $dep_amount, "You made a deposit");
                 if ($tr_ad->qty > 0) {//if ordered product quantity is more than 0(is at least 1): ~ record the order
-                    $new_tr_stmt = $pdo->prepare("INSERT INTO orders(unique_id, product_id, product_name, `status`, `price`, qty, image1, image2, image3, customer_realname, customer_email, phone_number, order_time, my_refx_id, ps_refx_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                    $new_tr_stmt->execute([$uu_id, $tr_ad->product_id, $product_data->product_name, "processing", $product_data->price, $tr_ad->qty, $product_data->image1, $product_data->image2, $product_data->image3, $customer_data->customer_realname, $customer_data->customer_email, $customer_data->phone_number, date("Y-m-d H:i:s", time()), $my_refx, $ps_trx_ref]);  
+                    $new_tr_stmt = $pdo->prepare("INSERT INTO orders(unique_id, product_id, product_name, `status`, `price`, qty, image1, image2, image3, customer_realname, customer_email, phone_number, `state`, LGA, `address`, postal_code, order_time, my_refx_id, ps_refx_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $new_tr_stmt->execute([$uu_id, $tr_ad->product_id, $product_data->product_name, "processing", $product_data->price, $tr_ad->qty, $product_data->image1, $product_data->image2, $product_data->image3, $customer_data->customer_realname, $customer_data->customer_email, $customer_data->phone_number, $customer_data->state, $customer_data->LGA, $customer_data->address, $customer_data->postal_code, date("Y-m-d H:i:s", time()), $my_refx, $ps_trx_ref]);  
                 }
             }
 

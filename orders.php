@@ -203,6 +203,11 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                         <p><b>Name:</b> <?=$d->customer_realname?></p>
                         <p><b>Phone Number:</b> +234<?=$d->phone_number?></p>
                         <p><b>Email:</b> <?=$d->customer_email?></p>
+                        <p><b>Detailed Location:</b></p>
+                        <p>Country: <?=$d->country?>, State: <?=$d->state?></p>
+                        <p>LGA: <?=$d->LGA?></p>
+                        <p>Address: <?=$d->address?></p>
+                        <p>Postal Code: <?=$d->postal_code?></p>
                     </div>
 
                     <div>
