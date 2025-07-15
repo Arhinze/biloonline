@@ -7,7 +7,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
 
     $data = $stmt->fetch(PDO::FETCH_OBJ);
     if($data){//that means Admin is logged in
-        //~~(placing this here so that changes in "pending orders" tab on the top of admin pages can be reflected on updating status)
+        //~~(placing this here so that changes in "pending orders" can be reflected the tab on top of admin pages on updating status)
         //To Update Order Status:
         if(isset($_POST["order_id"])){
             //check if order still exists
