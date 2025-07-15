@@ -3,6 +3,7 @@ ini_set("session.use_only_cookies", 1);
 include_once($_SERVER["DOCUMENT_ROOT"]."/php/connection.php");
 
 $data = false;
+$user_unique_id = "";
 
 function generate_unique_id(){
     //generate random appended_id:
