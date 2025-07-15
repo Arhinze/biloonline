@@ -681,7 +681,7 @@ HTML;
         }
                                                                 
                                                                 
-        public static function footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = "", $whatsapp_chat = "on"){ 
+        public static function footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = "", $whatsapp_chat = "on", $shopping_cart = "on"){ 
                                                                             
             $index_scripts = Index_Segments::index_scripts();    
             if($shopping_cart == "on") {
