@@ -78,7 +78,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
                     <b>NG N<?=number_format($cpd->price)?></b> &nbsp; <s>N<?=number_format($cpd->former_price)?></s>
                 </div>
             </div><!-- cart details ends -->
-            <div style="width:12px;margin-top:42px" onclick=""><i class="fa fa-times" style="color:red"></i></div>
+            <div style="width:12px;margin-top:42px;margin-left:12px" onclick=""><i class="fa fa-times" style="color:red"></i></div>
         </div><!-- cart ends -->
 
         
