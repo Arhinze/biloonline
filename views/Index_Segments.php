@@ -12,7 +12,7 @@ $num_of_products_in_cart_stmt->execute([$customer_id, 0, 0, 100]);
 $num_of_products_in_cart_data = $num_of_products_in_cart_stmt->fetchAll(PDO::FETCH_OBJ);
 $num_of_products_in_cart = count($num_of_products_in_cart_data);
 
-define("NUM_OF_PRODUCTS_IN_CART", $num_of_products_in_cart);
+define("INDEX_NUM_OF_PRODUCTS_IN_CART", $num_of_products_in_cart);
 //getting number of products in cart ends
 
 class Index_Segments{
@@ -21,7 +21,7 @@ class Index_Segments{
     }
     protected static $pdo;
 
-    public static function main_header($site_name = SITE_NAME_SHORT, $number_of_products_in_cart = NUM_OF_PRODUCTS_IN_CART) {
+    public static function main_header($site_name = SITE_NAME_SHORT, $number_of_products_in_cart = INDEX_NUM_OF_PRODUCTS_IN_CART) {
         echo <<<HTML
             <div class="headers"> <!-- start of .headers --> 
                 <div class="site_logo_div">
@@ -144,7 +144,7 @@ HTML;
 HTML;
        }
                 
-        public static function body($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $number_of_products_in_cart = NUM_OF_PRODUCTS_IN_CART){
+        public static function body($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $number_of_products_in_cart = INDEX_NUM_OF_PRODUCTS_IN_CART){
             $site_name_uc = strtoupper($site_name);
 
             echo <<<HTML
