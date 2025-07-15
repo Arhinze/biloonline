@@ -319,6 +319,7 @@ HTML;
                     if(obj2.readyState == 4){
                         if (document.getElementById("num_of_products_in_cart")){
                             document.getElementById("num_of_products_in_cart").innerHTML = obj2.responseText;
+                            document.getElementById("index_num_of_products_in_cart").innerHTML = obj2.responseText;
                         }
                     }
                 }
