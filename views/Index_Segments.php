@@ -439,7 +439,7 @@ HTML;
 HTML;
                     $select_tops_stmt = Index_Segments::$pdo->prepare("SELECT * FROM orders ORDER BY product_id DESC LIMIT ?, ?");
                     $select_tops_stmt->execute([0,100]);
-                    $select_tops_data = $select_tops_stmt->fetchAll(PDO::FETCH_OBJ);
+                    $select_tops_data = $select_tops_stmt->fetchAll(PDO::FETCH_ARRAY);
 
                     $all_orders = [];
                     foreach($select_tops_data as $std) {
