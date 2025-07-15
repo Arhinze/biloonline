@@ -24,8 +24,9 @@ if($cart_count > 0) {//that means cart is not empty
 
     //create a user if this user doesn't exist yet:
     if (isset($_POST["email"])) {
+        $customer_email = htmlentities($_POST["email"]);
         $new_user_stmt = $pdo->prepare("SELECT * FROM customers WHERE customer_email =  ? LIMIT ?, ?");
-        $new_user_stmt->execute([htmlentities($_POST["email"]), 0, 1]);
+        $new_user_stmt->execute([$customer_email, 0, 1]);
         $new_user_data = $new_user_stmt->fetch(PDO::FETCH_OBJ);
 
         if($new_user_data) {//that means user already exist
@@ -56,8 +57,8 @@ if($cart_count > 0) {//that means cart is not empty
 if(isset($_POST["total_amount"])) {//paystack initialization starts
         //Initialize Paystack:
         $total_amount = (int)htmlentities($_POST["total_amount"]);
-
-        $customer_email = htmlentities($_POST["email"]);
+        $customer_email = $new_user_data->customer_email;
+        
         
         //generate random refx_id:
         $code_array = [0,1,2,3,4,5,6,7,8,9];
