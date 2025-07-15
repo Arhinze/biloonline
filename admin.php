@@ -21,7 +21,7 @@ if(isset($_POST["admin_name"])){
 
 if(isset($_POST["user_code"])){
     $admincode = $_POST["user_code"];
-    if($admincode == $_POST["code"]){
+    if($admincode == $_POST["xsrf_code"]){
         $stmt = $pdo->prepare("SELECT * FROM `admin` WHERE admin_name = ? AND admin_password = ?");
         $stmt->execute([$_POST["admin_name"], $_POST["admin_password"]]);
         $data = $stmt->fetchAll(PDO::FETCH_OBJ);
