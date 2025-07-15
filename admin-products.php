@@ -20,6 +20,10 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         $categories_array = ["women", "men", "xenx", "sports", "jewelry", "industrial", "electronics", "kids", "bags", "toy", "crafts", "beauty", "automotive", "garden", "office", "health", "baby", "household", "musical-appliances", "food", "books"];
         $categories = "";
 
+        //former_price percentage array:
+        $fp_array = [3, 4, 5, 6, 7, 8, 9];
+        shuffle($fp_array);
+
         //To Insert Product:
         if(isset($_POST["new_product"])){
             //check if product already exists
@@ -28,10 +32,6 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
     
             $add_data = $add_stmt->fetch(PDO::FETCH_OBJ);
             if(!$add_data){//that means this is a unique product url
-                //former_price percentage array:
-                $fp_array = [3, 4, 5, 6, 7, 8, 9];
-                shuffle($fp_array);
-
                 //add selected categories:
                 foreach ($categories_array as $cat_arr) {
                     if(isset($_POST["add_category_".$cat_arr])) {
@@ -120,9 +120,9 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                 }
 
                 //then edit(update) the product
-                $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, category = ?, `description` = ?, price = ? WHERE product_id = ?");
+                $edd_stmt = $pdo->prepare("UPDATE products SET product_name = ?, product_url = ?, category = ?, `description` = ?, price = ?, former_price = ? WHERE product_id = ?");
 
-                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $categories, $_POST["product_description"], $_POST["product_price"], $_POST["edit_product_id"]]);
+                $edd_stmt->execute([$_POST["product_name"], $_POST["url"], $categories, $_POST["product_description"], $_POST["product_price"], (htmlentities($_POST["product_price"]) + (($fp_array[0]/100)*htmlentities($_POST["product_price"]))), $_POST["edit_product_id"]]);
         
                 echo "<h4 style='color:green'>Product: ", $edit_data->product_name, " has been Updated successfully</h4>";
         
