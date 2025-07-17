@@ -9,7 +9,7 @@ Index_Segments::header();
             We are just a click away :)
         <input type="text" placeholder="Name: Example: John Smith" class="input"/>    
         <div style="margin:12px 0"><input type = "text" placeholder = "Email: abc@example.com" name = "email" class="input"/></div>
-        <textarea class="textarea" placeholder="Enter Text"></textarea><br/>
+        <textarea class="textarea" placeholder="Enter Text" style="color:#fff"></textarea><br/>
         <button type="submit" class="button">Send <i class="fa fa-telegram"></i> </button>
     </form>
             
