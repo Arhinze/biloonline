@@ -3,12 +3,12 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 Index_Segments::header();
 ?>
 
-<div class="contact_us">
+<div class="contact_us" style="margin:60px 15px">
     <form method="post" action="">
         <h1 style="margin-bottom:-2px">Contact Us:</h1><hr/>
             We are just a click away :)
         <input type="text" placeholder="Name: Example: John Smith" class="input"/>    
-        <input type = "text" placeholder = "Email: abc@example.com" name = "email" class="input"/>
+        <div style="margin:12px 0"><input type = "text" placeholder = "Email: abc@example.com" name = "email" class="input"/></div>
         <textarea class="textarea" placeholder="Enter Text"></textarea><br/>
         <button type="submit" class="button">Send <i class="fa fa-telegram"></i> </button>
     </form>
