@@ -16,20 +16,19 @@ Index_Segments::header();
     <br />
             
     <div>
-        <i class="fa fa-telephone"></i> +447762734997 <br />
-        <i class="fa fa-telephone"></i> +61396202220 <br /><br />
+        <i class="fa fa-telephone"></i> +447762734997 <br /><br />
         
-        <i class="fa fa-mail"></i> support@<?=$site_url_short?>
+        <i class="fa fa-mail"></i> support@<?=$site_url_short?><br />
     </div>
 
     <br />
 
     <div>
     <b style="border-bottom:2px solid #fff">WE ARE ACTIVE ON SOCIAL MEDIA:</b> <br /><br />
-        <a href='https://instagram.com/brae_sokolski?igshid=YmMyMTA2M2Y=' style='color:#fff'><i class="fa fa-instagram"></i> instagram</a> <br /><br />   
-        <a href='https://m.me/Brae.Sokolski' style='color:#fff'> <i class="fa fa-facebook"></i> facebook</a> <br /><br />  
-        <a href='https://t.me/Futurefinancecom' style='color:#fff'> <i class="fa fa-telegram"></i> telegram</a> <br /><br />
-        <a href='https://chat.whatsapp.com/BEclTWAc79S18paVW2Jt7B' style='color:#fff'> <i class="fa fa-whatsapp"></i> whatsApp</a> <br /><br /> 
+        <a href='https://instagram.com/brae_sokolski?igshid=YmMyMTA2M2Y='><i class="fa fa-instagram"></i> instagram</a> <br /><br />   
+        <a href='https://m.me/Brae.Sokolski'> <i class="fa fa-facebook"></i> facebook</a> <br /><br />  
+        <a href='https://t.me/Futurefinancecom'> <i class="fa fa-telegram"></i> telegram</a> <br /><br />
+        <a href='https://chat.whatsapp.com/BEclTWAc79S18paVW2Jt7B'> <i class="fa fa-whatsapp"></i> whatsApp</a> <br /><br /> 
     </div>
 </div>
 
