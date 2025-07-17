@@ -95,7 +95,7 @@ if (count($cart_data) > 0) {//that means user has an item or more in cart -- lis
                     <b>NG N<?=number_format($cpd->price)?></b> &nbsp; <s>N<?=number_format($cpd->former_price)?></s>
                 </div>
             </div><!-- cart details ends -->
-            <div style="width:12px;margin-top:42px;margin-right:15px" onclick="show_div('remove_cart_item_<?=$cart_d->orders_processor_id?>')"><i class="fa fa-times" style="font-size:10px;background-color:red;color:#fff;padding:3px 5px;border-radius:100%"></i></div>
+            <div style="width:12px;margin-top:42px;margin-right:15px" onclick="show_div('remove_cart_item_<?=$cart_d->orders_processor_id?>')"><i class="fa fa-times" style="font-size:10px;background-color:red;color:#fff;padding:3px 4px;border-radius:100%"></i></div>
         </div><!-- cart ends -->
 
         <!-- hidden prompt for user to confirm order delete starts -->
