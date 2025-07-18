@@ -447,6 +447,7 @@ h1, h2, h3, h4, h5, h6{
     padding:12px;
     display:flex;
     flex:3 3 auto;
+    justify-content: space-around;
     background-color:#fff
 }
 
