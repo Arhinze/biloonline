@@ -727,24 +727,24 @@ HTML;
                     <!-- .footer_menu starts -->
                     <div class="footer_menu">
                         <div class="footer_menu_items">
-                            <div><i class="fa fa-home"></i></div>
-                            <div class="footer_menu_item_text">Home</div>
+                            <div><a href="/"><i class="fa fa-home"></i></a></div>
+                            <div class="footer_menu_item_text"><a href="/">Home</a></div>
                         </div>
                         <div class="footer_menu_items">
-                            <div><i class="fa fa-file-text-o"></i></div>
-                            <div class="footer_menu_item_text">Categories</div>
+                            <div><a href="/categories"><i class="fa fa-file-text-o"></i></a></div>
+                            <div class="footer_menu_item_text"><a href="/categories">Categories</a></div>
                         </div>
                         <div class="footer_menu_items">
-                            <div><img src="/static/images/shopping_cart.png"/></div>
-                            <div class="footer_menu_item_text">Cart</div>
+                            <div><a href="/cart"><img src="/static/images/shopping_cart.png"/></a></div>
+                            <div class="footer_menu_item_text"><a href="/cart">Cart</a></div>
                         </div>
                         <div class="footer_menu_items">
-                            <div><i class="fa fa-heart-o"></i></div>
-                            <div class="footer_menu_item_text">Wishlist</div>
+                            <div><a href="/wishlist"><i class="fa fa-heart-o"></i></a></div>
+                            <div class="footer_menu_item_text"><a href="/wishlist">Wishlist</a></div>
                         </div>
                         <div class="footer_menu_items">
-                            <div><i class="fa fa-user"></i></div>
-                            <div class="footer_menu_item_text">Account</div>
+                            <div><a href="/my-account"><i class="fa fa-user"></i></a></div>
+                            <div class="footer_menu_item_text"><a href="/my-account">Account</a></div>
                         </div>
                     </div>
                     <!-- .footer_menu ends -->
