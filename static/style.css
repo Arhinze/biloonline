@@ -438,6 +438,25 @@ h1, h2, h3, h4, h5, h6{
     background-color: #fff;
 }
 
+.footer_menu {
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+    width:100%;
+    padding:12px;
+    display:flex;
+    flex:3 3 auto;
+    background-color:#fff
+}
+
+.footer_menu_items{
+    margin:6px 15px;
+}
+
+.footer_menu_items i{
+    font-size:24px;
+}
 
 
 /*** Product Page Styling starts ***/
