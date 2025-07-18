@@ -721,9 +721,10 @@ HTML;
                     <!-- .whatsapp_box ends -->
     
                     <!-- fixed whatsapp sticker(bottom-right) starts -->
-                    <div style="color:#fff;font-size:33px;padding:9px 12px;border-radius:100%;background-color:green;position:fixed;bottom:18px;right:18px"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
+                    <div style="color:#fff;font-size:33px;padding:9px 12px;border-radius:100%;background-color:green;position:fixed;bottom:42px;right:18px"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
                     <!-- fixed whatsapp sticker(bottom-right) ends -->
 
+                    <!-- .footer_menu starts -->
                     <div class="footer_menu">
                         <div class="footer_menu_items">
                             <div><i class="fa fa-home"></i></div>
@@ -746,6 +747,7 @@ HTML;
                             <div class="footer_menu_item_text">Account</div>
                         </div>
                     </div>
+                    <!-- .footer_menu ends -->
 HTML;
             }
                                                                 
