@@ -772,7 +772,7 @@ HTML;
 
                 <div class="footer_heading">Support</div>
                 Documentation
-                Help Center
+                <b><a href="/contact">Help Center</a></b>
                 General FAQs
                 
                 <div class="footer_heading">Newsletter</div>
