@@ -34,6 +34,6 @@ Index_Segments::header();
 
 <?php
 
-Index_Segments::footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = Index_Segments::index_scripts(),$whatsapp_chat = "off");
+Index_Segments::footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = Index_Segments::index_scripts(), $whatsapp_chat = "off", $shopping_cart = "on", $number_of_products_in_cart = INDEX_NUM_OF_PRODUCTS_IN_CART);
 
 ?>
