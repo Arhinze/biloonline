@@ -727,23 +727,23 @@ HTML;
                     <div class="footer_menu">
                         <div class="footer_menu_items">
                             <div><i class="fa fa-home"></i></div>
-                            <div class="footer_menu_item_text" style="font-size:9px">Home</div>
+                            <div class="footer_menu_item_text">Home</div>
                         </div>
                         <div class="footer_menu_items">
                             <div><i class="fa fa-file-text-o"></i></div>
-                            <div style="font-size:9px" class="footer_menu_item_text">Categories</div>
+                            <div class="footer_menu_item_text">Categories</div>
                         </div>
                         <div class="footer_menu_items">
                             <div><img src="/static/images/shopping_cart.png"/></div>
-                            <div style="font-size:9px" class="footer_menu_item_text">Cart</div>
+                            <div class="footer_menu_item_text">Cart</div>
                         </div>
                         <div class="footer_menu_items">
                             <div><i class="fa fa-heart-o"></i></div>
-                            <div style="font-size:9px" class="footer_menu_item_text">Wishlist</div>
+                            <div class="footer_menu_item_text">Wishlist</div>
                         </div>
                         <div class="footer_menu_items">
                             <div><i class="fa fa-user"></i></div>
-                            <div style="font-size:9px" class="footer_menu_item_text">Account</div>
+                            <div class="footer_menu_item_text">Account</div>
                         </div>
                     </div>
 HTML;
