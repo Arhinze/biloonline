@@ -444,7 +444,7 @@ h1, h2, h3, h4, h5, h6{
     right:0;
     left:0;
     width:100%;
-    padding:12px 15px 12px 9px;
+    padding:12px 18px 12px 3px;
     display:flex;
     flex:3 3 auto;
     justify-content: space-around;
