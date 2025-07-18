@@ -726,24 +726,24 @@ HTML;
 
                     <div class="footer_menu" style="position:fixed;bottom:0;right:0;left:0;width:100%;padding:12px;display:flex;flex:3 3 auto;background-color:#fff">
                         <div class="footer_menu_items">
-                            <div style="font-weight:39px"><i class="fa fa-home"></i></div>
-                            <div style="font-weight:9px">Home</div>
+                            <div style="font-size:39px"><i class="fa fa-home"></i></div>
+                            <div style="font-size:9px">Home</div>
                         </div>
                         <div class="footer_menu_items">
-                            <div style="font-weight:39px"><i class="fa fa-file-text-o"></i></div>
-                            <div style="font-weight:9px">Categories</div>
+                            <div style="font-size:39px"><i class="fa fa-file-text-o"></i></div>
+                            <div style="font-size:9px">Categories</div>
                         </div>
                         <div class="footer_menu_items">
-                            <div style="font-weight:39px"><img src="/static/images/shopping_cart.png"/></div>
-                            <div style="font-weight:9px">Cart</div>
+                            <div style="font-size:39px"><img src="/static/images/shopping_cart.png"/></div>
+                            <div style="font-size:9px">Cart</div>
                         </div>
                         <div class="footer_menu_items">
-                            <div style="font-weight:39px"><i class="fa fa-heart-o"></i></div>
-                            <div style="font-weight:9px">Cart</div>
+                            <div style="font-size:39px"><i class="fa fa-heart-o"></i></div>
+                            <div style="font-size:9px">Cart</div>
                         </div>
                         <div class="footer_menu_items">
-                            <div style="font-weight:39px"><i class="fa fa-user"></i></div>
-                            <div style="font-weight:9px">Account</div>
+                            <div style="font-size:39px"><i class="fa fa-user"></i></div>
+                            <div style="font-size:9px">Account</div>
                         </div>
                     </div>
 HTML;
