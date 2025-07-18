@@ -723,6 +723,29 @@ HTML;
                     <!-- fixed whatsapp sticker(bottom-right) starts -->
                     <div style="color:#fff;font-size:33px;padding:9px 12px;border-radius:100%;background-color:green;position:fixed;bottom:18px;right:18px"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
                     <!-- fixed whatsapp sticker(bottom-right) ends -->
+
+                    <div class="footer_menu" style="position:fixed;width:100%;padding:12px;display:flex;flex:3 3 auto">
+                        <div class="footer_menu_items">
+                            <div style="font-weight:39px"><i class="fa fa-home"></i></div>
+                            <div style="font-weight:14px">Home</div>
+                        </div>
+                        <div class="footer_menu_items">
+                            <div style="font-weight:39px"><i class="fa fa-file-text-o"></i></div>
+                            <div style="font-weight:14px">Categories</div>
+                        </div>
+                        <div class="footer_menu_items">
+                            <div style="font-weight:39px"><img src="/static/images/shopping_cart.png"/></div>
+                            <div style="font-weight:14px">Cart</div>
+                        </div>
+                        <div class="footer_menu_items">
+                            <div style="font-weight:39px"><i class="fa fa-heart-o"></i></div>
+                            <div style="font-weight:14px">Cart</div>
+                        </div>
+                        <div class="footer_menu_items">
+                            <div style="font-weight:39px"><i class="fa fa-user"></i></div>
+                            <div style="font-weight:14px">Account</div>
+                        </div>
+                    </div>
 HTML;
             }
                                                                 
