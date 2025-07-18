@@ -458,7 +458,8 @@ h1, h2, h3, h4, h5, h6{
 
 .footer_menu_item_text{
     text-align: center;
-    margin-top:6px;
+    margin-top:3px;
+    font-weight:bold;
 }
 
 .footer_menu_items i{
