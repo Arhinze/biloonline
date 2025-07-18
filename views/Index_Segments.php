@@ -723,31 +723,6 @@ HTML;
                     <!-- fixed whatsapp sticker(bottom-right) starts -->
                     <div style="color:#fff;font-size:33px;padding:9px 12px;border-radius:100%;background-color:green;position:fixed;bottom:72px;right:18px"><i class="fa fa-whatsapp" onclick="show_div('whatsapp_box')"></i></div>
                     <!-- fixed whatsapp sticker(bottom-right) ends -->
-
-                    <!-- .footer_menu starts -->
-                    <div class="footer_menu">
-                        <div class="footer_menu_items">
-                            <div><a href="/"><i class="fa fa-home"></i></a></div>
-                            <div class="footer_menu_item_text"><a href="/">Home</a></div>
-                        </div>
-                        <div class="footer_menu_items">
-                            <div><a href="/categories"><i class="fa fa-file-text-o"></i></a></div>
-                            <div class="footer_menu_item_text"><a href="/categories">Categories</a></div>
-                        </div>
-                        <div class="footer_menu_items">
-                            <div><a href="/cart"><img src="/static/images/shopping_cart.png"/></a></div>
-                            <div class="footer_menu_item_text"><a href="/cart">Cart</a></div>
-                        </div>
-                        <div class="footer_menu_items">
-                            <div><a href="/wishlist"><i class="fa fa-heart-o"></i></a></div>
-                            <div class="footer_menu_item_text"><a href="/wishlist">Wishlist</a></div>
-                        </div>
-                        <div class="footer_menu_items">
-                            <div><a href="/my-account"><i class="fa fa-user"></i></a></div>
-                            <div class="footer_menu_item_text"><a href="/my-account">Account</a></div>
-                        </div>
-                    </div>
-                    <!-- .footer_menu ends -->
 HTML;
             }
                                                                 
@@ -785,8 +760,32 @@ HTML;
             $index_scripts
             $additional_scripts
 
-           
-            <!-- this div is only meant to bring up the footer section of product page so that it's not covered by the fixed 'add_to_my_picks' div-->
+            <!-- .footer_menu starts -->
+            <div class="footer_menu">
+                <div class="footer_menu_items">
+                    <div><a href="/"><i class="fa fa-home"></i></a></div>
+                    <div class="footer_menu_item_text"><a href="/">Home</a></div>
+                </div>
+                <div class="footer_menu_items">
+                    <div><a href="/categories"><i class="fa fa-file-text-o"></i></a></div>
+                    <div class="footer_menu_item_text"><a href="/categories">Categories</a></div>
+                </div>
+                <div class="footer_menu_items">
+                    <div><a href="/cart"><img src="/static/images/shopping_cart.png"/></a></div>
+                    <div class="footer_menu_item_text"><a href="/cart">Cart</a></div>
+                </div>
+                <div class="footer_menu_items">
+                    <div><a href="/wishlist"><i class="fa fa-heart-o"></i></a></div>
+                    <div class="footer_menu_item_text"><a href="/wishlist">Wishlist</a></div>
+                </div>
+                <div class="footer_menu_items">
+                    <div><a href="/my-account"><i class="fa fa-user"></i></a></div>
+                    <div class="footer_menu_item_text"><a href="/my-account">Account</a></div>
+                </div>
+            </div>
+            <!-- .footer_menu ends -->
+
+            <!-- this div is only meant to bring up the footer section of product page so that it's not covered by the fixed 'footer_menu' div-->
             <div style="margin-top:45px"></div>
 
         </body>
