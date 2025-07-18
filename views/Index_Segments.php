@@ -688,7 +688,7 @@ HTML;
             $index_scripts = Index_Segments::index_scripts();    
             if($shopping_cart == "on") {
                 echo <<<HTML
-                    <div class="shopping_cart" style="bottom:18px;left:18px"><!-- .shopping_cart starts -->
+                    <div class="shopping_cart" style="bottom:42px;left:18px"><!-- .shopping_cart starts -->
                         <div id="num_of_products_in_cart" style="font-size:12px;margin-bottom:-77px">$number_of_products_in_cart</div>
                         <a href="/cart"><img src="/static/images/shopping_cart.png"/></a>
                     </div><!-- .shopping_cart ends -->
