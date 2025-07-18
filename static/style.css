@@ -452,6 +452,10 @@ h1, h2, h3, h4, h5, h6{
     overflow:hidden;
 }
 
+.footer_menu  a {
+    color:#000;
+}
+
 .footer_menu_items{
     text-align: center;
     font-size:12px;
