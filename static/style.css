@@ -676,7 +676,7 @@ h1, h2, h3, h4, h5, h6{
 
 .shopping_cart{
     position:fixed;
-    padding:9px 5px;
+    padding:12px 9px;
     width:fit-content;
     display:flex;
     border:1px solid #888;
