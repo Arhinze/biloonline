@@ -697,7 +697,7 @@ HTML;
             if ($whatsapp_chat == "on") {
                 echo <<<HTML
                     <!-- .whatsapp_box starts -->
-                    <div class="whatsapp_box" id="whatsapp_box" style="display:none;position:fixed;bottom:108px;right:18px;background-color:#fff;border-radius:9px;width:75%;box-shadow:0 0 3px 0 #888">
+                    <div class="whatsapp_box" id="whatsapp_box" style="display:none;position:fixed;bottom:129px;right:18px;background-color:#fff;border-radius:9px;width:75%;box-shadow:0 0 3px 0 #888">
                         <div class="whatsapp_box_top" style="display:flex;justify-content:space-around;height:30%;padding:12px;background-color:green;color:#fff;border-radius:9px 9px 0 0">
                             <div style="width:10%;margin-right:0"><i class="fa fa-whatsapp" style="font-size:42px;color:#fff"></i></div>
                             <div style="width:80%;text-align:left;margin-left:0">
