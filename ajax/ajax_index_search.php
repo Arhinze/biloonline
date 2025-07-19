@@ -10,7 +10,7 @@ if(isset($_GET["search_query"])){
         $search_stmt->execute(["%$search_q%", 0, 100]);
         $search_data = $search_stmt->fetchAll(PDO::FETCH_OBJ);
 
-        echo "<div style='border-radius:9px;padding:12px'>";
+        echo "<div style='border:1px solid #fff;border-radius:9px;padding:12px;position:fixed;top:'>";
         foreach($search_data as $sd){
 ?>
             <div style="border-bottom:1px solid #888;padding:12px 6px;background-color:#fff">

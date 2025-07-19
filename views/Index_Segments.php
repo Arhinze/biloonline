@@ -142,7 +142,9 @@ HTML;
                 <li style="margin-top:30px"></li>
                 <label for="menu-box"><div class="grey_area"></div></label>
             </ul>
-            <div id="search_hint"></div><!-- used by index_ajax_search() function-->
+            <div id="search_hint"></div>
+            <h1>Margaret</h1>
+            <!-- used by index_ajax_search() function-->
 HTML;
        }
                 
