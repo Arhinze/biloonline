@@ -108,8 +108,7 @@ HTML;
                     <div class="menu_item"><a href="/category/health">Health</a></div>
                     <div class="menu_item"><a href="/category/baby">Baby</a></div>
                     <div class="menu_item"><a href="/category/household">Household</a></div>
-                    <div class="menu_item"><a href="/category/musical-appliances">Musical</a></div>
-                    <div class="menu_item"><a href="/category/musical-appliances">Appliances</a></div>
+                    <div class="menu_item"><a href="/category/musical-appliances">Musical Appliances</a></div>
                     <div class="menu_item"><a href="/category/phones-and-accessories">Phones & accessories</a></div>
                     <div class="menu_item"><a href="/category/food">Food</a></div>
                     <div class="menu_item"><a href="/category/books">Books</a></div>
