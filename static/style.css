@@ -494,7 +494,7 @@ h1, h2, h3, h4, h5, h6{
     font-size:12px;
 }
 
-.product_image_div .fa, .header_search_icon {
+.product_image_div .fa {
     padding:10px;
     background-color: #fff;
     border-radius:100%;
