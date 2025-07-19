@@ -694,6 +694,7 @@ HTML;
                 obj = new XMLHttpRequest;
                 obj.onreadystatechange = function(){
                     if(obj.readyState == 4){
+                        document.getElementById("search_hint").style.display = "block";
                         document.getElementById("search_hint").innerHTML = obj.responseText;
                     }
                 }
@@ -707,7 +708,7 @@ HTML;
             }
 
             function clear_and_close(s_q) {
-                document.getElementById("index_search").value = "";
+                document.getElementById("search_hint").style.display = "none";
                 show_div(s_q)
             }
         </script>
