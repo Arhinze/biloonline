@@ -36,7 +36,8 @@ class Index_Segments{
                 <div class="header_shopping_cart">
                     <span id="index_num_of_products_in_cart" style="font-size:12px;padding:1px 5px;margin-left:-4px;border-radius:100%;color:#fff;background-color:#ff9100">$number_of_products_in_cart</span><a href="/cart"><img src="/static/images/shopping_cart.png"/><!--<i class="fa fa-shopping-cart" style="color:#ff9100"></i>--></a>
                 </div> 
-            </div> <a name="#top"></a> <!-- end of .headers --> 
+            </div> <a name="#top"></a> 
+            <!-- end of .headers --> 
 HTML;
     }
     
@@ -141,6 +142,7 @@ HTML;
                 <li style="margin-top:30px"></li>
                 <label for="menu-box"><div class="grey_area"></div></label>
             </ul>
+            <div id="search_hint"></div><!-- used by index_ajax_search() function-->
 HTML;
        }
                 
@@ -677,9 +679,27 @@ HTML;
                     current_balance_text.style="color:red";
                 }
             }
-                                                                
         </script>
-        HTML;
+
+        <script>
+            function index_ajax_search(){
+                sq = document.getElementById("index_search").value;
+                obj = new XMLHttpRequest;
+                obj.onreadystatechange = function(){
+                    if(obj.readyState == 4){
+                        document.getElementById("search_hint").innerHTML = obj.responseText;
+                    }
+                }
+        
+                obj.open("GET","/index_ajax_search.php?search_query="+sq);
+                obj.send(null);
+            }
+        
+            function search_icon(){
+                location = "/" + document.getElementById("index_search").value;
+            }
+        </script>
+HTML;
         }
                                                                 
                                                                 
