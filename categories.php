@@ -29,7 +29,7 @@ Index_Segments::header();
             <div style="display:flex;margin:12px">
                 <div class="cart_image_div"><a href="/category/<?=$cat_d->category_title?>"><img src="/static/images/<?=$cat_d->category_image1?>" class="cart_image"/></a></div>
 
-                <div style="margin-top:12px"><h2><a href="/category/<?=$cat_d->category_title?>" style="color:#000;font-size:15px"><?=ucfirst($cat_d->category_title)?></a></h2></div>
+                <div style="margin-top:12px"><h2><a href="/category/<?=$cat_d->category_title?>" style="color:#000;font-size:18px"><?=ucfirst($cat_d->category_title)?></a></h2></div>
             </div>
     <?php
         }
