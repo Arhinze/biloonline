@@ -7,8 +7,8 @@ if(isset($_GET["title"])) {
     $category = str_replace(" ", "", htmlentities($_GET["title"]));
 } 
 
-$category_stmt = $pdo->prepare("SELECT * FROM categories WHERE category_title =  ?");
-$category_stmt->execute([$category]);
+$category_stmt = $pdo->prepare("SELECT * FROM categories WHERE category_title =  ? LIMIT ?, ?");
+$category_stmt->execute([$category, 0, 1]);
 $category_data = $category_stmt->fetch(PDO::FETCH_OBJ);
 
 Index_Segments::header(); 
