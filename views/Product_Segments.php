@@ -77,7 +77,7 @@ class Product_Segments extends Index_Segments{
                         <a href="/" style="color:#000"><i class="fa fa-angle-left" style="font-size:18px;padding:6px 12px"></i></a>
                     </div>
                     <div class="upi_top_right">
-                        <i class="fa fa-search" style="margin-right:3px" onclick="show_div('header_search')"></i>
+                        <i class="fa fa-search" style="margin-right:3px" onclick="show_div('header00_search')"></i>
                         <i class="fa fa-share-alt"></i>
                     </div>
 
