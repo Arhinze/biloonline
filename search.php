@@ -27,22 +27,25 @@ Index_Segments::header();
     <?php
         if(count($search_data) > 0){
             foreach($search_data as $search_d) {
+                $short_description = substr($search_d->description,0,36);
+                $search_d_price = number_format($search_d->price);
+                $search_d_former_price = number_format($search_d->former_price);
     ?>
                 <div class="deal_div"><!-- .deal_div starts --> 
-                    <a href="/product/$all_cat->product_url" style="color:inherit"><!-- link to product page starts -->
-                    <img src="/static/images/$all_cat->image1" class="deal_img"/>   
+                    <a href="/product/<?=$search_d->product_url?>" style="color:inherit"><!-- link to product page starts -->
+                    <img src="/static/<?=images/$search_d->image1?>" class="deal_img"/>   
                     <div class="below_deal_img"><!-- .below_deal_img starts -->
                         <div class="topselling_choice_and_title">
                             <span class="topselling_choice"> Choice </span> &nbsp;
                             <span>
-                                $short_description...
+                                <?=$short_description?>...
                             </span>
                         </div>
                         <span class="deal_price_black">
-                            NG N$all_cat_price
+                            NG N<?=$search_d_price?>
                         </span>  &nbsp; 
                         <span class="deal_former_price">
-                            <s>NG N$all_cat_former_price</s>
+                            <s>NG N<?=$search_d_former_price?></s>
                         </span> 
                         <div class="star_and_rating">
                             <i class="fa fa-star"></i> <b>4.6</b> <span style="color:#888"> | </span> 1,000+ sold
