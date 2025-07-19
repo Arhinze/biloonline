@@ -40,7 +40,7 @@ Index_Segments::header();
 Index_Segments::footer($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $additional_scripts = Index_Segments::index_scripts(),$whatsapp_chat = "on");
         
     echo <<<HTML
-            <!-- this div is only meant to bring up the footer section of product page so that it's not covered by the fixed 'add_to_my_picks' div-->
+            <!--this div is only meant to bring up the footer section of product page so that it's not covered by the fixed 'add_to_my_picks' div-->
             <div style="margin-top:45px"></div>
 HTML;
 ?>
