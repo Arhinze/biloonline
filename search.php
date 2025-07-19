@@ -14,6 +14,8 @@ if(isset($_GET["search_query"])){
         $search_stmt->execute(["%$search_q%", 0, 10]);
         $search_data = $search_stmt->fetchAll(PDO::FETCH_OBJ);
     }
+}else {
+    header("location: /");
 }
 
 Index_Segments::header();
