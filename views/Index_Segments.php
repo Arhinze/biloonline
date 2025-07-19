@@ -33,9 +33,12 @@ class Index_Segments{
                 <div class="header_search_icon" style="margin-left:9px;margin-top:8px;padding:1px 5px" onclick="show_div('header_search')">
                     <i class="fa fa-search" style="font-size:12px"></i>
                 </div>
+
                 <div class="header_search" id="header_search" style="display:none">
                     <input type="text" placeholder="search for .." class="header_input" id="index_search" onkeyup="ajax_index_search()"/>
-                </div>                       
+                    <span class="x_remove" onclick="show_div('header_search')"><i class="fa fa-times"></i></span>
+                </div> 
+
                 <div class="header_shopping_cart">
                     <span id="index_num_of_products_in_cart" style="font-size:12px;padding:1px 5px;margin-left:-4px;border-radius:100%;color:#fff;background-color:#ff9100">$number_of_products_in_cart</span><a href="/cart"><img src="/static/images/shopping_cart.png"/><!--<i class="fa fa-shopping-cart" style="color:#ff9100"></i>--></a>
                 </div> 
