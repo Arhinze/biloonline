@@ -691,7 +691,7 @@ HTML;
                     }
                 }
         
-                obj.open("GET","/ajax_index_search.php?search_query="+sq);
+                obj.open("GET","/ajax/ajax_index_search.php?search_query="+sq);
                 obj.send(null);
             }
         
