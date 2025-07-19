@@ -13,7 +13,7 @@ if(isset($_GET["search_query"])){
         echo "<div style='border:1px solid #fff;border-radius:9px;position:fixed;top:18px;margin:15px'>";
         foreach($search_data as $sd){
 ?>
-            <div style="border-bottom:1px solid #888;padding:12px 6px;background-color:#fff;margin:12px">
+            <div style="border-bottom:1px solid #888;padding:12px 6px;background-color:#fff">
                 <a href ="/product/<?=$sd->product_url?>" style="color:#2b8eeb"><?=substr($sd->description, 0, 21)."..."?></a>
             </div>
 <?php 
