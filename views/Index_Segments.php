@@ -30,7 +30,10 @@ class Index_Segments{
                 <h3 class="site_name">
                     <a href="/">Bilo<span style="color:#ff9100">Online</span><!--site_name--></a>
                 </h3>
-                <div class="header_search">
+                <div class="header_search_icon" onclick="show_div('header_search')">
+                    <i class="fa fa-search" style="margin-right:3px"></i>
+                </div>
+                <div class="header_search" style="display:none">
                     <input type="text" placeholder="search for .." class="header_input" id="index_search" onkeyup="ajax_index_search()"/>
                 </div>                       
                 <div class="header_shopping_cart">
