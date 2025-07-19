@@ -6,7 +6,7 @@ if(isset($_GET["search_query"])){
     if(!empty($_GET["search_query"])){
         $search_q = htmlentities($_GET["search_query"]);
        
-        $search_stmt = $pdo->prepare("SELECT * FROM products WHERE product_name LIKE ? LIMIT ?, ?");
+        $search_stmt = $pdo->prepare("SELECT * FROM products WHERE `description` LIKE ? LIMIT ?, ?");
         $search_stmt->execute(["%$search_q%", 0, 100]);
         $search_data = $search_stmt->fetchAll(PDO::FETCH_OBJ);
 
