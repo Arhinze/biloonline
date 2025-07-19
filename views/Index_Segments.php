@@ -143,7 +143,6 @@ HTML;
                 <label for="menu-box"><div class="grey_area"></div></label>
             </ul>
             <div id="search_hint"></div>
-            <h1>Margaret</h1>
             <!-- used by index_ajax_search() function-->
 HTML;
        }
