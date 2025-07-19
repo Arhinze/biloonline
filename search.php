@@ -21,7 +21,7 @@ if(isset($_GET["search_query"])){
 Index_Segments::header();
 ?>
     <div class="main_body"><!-- .main_body starts -->
-        <h5 style="text-align:center">Searching for product: "<?=$search_q?>" in Bilo<span style="color:#ff9100">Online</span></h5>
+        <h5 style="text-align:center">Searching for: "<?=$search_q?>" in Bilo<span style="color:#ff9100">Online</span></h5>
 
         <!-- Search Result starts -->
         <!-- 1 to 30 -->
