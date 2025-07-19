@@ -28,6 +28,7 @@ Index_Segments::header();
     ?>
             <div style="display:flex;margin:12px">
                 <div class="cart_image_div"><a href="/category/<?=$cart_d->category_title?>"><img src="/static/images/<?=$cat_d->category_image1?>" class="cart_image"/></a></div>
+                
                 <div><h2><a href="/category/<?=$cart_d->category_title?>" style="color:#000"><?=ucfirst($cat_d->category_title)?></a></h2></div>
             </div>
     <?php
