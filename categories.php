@@ -4,12 +4,6 @@ ini_set("display_errors", '1'); //for testing purposes..
 include_once($_SERVER["DOCUMENT_ROOT"]."/php/connection.php");
 include_once($_SERVER["DOCUMENT_ROOT"]."/views/Index_Segments.php");
 
-$prod_url = "no-product";
-
-if(isset($_GET["url"])) {
-    $prod_url = htmlentities($_GET["url"]);
-}
-
 $categories_stmt = $pdo->prepare("SELECT * FROM categories LIMIT ?, ?");
 $categories_stmt->execute([0, 50]);
 $categories_data = $categories_stmt->fetchAll(PDO::FETCH_OBJ);
