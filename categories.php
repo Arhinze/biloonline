@@ -21,7 +21,7 @@ if(count($categories_data) == 0){
 Index_Segments::header();
 ?>
     <div class="main_body">
-        <h1>CATEGORIES</h1>
+        <h1>CATEGORIES:</h1>
         <div style="margin:12px 6px"><!-- .categories starts -->
     <?php
         foreach($categories_data as $cat_d) {
