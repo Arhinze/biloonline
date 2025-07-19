@@ -26,8 +26,10 @@ Index_Segments::header();
     <?php
         foreach($categories_data as $cat_d) {
     ?>
-            <div class="cart_image_div"><img src="/static/images/<?=$cat_d->category_image1?>" class="cart_image"/></div>
-            <div><b><?=$cat_d->category_title?></b></div>
+            <div>
+                <div class="cart_image_div"><img src="/static/images/<?=$cat_d->category_image1?>" class="cart_image"/></div>
+                <div><b><?=$cat_d->category_title?></b></div>
+            </div>
     <?php
         }
     ?>
