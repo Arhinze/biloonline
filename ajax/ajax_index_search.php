@@ -18,7 +18,7 @@ if(isset($_GET["search_query"])){
             </div>
 <?php 
        }
-       echo "</div>";
+       echo "<div style='background-color:#000;height:100%;width:100%'></div></div>";
     }
 }
 
