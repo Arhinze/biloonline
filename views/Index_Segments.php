@@ -110,6 +110,7 @@ HTML;
                     <div class="menu_item"><a href="/category/household">Household</a></div>
                     <div class="menu_item"><a href="/category/musical-appliances">Musical</a></div>
                     <div class="menu_item"><a href="/category/musical-appliances">Appliances</a></div>
+                    <div class="menu_item"><a href="/category/phones-and-accessories">Phones & accessories</a></div>
                     <div class="menu_item"><a href="/category/food">Food</a></div>
                     <div class="menu_item"><a href="/category/books">Books</a></div>
                     <div class="menu_item"><a href="/logout" style="color:red">Logout</a></div>
@@ -142,6 +143,7 @@ HTML;
                 <li><a href="/category/baby">Baby</a></li>
                 <li><a href="/category/household">Household</a></li>
                 <li><a href="/category/musical-appliances">Musical Appliances</a></li>
+                <li><a href="/category/phones-and-accessories">Phones & Accessories</a></li>
                 <li><a href="/category/food">Food</a></li>
                 <li><a href="/category/books">Books</a></li>
                 <li><a href="/logout" style="color:#fff;font-weight:bold;background-color:red;padding:6px;border-radius:12px">Log out</a></li>
