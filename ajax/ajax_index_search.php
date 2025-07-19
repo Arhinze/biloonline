@@ -10,10 +10,10 @@ if(isset($_GET["search_query"])){
         $search_stmt->execute(["%$search_q%", 0, 10]);
         $search_data = $search_stmt->fetchAll(PDO::FETCH_OBJ);
 
-        echo "<div style='border:1px solid #fff;border-radius:9px;position:fixed;top:36px;margin:15px 21px 0 15px;width:90%;z-index:15'>";
+        echo "<div style='border:1px solid #fff;border-radius:9px;position:fixed;top:36px;margin:15px 21px 0 15px;padding:12px;width:90%;z-index:15'>";
         foreach($search_data as $sd){
 ?>
-            <div style="border-bottom:1px solid #888;border-radius:0 0 9px 9px;padding:12px 6px;margin:12px;background-color:#fff;">
+            <div style="border-bottom:1px solid #888;border-radius:0 0 9px 9px;padding:12px 6px;background-color:#fff;">
                 <a href ="/product/<?=$sd->product_url?>" style="color:#2b8eeb"><?=substr($sd->description, 0, 21)."..."?></a>
             </div>
 <?php 
