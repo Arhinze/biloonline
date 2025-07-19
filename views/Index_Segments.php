@@ -30,7 +30,7 @@ class Index_Segments{
                 <h3 class="site_name">
                     <a href="/">Bilo<span style="color:#ff9100">Online</span><!--site_name--></a>
                 </h3>
-                <div class="header_search_icon" style="margin-left:9px;padding:2px 6px" onclick="show_div('header_search')">
+                <div class="header_search_icon" style="margin-left:9px;padding:1px 6px" onclick="show_div('header_search')">
                     <i class="fa fa-search" style="font-size:12px"></i>
                 </div>
                 <div class="header_search" id="header_search" style="display:none">
