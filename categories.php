@@ -10,7 +10,7 @@ if(isset($_GET["url"])) {
     $prod_url = htmlentities($_GET["url"]);
 }
 
-$categories_stmt = $pdo->prepare("SELECT * FROM products WHERE LIMIT ?, ?");
+$categories_stmt = $pdo->prepare("SELECT * FROM categories LIMIT ?, ?");
 $categories_stmt->execute([0, 50]);
 $categories_data = $categories_stmt->fetchAll(PDO::FETCH_OBJ);
 
