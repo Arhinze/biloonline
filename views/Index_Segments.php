@@ -31,7 +31,7 @@ class Index_Segments{
                     <a href="/">Bilo<span style="color:#ff9100">Online</span><!--site_name--></a>
                 </h3>
                 <div class="header_search">
-                    <input type="text" placeholder="search for .." class="header_input" id="index_search" onkeyup="ajax_search()"/>
+                    <input type="text" placeholder="search for .." class="header_input" id="index_search" onkeyup="ajax_index_search()"/>
                 </div>                       
                 <div class="header_shopping_cart">
                     <span id="index_num_of_products_in_cart" style="font-size:12px;padding:1px 5px;margin-left:-4px;border-radius:100%;color:#fff;background-color:#ff9100">$number_of_products_in_cart</span><a href="/cart"><img src="/static/images/shopping_cart.png"/><!--<i class="fa fa-shopping-cart" style="color:#ff9100"></i>--></a>
@@ -682,7 +682,7 @@ HTML;
         </script>
 
         <script>
-            function index_ajax_search(){
+            function ajax_index_search(){
                 sq = document.getElementById("index_search").value;
                 obj = new XMLHttpRequest;
                 obj.onreadystatechange = function(){
@@ -691,7 +691,7 @@ HTML;
                     }
                 }
         
-                obj.open("GET","/index_ajax_search.php?search_query="+sq);
+                obj.open("GET","/ajax_index_search.php?search_query="+sq);
                 obj.send(null);
             }
         
