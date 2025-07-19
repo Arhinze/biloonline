@@ -704,7 +704,7 @@ HTML;
             }
         
             function search_icon(){
-                location = "/" + document.getElementById("index_search").value;
+                location = "/search.php?query=" + document.getElementById("index_search").value;
             }
 
             function clear_and_close(s_q) {
