@@ -706,7 +706,7 @@ HTML;
                 location = "/" + document.getElementById("index_search").value;
             }
 
-            function close_and_clear(s_q) {
+            function clear_and_close(s_q) {
                 document.getElementById(s_q).value = "";
                 show_div(s_q)
             }
