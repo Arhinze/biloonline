@@ -35,7 +35,7 @@ Index_Segments::header();
     ?>
                 <div class="deal_div"><!-- .deal_div starts --> 
                     <a href="/product/<?=$search_d->product_url?>" style="color:inherit"><!-- link to product page starts -->
-                    <img src="/static/<?=images/$search_d->image1?>" class="deal_img"/>   
+                    <img src="/static/images/<?=$search_d->image1?>" class="deal_img"/>   
                     <div class="below_deal_img"><!-- .below_deal_img starts -->
                         <div class="topselling_choice_and_title">
                             <span class="topselling_choice"> Choice </span> &nbsp;
