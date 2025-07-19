@@ -358,8 +358,10 @@ h1, h2, h3, h4, h5, h6{
     right:0;
     left:0;
     padding:9px;
+    padding-bottom:21px;
     height:24px;
     background-color: #888;
+    z-index:15;
 }
 
 .header_input {
