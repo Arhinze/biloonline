@@ -707,7 +707,7 @@ HTML;
             }
 
             function clear_and_close(s_q) {
-                document.getElementById(s_q).value = "";
+                document.getElementById("index_search").value = "";
                 show_div(s_q)
             }
         </script>
