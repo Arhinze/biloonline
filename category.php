@@ -29,7 +29,7 @@ if ($category_data) {
             </span>
         </div>
         <div class="upi_top_right">
-            <i class="fa fa-search" style="margin-right:3px"></i>
+            <i class="fa fa-search" style="margin-right:3px" onclick="show_div('header_search')"></i>
             <i class="fa fa-share-alt"></i>
         </div>
 
