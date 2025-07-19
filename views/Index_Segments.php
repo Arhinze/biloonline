@@ -36,7 +36,7 @@ class Index_Segments{
 
                 <div class="header_search" id="header_search" style="display:none">
                     <input type="text" placeholder="search for .." class="header_input" id="index_search" onkeyup="ajax_index_search()"/>
-                    <span class="x_remove" onclick="show_div('header_search')"><i class="fa fa-times"></i></span>
+                    <span class="x_remove" onclick="clear_and_close('header_search')"><i class="fa fa-times"></i></span>
                 </div> 
 
                 <div class="header_shopping_cart">
@@ -704,6 +704,11 @@ HTML;
         
             function search_icon(){
                 location = "/" + document.getElementById("index_search").value;
+            }
+
+            function close_and_clear(s_q) {
+                document.getElementById(s_q).innerHTML = "";
+                show_div(s_q)
             }
         </script>
 HTML;
