@@ -416,6 +416,7 @@ h1, h2, h3, h4, h5, h6{
 
 .menu_item {
     margin:9px;
+    display:inline-block;
 }
 
 .menu_item a {
@@ -1470,10 +1471,6 @@ h1, h2, h3, h4, h5, h6{
 .hidden-menu-div a{
     border-bottom:1px dotted #fff;
     color:var(--site_color_alt);
-}
-
-.hidden-menu-item:checked ~ .hidden-menu-div{
-    display:block;
 }
 
 .invest_now_button{
