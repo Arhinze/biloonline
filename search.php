@@ -26,7 +26,7 @@ Index_Segments::header();
         <div class="topselling_div" style="flex-wrap:wrap"><!-- .flex_div starts(.topselling) -->
     <?php
         if(count($search_data) > 0){
-            foreach($search_data as $search_d) {
+            foreach($search_data as $search_00) {
                 $short_description = substr($search_d->description,0,36);
                 $search_d_price = number_format($search_d->price);
                 $search_d_former_price = number_format($search_d->former_price);
