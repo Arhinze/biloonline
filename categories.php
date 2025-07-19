@@ -22,11 +22,11 @@ Index_Segments::header();
 ?>
     <div class="main_body">
         <h1>Categories</h1>
-        <div style="display:flex;margin:12px"><!-- .categories starts -->
+        <div style="margin:12px 6px"><!-- .categories starts -->
     <?php
         foreach($categories_data as $cat_d) {
     ?>
-            <div>
+            <div style="display:flex;margin:12px">
                 <div class="cart_image_div"><img src="/static/images/<?=$cat_d->category_image1?>" class="cart_image"/></div>
                 <div><b><?=$cat_d->category_title?></b></div>
             </div>
