@@ -758,6 +758,14 @@ h1, h2, h3, h4, h5, h6{
     border-radius:9px
 }
 
+.x_remove{
+    font-size:10px;
+    background-color:red;
+    color:#fff;
+    padding:3px 4px;
+    border-radius:100%
+}
+
 .rotate_360 {
     animation: rotate_360 6s infinite .0s normal;
 }
