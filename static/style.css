@@ -416,7 +416,7 @@ h1, h2, h3, h4, h5, h6{
 
 .menu_item {
     margin:9px;
-    display:inline-block;
+    width:fit-content;
 }
 
 .menu_item a {
