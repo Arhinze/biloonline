@@ -33,7 +33,7 @@ class Index_Segments{
                 <div class="header_search_icon" style="margin-left:9px;padding:6px" onclick="show_div('header_search')">
                     <i class="fa fa-search" style="font-size:12px"></i>
                 </div>
-                <div class="header_search" style="display:none">
+                <div class="header_search" id="header_search" style="display:none">
                     <input type="text" placeholder="search for .." class="header_input" id="index_search" onkeyup="ajax_index_search()"/>
                 </div>                       
                 <div class="header_shopping_cart">
