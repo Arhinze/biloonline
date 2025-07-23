@@ -16,8 +16,8 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
         $images_array = ["image1","image2","image3","image4","image5","image6","image7","image8","image9","image10"];
         $img_output = "";
 
-        //Categories Array:
-        $categories_array = ["women", "men", "xenx", "sports", "jewelry", "industrial", "electronics", "kids", "bags", "toy", "crafts", "beauty", "automotive", "garden", "office", "health", "baby", "household", "musical-appliances", "food", "books"];
+        //Categories Array: ~ replace later on from categories table in database
+        $categories_array = ["women", "men", "xenx", "sports", "jewelry", "industrial", "electronics", "kids", "bags", "toy", "crafts", "beauty", "automotive", "garden", "office", "health", "baby", "household", "musical-appliances", "food", "books", "phones-and-accessories"];
         $categories = "";
 
         //former_price percentage array:
