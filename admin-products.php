@@ -64,23 +64,23 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                             //echo "image security test passed - ".$check_img["mime"].".<br/>";
                             $uploadOk = 1;
                         } else {
-                            echo "image security test failed - file is not an image";
+                            echo "<div class='invalid'>image security test failed - file is not an image</div>";
                             $uploadOk = 0;
                         }
                         if(file_exists($target_file)) {
-                            echo "Sorry, file already exists";
+                            echo "<div class='invalid'>Sorry, file already exists</div>";
                             $uploadOk = 0;
                         }
         
                         //Allow certain file formats:
                         if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif" ) {
-                            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                            echo "<div class='invalid'>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</div>";
                             $uploadOk = 0;
                         }
         
                         //Checking if any $uploadOk = 0 by an error:
                         if ($uploadOk == 0) {
-                            echo "Sorry, your file was not uploaded.";
+                            echo "<div class='invalid'>Sorry, your file was not uploaded.</div>";
                         //if everything is ok, upload file
                         } else {
                             if (move_uploaded_file($_FILES["add_".$images_ad]["tmp_name"], $target_file)) {
@@ -90,7 +90,7 @@ if(isset($_COOKIE["admin_name"]) && isset($_COOKIE["admin_password"])){
                                 $up_stmt = $pdo->prepare("UPDATE products SET $images_ad = ? WHERE product_url = ?");
                                 $up_stmt->execute([$target_basename, $_POST["new_url"]]);
                             } else {
-                              echo "Sorry, there was an error uploading your file.";
+                              echo "<div class='invalid'>Sorry, there was an error uploading your file.</div>";
                             }
                         }
                         /* Image Upload Script ends */
