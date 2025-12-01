@@ -1591,11 +1591,6 @@ h1, h2, h3, h4, h5, h6{
         background-position: right top;
     }
 
-    .headers{
-        width:21%;
-        max-width:190px;
-    }
-
     .white_background{
         padding:21px;
         width:100%;
