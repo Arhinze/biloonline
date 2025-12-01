@@ -1555,8 +1555,6 @@ h1, h2, h3, h4, h5, h6{
 
 /*End of 'small screens'*/
 
-
-
 /*For Big Screens:*/
 @media screen and (min-width:48em) {
     .site_content_and_menu{
@@ -1579,7 +1577,7 @@ h1, h2, h3, h4, h5, h6{
     .site_content{
         width:70%
     }
-    
+
     .fashion_choice {
         background-position: right top;
     }
