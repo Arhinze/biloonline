@@ -1578,6 +1578,15 @@ h1, h2, h3, h4, h5, h6{
         width:70%
     }
 
+    .menu_list{
+        display:block;
+        position:static;
+    }
+
+    .grey_area{
+        display:none;
+    }
+
     .fashion_choice {
         background-position: right top;
     }
