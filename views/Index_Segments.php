@@ -169,7 +169,7 @@ HTML;
                     $site_menu
                     
                     <div class="site_content"><!-- .site_content starts -->
-                    <h2 style="text-align:center">Today's deals</h2>
+                    <div class="site_main_top_pages"><!-- .site_main_top_pages starts -->
 HTML;
 
                 echo <<<HTML
@@ -330,6 +330,7 @@ HTML;
                 echo <<<HTML
                         </div><!-- .deal_flex ends -->
                     </div><!--.deals end-->
+                    </div><!-- .site_main_top_pages starts -->
 HTML;
 
 
