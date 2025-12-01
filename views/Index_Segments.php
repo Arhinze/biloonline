@@ -174,7 +174,6 @@ HTML;
 
                 echo <<<HTML
                     <!-- 1, 2 (Super Deals)-->
-                     <h1>Saiyu</h1>
                     <div class="deals"><!--.deals start-->
                         <div class="deal_header">Super deals</div> 
                         <center> 
