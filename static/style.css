@@ -1588,6 +1588,10 @@ h1, h2, h3, h4, h5, h6{
         justify-content: space-between;
     }
 
+    .site_main_top_pages .deals{
+        margin-left:5px;
+    }
+
     .grey_area{
         display:none;
     }
