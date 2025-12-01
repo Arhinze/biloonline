@@ -1526,6 +1526,9 @@ h1, h2, h3, h4, h5, h6{
     box-shadow:0 0 3px 0 var(--site_color_alt);
 }
 
+.site_content_and_menu_sellers .site_content {
+    margin-top:90px;
+}
 /*Dashboard ends*/
 
 /*End of other pages*/
@@ -1556,6 +1559,27 @@ h1, h2, h3, h4, h5, h6{
 
 /*For Big Screens:*/
 @media screen and (min-width:48em) {
+    .site_content_and_menu{
+        display:flex;
+        justify-content: space-between;
+    }
+
+    .site_content_and_menu_sellers {
+        margin-top:60px;
+    }
+
+    .site_content_and_menu_sellers .site_content {
+        margin-top:66px;
+    }
+
+    .site_menu{
+        width:25%;
+    }
+
+    .site_content{
+        width:70%
+    }
+    
     .fashion_choice {
         background-position: right top;
     }

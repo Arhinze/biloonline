@@ -118,47 +118,57 @@ HTML;
                 </div> 
             </div> <!-- .menu_div ends -->  
 
-
-
-            <input type="checkbox" id="menu-box" class="menu-box" style="display:none"/>
-            
-            <ul class="menu_list"> 
-                <li><h3>All Categories</h3></li>
-                <li><a href="/my-account" style="color:#fff;font-weight:bold;background-color:green;padding:6px 12px;border-radius:12px"><i class="fa fa-user"></i>&nbsp; My Account</a></li>
-                <li><a href="/category/women">Women</a></li>
-                <li><a href="/category/men">Men</a></li>
-                <li><a href="/category/xenx">Xenx</a></li>
-                <li><a href="/category/jewelry">Jewelry</a></li>
-                <li><a href="/category/industrial">Industrial</a></li>
-                <li><a href="/category/electronics">Electronics</a></li>
-                <li><a href="/category/kids">Kids</a></li>
-                <li><a href="/category/bags">Bags</a></li>
-                <li><a href="/category/toys">Toy</a></li>
-                <li><a href="/category/crafts">Crafts</a></li>
-                <li><a href="/category/beauty">Beauty</a></li>
-                <li><a href="/category/automotive">Automotive</a></li>
-                <li><a href="/category/garden">Garden</a></li>
-                <li><a href="/category/health">Health</a></li>
-                <li><a href="/category/baby">Baby</a></li>
-                <li><a href="/category/household">Household</a></li>
-                <li><a href="/category/musical-appliances">Musical Appliances</a></li>
-                <li><a href="/category/phones-and-accessories">Phones & Accessories</a></li>
-                <li><a href="/category/food">Food</a></li>
-                <li><a href="/category/books">Books</a></li>
-                <li><a href="/logout" style="color:#fff;font-weight:bold;background-color:red;padding:6px;border-radius:12px">Log out</a></li>
-                <li style="margin-top:30px"></li>
-                <label for="menu-box"><div class="grey_area"></div></label>
-            </ul>
             <div id="search_hint"></div>
             <!-- used by index_ajax_search() function-->
 HTML;
        }
+
+       public static function site_menu(){
+        return <<<HTML
+            <div class="site_menu"><!-- .site_menu starts -->
+                <input type="checkbox" id="menu-box" class="menu-box" style="display:none"/>
+                <ul class="menu_list"><!-- .menu_list starts --> 
+                    <li><h3>All Categories</h3></li>
+                    <li><a href="/my-account" style="color:#fff;font-weight:bold;background-color:green;padding:6px 12px;border-radius:12px"><i class="fa fa-user"></i>&nbsp; My Account</a></li>
+                    <li><a href="/category/women">Women</a></li>
+                    <li><a href="/category/men">Men</a></li>
+                    <li><a href="/category/xenx">Xenx</a></li>
+                    <li><a href="/category/jewelry">Jewelry</a></li>
+                    <li><a href="/category/industrial">Industrial</a></li>
+                    <li><a href="/category/electronics">Electronics</a></li>
+                    <li><a href="/category/kids">Kids</a></li>
+                    <li><a href="/category/bags">Bags</a></li>
+                    <li><a href="/category/toys">Toy</a></li>
+                    <li><a href="/category/crafts">Crafts</a></li>
+                    <li><a href="/category/beauty">Beauty</a></li>
+                    <li><a href="/category/automotive">Automotive</a></li>
+                    <li><a href="/category/garden">Garden</a></li>
+                    <li><a href="/category/health">Health</a></li>
+                    <li><a href="/category/baby">Baby</a></li>
+                    <li><a href="/category/household">Household</a></li>
+                    <li><a href="/category/musical-appliances">Musical Appliances</a></li>
+                    <li><a href="/category/phones-and-accessories">Phones & Accessories</a></li>
+                    <li><a href="/category/food">Food</a></li>
+                    <li><a href="/category/books">Books</a></li>
+                    <li><a href="/logout" style="color:#fff;font-weight:bold;background-color:red;padding:6px;border-radius:12px">Log out</a></li>
+                    <li style="margin-top:30px"></li>
+                    <label for="menu-box"><div class="grey_area"></div></label>
+                </ul><!-- .menu_list ends -->
+            </div><!-- .site_menu ends -->
+HTML;
+    }
                 
         public static function body($site_name = SITE_NAME_SHORT, $site_url = SITE_URL, $number_of_products_in_cart = INDEX_NUM_OF_PRODUCTS_IN_CART){
             $site_name_uc = strtoupper($site_name);
+            $site_menu = Index_Segments::site_menu();
 
             echo <<<HTML
                 <div class="main_body">
+                <div class="site_content_and_menu"><!-- .site_content_and_menu starts -->
+
+                    $site_menu
+                    
+                    <div class="site_content"><!-- .site_content starts -->
                     <h2 style="text-align:center">Today's deals</h2>
 HTML;
 
@@ -598,6 +608,8 @@ HTML;
 
 
             echo<<<HTML
+                </div><!-- .site_content ends -->
+                </div><!-- .site_content_and_menu ends -->
                 </div><!--.main_body end-->
 HTML;
        }
