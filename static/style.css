@@ -1593,6 +1593,18 @@ h1, h2, h3, h4, h5, h6{
         width:32%
     }
 
+    .topselling_div {
+        width:100%;
+        display:flex;
+        justify-content: space-around;
+    }
+    
+    .topselling_div .deal_div {
+        border:none;
+        width:30%;
+        height:auto;
+    }
+
     .grey_area{
         display:none;
     }
